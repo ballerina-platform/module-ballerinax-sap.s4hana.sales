@@ -60,4 +60,5 @@ task clean {
 
 task build {
     dependsOn(':sales-ballerina:build')
+    dependsOn(':sales-examples:build')
 }

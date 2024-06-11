@@ -31,10 +31,12 @@ rootProject.name = "module-ballerinax-sap.s4hana.sales"
 
 include ':sales-ballerina'
 include ':sales-ballerina:sales'
+include ':sales-examples'
 
 
 project(':sales-ballerina').projectDir = file("ballerina")
 project(':sales-ballerina:sales').projectDir = file("ballerina/sales")
+project(':sales-examples').projectDir = file("examples")
 
 gradleEnterprise {
     buildScan {
