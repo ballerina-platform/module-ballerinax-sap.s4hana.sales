@@ -80,6 +80,7 @@
   "paths": {
     "/A_SalesDistrict": {
       "get": {
+        "operationId": "listA_SalesDistricts",
         "summary": "Get entities from A_SalesDistrict",
         "tags": [
           "Sales District"
@@ -161,6 +162,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesDistrict",
         "summary": "Get entity from A_SalesDistrict by key",
         "tags": [
           "Sales District"
@@ -210,6 +212,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_SalesDistrict",
         "summary": "Get entities from related to_Text",
         "tags": [
           "Sales District",
@@ -280,6 +283,7 @@
     },
     "/A_SalesDistrictText": {
       "get": {
+        "operationId": "listA_SalesDistrictTexts",
         "summary": "Get entities from A_SalesDistrictText",
         "tags": [
           "Sales District Text"
@@ -371,6 +375,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesDistrictText",
         "summary": "Get entity from A_SalesDistrictText by key",
         "tags": [
           "Sales District Text"
@@ -430,6 +435,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesDistrictOfA_SalesDistrictText",
         "summary": "Get related to_SalesDistrict",
         "tags": [
           "Sales District Text",
