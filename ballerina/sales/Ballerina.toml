@@ -1,0 +1,14 @@
+[package]
+org = "ballerinax"
+name = "sap.s4hana.sales"
+version = "1.0.0"
+distribution = "2201.9.0"
+authors = ["Ballerina"]
+export = ["sap.s4hana.sales"]
+keywords = ["Business Management/ERP", "Cost/Paid", "Vendor/SAP"]
+repository = "https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.sales"
+icon = "../icon.png"
+license = ["Apache-2.0"]
+
+[build-options]
+observabilityIncluded = true
