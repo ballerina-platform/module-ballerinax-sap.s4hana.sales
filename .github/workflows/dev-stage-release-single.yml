@@ -15,7 +15,7 @@ on:
         description: Select Connector
         required: true
         options:
-          - sales
+          - api_salesdistrict_srv
 
 jobs:
   publish-release:
