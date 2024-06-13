@@ -18,6 +18,7 @@
 import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
+    id 'net.researchgate.release'
     id 'io.ballerina.plugin'
 }
 
@@ -52,6 +53,18 @@ task commitTomlFiles {
                 commandLine 'sh', '-c', "git commit -m '[Automated] Update the toml files' Ballerina.toml Dependencies.toml"
             }
         }
+    }
+}
+
+release {
+    buildTasks = ['build']
+    failOnSnapshotDependencies = true
+    versionPropertyFile = '../../gradle.properties'
+    versionProperties = ['salesVersion']
+    tagTemplate = 'sales-v${version}'
+    git {
+        requireBranch = "release-sales-${moduleVersion}"
+        pushToRemote = 'origin'
     }
 }
 

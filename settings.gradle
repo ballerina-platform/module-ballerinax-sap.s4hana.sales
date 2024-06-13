@@ -7,6 +7,7 @@
 
 pluginManagement {
     plugins {
+        id "net.researchgate.release" version "${releasePluginVersion}"
         id "de.undercouch.download" version "${downloadPluginVersion}"
         id "io.ballerina.plugin" version "${ballerinaGradlePluginVersion}"
     }
