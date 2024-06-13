@@ -12,6 +12,10 @@ designed for large-scale enterprises by SAP SE.
 
 This repository encompasses all Ballerina packages pertaining to the S/4HANA sales submodule. Notably:
 
+1. The `ballerinax/sap.s4hana.api_salesdistrict_srv` package provides APIs that enable seamless integration with
+   the [Sales District - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service contains
+   sales district and sales district text nodes.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
