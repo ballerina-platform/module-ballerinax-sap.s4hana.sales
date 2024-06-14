@@ -9,6 +9,7 @@ on:
         required: true
         options:
           - api_salesdistrict_srv
+          - api_salesorganization_srv
 
 jobs:
   call_workflow:

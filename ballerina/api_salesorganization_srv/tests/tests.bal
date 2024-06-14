@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import sap.s4hana.api_salesdistrict_srv.mock as _;
+import sap.s4hana.api_salesorganization_srv.mock as _;
 
 import ballerina/log;
 import ballerina/os;
@@ -63,7 +63,7 @@ function initializeClientsForS4HanaServer() returns error? {
 
 @test:Config {
 }
-function testListSalesDistricts() returns error? {
-    Wrapper listASalesDistricts = check s4HanaClient->listA_SalesDistricts();
-    test:assertTrue(listASalesDistricts.d?.results !is (), "The sales district is expected to be non-empty.");
+function testListSalesOrganizations() returns error? {
+    Wrapper listASalesOrganizations = check s4HanaClient->listA_SalesOrganizations();
+    test:assertTrue(listASalesOrganizations.d?.results !is (), "The sales district is expected to be non-empty.");
 }
