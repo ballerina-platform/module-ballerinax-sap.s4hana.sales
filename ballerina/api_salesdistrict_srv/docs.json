@@ -1,0 +1,7 @@
+{
+  "description": "The `ballerinax/sap.s4hana.api_salesdistrict_srv` package provides APIs that enable seamless integration with the [Sales District - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service contains sales district and sales district text nodes.",
+  "communication-scenario": "SAP Analytics Cloud for Planning Integration",
+  "import-statement": "import ballerinax/sap.s4hana.api_salesdistrict_srv as salesdistrict;",
+  "client-init": "salesdistrict:Client salesDistrictClient = check new (",
+  "api-invocation": "salesdistrict:Wrapper listASalesDistricts = check salesDistrictClient->listA_SalesDistricts();"
+}

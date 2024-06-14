@@ -1,0 +1,736 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sales District - Read",
+    "version": "1.0.0",
+    "description": "The service contains sales district and sales district text nodes."
+  },
+  "externalDocs": {
+    "description": "Business Documentation",
+    "url": "https://help.sap.com/http.svc/ahp2/SAP_S4HANA_CLOUD/2402.latest/EN/ae/06955b5a0d4005a65680bb4ca61553/frameset.htm"
+  },
+  "x-sap-api-type": "ODATA",
+  "x-sap-shortText": "Read sales district master data using this inbound service",
+  "x-sap-software-min-version": "2402",
+  "x-sap-ext-overview": [
+    {
+      "name": "Communication Scenario",
+      "values": [
+        {
+          "text": "SAP Analytics Cloud for Planning Integration(SAP_COM_0087)",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Scope Items",
+      "values": [
+        {
+          "text": "[Import Connection setup with SAP Analytics Cloud(1YB)](https://me.sap.com/processnavigator/SolP/1YB \" Link To BP \")",
+          "format": "markdown"
+        }
+      ]
+    },
+    {
+      "name": "Authentication Methods",
+      "values": [
+        {
+          "text": "x509",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Business Object",
+      "values": [
+        {
+          "text": "Sales District",
+          "format": "plain"
+        }
+      ]
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://{host}:{port}/sap/opu/odata/sap/API_SALESDISTRICT_SRV",
+      "variables": {
+        "host": {
+          "default": ""
+        },
+        "port": {
+          "default": ""
+        }
+      }
+    },
+    {
+      "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALESDISTRICT_SRV"
+    }
+  ],
+  "x-sap-extensible": {
+    "supported": "no"
+  },
+  "tags": [
+    {
+      "name": "Sales District"
+    },
+    {
+      "name": "Sales District Text"
+    }
+  ],
+  "paths": {
+    "/A_SalesDistrict": {
+      "get": {
+        "operationId": "listA_SalesDistricts",
+        "summary": "Get entities from A_SalesDistrict",
+        "tags": [
+          "Sales District"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesDistrictOrderByOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesDistrictSelectOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesDistrictExpandOptions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Wrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "Collection of A_SalesDistrictType",
+                      "type": "object",
+                      "properties": {
+                        "__count": {
+                          "$ref": "#/components/schemas/count"
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/A_SalesDistrict"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/A_SalesDistrictText": {
+      "get": {
+        "operationId": "listA_SalesDistrictTexts",
+        "summary": "Get entities from A_SalesDistrictText",
+        "tags": [
+          "Sales District Text"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesDistrictTextOrderByOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesDistrictTextSelectOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesDistrictTextExpandOptions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Wrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "Collection of A_SalesDistrictTextType",
+                      "type": "object",
+                      "properties": {
+                        "__count": {
+                          "$ref": "#/components/schemas/count"
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/A_SalesDistrictText"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "A_SalesDistrict": {
+        "type": "object",
+        "properties": {
+          "SalesDistrict": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sales District"
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_SalesDistrictText"
+                }
+              }
+            }
+          }
+        },
+        "title": "Sales District"
+      },
+      "CreateA_SalesDistrict": {
+        "type": "object",
+        "properties": {
+          "SalesDistrict": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sales District"
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_SalesDistrictText"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "SalesDistrict"
+        ],
+        "title": "Sales District (for create)"
+      },
+      "A_SalesDistrictText": {
+        "type": "object",
+        "properties": {
+          "SalesDistrict": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sales District"
+          },
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "SalesDistrictName": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20,
+            "title": "District Name",
+            "description": "Name of the District"
+          },
+          "to_SalesDistrict": {
+            "$ref": "#/components/schemas/A_SalesDistrict"
+          }
+        },
+        "title": "Sales District Text"
+      },
+      "CreateA_SalesDistrictText": {
+        "type": "object",
+        "properties": {
+          "SalesDistrict": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sales District"
+          },
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "SalesDistrictName": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20,
+            "title": "District Name",
+            "description": "Name of the District"
+          },
+          "to_SalesDistrict": {
+            "$ref": "#/components/schemas/CreateA_SalesDistrict"
+          }
+        },
+        "required": [
+          "SalesDistrict",
+          "Language"
+        ],
+        "title": "Sales District Text (for create)"
+      },
+      "count": {
+        "type": "string",
+        "description": "The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option."
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "required": [
+                  "lang",
+                  "value"
+                ],
+                "properties": {
+                  "lang": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "innererror": {
+                "type": "object",
+                "description": "The structure of this object is service-specific"
+              }
+            }
+          }
+        }
+      },
+      "A_SalesDistrictOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDistrict",
+            "SalesDistrict desc"
+          ]
+        }
+      },
+      "A_SalesDistrictSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDistrict",
+            "to_Text"
+          ]
+        }
+      },
+      "A_SalesDistrictExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_Text"
+          ]
+        }
+      },
+      "A_SalesDistrictByKeySelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDistrict",
+            "to_Text"
+          ]
+        }
+      },
+      "A_SalesDistrictByKeyExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_Text"
+          ]
+        }
+      },
+      "TextOfA_SalesDistrictOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDistrict",
+            "SalesDistrict desc",
+            "Language",
+            "Language desc",
+            "SalesDistrictName",
+            "SalesDistrictName desc"
+          ]
+        }
+      },
+      "TextOfA_SalesDistrictSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDistrict",
+            "Language",
+            "SalesDistrictName",
+            "to_SalesDistrict"
+          ]
+        }
+      },
+      "TextOfA_SalesDistrictExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_SalesDistrict"
+          ]
+        }
+      },
+      "A_SalesDistrictTextOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDistrict",
+            "SalesDistrict desc",
+            "Language",
+            "Language desc",
+            "SalesDistrictName",
+            "SalesDistrictName desc"
+          ]
+        }
+      },
+      "A_SalesDistrictTextSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDistrict",
+            "Language",
+            "SalesDistrictName",
+            "to_SalesDistrict"
+          ]
+        }
+      },
+      "A_SalesDistrictTextExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_SalesDistrict"
+          ]
+        }
+      },
+      "A_SalesDistrictTextByKeySelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDistrict",
+            "Language",
+            "SalesDistrictName",
+            "to_SalesDistrict"
+          ]
+        }
+      },
+      "A_SalesDistrictTextByKeyExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_SalesDistrict"
+          ]
+        }
+      },
+      "SalesDistrictOfA_SalesDistrictTextSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesDistrict",
+            "to_Text"
+          ]
+        }
+      },
+      "SalesDistrictOfA_SalesDistrictTextExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_Text"
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "count": {
+        "name": "$inlinecount",
+        "in": "query",
+        "description": "Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "allpages",
+            "none"
+          ]
+        }
+      },
+      "A_SalesDistrictOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDistrictOrderByOptions"
+        }
+      },
+      "A_SalesDistrictSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDistrictSelectOptions"
+        }
+      },
+      "A_SalesDistrictExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDistrictExpandOptions"
+        }
+      },
+      "A_SalesDistrictByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDistrictByKeySelectOptions"
+        }
+      },
+      "A_SalesDistrictByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDistrictByKeyExpandOptions"
+        }
+      },
+      "TextOfA_SalesDistrictOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/TextOfA_SalesDistrictOrderByOptions"
+        }
+      },
+      "TextOfA_SalesDistrictSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/TextOfA_SalesDistrictSelectOptions"
+        }
+      },
+      "TextOfA_SalesDistrictExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/TextOfA_SalesDistrictExpandOptions"
+        }
+      },
+      "A_SalesDistrictTextOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDistrictTextOrderByOptions"
+        }
+      },
+      "A_SalesDistrictTextSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDistrictTextSelectOptions"
+        }
+      },
+      "A_SalesDistrictTextExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDistrictTextExpandOptions"
+        }
+      },
+      "A_SalesDistrictTextByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDistrictTextByKeySelectOptions"
+        }
+      },
+      "A_SalesDistrictTextByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesDistrictTextByKeyExpandOptions"
+        }
+      },
+      "SalesDistrictOfA_SalesDistrictTextSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/SalesDistrictOfA_SalesDistrictTextSelectOptions"
+        }
+      },
+      "SalesDistrictOfA_SalesDistrictTextExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/SalesDistrictOfA_SalesDistrictTextExpandOptions"
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "BasicAuth": []
+    }
+  ]
+}

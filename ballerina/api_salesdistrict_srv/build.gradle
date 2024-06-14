@@ -22,10 +22,10 @@ plugins {
     id 'io.ballerina.plugin'
 }
 
-description = 'Ballerina - SAP S/4HANA Sales API'
+description = 'Ballerina - SAP S/4HANA Sales District (Read) API'
 
-def packageName = "sap.s4hana.sales"
-def moduleVersion = project.salesVersion.replace("-SNAPSHOT", "")
+def packageName = "sap.s4hana.api_salesdistrict_srv"
+def moduleVersion = project.api_salesdistrict_srvVersion.replace("-SNAPSHOT", "")
 def ballerinaTomlFile = file("${project.projectDir}/Ballerina.toml")
 
 ballerina {
@@ -60,10 +60,10 @@ release {
     buildTasks = ['build']
     failOnSnapshotDependencies = true
     versionPropertyFile = '../../gradle.properties'
-    versionProperties = ['salesVersion']
-    tagTemplate = 'sales-v${version}'
+    versionProperties = ['api_salesdistrict_srvVersion']
+    tagTemplate = 'api_salesdistrict_srv-v${version}'
     git {
-        requireBranch = "release-sales-${moduleVersion}"
+        requireBranch = "release-api_salesdistrict_srv-${moduleVersion}"
         pushToRemote = 'origin'
     }
 }

@@ -12,6 +12,10 @@ designed for large-scale enterprises by SAP SE.
 
 This repository encompasses all Ballerina packages pertaining to the S/4HANA sales submodule. Notably:
 
+1. The `ballerinax/sap.s4hana.api_salesdistrict_srv` package provides APIs that enable seamless integration with
+   the [Sales District - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service contains
+   sales district and sales district text nodes.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
@@ -66,9 +70,9 @@ Execute the commands below to build from the source.
    ```bash
    ./gradlew clean :sales-ballerina:<api_name>:build
    ```
-   API Name | Connector
-         ---| ---
-   sales | ballerinax/sap.s4hana.sales
+   | API Name              | Connector                                     |
+   |-----------------------|-----------------------------------------------|
+   | api_salesdistrict_srv | ballerinax/sap.s4hana.api_salesdistrict_srv   |
 
 5. To run tests against different environment:
 
@@ -105,7 +109,8 @@ Execute the commands below to build from the source.
 
 As an open-source project, Ballerina welcomes contributions from the community.
 
-For more information, go to the [contribution guidelines](https://github.com/ballerina-platform/ballerina-lang/blob/master/CONTRIBUTING.md).
+For more information, go to
+the [contribution guidelines](https://github.com/ballerina-platform/ballerina-lang/blob/master/CONTRIBUTING.md).
 
 ## Code of conduct
 
@@ -116,4 +121,5 @@ All the contributors are encouraged to read the [Ballerina Code of Conduct](http
 * For more information go to the [`sap` package](https://lib.ballerina.io/ballerinax/sap/latest).
 * For example demonstrations of the usage, go to [Ballerina By Examples](https://ballerina.io/learn/by-example/).
 * Chat live with us via our [Discord server](https://discord.gg/ballerinalang).
-* Post all technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
+* Post all technical questions on Stack Overflow with
+  the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
