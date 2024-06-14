@@ -33,6 +33,7 @@ ballerina {
     module = packageName
     isConnector = true
     platform = "any"
+    testCoverageParam = '--code-coverage --coverage-format=xml --includes=ballerinax.* --excludes=modules/**/**'
 }
 
 task updateTomlFiles {
