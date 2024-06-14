@@ -84,7 +84,7 @@ jobs:
       - name: Checkout to Release Branch
         run: |
           echo "Version: ${VERSION}"
-          git checkout -b release-${VERSION}
+          git checkout -b release-${{ inputs.connector }}-${VERSION}
 
       - name: Remove Target Directory
         run: |
