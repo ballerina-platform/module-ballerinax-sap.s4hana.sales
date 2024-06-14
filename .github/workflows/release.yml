@@ -108,5 +108,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.BALLERINA_BOT_TOKEN }}
         run: |
+          git push origin release-${{ inputs.connector }}-${VERSION}
           gh release create ${{ inputs.connector }}-v$VERSION --title "${{ inputs.connector }}-v$VERSION"
           gh pr create --base ${GITHUB_REF##*/} --title "[Automated] Sync ${GITHUB_REF##*/} after ${{ inputs.connector }}-$VERSION release" --body "Sync ${GITHUB_REF##*/} after ${{ inputs.connector }}-$VERSION release"
