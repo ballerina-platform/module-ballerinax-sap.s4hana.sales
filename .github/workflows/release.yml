@@ -48,9 +48,14 @@ jobs:
         run: |
           git config --global user.name ${{ secrets.BALLERINA_BOT_USERNAME }}
           git config --global user.email ${{ secrets.BALLERINA_BOT_EMAIL }}
-          echo CONNECTOR_VERSION=$((grep -w '${{ inputs.connector }}Version' | cut -d= -f2) < gradle.properties)
+          CONNECTOR_VERSION=$((grep -w '${{ inputs.connector }}Version' | cut -d= -f2) < gradle.properties)
+          VERSION=$((grep -w 'version' | cut -d= -f2) < gradle.properties)
+          if [[ "$VERSION" == "$CONNECTOR_VERSION" ]]; then
+            echo "Version is already up to date"
+            exit 0
+          fi
           sed -i "s/version=\(.*\)/version=$CONNECTOR_VERSION/g" gradle.properties
-          git commit -m "[Automated] Update verion to macth connector version" gradle.properties
+          git commit -m "[Automated] Update verion to match connector version" gradle.properties
 
       - name: Build without Tests
         env:
@@ -78,12 +83,13 @@ jobs:
       - name: Checkout to Release Branch
         run: |
           echo "Version: ${VERSION}"
-          git checkout -b release-${VERSION}
+          git checkout -b release-${{ inputs.connector }}-${VERSION}
 
       - name: Remove Target Directory
         run: |
           sudo rm -rf ballerina/target
           sudo rm -rf ballerina/build
+          sudo rm -rf ballerina/lib
 
       - name: Publish Package
         env:
@@ -101,5 +107,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.BALLERINA_BOT_TOKEN }}
         run: |
+          git push origin release-${{ inputs.connector }}-${VERSION}
           gh release create v$VERSION --title "${{ inputs.connector }}-v$VERSION"
           gh pr create --base ${GITHUB_REF##*/} --title "[Automated] Sync ${GITHUB_REF##*/} after $VERSION release" --body "Sync ${GITHUB_REF##*/} after $VERSION release"
