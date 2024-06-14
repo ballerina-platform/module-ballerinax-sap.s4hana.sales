@@ -1,0 +1,474 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sales Organization - Read",
+    "version": "1.0.0",
+    "description": "The service contains sales organization and sales organization text nodes."
+  },
+  "externalDocs": {
+    "description": "Business Documentation",
+    "url": "https://help.sap.com/http.svc/ahp2/SAP_S4HANA_CLOUD/2402.latest/EN/24/18326d6009458ab7acb72b2b747cca/frameset.htm"
+  },
+  "x-sap-api-type": "ODATA",
+  "x-sap-shortText": "Read sales organization master data using this inbound service",
+  "x-sap-software-min-version": "2402",
+  "x-sap-ext-overview": [
+    {
+      "name": "Communication Scenario",
+      "values": [
+        {
+          "text": "SAP Analytics Cloud for Planning Integration(SAP_COM_0087)",
+          "format": "plain"
+        },
+        {
+          "text": "IC Configure - Variant Configuration Bundle Model Integration(SAP_COM_0932)",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Scope Items",
+      "values": [
+        {
+          "text": "[Import Connection setup with SAP Analytics Cloud(1YB)](https://me.sap.com/processnavigator/SolP/1YB \" Link To BP \")",
+          "format": "markdown"
+        },
+        {
+          "text": "[Set Up Advanced Solution Bundle(6W9)](https://me.sap.com/processnavigator/SolP/6W9 \" Link To BP \")",
+          "format": "markdown"
+        }
+      ]
+    },
+    {
+      "name": "Authentication Methods",
+      "values": [
+        {
+          "text": "x509",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Business Object",
+      "values": [
+        {
+          "text": "Sales Organization",
+          "format": "plain"
+        }
+      ]
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://{host}:{port}/sap/opu/odata/sap/API_SALESORGANIZATION_SRV",
+      "variables": {
+        "host": {
+          "default": ""
+        },
+        "port": {
+          "default": ""
+        }
+      }
+    },
+    {
+      "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALESORGANIZATION_SRV"
+    }
+  ],
+  "x-sap-extensible": {
+    "supported": "no"
+  },
+  "tags": [
+    {
+      "name": "Sales Organization"
+    },
+    {
+      "name": "Sales Organization Text"
+    }
+  ],
+  "paths": {
+    "/A_SalesOrganization": {
+      "get": {
+        "operationId": "listA_SalesOrganizations",
+        "summary": "Get entities from A_SalesOrganization",
+        "tags": [
+          "Sales Organization"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesOrganizationOrderByOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesOrganizationSelectOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesOrganizationExpandOptions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Wrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "Collection of A_SalesOrganizationType",
+                      "type": "object",
+                      "properties": {
+                        "__count": {
+                          "$ref": "#/components/schemas/count"
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/A_SalesOrganization"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "A_SalesOrganization": {
+        "type": "object",
+        "properties": {
+          "SalesOrganization": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Sales Organization"
+          },
+          "SalesOrganizationCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Statistics Currency",
+            "description": "Statistics currency"
+          },
+          "CompanyCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Company Code",
+            "description": "Company code of the sales organization"
+          },
+          "IntercompanyBillingCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer Interc. Bl.",
+            "description": "Customer Number for Intercompany Billing"
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_SalesOrganizationText"
+                }
+              }
+            }
+          }
+        },
+        "title": "Sales Organization"
+      },
+      "CreateA_SalesOrganization": {
+        "type": "object",
+        "properties": {
+          "SalesOrganization": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Sales Organization"
+          },
+          "SalesOrganizationCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Statistics Currency",
+            "description": "Statistics currency"
+          },
+          "CompanyCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Company Code",
+            "description": "Company code of the sales organization"
+          },
+          "IntercompanyBillingCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer Interc. Bl.",
+            "description": "Customer Number for Intercompany Billing"
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_SalesOrganizationText"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "SalesOrganization"
+        ],
+        "title": "Sales Organization (for create)"
+      },
+      "A_SalesOrganizationText": {
+        "type": "object",
+        "properties": {
+          "SalesOrganization": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Sales Organization"
+          },
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "SalesOrganizationName": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20,
+            "title": "Sales Organization Description"
+          },
+          "to_SalesOrganization": {
+            "$ref": "#/components/schemas/A_SalesOrganization"
+          }
+        },
+        "title": "Sales Organization Text"
+      },
+      "CreateA_SalesOrganizationText": {
+        "type": "object",
+        "properties": {
+          "SalesOrganization": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Sales Organization"
+          },
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "SalesOrganizationName": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20,
+            "title": "Sales Organization Description"
+          },
+          "to_SalesOrganization": {
+            "$ref": "#/components/schemas/CreateA_SalesOrganization"
+          }
+        },
+        "required": [
+          "SalesOrganization",
+          "Language"
+        ],
+        "title": "Sales Organization Text (for create)"
+      },
+      "count": {
+        "type": "string",
+        "description": "The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option."
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "required": [
+                  "lang",
+                  "value"
+                ],
+                "properties": {
+                  "lang": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "innererror": {
+                "type": "object",
+                "description": "The structure of this object is service-specific"
+              }
+            }
+          }
+        }
+      },
+      "A_SalesOrganizationOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "SalesOrganization desc",
+            "SalesOrganizationCurrency",
+            "SalesOrganizationCurrency desc",
+            "CompanyCode",
+            "CompanyCode desc",
+            "IntercompanyBillingCustomer",
+            "IntercompanyBillingCustomer desc"
+          ]
+        }
+      },
+      "A_SalesOrganizationSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "SalesOrganizationCurrency",
+            "CompanyCode",
+            "IntercompanyBillingCustomer",
+            "to_Text"
+          ]
+        }
+      },
+      "A_SalesOrganizationExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_Text"
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "count": {
+        "name": "$inlinecount",
+        "in": "query",
+        "description": "Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "allpages",
+            "none"
+          ]
+        }
+      },
+      "A_SalesOrganizationOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationOrderByOptions"
+        }
+      },
+      "A_SalesOrganizationSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationSelectOptions"
+        }
+      },
+      "A_SalesOrganizationExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationExpandOptions"
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "BasicAuth": []
+    }
+  ]
+}
