@@ -90,6 +90,7 @@ jobs:
         run: |
           sudo rm -rf ballerina/target
           sudo rm -rf ballerina/build
+          sudo rm -rf ballerina/lib
 
       - name: Publish Package
         env:
