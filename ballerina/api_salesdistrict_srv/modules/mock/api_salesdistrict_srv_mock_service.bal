@@ -18,19 +18,17 @@
 // under the License.
 
 import ballerina/http;
+import ballerina/os;
+
+boolean isBalBuild = os:getEnv("IS_BAL_BUILD") == "true";
+string certPathPostFix = isBalBuild ? "../" : "/home/ballerina/ballerina/";
 
 listener http:Listener ep0 = new (443,
     secureSocket = {
         key: {
-            certFile: "/home/ballerina/ballerina/resources/public.crt",
-            keyFile: "/home/ballerina/ballerina/resources/private.key"
+            certFile: certPathPostFix + "resources/public.crt",
+            keyFile: certPathPostFix + "resources/private.key"
         }
-        // The above path a configured for gradle build, if you are using the terminal with bal command
-        // Update the path to the correct location
-        // key: {  
-        //     certFile: "../resources/public.crt",
-        //     keyFile: "../resources/private.key"
-        // }
     }
 );
 

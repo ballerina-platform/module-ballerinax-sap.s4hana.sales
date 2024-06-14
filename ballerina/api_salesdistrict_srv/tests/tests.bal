@@ -26,6 +26,9 @@ configurable string hostname = isTestOnLiveServer ? os:getEnv("HOST_NAME") : "lo
 configurable string username = isTestOnLiveServer ? os:getEnv("USERNAME") : "admin";
 configurable string password = isTestOnLiveServer ? os:getEnv("PASSWORD") : "admin";
 
+boolean isBalBuild = os:getEnv("IS_BAL_BUILD") == "true";
+string certPathPostFix = isBalBuild ? "../" : "/home/ballerina/ballerina/";
+
 Client s4HanaClient = test:mock(Client);
 
 @test:BeforeSuite
@@ -50,13 +53,8 @@ function initializeClientsForS4HanaServer() returns error? {
                     password
                 },
                 secureSocket: {
-                    cert: "/home/ballerina/ballerina/resources/public.crt"
+                    cert: certPathPostFix + "resources/public.crt"
                 }
-                // The above path a configured for gradle build, if you are using the terminal with bal command
-                // Update the path to the correct location
-                // secureSocket: {
-                //     cert: "../resources/public.crt"
-                // }
             },
             hostname = hostname
         );
