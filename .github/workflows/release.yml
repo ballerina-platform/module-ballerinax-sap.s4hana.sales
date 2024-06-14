@@ -109,4 +109,4 @@ jobs:
         run: |
           git push origin release-${{ inputs.connector }}-${VERSION}
           gh release create v$VERSION --title "${{ inputs.connector }}-v$VERSION"
-          gh pr create --base ${GITHUB_REF##*/} --title "[Automated] Sync ${GITHUB_REF##*/} after $VERSION release" --body "Sync ${GITHUB_REF##*/} after $VERSION release"
+          gh pr create --base ${GITHUB_REF##*/} --title "[Automated] Sync ${GITHUB_REF##*/} after ${{ inputs.connector }}-$VERSION release" --body "Sync ${GITHUB_REF##*/} after ${{ inputs.connector }}-$VERSION release"
