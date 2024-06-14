@@ -16,6 +16,10 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
    the [Sales District - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service contains
    sales district and sales district text nodes.
 
+2. The `ballerinax/sap.s4hana.api_salesorganization_srv` package provides APIs that enable seamless integration with
+   the [Sales Organization - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service
+   allows users to read sales organization master data.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
@@ -70,9 +74,11 @@ Execute the commands below to build from the source.
    ```bash
    ./gradlew clean :sales-ballerina:<api_name>:build
    ```
+
    | API Name              | Connector                                     |
    |-----------------------|-----------------------------------------------|
    | api_salesdistrict_srv | ballerinax/sap.s4hana.api_salesdistrict_srv   |
+   | api_salesorganization_srv | ballerinax/sap.s4hana.api_salesorganization_srv   |
 
 5. To run tests against different environment:
 

@@ -32,9 +32,8 @@ listener http:Listener ep0 = new (443,
     }
 );
 
-service /sap/opu/odata/sap/API_SALESDISTRICT_SRV on ep0 {
-
-    # Get entities from A_SalesDistrict
+service /sap/opu/odata/sap/API_SALESORGANIZATION_SRV on ep0 {
+    # Get entities from A_SalesOrganization
     #
     # + \$top - Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
     # + \$skip - Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
@@ -46,33 +45,15 @@ service /sap/opu/odata/sap/API_SALESDISTRICT_SRV on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (Retrieved entities)
     # http:Response (Error)
-    resource function get A_SalesDistrict(int? \$top, int? \$skip, string? \$filter, "allpages"|"none"? \$inlinecount, A_SalesDistrictOrderByOptions? \$orderby, A_SalesDistrictSelectOptions? \$select, A_SalesDistrictExpandOptions? \$expand) returns Wrapper|http:Response {
-        Wrapper newWrapper = {
+    resource function get A_SalesOrganization(int? \$top, int? \$skip, string? \$filter, "allpages"|"none"? \$inlinecount, A_SalesOrganizationOrderByOptions? \$orderby, A_SalesOrganizationSelectOptions? \$select, A_SalesOrganizationExpandOptions? \$expand) returns Wrapper|http:Response {
+        return {
             d: {
                 results: [
                     {
-                        SalesDistrict: "123456"
+                        SalesOrganization: "1234"
                     }
                 ]
             }
         };
-        return newWrapper;
-    }
-
-    # Get entities from A_SalesDistrictText
-    #
-    # + \$top - Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
-    # + \$skip - Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    # + \$filter - Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
-    # + \$inlinecount - Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
-    # + \$orderby - Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    # + \$select - Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    # + \$expand - Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    # + return - returns can be any of following types 
-    # http:Ok (Retrieved entities)
-    # http:Response (Error)
-    resource function get A_SalesDistrictText(int? \$top, int? \$skip, string? \$filter, "allpages"|"none"? \$inlinecount, A_SalesDistrictTextOrderByOptions? \$orderby, A_SalesDistrictTextSelectOptions? \$select, A_SalesDistrictTextExpandOptions? \$expand) returns Wrapper_1|http:Response {
-        Wrapper_1 newWrapper_1 = {};
-        return newWrapper_1;
     }
 }
