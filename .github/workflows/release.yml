@@ -50,9 +50,14 @@ jobs:
           git config --global user.email ${{ secrets.BALLERINA_BOT_EMAIL }}
           CONNECTOR_VERSION=$((grep -w '${{ inputs.connector }}Version' | cut -d= -f2) < gradle.properties)
           echo $CONNECTOR_VERSION
+          VERSION=$((grep -w 'version' | cut -d= -f2) < gradle.properties)
+          if [[ "$VERSION" == "$CONNECTOR_VERSION" ]]; then
+            echo "Version is already up to date"
+            exit 0
+          fi
           sed -i "s/version=\(.*\)/version=$CONNECTOR_VERSION/g" gradle.properties
-          git diff-index --quiet HEAD || git commit -m "[Automated] Update verion to match connector version" gradle.properties
-
+          git commit -m "[Automated] Update verion to match connector version" gradle.properties
+          
       - name: Build without Tests
         env:
           packageUser: ${{ github.actor }}
