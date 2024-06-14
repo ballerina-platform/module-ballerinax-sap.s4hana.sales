@@ -88,6 +88,7 @@
   "paths": {
     "/A_SalesOrganization": {
       "get": {
+        "operationId": "listA_SalesOrganizations",
         "summary": "Get entities from A_SalesOrganization",
         "tags": [
           "Sales Organization"
@@ -169,6 +170,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesOrganization",
         "summary": "Get entity from A_SalesOrganization by key",
         "tags": [
           "Sales Organization"
@@ -218,6 +220,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_SalesOrganization",
         "summary": "Get entities from related to_Text",
         "tags": [
           "Sales Organization",
@@ -288,6 +291,7 @@
     },
     "/A_SalesOrganizationText": {
       "get": {
+        "operationId": "listA_SalesOrganizationTexts",
         "summary": "Get entities from A_SalesOrganizationText",
         "tags": [
           "Sales Organization Text"
@@ -379,6 +383,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesOrganizationText",
         "summary": "Get entity from A_SalesOrganizationText by key",
         "tags": [
           "Sales Organization Text"
@@ -438,6 +443,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrganizationOfA_SalesOrganizationText",
         "summary": "Get related to_SalesOrganization",
         "tags": [
           "Sales Organization Text",
