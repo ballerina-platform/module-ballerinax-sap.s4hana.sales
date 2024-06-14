@@ -111,63 +111,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "SalesOrganization desc",
-                  "SalesOrganizationCurrency",
-                  "SalesOrganizationCurrency desc",
-                  "CompanyCode",
-                  "CompanyCode desc",
-                  "IntercompanyBillingCustomer",
-                  "IntercompanyBillingCustomer desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesOrganizationOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "SalesOrganizationCurrency",
-                  "CompanyCode",
-                  "IntercompanyBillingCustomer",
-                  "to_Text"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesOrganizationSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_Text"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesOrganizationExpandOptions"
           }
         ],
         "responses": {
@@ -189,7 +139,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SALESORGANIZATION_SRV.A_SalesOrganizationType"
+                            "$ref": "#/components/schemas/A_SalesOrganization"
                           }
                         }
                       }
@@ -225,40 +175,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "SalesOrganizationCurrency",
-                  "CompanyCode",
-                  "IntercompanyBillingCustomer",
-                  "to_Text"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesOrganizationByKeySelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_Text"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesOrganizationByKeyExpandOptions"
           }
         ],
         "responses": {
@@ -271,7 +191,7 @@
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SALESORGANIZATION_SRV.A_SalesOrganizationType"
+                      "$ref": "#/components/schemas/A_SalesOrganization"
                     }
                   }
                 }
@@ -322,60 +242,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "SalesOrganization desc",
-                  "Language",
-                  "Language desc",
-                  "SalesOrganizationName",
-                  "SalesOrganizationName desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/TextOfA_SalesOrganizationOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "Language",
-                  "SalesOrganizationName",
-                  "to_SalesOrganization"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/TextOfA_SalesOrganizationSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_SalesOrganization"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/TextOfA_SalesOrganizationExpandOptions"
           }
         ],
         "responses": {
@@ -397,7 +270,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SALESORGANIZATION_SRV.A_SalesOrganizationTextType"
+                            "$ref": "#/components/schemas/A_SalesOrganizationText"
                           }
                         }
                       }
@@ -438,60 +311,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "SalesOrganization desc",
-                  "Language",
-                  "Language desc",
-                  "SalesOrganizationName",
-                  "SalesOrganizationName desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesOrganizationTextOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "Language",
-                  "SalesOrganizationName",
-                  "to_SalesOrganization"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesOrganizationTextSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_SalesOrganization"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesOrganizationTextExpandOptions"
           }
         ],
         "responses": {
@@ -513,7 +339,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SALESORGANIZATION_SRV.A_SalesOrganizationTextType"
+                            "$ref": "#/components/schemas/A_SalesOrganizationText"
                           }
                         }
                       }
@@ -559,39 +385,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "Language",
-                  "SalesOrganizationName",
-                  "to_SalesOrganization"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesOrganizationTextByKeySelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_SalesOrganization"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SalesOrganizationTextByKeyExpandOptions"
           }
         ],
         "responses": {
@@ -604,7 +401,7 @@
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SALESORGANIZATION_SRV.A_SalesOrganizationTextType"
+                      "$ref": "#/components/schemas/A_SalesOrganizationText"
                     }
                   }
                 }
@@ -648,40 +445,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "SalesOrganizationCurrency",
-                  "CompanyCode",
-                  "IntercompanyBillingCustomer",
-                  "to_Text"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/SalesOrganizationOfA_SalesOrganizationTextSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_Text"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/SalesOrganizationOfA_SalesOrganizationTextExpandOptions"
           }
         ],
         "responses": {
@@ -694,7 +461,7 @@
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SALESORGANIZATION_SRV.A_SalesOrganizationType"
+                      "$ref": "#/components/schemas/A_SalesOrganization"
                     }
                   }
                 }
@@ -711,7 +478,7 @@
   },
   "components": {
     "schemas": {
-      "API_SALESORGANIZATION_SRV.A_SalesOrganizationType": {
+      "A_SalesOrganization": {
         "type": "object",
         "properties": {
           "SalesOrganization": {
@@ -746,7 +513,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALESORGANIZATION_SRV.A_SalesOrganizationTextType"
+                  "$ref": "#/components/schemas/A_SalesOrganizationText"
                 }
               }
             }
@@ -754,7 +521,7 @@
         },
         "title": "Sales Organization"
       },
-      "API_SALESORGANIZATION_SRV.A_SalesOrganizationType-create": {
+      "CreateA_SalesOrganization": {
         "type": "object",
         "properties": {
           "SalesOrganization": {
@@ -789,7 +556,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALESORGANIZATION_SRV.A_SalesOrganizationTextType-create"
+                  "$ref": "#/components/schemas/CreateA_SalesOrganizationText"
                 }
               }
             }
@@ -800,7 +567,7 @@
         ],
         "title": "Sales Organization (for create)"
       },
-      "API_SALESORGANIZATION_SRV.A_SalesOrganizationType-update": {
+      "UpdateA_SalesOrganization": {
         "type": "object",
         "properties": {
           "SalesOrganizationCurrency": {
@@ -827,7 +594,7 @@
         },
         "title": "Sales Organization (for update)"
       },
-      "API_SALESORGANIZATION_SRV.A_SalesOrganizationTextType": {
+      "A_SalesOrganizationText": {
         "type": "object",
         "properties": {
           "SalesOrganization": {
@@ -847,12 +614,12 @@
             "title": "Sales Organization Description"
           },
           "to_SalesOrganization": {
-            "$ref": "#/components/schemas/API_SALESORGANIZATION_SRV.A_SalesOrganizationType"
+            "$ref": "#/components/schemas/A_SalesOrganization"
           }
         },
         "title": "Sales Organization Text"
       },
-      "API_SALESORGANIZATION_SRV.A_SalesOrganizationTextType-create": {
+      "CreateA_SalesOrganizationText": {
         "type": "object",
         "properties": {
           "SalesOrganization": {
@@ -872,7 +639,7 @@
             "title": "Sales Organization Description"
           },
           "to_SalesOrganization": {
-            "$ref": "#/components/schemas/API_SALESORGANIZATION_SRV.A_SalesOrganizationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrganization"
           }
         },
         "required": [
@@ -881,7 +648,7 @@
         ],
         "title": "Sales Organization Text (for create)"
       },
-      "API_SALESORGANIZATION_SRV.A_SalesOrganizationTextType-update": {
+      "UpdateA_SalesOrganizationText": {
         "type": "object",
         "properties": {
           "SalesOrganizationName": {
@@ -935,6 +702,194 @@
             }
           }
         }
+      },
+      "A_SalesOrganizationOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "SalesOrganization desc",
+            "SalesOrganizationCurrency",
+            "SalesOrganizationCurrency desc",
+            "CompanyCode",
+            "CompanyCode desc",
+            "IntercompanyBillingCustomer",
+            "IntercompanyBillingCustomer desc"
+          ]
+        }
+      },
+      "A_SalesOrganizationSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "SalesOrganizationCurrency",
+            "CompanyCode",
+            "IntercompanyBillingCustomer",
+            "to_Text"
+          ]
+        }
+      },
+      "A_SalesOrganizationExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_Text"
+          ]
+        }
+      },
+      "A_SalesOrganizationByKeySelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "SalesOrganizationCurrency",
+            "CompanyCode",
+            "IntercompanyBillingCustomer",
+            "to_Text"
+          ]
+        }
+      },
+      "A_SalesOrganizationByKeyExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_Text"
+          ]
+        }
+      },
+      "TextOfA_SalesOrganizationOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "SalesOrganization desc",
+            "Language",
+            "Language desc",
+            "SalesOrganizationName",
+            "SalesOrganizationName desc"
+          ]
+        }
+      },
+      "TextOfA_SalesOrganizationSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "Language",
+            "SalesOrganizationName",
+            "to_SalesOrganization"
+          ]
+        }
+      },
+      "TextOfA_SalesOrganizationExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_SalesOrganization"
+          ]
+        }
+      },
+      "A_SalesOrganizationTextOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "SalesOrganization desc",
+            "Language",
+            "Language desc",
+            "SalesOrganizationName",
+            "SalesOrganizationName desc"
+          ]
+        }
+      },
+      "A_SalesOrganizationTextSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "Language",
+            "SalesOrganizationName",
+            "to_SalesOrganization"
+          ]
+        }
+      },
+      "A_SalesOrganizationTextExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_SalesOrganization"
+          ]
+        }
+      },
+      "A_SalesOrganizationTextByKeySelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "Language",
+            "SalesOrganizationName",
+            "to_SalesOrganization"
+          ]
+        }
+      },
+      "A_SalesOrganizationTextByKeyExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_SalesOrganization"
+          ]
+        }
+      },
+      "SalesOrganizationOfA_SalesOrganizationTextSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "SalesOrganizationCurrency",
+            "CompanyCode",
+            "IntercompanyBillingCustomer",
+            "to_Text"
+          ]
+        }
+      },
+      "SalesOrganizationOfA_SalesOrganizationTextExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_Text"
+          ]
+        }
       }
     },
     "parameters": {
@@ -967,6 +922,141 @@
             "allpages",
             "none"
           ]
+        }
+      },
+      "A_SalesOrganizationOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationOrderByOptions"
+        }
+      },
+      "A_SalesOrganizationSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationSelectOptions"
+        }
+      },
+      "A_SalesOrganizationExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationExpandOptions"
+        }
+      },
+      "A_SalesOrganizationByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationByKeySelectOptions"
+        }
+      },
+      "A_SalesOrganizationByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationByKeyExpandOptions"
+        }
+      },
+      "TextOfA_SalesOrganizationOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/TextOfA_SalesOrganizationOrderByOptions"
+        }
+      },
+      "TextOfA_SalesOrganizationSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/TextOfA_SalesOrganizationSelectOptions"
+        }
+      },
+      "TextOfA_SalesOrganizationExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/TextOfA_SalesOrganizationExpandOptions"
+        }
+      },
+      "A_SalesOrganizationTextOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationTextOrderByOptions"
+        }
+      },
+      "A_SalesOrganizationTextSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationTextSelectOptions"
+        }
+      },
+      "A_SalesOrganizationTextExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationTextExpandOptions"
+        }
+      },
+      "A_SalesOrganizationTextByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationTextByKeySelectOptions"
+        }
+      },
+      "A_SalesOrganizationTextByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesOrganizationTextByKeyExpandOptions"
+        }
+      },
+      "SalesOrganizationOfA_SalesOrganizationTextSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/SalesOrganizationOfA_SalesOrganizationTextSelectOptions"
+        }
+      },
+      "SalesOrganizationOfA_SalesOrganizationTextExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/SalesOrganizationOfA_SalesOrganizationTextExpandOptions"
         }
       }
     },
