@@ -56,7 +56,8 @@ function initializeClientsForS4HanaServer() returns error? {
                     cert: certPathPostFix + "resources/public.crt"
                 }
             },
-            hostname = hostname
+            hostname = hostname,
+            port = 9090
         );
     }
 }
