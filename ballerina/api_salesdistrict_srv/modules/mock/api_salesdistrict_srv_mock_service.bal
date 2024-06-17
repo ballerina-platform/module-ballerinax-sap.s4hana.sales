@@ -23,7 +23,7 @@ import ballerina/os;
 boolean isBalBuild = os:getEnv("IS_BAL_BUILD") == "true";
 string certPathPostFix = isBalBuild ? "../" : "/home/ballerina/ballerina/";
 
-listener http:Listener ep0 = new (443,
+listener http:Listener ep0 = new (9090,
     secureSocket = {
         key: {
             certFile: certPathPostFix + "resources/public.crt",

@@ -50,22 +50,16 @@ jobs:
       - name: Remove Target Directory
         run: |
           cd ballerina
-          connectors=$(ls -d ./*/ 2>/dev/null) || true
-          for dir in "${connectors[@]}"; do
-            echo "$dir"
-            cd "$dir" &&
-              sudo rm -rf target
+          for dir in $(find . -type d -maxdepth 1  -mindepth 1); do
+            (cd "$dir" && sudo rm -rf target && cd ..); 
           done  
 
       - name: Test with GraalVM
         run: |
           cd ballerina
-          connectors=$(ls -d ./*/ 2>/dev/null) || true
-          for dir in "${connectors[@]}"; do
-            echo "Testing $dir"
-            if [[ "$dir" == *resources/ ]]; then
+          for dir in $(find . -type d -maxdepth 1  -mindepth 1); do
+            if [[ "$dir" == *resources ]]; then
               continue
             fi
-            cd "$dir" &&
-              bal test --graalvm 
+            (cd "$dir" && IS_BAL_BUILD=true bal test --graalvm  && cd ..); 
           done  
