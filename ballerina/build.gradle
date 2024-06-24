@@ -85,6 +85,7 @@ task build {
     dependsOn(updateDocumentationFiles)
     dependsOn(':sales-ballerina:api_salesdistrict_srv:build')
     dependsOn(':sales-ballerina:api_salesorganization_srv:build')
+    dependsOn(':sales-ballerina:api_sales_order_srv:build')
 }
 
 publishToMavenLocal.dependsOn build

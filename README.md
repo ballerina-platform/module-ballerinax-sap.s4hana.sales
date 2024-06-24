@@ -20,6 +20,10 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
    the [Sales Organization - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service
    allows users to read sales organization master data.
 
+3. The `ballerinax/sap.s4hana.api_sales_order_srv` package provides APIs that enable seamless integration with
+   the [Sales Order (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_ORDER_SRV/overview). The service allows to
+   create, read, update, and delete sales orders.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
@@ -79,6 +83,7 @@ Execute the commands below to build from the source.
    |-----------------------|-----------------------------------------------|
    | api_salesdistrict_srv | ballerinax/sap.s4hana.api_salesdistrict_srv   |
    | api_salesorganization_srv | ballerinax/sap.s4hana.api_salesorganization_srv   |
+   | api_sales_order_srv   | ballerinax/sap.s4hana.api_sales_order_srv     |
 
 5. To run tests against different environment:
 

@@ -10,6 +10,7 @@ on:
         options:
           - api_salesdistrict_srv
           - api_salesorganization_srv
+          - api_sales_order_srv
 
 jobs:
   call_workflow:
