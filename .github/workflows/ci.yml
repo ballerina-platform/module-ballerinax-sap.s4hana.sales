@@ -16,3 +16,5 @@ jobs:
     secrets: inherit
     with:
       repo-name: module-ballerinax-sap.s4hana.sales
+      additional-build-flags: "-x :sales-examples:build"
+      additional-test-flags: "-x :sales-examples:build"
