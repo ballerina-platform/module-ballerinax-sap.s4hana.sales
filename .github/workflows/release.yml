@@ -64,7 +64,7 @@ jobs:
           packageUser: ${{ github.actor }}
           packagePAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ./gradlew build -x test 
+          ./gradlew build -x test -x :sales-examples:build
 
       - name: Create lib Directory if not Exists
         run: mkdir -p ballerina/lib
@@ -102,8 +102,8 @@ jobs:
           publishUser: ${{ secrets.BALLERINA_BOT_USERNAME }}
           publishPAT: ${{ secrets.BALLERINA_BOT_TOKEN }}
         run: |
-          ./gradlew clean :sales-ballerina:${{ inputs.connector }}:release -Prelease.useAutomaticVersion=true 
-          ./gradlew -Pversion=${VERSION} :sales-ballerina:${{ inputs.connector }}:publish -x test -PpublishToCentral=true 
+          ./gradlew clean :sales-ballerina:${{ inputs.connector }}:release -x :sales-examples:build -Prelease.useAutomaticVersion=true 
+          ./gradlew -Pversion=${VERSION} :sales-ballerina:${{ inputs.connector }}:publish -x test -x :sales-examples:build -PpublishToCentral=true 
 
       - name: GitHub Release and Release Sync PR
         env:
