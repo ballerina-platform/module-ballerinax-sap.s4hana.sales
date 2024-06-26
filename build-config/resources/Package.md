@@ -79,6 +79,18 @@ Now, utilize the available connector operations.
 bal run
 ```
 
+# Examples
+
+The S/4 HANA Sales and Distribution Ballerina connectors provide practical examples illustrating usage in various
+scenarios. Explore
+these [examples](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/tree/main/examples), covering
+use cases like accessing S/4HANA Sales Order (A2X) API.
+
+1. [Salesforce to S/4HANA Integration](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/tree/main/examples/salesforce-to-sap) -
+   Demonstrates leveraging the `sap.s4hana.api_sales_order_srv:Client` in Ballerina for S/4HANA API interactions. It
+   specifically showcases how to respond to a Salesforce Opportunity Close event by automatically generating a Sales
+   Order in the S/4HANA SD module.
+
 ## Report Issues
 
 To report bugs, request new features, start new discussions, view project boards, etc., go to
