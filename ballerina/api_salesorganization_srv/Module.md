@@ -79,7 +79,7 @@ salesorg:Wrapper listASalesOrganization = check salesOrgClient->listA_SalesOrgan
 bal run
 ```
 
-# Examples
+## Examples
 
 The S/4 HANA Sales and Distribution Ballerina connectors provide practical examples illustrating usage in various
 scenarios. Explore

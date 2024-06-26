@@ -79,7 +79,7 @@ salesorder:Wrapper listASalesOrder = check salesOrderClient->listA_SalesOrders()
 bal run
 ```
 
-# Examples
+## Examples
 
 The S/4 HANA Sales and Distribution Ballerina connectors provide practical examples illustrating usage in various
 scenarios. Explore
