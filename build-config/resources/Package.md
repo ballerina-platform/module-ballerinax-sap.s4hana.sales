@@ -79,7 +79,7 @@ Now, utilize the available connector operations.
 bal run
 ```
 
-# Examples
+## Examples
 
 The S/4 HANA Sales and Distribution Ballerina connectors provide practical examples illustrating usage in various
 scenarios. Explore

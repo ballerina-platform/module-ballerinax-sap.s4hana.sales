@@ -79,7 +79,7 @@ salesdistrict:Wrapper listASalesDistricts = check salesDistrictClient->listA_Sal
 bal run
 ```
 
-# Examples
+## Examples
 
 The S/4 HANA Sales and Distribution Ballerina connectors provide practical examples illustrating usage in various
 scenarios. Explore
