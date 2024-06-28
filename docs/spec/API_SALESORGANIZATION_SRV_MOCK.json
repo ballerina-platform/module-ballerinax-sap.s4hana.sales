@@ -127,11 +127,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrganizationWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrganizationType",
+                      "title": "CollectionOfA_SalesOrganization",
                       "type": "object",
                       "properties": {
                         "__count": {

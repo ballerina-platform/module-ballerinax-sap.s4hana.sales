@@ -65,7 +65,7 @@ function initializeClientsForS4HanaServer() returns error? {
 @test:Config {
 }
 function testListA_SalesOrder() returns error? {
-    Wrapper listA_SalesOrders = check s4HanaClient->listA_SalesOrders();
+    CollectionOfA_SalesOrderWrapper listA_SalesOrders = check s4HanaClient->listA_SalesOrders();
     test:assertTrue(listA_SalesOrders.d?.results !is (), "The sales order is expected to be non-empty.");
 }
 
@@ -74,7 +74,7 @@ function testListA_SalesOrder() returns error? {
 @test:Config {
 }
 function testCreateSalesOrder() returns error? {
-    A_SalesOrderType|error salesOrder = s4HanaClient->createA_SalesOrder({
+    A_SalesOrderWrapper|error salesOrder = s4HanaClient->createA_SalesOrder({
         SalesOrder: "10",
         SalesOrderType: "TA",
         SalesOrganization: "1710"

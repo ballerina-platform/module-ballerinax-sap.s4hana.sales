@@ -65,6 +65,6 @@ function initializeClientsForS4HanaServer() returns error? {
 @test:Config {
 }
 function testListSalesDistricts() returns error? {
-    Wrapper listASalesDistricts = check s4HanaClient->listA_SalesDistricts();
+    CollectionOfA_SalesDistrictWrapper listASalesDistricts = check s4HanaClient->listA_SalesDistricts();
     test:assertTrue(listASalesDistricts.d?.results !is (), "The sales district is expected to be non-empty.");
 }

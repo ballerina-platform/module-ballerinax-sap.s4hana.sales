@@ -31,21 +31,21 @@ public type ListTextsOfA_SalesDistrictQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
     string \$filter?;
     # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    TextOfA_SalesDistrictOrderByOptions \$orderby?;
+    A_SalesDistrictTextOrderByOptions \$orderby?;
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    TextOfA_SalesDistrictExpandOptions \$expand?;
+    A_SalesDistrictTextExpandOptions \$expand?;
     # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    TextOfA_SalesDistrictSelectOptions \$select?;
+    A_SalesDistrictTextSelectOptions \$select?;
 };
 
 # Represents the Queries record for the operation: getA_SalesDistrictText
 public type GetA_SalesDistrictTextQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesDistrictTextByKeyExpandOptions \$expand?;
+    A_SalesDistrictTextExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesDistrictTextByKeySelectOptions \$select?;
+    A_SalesDistrictTextSelectOptions \$select?;
 };
 
 public type A_SalesDistrictOrderByOptions ("SalesDistrict"|"SalesDistrict desc")[];
@@ -53,12 +53,10 @@ public type A_SalesDistrictOrderByOptions ("SalesDistrict"|"SalesDistrict desc")
 # Represents the Queries record for the operation: getA_SalesDistrict
 public type GetA_SalesDistrictQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesDistrictByKeyExpandOptions \$expand?;
+    A_SalesDistrictExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesDistrictByKeySelectOptions \$select?;
+    A_SalesDistrictSelectOptions \$select?;
 };
-
-public type TextOfA_SalesDistrictOrderByOptions ("SalesDistrict"|"SalesDistrict desc"|"Language"|"Language desc"|"SalesDistrictName"|"SalesDistrictName desc")[];
 
 public type A_SalesDistrict record {
     @constraint:String {maxLength: 6}
@@ -66,17 +64,12 @@ public type A_SalesDistrict record {
     A_SalesDistrict_to_Text to_Text?;
 };
 
-public type A_SalesDistrictTextByKeyExpandOptions ("to_SalesDistrict")[];
-
-public type A_SalesDistrictByKeySelectOptions ("SalesDistrict"|"to_Text")[];
-
-public type Collection\ of\ A_SalesDistrictTextType record {
-    count __count?;
-    A_SalesDistrictText[] results?;
+public type A_SalesDistrictTextWrapper record {
+    A_SalesDistrictText d?;
 };
 
-public type Wrapper_1 record {
-    Collection\ of\ A_SalesDistrictTextType d?;
+public type CollectionOfA_SalesDistrictWrapper record {
+    CollectionOfA_SalesDistrict d?;
 };
 
 # Represents the Queries record for the operation: listA_SalesDistrictTexts
@@ -140,15 +133,10 @@ public type GetSalesDistrictOfA_SalesDistrictTextQueries record {
     SalesDistrictOfA_SalesDistrictTextSelectOptions \$select?;
 };
 
-public type Wrapper record {
-    Collection\ of\ A_SalesDistrictType d?;
+public type CollectionOfA_SalesDistrict record {
+    count __count?;
+    A_SalesDistrict[] results?;
 };
-
-public type A_SalesDistrictType record {
-    A_SalesDistrict d?;
-};
-
-public type A_SalesDistrictTextByKeySelectOptions ("SalesDistrict"|"Language"|"SalesDistrictName"|"to_SalesDistrict")[];
 
 # Represents the Queries record for the operation: listA_SalesDistricts
 public type ListA_SalesDistrictsQueries record {
@@ -171,9 +159,9 @@ public type ListA_SalesDistrictsQueries record {
 # The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option.
 public type count string;
 
-public type TextOfA_SalesDistrictExpandOptions ("to_SalesDistrict")[];
-
-public type A_SalesDistrictByKeyExpandOptions ("to_Text")[];
+public type CollectionOfA_SalesDistrictTextWrapper record {
+    CollectionOfA_SalesDistrictText d?;
+};
 
 # Proxy server configurations to be used with the HTTP client endpoint.
 public type ProxyConfig record {|
@@ -190,12 +178,16 @@ public type ProxyConfig record {|
 
 public type A_SalesDistrictExpandOptions ("to_Text")[];
 
-public type Collection\ of\ A_SalesDistrictType record {
+public type CollectionOfA_SalesDistrictText record {
     count __count?;
-    A_SalesDistrict[] results?;
+    A_SalesDistrictText[] results?;
 };
 
 public type SalesDistrictOfA_SalesDistrictTextExpandOptions ("to_Text")[];
+
+public type A_SalesDistrictWrapper record {
+    A_SalesDistrict d?;
+};
 
 public type A_SalesDistrict_to_Text record {
     A_SalesDistrictText[] results?;
@@ -217,10 +209,6 @@ public type ClientHttp1Settings record {|
     ProxyConfig proxy?;
 |};
 
-public type A_SalesDistrictTextType record {
-    A_SalesDistrictText d?;
-};
-
 public type SalesDistrictOfA_SalesDistrictTextSelectOptions ("SalesDistrict"|"to_Text")[];
 
 public type A_SalesDistrictText record {
@@ -232,5 +220,3 @@ public type A_SalesDistrictText record {
     string? SalesDistrictName?;
     A_SalesDistrict to_SalesDistrict?;
 };
-
-public type TextOfA_SalesDistrictSelectOptions ("SalesDistrict"|"Language"|"SalesDistrictName"|"to_SalesDistrict")[];

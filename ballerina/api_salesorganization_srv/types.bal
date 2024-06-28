@@ -23,39 +23,40 @@ import ballerina/http;
 # Represents the Queries record for the operation: getA_SalesOrganizationText
 public type GetA_SalesOrganizationTextQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrganizationTextByKeyExpandOptions \$expand?;
+    A_SalesOrganizationTextExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrganizationTextByKeySelectOptions \$select?;
+    A_SalesOrganizationTextSelectOptions \$select?;
 };
 
 public type A_SalesOrganizationTextSelectOptions ("SalesOrganization"|"Language"|"SalesOrganizationName"|"to_SalesOrganization")[];
+
+public type A_SalesOrganizationTextWrapper record {
+    A_SalesOrganizationText d?;
+};
 
 public type SalesOrganizationOfA_SalesOrganizationTextExpandOptions ("to_Text")[];
 
 # Represents the Queries record for the operation: getA_SalesOrganization
 public type GetA_SalesOrganizationQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrganizationByKeyExpandOptions \$expand?;
+    A_SalesOrganizationExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrganizationByKeySelectOptions \$select?;
+    A_SalesOrganizationSelectOptions \$select?;
 };
 
 public type A_SalesOrganizationTextExpandOptions ("to_SalesOrganization")[];
 
-public type A_SalesOrganizationByKeySelectOptions ("SalesOrganization"|"SalesOrganizationCurrency"|"CompanyCode"|"IntercompanyBillingCustomer"|"to_Text")[];
-
-public type Collection\ of\ A_SalesOrganizationType record {
-    count __count?;
-    A_SalesOrganization[] results?;
+public type CollectionOfA_SalesOrganizationWrapper record {
+    CollectionOfA_SalesOrganization d?;
 };
 
-public type Wrapper_1 record {
-    Collection\ of\ A_SalesOrganizationTextType d?;
+public type A_SalesOrganizationWrapper record {
+    A_SalesOrganization d?;
 };
 
-public type A_SalesOrganizationTextByKeyExpandOptions ("to_SalesOrganization")[];
-
-public type TextOfA_SalesOrganizationExpandOptions ("to_SalesOrganization")[];
+public type CollectionOfA_SalesOrganizationTextWrapper record {
+    CollectionOfA_SalesOrganizationText d?;
+};
 
 public type SalesOrganizationOfA_SalesOrganizationTextSelectOptions ("SalesOrganization"|"SalesOrganizationCurrency"|"CompanyCode"|"IntercompanyBillingCustomer"|"to_Text")[];
 
@@ -94,11 +95,10 @@ public type ConnectionConfig record {|
     boolean validation = true;
 |};
 
-public type Wrapper record {
-    Collection\ of\ A_SalesOrganizationType d?;
+public type CollectionOfA_SalesOrganizationText record {
+    count __count?;
+    A_SalesOrganizationText[] results?;
 };
-
-public type A_SalesOrganizationByKeyExpandOptions ("to_Text")[];
 
 # Represents the Queries record for the operation: getSalesOrganizationOfA_SalesOrganizationText
 public type GetSalesOrganizationOfA_SalesOrganizationTextQueries record {
@@ -148,8 +148,6 @@ public type A_SalesOrganization_to_Text record {
 
 public type A_SalesOrganizationExpandOptions ("to_Text")[];
 
-public type A_SalesOrganizationTextByKeySelectOptions ("SalesOrganization"|"Language"|"SalesOrganizationName"|"to_SalesOrganization")[];
-
 public type A_SalesOrganizationText record {
     @constraint:String {maxLength: 4}
     string SalesOrganization?;
@@ -159,10 +157,9 @@ public type A_SalesOrganizationText record {
     A_SalesOrganization to_SalesOrganization?;
 };
 
-public type TextOfA_SalesOrganizationSelectOptions ("SalesOrganization"|"Language"|"SalesOrganizationName"|"to_SalesOrganization")[];
-
-public type A_SalesOrganizationTextType record {
-    A_SalesOrganizationText d?;
+public type CollectionOfA_SalesOrganization record {
+    count __count?;
+    A_SalesOrganization[] results?;
 };
 
 public type A_SalesOrganizationOrderByOptions ("SalesOrganization"|"SalesOrganization desc"|"SalesOrganizationCurrency"|"SalesOrganizationCurrency desc"|"CompanyCode"|"CompanyCode desc"|"IntercompanyBillingCustomer"|"IntercompanyBillingCustomer desc")[];
@@ -185,11 +182,6 @@ public type ListA_SalesOrganizationsQueries record {
     A_SalesOrganizationSelectOptions \$select?;
 };
 
-public type Collection\ of\ A_SalesOrganizationTextType record {
-    count __count?;
-    A_SalesOrganizationText[] results?;
-};
-
 # Provides settings related to HTTP/1.x protocol.
 public type ClientHttp1Settings record {|
     # Specifies whether to reuse a connection for multiple requests
@@ -209,13 +201,13 @@ public type ListTextsOfA_SalesOrganizationQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
     string \$filter?;
     # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    TextOfA_SalesOrganizationOrderByOptions \$orderby?;
+    A_SalesOrganizationTextOrderByOptions \$orderby?;
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    TextOfA_SalesOrganizationExpandOptions \$expand?;
+    A_SalesOrganizationTextExpandOptions \$expand?;
     # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    TextOfA_SalesOrganizationSelectOptions \$select?;
+    A_SalesOrganizationTextSelectOptions \$select?;
 };
 
 public type A_SalesOrganizationTextOrderByOptions ("SalesOrganization"|"SalesOrganization desc"|"Language"|"Language desc"|"SalesOrganizationName"|"SalesOrganizationName desc")[];
@@ -231,11 +223,5 @@ public type A_SalesOrganization record {
     string? IntercompanyBillingCustomer?;
     A_SalesOrganization_to_Text to_Text?;
 };
-
-public type A_SalesOrganizationType record {
-    A_SalesOrganization d?;
-};
-
-public type TextOfA_SalesOrganizationOrderByOptions ("SalesOrganization"|"SalesOrganization desc"|"Language"|"Language desc"|"SalesOrganizationName"|"SalesOrganizationName desc")[];
 
 public type A_SalesOrganizationSelectOptions ("SalesOrganization"|"SalesOrganizationCurrency"|"CompanyCode"|"IntercompanyBillingCustomer"|"to_Text")[];

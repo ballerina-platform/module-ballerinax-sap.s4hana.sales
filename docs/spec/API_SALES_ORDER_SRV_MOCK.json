@@ -209,11 +209,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderType",
+                      "title": "CollectionOfA_SalesOrder",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -261,7 +261,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
