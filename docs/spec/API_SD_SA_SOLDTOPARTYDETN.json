@@ -101,46 +101,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "Supplier",
-                  "Supplier desc",
-                  "PartnerDescription",
-                  "PartnerDescription desc",
-                  "UnloadingPointName",
-                  "UnloadingPointName desc",
-                  "SoldToParty",
-                  "SoldToParty desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_DelivSchedSoldToPartyDetnOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "Supplier",
-                  "PartnerDescription",
-                  "UnloadingPointName",
-                  "SoldToParty"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_DelivSchedSoldToPartyDetnSelectOptions"
           }
         ],
         "responses": {
@@ -149,11 +113,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_DelivSchedSoldToPartyDetnWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_DelivSchedSoldToPartyDetnType",
+                      "title": "CollectionOfA_DelivSchedSoldToPartyDetn",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -162,7 +126,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SD_SA_SOLDTOPARTYDETN.A_DelivSchedSoldToPartyDetnType"
+                            "$ref": "#/components/schemas/A_DelivSchedSoldToPartyDetn"
                           }
                         }
                       }
@@ -219,23 +183,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "Supplier",
-                  "PartnerDescription",
-                  "UnloadingPointName",
-                  "SoldToParty"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_DelivSchedSoldToPartyDetnByKeySelectOptions"
           }
         ],
         "responses": {
@@ -244,11 +192,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_DelivSchedSoldToPartyDetnType",
+                  "title": "A_DelivSchedSoldToPartyDetnWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SD_SA_SOLDTOPARTYDETN.A_DelivSchedSoldToPartyDetnType"
+                      "$ref": "#/components/schemas/A_DelivSchedSoldToPartyDetn"
                     }
                   }
                 }
@@ -301,7 +249,7 @@
   },
   "components": {
     "schemas": {
-      "API_SD_SA_SOLDTOPARTYDETN.A_DelivSchedSoldToPartyDetnType": {
+      "A_DelivSchedSoldToPartyDetn": {
         "type": "object",
         "properties": {
           "Supplier": {
@@ -330,7 +278,7 @@
         },
         "title": "Sold-to Party Assignment"
       },
-      "API_SD_SA_SOLDTOPARTYDETN.A_DelivSchedSoldToPartyDetnType-create": {
+      "CreateA_DelivSchedSoldToPartyDetn": {
         "type": "object",
         "properties": {
           "Supplier": {
@@ -364,7 +312,7 @@
         ],
         "title": "Sold-to Party Assignment (for create)"
       },
-      "API_SD_SA_SOLDTOPARTYDETN.A_DelivSchedSoldToPartyDetnType-update": {
+      "UpdateA_DelivSchedSoldToPartyDetn": {
         "type": "object",
         "properties": {
           "SoldToParty": {
@@ -418,6 +366,36 @@
             }
           }
         }
+      },
+      "A_DelivSchedSoldToPartyDetnOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "Supplier",
+            "Supplier desc",
+            "PartnerDescription",
+            "PartnerDescription desc",
+            "UnloadingPointName",
+            "UnloadingPointName desc",
+            "SoldToParty",
+            "SoldToParty desc"
+          ]
+        }
+      },
+      "A_DelivSchedSoldToPartyDetnSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "Supplier",
+            "PartnerDescription",
+            "UnloadingPointName",
+            "SoldToParty"
+          ]
+        }
       }
     },
     "parameters": {
@@ -450,6 +428,33 @@
             "allpages",
             "none"
           ]
+        }
+      },
+      "A_DelivSchedSoldToPartyDetnOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DelivSchedSoldToPartyDetnOrderByOptions"
+        }
+      },
+      "A_DelivSchedSoldToPartyDetnSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DelivSchedSoldToPartyDetnSelectOptions"
+        }
+      },
+      "A_DelivSchedSoldToPartyDetnByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DelivSchedSoldToPartyDetnSelectOptions"
         }
       }
     },
