@@ -77,6 +77,7 @@
   "paths": {
     "/A_DelivSchedSoldToPartyDetn": {
       "get": {
+        "operationId": "listA_DelivSchedSoldToPartyDetns",
         "summary": "Reads all sold-to party assignments.",
         "description": "Reads all sold-to party assignments in the system.",
         "tags": [
@@ -176,6 +177,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DelivSchedSoldToPartyDetn",
         "summary": "Reads a specific sold-to party assignment.",
         "description": "Reads a specific sold-to party assignment that the consumer specifies by passing by the supplier, partner description, and unloading point.",
         "tags": [
@@ -211,6 +213,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
