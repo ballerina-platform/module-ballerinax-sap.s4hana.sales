@@ -20,16 +20,15 @@
 import ballerina/constraint;
 import ballerina/http;
 
+public type A_SlsOrderItemBillingPlanItemWrapper record {
+    A_SlsOrderItemBillingPlanItem d?;
+};
+
 public type Modified\ A_SalesOrderItemTextType record {
     UpdateA_SalesOrderItemText d?;
 };
 
 public type SalesOrderOfA_SalesOrderItemPrElementExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
-
-public type Collection\ of\ A_SlsOrderItemBillingPlanItemType record {
-    count __count?;
-    A_SlsOrderItemBillingPlanItem[] results?;
-};
 
 # Represents the Queries record for the operation: listSubsequentProcFlowDocsOfA_SalesOrder
 public type ListSubsequentProcFlowDocsOfA_SalesOrderQueries record {
@@ -161,10 +160,6 @@ public type CreateA_SalesOrderItemPartnerAddress record {
     CreateA_SalesOrderItem to_SalesOrderItem?;
 };
 
-public type A_SlsOrderItemBillingPlanItemType record {
-    A_SlsOrderItemBillingPlanItem d?;
-};
-
 public type CreateA_SalesOrderItemPrElement record {
     @constraint:String {maxLength: 3}
     string PricingProcedureStep;
@@ -194,17 +189,28 @@ public type CreateA_SalesOrder_to_PricingElement record {
     CreateA_SalesOrderHeaderPrElement[] results?;
 };
 
-public type A_SalesOrderItemPartnerByKeyExpandOptions ("to_Address"|"to_SalesOrder"|"to_SalesOrderItem")[];
+public type CollectionOfA_SalesOrderHeaderPartner record {
+    count __count?;
+    A_SalesOrderHeaderPartner[] results?;
+};
 
 # Represents the Queries record for the operation: getA_SalesOrderHeaderPartner
 public type GetA_SalesOrderHeaderPartnerQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderHeaderPartnerByKeyExpandOptions \$expand?;
+    A_SalesOrderHeaderPartnerExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderHeaderPartnerByKeySelectOptions \$select?;
+    A_SalesOrderHeaderPartnerSelectOptions \$select?;
 };
 
 public type SalesOrderOfA_SalesOrderHeaderPartnerExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
+
+public type A_SalesOrderBillingPlanWrapper record {
+    A_SalesOrderBillingPlan d?;
+};
+
+public type A_SalesOrderItemPartnerWrapper record {
+    A_SalesOrderItemPartner d?;
+};
 
 public type SalesOrderItemOfA_SalesOrderItmSubsqntProcFlowExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
@@ -230,16 +236,8 @@ public type A_SalesOrderItmSubsqntProcFlowSelectOptions ("SalesOrder"|"SalesOrde
 
 public type PricingElementOfA_SalesOrderSelectOptions ("SalesOrder"|"PricingProcedureStep"|"PricingProcedureCounter"|"ConditionType"|"PricingDateTime"|"PriceConditionDeterminationDte"|"ConditionCalculationType"|"ConditionBaseValue"|"ConditionRateValue"|"ConditionCurrency"|"ConditionQuantity"|"ConditionQuantityUnit"|"ConditionQuantitySAPUnit"|"ConditionQuantityISOUnit"|"ConditionCategory"|"ConditionIsForStatistics"|"PricingScaleType"|"ConditionOrigin"|"IsGroupCondition"|"ConditionRecord"|"ConditionSequentialNumber"|"TaxCode"|"WithholdingTaxCode"|"CndnRoundingOffDiffAmount"|"ConditionAmount"|"TransactionCurrency"|"ConditionControl"|"ConditionInactiveReason"|"ConditionClass"|"PrcgProcedureCounterForHeader"|"FactorForConditionBasisValue"|"StructureCondition"|"PeriodFactorForCndnBasisValue"|"PricingScaleBasis"|"ConditionScaleBasisValue"|"ConditionScaleBasisUnit"|"ConditionScaleBasisCurrency"|"CndnIsRelevantForIntcoBilling"|"ConditionIsManuallyChanged"|"ConditionIsForConfiguration"|"VariantCondition"|"to_SalesOrder")[];
 
-public type Wrapper_19 record {
-    Collection\ of\ A_SalesOrderItemBillingPlanType d?;
-};
-
-public type Wrapper_17 record {
-    Collection\ of\ A_SalesOrderItmSubsqntProcFlowType d?;
-};
-
-public type Wrapper_18 record {
-    Collection\ of\ A_SalesOrderItemTextType d?;
+public type A_SalesOrderItmPrecdgProcFlowWrapper record {
+    A_SalesOrderItmPrecdgProcFlow d?;
 };
 
 public type FunctionResult_2 record {
@@ -250,43 +248,9 @@ public type CreateA_SalesOrder_to_RelatedObject record {
     CreateA_SalesOrderRelatedObject[] results?;
 };
 
-public type Wrapper_15 record {
-    Collection\ of\ A_SalesOrderItemRelatedObjectType d?;
-};
-
 public type SalesOrderOfA_SalesOrderPartnerAddressSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
-public type Wrapper_16 record {
-    Collection\ of\ A_SalesOrderScheduleLineType d?;
-};
-
-public type PartnerOfA_SalesOrderItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"PartnerFunction"|"PartnerFunctionInternalCode"|"Customer"|"Supplier"|"Personnel"|"ContactPerson"|"ReferenceBusinessPartner"|"AddressID"|"VATRegistration"|"to_Address"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
-public type Wrapper_13 record {
-    Collection\ of\ A_SalesOrderItmPrecdgProcFlowType d?;
-};
-
-public type A_SalesOrderItemBillingPlanByKeyExpandOptions ("to_BillingPlanItem"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
-public type Wrapper_14 record {
-    Collection\ of\ A_SalesOrderItemPrElementType d?;
-};
-
-public type Wrapper_11 record {
-    Collection\ of\ A_SalesOrderPartnerAddressType d?;
-};
-
-public type Wrapper_12 record {
-    Collection\ of\ A_SalesOrderItemPartnerType d?;
-};
-
 public type PrecedingProcFlowDocItemOfA_SalesOrderItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"DocRelationshipUUID"|"PrecedingDocument"|"PrecedingDocumentItem"|"PrecedingDocumentCategory"|"ProcessFlowLevel"|"RelatedProcFlowDocStsFieldName"|"SDProcessStatus"|"AccountingTransferStatus"|"PrelimBillingDocumentStatus"|"CreationDate"|"CreationTime"|"LastChangeDate"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
-public type Wrapper_10 record {
-    Collection\ of\ A_SalesOrderBillingPlanItemType d?;
-};
-
-public type A_SalesOrderItemTextOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"Language"|"Language desc"|"LongTextID"|"LongTextID desc")[];
 
 public type CreateA_SalesOrderItmSubsqntProcFlow record {
     # Preceding sales and distribution document
@@ -328,6 +292,8 @@ public type CreateA_SalesOrderItmSubsqntProcFlow record {
     CreateA_SalesOrderItem to_SalesOrderItem?;
 };
 
+public type A_SalesOrderItemTextOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"Language"|"Language desc"|"LongTextID"|"LongTextID desc")[];
+
 public type A_SlsOrderItemBillingPlanItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"BillingPlan"|"BillingPlanItem"|"BillingPlanDateCategory"|"BillingPlanBillingDate"|"BillingPlanAmount"|"TransactionCurrency"|"BillingPlanAmountPercent"|"CustomerPaymentTerms"|"ProposedBillingDocumentType"|"BillingPlanDateDescriptionCode"|"BillingBlockReason"|"BillingPlanServiceStartDate"|"BillingPlanServiceEndDate"|"BillingPlanRelatedBillgStatus"|"BillingPlanType"|"AdoptingBillingDateID"|"BillingPlanBillingRule"|"BillingPlanMilestoneUsage"|"BillgPlnDteCorrectionRfndType"|"AccountingExchangeRate"|"PostponementReason"|"to_BillingPlan"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
 # Represents the Queries record for the operation: listA_SalesOrderItemPartners
@@ -355,7 +321,7 @@ public type A_SalesOrder_to_PrecedingProcFlowDoc record {
 # Represents the Queries record for the operation: getA_SalesOrderScheduleLine
 public type GetA_SalesOrderScheduleLineQueries record {
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderScheduleLineByKeySelectOptions \$select?;
+    A_SalesOrderScheduleLineSelectOptions \$select?;
 };
 
 public type UpdateA_SlsOrdPaymentPlanItemDetails record {
@@ -396,12 +362,10 @@ public type SalesOrderItemOfA_SalesOrderItmPrecdgProcFlowSelectOptions ("SalesOr
 # Represents the Queries record for the operation: getA_SlsOrdPaymentPlanItemDetails
 public type GetA_SlsOrdPaymentPlanItemDetailsQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SlsOrdPaymentPlanItemDetailsByKeyExpandOptions \$expand?;
+    A_SlsOrdPaymentPlanItemDetailsExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SlsOrdPaymentPlanItemDetailsByKeySelectOptions \$select?;
+    A_SlsOrdPaymentPlanItemDetailsSelectOptions \$select?;
 };
-
-public type A_SlsOrdPaymentPlanItemDetailsByKeyExpandOptions ("to_SalesOrder")[];
 
 # Represents the Queries record for the operation: getSalesOrderItemOfA_SalesOrderItemRelatedObject
 public type GetSalesOrderItemOfA_SalesOrderItemRelatedObjectQueries record {
@@ -419,9 +383,8 @@ public type GetSalesOrderOfA_SalesOrderPrecdgProcFlowQueries record {
     SalesOrderOfA_SalesOrderPrecdgProcFlowSelectOptions \$select?;
 };
 
-public type Collection\ of\ A_SalesOrderTextType record {
-    count __count?;
-    A_SalesOrderText[] results?;
+public type CollectionOfA_SalesOrderItemBillingPlanWrapper record {
+    CollectionOfA_SalesOrderItemBillingPlan d?;
 };
 
 public type BillingPlanItemOfA_SalesOrderBillingPlanSelectOptions ("SalesOrder"|"BillingPlan"|"BillingPlanItem"|"BillingPlanDateCategory"|"BillingPlanBillingDate"|"BillingPlanAmount"|"TransactionCurrency"|"BillingPlanAmountPercent"|"CustomerPaymentTerms"|"ProposedBillingDocumentType"|"BillingPlanDateDescriptionCode"|"BillingBlockReason"|"BillingPlanServiceStartDate"|"BillingPlanServiceEndDate"|"BillingPlanRelatedBillgStatus"|"BillingPlanType"|"AdoptingBillingDateID"|"BillingPlanBillingRule"|"BillingPlanMilestoneUsage"|"BillgPlnDteCorrectionRfndType"|"AccountingExchangeRate"|"PostponementReason"|"to_BillingPlan"|"to_SalesOrder")[];
@@ -430,7 +393,10 @@ public type A_SalesOrderHeaderPartner_to_Address record {
     A_SalesOrderPartnerAddress[] results?;
 };
 
-public type RelatedObjectOfA_SalesOrderItemExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
+public type CollectionOfA_SalesOrderRelatedObject record {
+    count __count?;
+    A_SalesOrderRelatedObject[] results?;
+};
 
 # Represents the Queries record for the operation: listScheduleLinesOfA_SalesOrderItem
 public type ListScheduleLinesOfA_SalesOrderItemQueries record {
@@ -449,11 +415,6 @@ public type ListScheduleLinesOfA_SalesOrderItemQueries record {
 };
 
 public type A_SlsOrderItemBillingPlanItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"BillingPlan"|"BillingPlan desc"|"BillingPlanItem"|"BillingPlanItem desc"|"BillingPlanDateCategory"|"BillingPlanDateCategory desc"|"BillingPlanBillingDate"|"BillingPlanBillingDate desc"|"BillingPlanAmount"|"BillingPlanAmount desc"|"TransactionCurrency"|"TransactionCurrency desc"|"BillingPlanAmountPercent"|"BillingPlanAmountPercent desc"|"CustomerPaymentTerms"|"CustomerPaymentTerms desc"|"ProposedBillingDocumentType"|"ProposedBillingDocumentType desc"|"BillingPlanDateDescriptionCode"|"BillingPlanDateDescriptionCode desc"|"BillingBlockReason"|"BillingBlockReason desc"|"BillingPlanServiceStartDate"|"BillingPlanServiceStartDate desc"|"BillingPlanServiceEndDate"|"BillingPlanServiceEndDate desc"|"BillingPlanRelatedBillgStatus"|"BillingPlanRelatedBillgStatus desc"|"BillingPlanType"|"BillingPlanType desc"|"AdoptingBillingDateID"|"AdoptingBillingDateID desc"|"BillingPlanBillingRule"|"BillingPlanBillingRule desc"|"BillingPlanMilestoneUsage"|"BillingPlanMilestoneUsage desc"|"BillgPlnDteCorrectionRfndType"|"BillgPlnDteCorrectionRfndType desc"|"AccountingExchangeRate"|"AccountingExchangeRate desc"|"PostponementReason"|"PostponementReason desc")[];
-
-public type Collection\ of\ A_SalesOrderRelatedObjectType record {
-    count __count?;
-    A_SalesOrderRelatedObject[] results?;
-};
 
 public type A_SalesOrderBillingPlan record {
     @constraint:String {maxLength: 10}
@@ -509,14 +470,7 @@ public type ListA_SlsOrdPaymentPlanItemDetailsQueries record {
     A_SlsOrdPaymentPlanItemDetailsSelectOptions \$select?;
 };
 
-public type Collection\ of\ A_SalesOrderScheduleLineType record {
-    count __count?;
-    A_SalesOrderScheduleLine[] results?;
-};
-
 public type SalesOrderOfA_SalesOrderRelatedObjectExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
-
-public type RelatedObjectOfA_SalesOrderSelectOptions ("SalesOrder"|"SDDocRelatedObjectSequenceNmbr"|"SDDocumentRelatedObjectType"|"SDDocRelatedObjectSystem"|"SDDocRelatedObjectReference1"|"SDDocRelatedObjectReference2"|"to_SalesOrder")[];
 
 # Represents the Queries record for the operation: getSalesOrderOfA_SalesOrderText
 public type GetSalesOrderOfA_SalesOrderTextQueries record {
@@ -562,10 +516,6 @@ public type CreateA_SalesOrderItem_to_PrecedingProcFlowDocItem record {
     CreateA_SalesOrderItmPrecdgProcFlow[] results?;
 };
 
-public type A_SlsOrdPaymentPlanItemDetailsType record {
-    A_SlsOrdPaymentPlanItemDetails d?;
-};
-
 # Represents the Queries record for the operation: listA_SalesOrderBillingPlans
 public type ListA_SalesOrderBillingPlansQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
@@ -598,19 +548,13 @@ public type ClientHttp1Settings record {|
 
 public type A_SalesOrderPrecdgProcFlowExpandOptions ("to_SalesOrder")[];
 
-public type A_SalesOrderSubsqntProcFlowByKeyExpandOptions ("to_SalesOrder")[];
-
 # Represents the Queries record for the operation: getA_SalesOrderBillingPlan
 public type GetA_SalesOrderBillingPlanQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderBillingPlanByKeyExpandOptions \$expand?;
+    A_SalesOrderBillingPlanExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderBillingPlanByKeySelectOptions \$select?;
+    A_SalesOrderBillingPlanSelectOptions \$select?;
 };
-
-public type A_SlsOrderItemBillingPlanItemByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"BillingPlan"|"BillingPlanItem"|"BillingPlanDateCategory"|"BillingPlanBillingDate"|"BillingPlanAmount"|"TransactionCurrency"|"BillingPlanAmountPercent"|"CustomerPaymentTerms"|"ProposedBillingDocumentType"|"BillingPlanDateDescriptionCode"|"BillingBlockReason"|"BillingPlanServiceStartDate"|"BillingPlanServiceEndDate"|"BillingPlanRelatedBillgStatus"|"BillingPlanType"|"AdoptingBillingDateID"|"BillingPlanBillingRule"|"BillingPlanMilestoneUsage"|"BillgPlnDteCorrectionRfndType"|"AccountingExchangeRate"|"PostponementReason"|"to_BillingPlan"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
-public type A_SalesOrderItemPartnerAddressByKeyExpandOptions ("to_Partner"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
 public type A_SalesOrderBillingPlanSelectOptions ("SalesOrder"|"BillingPlan"|"BillingPlanStartDate"|"BillingPlanStartDateRule"|"ReferenceBillingPlan"|"BillingPlanCategory"|"BillingPlanType"|"BillingPlanEndDate"|"BillingPlanEndDateRule"|"BillingPlanSearchTerm"|"to_BillingPlanItem"|"to_SalesOrder")[];
 
@@ -621,9 +565,9 @@ public type CreateA_SalesOrder_to_SubsequentProcFlowDoc record {
 # Represents the Queries record for the operation: getA_SalesOrderPrecdgProcFlow
 public type GetA_SalesOrderPrecdgProcFlowQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderPrecdgProcFlowByKeyExpandOptions \$expand?;
+    A_SalesOrderPrecdgProcFlowExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderPrecdgProcFlowByKeySelectOptions \$select?;
+    A_SalesOrderPrecdgProcFlowSelectOptions \$select?;
 };
 
 # Represents the Queries record for the operation: listA_SlsOrderItemBillingPlanItems
@@ -644,12 +588,16 @@ public type ListA_SlsOrderItemBillingPlanItemsQueries record {
     A_SlsOrderItemBillingPlanItemSelectOptions \$select?;
 };
 
+public type CollectionOfA_SalesOrderPrecdgProcFlowWrapper record {
+    CollectionOfA_SalesOrderPrecdgProcFlow d?;
+};
+
 # Represents the Queries record for the operation: getA_SalesOrderItem
 public type GetA_SalesOrderItemQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderItemByKeyExpandOptions \$expand?;
+    A_SalesOrderItemExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderItemByKeySelectOptions \$select?;
+    A_SalesOrderItemSelectOptions \$select?;
 };
 
 # Represents the Queries record for the operation: getSalesOrderOfA_SlsOrderItemBillingPlanItem
@@ -793,10 +741,6 @@ public type A_SalesOrderItem_to_Partner record {
     A_SalesOrderItemPartner[] results?;
 };
 
-public type A_SalesOrderType record {
-    A_SalesOrder d?;
-};
-
 public type PartnerOfA_SalesOrderPartnerAddressSelectOptions ("SalesOrder"|"PartnerFunction"|"PartnerFunctionInternalCode"|"Customer"|"Supplier"|"Personnel"|"ContactPerson"|"ReferenceBusinessPartner"|"AddressID"|"VATRegistration"|"to_Address"|"to_SalesOrder")[];
 
 # Represents the Queries record for the operation: getSalesOrderOfA_SalesOrderItemText
@@ -809,9 +753,8 @@ public type GetSalesOrderOfA_SalesOrderItemTextQueries record {
 
 public type A_SalesOrderTextOrderByOptions ("SalesOrder"|"SalesOrder desc"|"Language"|"Language desc"|"LongTextID"|"LongTextID desc")[];
 
-public type Collection\ of\ A_SalesOrderItemType record {
-    count __count?;
-    A_SalesOrderItem[] results?;
+public type CollectionOfA_SalesOrderPartnerAddressWrapper record {
+    CollectionOfA_SalesOrderPartnerAddress d?;
 };
 
 # Represents the Queries record for the operation: getSalesOrderOfA_SalesOrderItmPrecdgProcFlow
@@ -832,22 +775,17 @@ public type SalesOrderOfA_SlsOrdPaymentPlanItemDetailsExpandOptions ("to_Billing
 # Represents the Queries record for the operation: getA_SalesOrderBillingPlanItem
 public type GetA_SalesOrderBillingPlanItemQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderBillingPlanItemByKeyExpandOptions \$expand?;
+    A_SalesOrderBillingPlanItemExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderBillingPlanItemByKeySelectOptions \$select?;
-};
-
-public type Collection\ of\ A_SalesOrderItemTextType record {
-    count __count?;
-    A_SalesOrderItemText[] results?;
+    A_SalesOrderBillingPlanItemSelectOptions \$select?;
 };
 
 # Represents the Queries record for the operation: getA_SalesOrderItemPartner
 public type GetA_SalesOrderItemPartnerQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderItemPartnerByKeyExpandOptions \$expand?;
+    A_SalesOrderItemPartnerExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderItemPartnerByKeySelectOptions \$select?;
+    A_SalesOrderItemPartnerSelectOptions \$select?;
 };
 
 public type A_SalesOrderItem_to_RelatedObject record {
@@ -872,8 +810,6 @@ public type ListA_SalesOrderBillingPlanItemsQueries record {
     A_SalesOrderBillingPlanItemSelectOptions \$select?;
 };
 
-public type A_SalesOrderHeaderPrElementByKeyExpandOptions ("to_SalesOrder")[];
-
 # Represents the Queries record for the operation: listA_SalesOrderSubsqntProcFlows
 public type ListA_SalesOrderSubsqntProcFlowsQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
@@ -890,17 +826,6 @@ public type ListA_SalesOrderSubsqntProcFlowsQueries record {
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     A_SalesOrderSubsqntProcFlowSelectOptions \$select?;
-};
-
-public type A_SalesOrderRelatedObjectByKeySelectOptions ("SalesOrder"|"SDDocRelatedObjectSequenceNmbr"|"SDDocumentRelatedObjectType"|"SDDocRelatedObjectSystem"|"SDDocRelatedObjectReference1"|"SDDocRelatedObjectReference2"|"to_SalesOrder")[];
-
-public type Collection\ of\ A_SalesOrderPrecdgProcFlowType record {
-    count __count?;
-    A_SalesOrderPrecdgProcFlow[] results?;
-};
-
-public type A_SalesOrderTextType record {
-    A_SalesOrderText d?;
 };
 
 # Represents the Queries record for the operation: listPaymentPlanItemDetailsOfA_SalesOrder
@@ -926,21 +851,17 @@ public type A_SalesOrderItemPartnerAddressOrderByOptions ("SalesOrder"|"SalesOrd
 # Represents the Queries record for the operation: getA_SalesOrderPartnerAddress
 public type GetA_SalesOrderPartnerAddressQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderPartnerAddressByKeyExpandOptions \$expand?;
+    A_SalesOrderPartnerAddressExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderPartnerAddressByKeySelectOptions \$select?;
-};
-
-public type A_SalesOrderItemBillingPlanType record {
-    A_SalesOrderItemBillingPlan d?;
+    A_SalesOrderPartnerAddressSelectOptions \$select?;
 };
 
 # Represents the Queries record for the operation: getA_SalesOrderHeaderPrElement
 public type GetA_SalesOrderHeaderPrElementQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderHeaderPrElementByKeyExpandOptions \$expand?;
+    A_SalesOrderHeaderPrElementExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderHeaderPrElementByKeySelectOptions \$select?;
+    A_SalesOrderHeaderPrElementSelectOptions \$select?;
 };
 
 # Represents the Queries record for the operation: listPricingElementsOfA_SalesOrderItem
@@ -995,11 +916,13 @@ public type A_SalesOrderItmPrecdgProcFlow record {
     A_SalesOrderItem to_SalesOrderItem?;
 };
 
-public type TextOfA_SalesOrderItemExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
-
 public type SalesOrderItemOfA_SalesOrderItemPartnerAddressExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
 public type PricingElementOfA_SalesOrderItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"PricingProcedureStep"|"PricingProcedureStep desc"|"PricingProcedureCounter"|"PricingProcedureCounter desc"|"ConditionType"|"ConditionType desc"|"PricingDateTime"|"PricingDateTime desc"|"PriceConditionDeterminationDte"|"PriceConditionDeterminationDte desc"|"ConditionCalculationType"|"ConditionCalculationType desc"|"ConditionBaseValue"|"ConditionBaseValue desc"|"ConditionRateValue"|"ConditionRateValue desc"|"ConditionCurrency"|"ConditionCurrency desc"|"ConditionQuantity"|"ConditionQuantity desc"|"ConditionQuantityUnit"|"ConditionQuantityUnit desc"|"ConditionQuantitySAPUnit"|"ConditionQuantitySAPUnit desc"|"ConditionQuantityISOUnit"|"ConditionQuantityISOUnit desc"|"ConditionCategory"|"ConditionCategory desc"|"ConditionIsForStatistics"|"ConditionIsForStatistics desc"|"PricingScaleType"|"PricingScaleType desc"|"IsRelevantForAccrual"|"IsRelevantForAccrual desc"|"CndnIsRelevantForInvoiceList"|"CndnIsRelevantForInvoiceList desc"|"ConditionOrigin"|"ConditionOrigin desc"|"IsGroupCondition"|"IsGroupCondition desc"|"ConditionRecord"|"ConditionRecord desc"|"ConditionSequentialNumber"|"ConditionSequentialNumber desc"|"TaxCode"|"TaxCode desc"|"WithholdingTaxCode"|"WithholdingTaxCode desc"|"CndnRoundingOffDiffAmount"|"CndnRoundingOffDiffAmount desc"|"ConditionAmount"|"ConditionAmount desc"|"TransactionCurrency"|"TransactionCurrency desc"|"ConditionControl"|"ConditionControl desc"|"ConditionInactiveReason"|"ConditionInactiveReason desc"|"ConditionClass"|"ConditionClass desc"|"PrcgProcedureCounterForHeader"|"PrcgProcedureCounterForHeader desc"|"FactorForConditionBasisValue"|"FactorForConditionBasisValue desc"|"StructureCondition"|"StructureCondition desc"|"PeriodFactorForCndnBasisValue"|"PeriodFactorForCndnBasisValue desc"|"PricingScaleBasis"|"PricingScaleBasis desc"|"ConditionScaleBasisValue"|"ConditionScaleBasisValue desc"|"ConditionScaleBasisUnit"|"ConditionScaleBasisUnit desc"|"ConditionScaleBasisCurrency"|"ConditionScaleBasisCurrency desc"|"CndnIsRelevantForIntcoBilling"|"CndnIsRelevantForIntcoBilling desc"|"ConditionIsManuallyChanged"|"ConditionIsManuallyChanged desc"|"ConditionIsForConfiguration"|"ConditionIsForConfiguration desc"|"VariantCondition"|"VariantCondition desc")[];
+
+public type A_SalesOrderHeaderPartnerWrapper record {
+    A_SalesOrderHeaderPartner d?;
+};
 
 public type A_SalesOrderItemRelatedObject record {
     @constraint:String {maxLength: 10}
@@ -1041,6 +964,10 @@ public type GetSalesOrderOfA_SalesOrderPartnerAddressQueries record {
     SalesOrderOfA_SalesOrderPartnerAddressSelectOptions \$select?;
 };
 
+public type A_SalesOrderItemRelatedObjectWrapper record {
+    A_SalesOrderItemRelatedObject d?;
+};
+
 public type SalesOrderOfA_SalesOrderBillingPlanSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
 # Represents the Queries record for the operation: getSalesOrderOfA_SalesOrderItem
@@ -1051,23 +978,20 @@ public type GetSalesOrderOfA_SalesOrderItemQueries record {
     SalesOrderOfA_SalesOrderItemSelectOptions \$select?;
 };
 
-public type A_SalesOrderBillingPlanItemType record {
-    A_SalesOrderBillingPlanItem d?;
-};
-
 public type A_SalesOrderBillingPlanItemExpandOptions ("to_BillingPlan"|"to_SalesOrder")[];
 
-public type Wrapper_20 record {
-    Collection\ of\ A_SlsOrderItemBillingPlanItemType d?;
-};
-
-public type Wrapper_21 record {
-    Collection\ of\ A_SalesOrderItemPartnerAddressType d?;
-};
-
-public type Collection\ of\ A_SalesOrderType record {
+public type CollectionOfA_SalesOrderItemRelatedObject record {
     count __count?;
-    A_SalesOrder[] results?;
+    A_SalesOrderItemRelatedObject[] results?;
+};
+
+public type CollectionOfA_SalesOrderItemBillingPlan record {
+    count __count?;
+    A_SalesOrderItemBillingPlan[] results?;
+};
+
+public type A_SalesOrderItemWrapper record {
+    A_SalesOrderItem d?;
 };
 
 # OAuth2 Refresh Token Grant Configs
@@ -1076,11 +1000,6 @@ public type OAuth2RefreshTokenGrantConfig record {|
     # Refresh URL
     string refreshUrl = "https://{host}:{port}";
 |};
-
-public type Collection\ of\ A_SalesOrderItemRelatedObjectType record {
-    count __count?;
-    A_SalesOrderItemRelatedObject[] results?;
-};
 
 public type CreateA_SalesOrder_to_PaymentPlanItemDetails record {
     CreateA_SlsOrdPaymentPlanItemDetails[] results?;
@@ -1210,9 +1129,11 @@ public type UpdateA_SalesOrderItem record {
     string? ReferenceSDDocumentItem?;
 };
 
-public type SalesOrderOfA_SalesOrderItemExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
+public type CollectionOfA_SalesOrderWrapper record {
+    CollectionOfA_SalesOrder d?;
+};
 
-public type AddressOfA_SalesOrderItemPartnerSelectOptions ("SalesOrder"|"SalesOrderItem"|"PartnerFunction"|"AddressRepresentationCode"|"CorrespondenceLanguage"|"AddresseeFullName"|"OrganizationName1"|"OrganizationName2"|"OrganizationName3"|"OrganizationName4"|"CityName"|"DistrictName"|"PostalCode"|"StreetName"|"StreetPrefixName1"|"StreetPrefixName2"|"StreetSuffixName1"|"StreetSuffixName2"|"HouseNumber"|"Country"|"Region"|"FormOfAddress"|"TaxJurisdiction"|"TransportZone"|"POBox"|"POBoxPostalCode"|"EmailAddress"|"MobilePhoneCountry"|"MobileNumber"|"PhoneNumberCountry"|"PhoneNumber"|"PhoneExtensionNumber"|"FaxNumberCountry"|"FaxAreaCodeSubscriberNumber"|"FaxExtensionNumber"|"to_Partner"|"to_SalesOrder"|"to_SalesOrderItem")[];
+public type SalesOrderOfA_SalesOrderItemExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
 public type A_SalesOrderItem record {
     @constraint:String {maxLength: 10}
@@ -1406,8 +1327,6 @@ public type GetSalesOrderOfA_SalesOrderHeaderPrElementQueries record {
     SalesOrderOfA_SalesOrderHeaderPrElementSelectOptions \$select?;
 };
 
-public type TextOfA_SalesOrderItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"Language"|"Language desc"|"LongTextID"|"LongTextID desc")[];
-
 public type PrecedingProcFlowDocItemOfA_SalesOrderItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"DocRelationshipUUID"|"DocRelationshipUUID desc"|"PrecedingDocument"|"PrecedingDocument desc"|"PrecedingDocumentItem"|"PrecedingDocumentItem desc"|"PrecedingDocumentCategory"|"PrecedingDocumentCategory desc"|"ProcessFlowLevel"|"ProcessFlowLevel desc"|"CreationDate"|"CreationDate desc"|"CreationTime"|"CreationTime desc"|"LastChangeDate"|"LastChangeDate desc")[];
 
 # Represents the Queries record for the operation: getSalesOrderItemOfA_SlsOrderItemBillingPlanItem
@@ -1450,9 +1369,9 @@ public type SalesOrderOfA_SalesOrderItemTextSelectOptions ("SalesOrder"|"SalesOr
 # Represents the Queries record for the operation: getA_SalesOrderItmSubsqntProcFlow
 public type GetA_SalesOrderItmSubsqntProcFlowQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderItmSubsqntProcFlowByKeyExpandOptions \$expand?;
+    A_SalesOrderItmSubsqntProcFlowExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderItmSubsqntProcFlowByKeySelectOptions \$select?;
+    A_SalesOrderItmSubsqntProcFlowSelectOptions \$select?;
 };
 
 public type SalesOrderOfA_SalesOrderItmPrecdgProcFlowSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
@@ -1466,13 +1385,13 @@ public type ListRelatedObjectsOfA_SalesOrderItemQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
     string \$filter?;
     # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    RelatedObjectOfA_SalesOrderItemOrderByOptions \$orderby?;
+    A_SalesOrderItemRelatedObjectOrderByOptions \$orderby?;
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    RelatedObjectOfA_SalesOrderItemExpandOptions \$expand?;
+    A_SalesOrderItemRelatedObjectExpandOptions \$expand?;
     # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    RelatedObjectOfA_SalesOrderItemSelectOptions \$select?;
+    A_SalesOrderItemRelatedObjectSelectOptions \$select?;
 };
 
 public type A_SalesOrderItemPartnerAddress record {
@@ -1538,8 +1457,6 @@ public type A_SalesOrderItemPartnerAddress record {
     A_SalesOrderItem to_SalesOrderItem?;
 };
 
-public type ItemOfA_SalesOrderOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"HigherLevelItem"|"HigherLevelItem desc"|"HigherLevelItemUsage"|"HigherLevelItemUsage desc"|"SalesOrderItemCategory"|"SalesOrderItemCategory desc"|"SalesOrderItemText"|"SalesOrderItemText desc"|"PurchaseOrderByCustomer"|"PurchaseOrderByCustomer desc"|"PurchaseOrderByShipToParty"|"PurchaseOrderByShipToParty desc"|"UnderlyingPurchaseOrderItem"|"UnderlyingPurchaseOrderItem desc"|"ExternalItemID"|"ExternalItemID desc"|"Material"|"Material desc"|"MaterialByCustomer"|"MaterialByCustomer desc"|"PricingDate"|"PricingDate desc"|"PricingReferenceMaterial"|"PricingReferenceMaterial desc"|"BillingPlan"|"BillingPlan desc"|"RequestedQuantity"|"RequestedQuantity desc"|"RequestedQuantityUnit"|"RequestedQuantityUnit desc"|"RequestedQuantitySAPUnit"|"RequestedQuantitySAPUnit desc"|"RequestedQuantityISOUnit"|"RequestedQuantityISOUnit desc"|"OrderQuantityUnit"|"OrderQuantityUnit desc"|"OrderQuantitySAPUnit"|"OrderQuantitySAPUnit desc"|"OrderQuantityISOUnit"|"OrderQuantityISOUnit desc"|"ConfdDelivQtyInOrderQtyUnit"|"ConfdDelivQtyInOrderQtyUnit desc"|"ItemGrossWeight"|"ItemGrossWeight desc"|"ItemNetWeight"|"ItemNetWeight desc"|"ItemWeightUnit"|"ItemWeightUnit desc"|"ItemWeightSAPUnit"|"ItemWeightSAPUnit desc"|"ItemWeightISOUnit"|"ItemWeightISOUnit desc"|"ItemVolume"|"ItemVolume desc"|"ItemVolumeUnit"|"ItemVolumeUnit desc"|"ItemVolumeSAPUnit"|"ItemVolumeSAPUnit desc"|"ItemVolumeISOUnit"|"ItemVolumeISOUnit desc"|"TransactionCurrency"|"TransactionCurrency desc"|"NetAmount"|"NetAmount desc"|"TotalSDDocReferenceStatus"|"TotalSDDocReferenceStatus desc"|"SDDocReferenceStatus"|"SDDocReferenceStatus desc"|"MaterialSubstitutionReason"|"MaterialSubstitutionReason desc"|"MaterialGroup"|"MaterialGroup desc"|"MaterialPricingGroup"|"MaterialPricingGroup desc"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup1 desc"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup2 desc"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup3 desc"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup4 desc"|"AdditionalMaterialGroup5"|"AdditionalMaterialGroup5 desc"|"BillingDocumentDate"|"BillingDocumentDate desc"|"ContractAccount"|"ContractAccount desc"|"AdditionalValueDays"|"AdditionalValueDays desc"|"ServicesRenderedDate"|"ServicesRenderedDate desc"|"Batch"|"Batch desc"|"ProductionPlant"|"ProductionPlant desc"|"OriginalPlant"|"OriginalPlant desc"|"AltvBsdConfSubstitutionStatus"|"AltvBsdConfSubstitutionStatus desc"|"StorageLocation"|"StorageLocation desc"|"DeliveryGroup"|"DeliveryGroup desc"|"ShippingPoint"|"ShippingPoint desc"|"ShippingType"|"ShippingType desc"|"DeliveryPriority"|"DeliveryPriority desc"|"DeliveryDateQuantityIsFixed"|"DeliveryDateQuantityIsFixed desc"|"DeliveryDateTypeRule"|"DeliveryDateTypeRule desc"|"IncotermsClassification"|"IncotermsClassification desc"|"IncotermsTransferLocation"|"IncotermsTransferLocation desc"|"IncotermsLocation1"|"IncotermsLocation1 desc"|"IncotermsLocation2"|"IncotermsLocation2 desc"|"TaxAmount"|"TaxAmount desc"|"ProductTaxClassification1"|"ProductTaxClassification1 desc"|"ProductTaxClassification2"|"ProductTaxClassification2 desc"|"ProductTaxClassification3"|"ProductTaxClassification3 desc"|"ProductTaxClassification4"|"ProductTaxClassification4 desc"|"ProductTaxClassification5"|"ProductTaxClassification5 desc"|"ProductTaxClassification6"|"ProductTaxClassification6 desc"|"ProductTaxClassification7"|"ProductTaxClassification7 desc"|"ProductTaxClassification8"|"ProductTaxClassification8 desc"|"ProductTaxClassification9"|"ProductTaxClassification9 desc"|"MatlAccountAssignmentGroup"|"MatlAccountAssignmentGroup desc"|"CostAmount"|"CostAmount desc"|"CustomerPaymentTerms"|"CustomerPaymentTerms desc"|"FixedValueDate"|"FixedValueDate desc"|"CustomerGroup"|"CustomerGroup desc"|"SalesDocumentRjcnReason"|"SalesDocumentRjcnReason desc"|"ItemBillingBlockReason"|"ItemBillingBlockReason desc"|"SlsDocIsRlvtForProofOfDeliv"|"SlsDocIsRlvtForProofOfDeliv desc"|"WBSElement"|"WBSElement desc"|"ProfitCenter"|"ProfitCenter desc"|"AccountingExchangeRate"|"AccountingExchangeRate desc"|"ReferenceSDDocument"|"ReferenceSDDocument desc"|"ReferenceSDDocumentItem"|"ReferenceSDDocumentItem desc"|"SDProcessStatus"|"SDProcessStatus desc"|"DeliveryStatus"|"DeliveryStatus desc"|"OrderRelatedBillingStatus"|"OrderRelatedBillingStatus desc"|"Subtotal1Amount"|"Subtotal1Amount desc"|"Subtotal2Amount"|"Subtotal2Amount desc"|"Subtotal3Amount"|"Subtotal3Amount desc"|"Subtotal4Amount"|"Subtotal4Amount desc"|"Subtotal5Amount"|"Subtotal5Amount desc"|"Subtotal6Amount"|"Subtotal6Amount desc")[];
-
 public type A_SalesOrder_to_PricingElement record {
     A_SalesOrderHeaderPrElement[] results?;
 };
@@ -1548,9 +1465,9 @@ public type CreateA_SalesOrderItem_to_ScheduleLine record {
     CreateA_SalesOrderScheduleLine[] results?;
 };
 
-public type SalesOrderItemOfA_SalesOrderItemTextExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
-
 public type A_SalesOrderHeaderPartnerSelectOptions ("SalesOrder"|"PartnerFunction"|"PartnerFunctionInternalCode"|"Customer"|"Supplier"|"Personnel"|"ContactPerson"|"ReferenceBusinessPartner"|"AddressID"|"VATRegistration"|"to_Address"|"to_SalesOrder")[];
+
+public type SalesOrderItemOfA_SalesOrderItemTextExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
 public type UpdateA_SalesOrderBillingPlanItem record {
     string? BillingPlanDateCategory?;
@@ -1568,15 +1485,11 @@ public type UpdateA_SalesOrderBillingPlanItem record {
     string? BillingBlockReason?;
 };
 
-public type ItemOfA_SalesOrderExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
-
 public type Modified\ A_SalesOrderTextType record {
     UpdateA_SalesOrderText d?;
 };
 
 public type BillingPlanItemOfA_SalesOrderBillingPlanOrderByOptions ("SalesOrder"|"SalesOrder desc"|"BillingPlan"|"BillingPlan desc"|"BillingPlanItem"|"BillingPlanItem desc"|"BillingPlanDateCategory"|"BillingPlanDateCategory desc"|"BillingPlanBillingDate"|"BillingPlanBillingDate desc"|"BillingPlanAmount"|"BillingPlanAmount desc"|"TransactionCurrency"|"TransactionCurrency desc"|"BillingPlanAmountPercent"|"BillingPlanAmountPercent desc"|"CustomerPaymentTerms"|"CustomerPaymentTerms desc"|"ProposedBillingDocumentType"|"ProposedBillingDocumentType desc"|"BillingPlanDateDescriptionCode"|"BillingPlanDateDescriptionCode desc"|"BillingBlockReason"|"BillingBlockReason desc"|"BillingPlanServiceStartDate"|"BillingPlanServiceStartDate desc"|"BillingPlanServiceEndDate"|"BillingPlanServiceEndDate desc"|"BillingPlanRelatedBillgStatus"|"BillingPlanRelatedBillgStatus desc"|"BillingPlanType"|"BillingPlanType desc"|"AdoptingBillingDateID"|"AdoptingBillingDateID desc"|"BillingPlanBillingRule"|"BillingPlanBillingRule desc"|"BillingPlanMilestoneUsage"|"BillingPlanMilestoneUsage desc"|"BillgPlnDteCorrectionRfndType"|"BillgPlnDteCorrectionRfndType desc"|"AccountingExchangeRate"|"AccountingExchangeRate desc"|"PostponementReason"|"PostponementReason desc")[];
-
-public type BillingPlanOfA_SalesOrderItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"BillingPlan"|"BillingPlanIsInHeader"|"BillingPlanStartDate"|"BillingPlanStartDateRule"|"ReferenceBillingPlan"|"BillingPlanCategory"|"BillingPlanType"|"BillingPlanEndDate"|"BillingPlanEndDateRule"|"BillingPlanSearchTerm"|"to_BillingPlanItem"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
 public type A_SalesOrderItmSubsqntProcFlow record {
     # Preceding sales and distribution document
@@ -1630,8 +1543,6 @@ public type GetSalesOrderOfA_SalesOrderBillingPlanQueries record {
 
 public type A_SalesOrderExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
-public type TextOfA_SalesOrderItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"Language"|"LongTextID"|"LongText"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
 public type A_SalesOrderTextExpandOptions ("to_SalesOrder")[];
 
 public type A_SalesOrderItemExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
@@ -1672,18 +1583,15 @@ public type ListA_SalesOrderScheduleLinesQueries record {
     A_SalesOrderScheduleLineSelectOptions \$select?;
 };
 
-public type PartnerOfA_SalesOrderItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"PartnerFunction"|"PartnerFunction desc"|"PartnerFunctionInternalCode"|"PartnerFunctionInternalCode desc"|"Customer"|"Customer desc"|"Supplier"|"Supplier desc"|"Personnel"|"Personnel desc"|"ContactPerson"|"ContactPerson desc"|"ReferenceBusinessPartner"|"ReferenceBusinessPartner desc"|"AddressID"|"AddressID desc"|"VATRegistration"|"VATRegistration desc")[];
-
 public type A_SalesOrderScheduleLineSelectOptions ("SalesOrder"|"SalesOrderItem"|"ScheduleLine"|"RequestedDeliveryDate"|"ConfirmedDeliveryDate"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ScheduleLineOrderQuantity"|"ConfdOrderQtyByMatlAvailCheck"|"DeliveredQtyInOrderQtyUnit"|"OpenConfdDelivQtyInOrdQtyUnit"|"CorrectedQtyInOrderQtyUnit"|"DelivBlockReasonForSchedLine")[];
 
 public type SalesOrderItemOfA_SalesOrderItemBillingPlanSelectOptions ("SalesOrder"|"SalesOrderItem"|"HigherLevelItem"|"HigherLevelItemUsage"|"SalesOrderItemCategory"|"SalesOrderItemText"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"UnderlyingPurchaseOrderItem"|"ExternalItemID"|"Material"|"MaterialByCustomer"|"PricingDate"|"PricingReferenceMaterial"|"BillingPlan"|"RequestedQuantity"|"RequestedQuantityUnit"|"RequestedQuantitySAPUnit"|"RequestedQuantityISOUnit"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ConfdDelivQtyInOrderQtyUnit"|"ItemGrossWeight"|"ItemNetWeight"|"ItemWeightUnit"|"ItemWeightSAPUnit"|"ItemWeightISOUnit"|"ItemVolume"|"ItemVolumeUnit"|"ItemVolumeSAPUnit"|"ItemVolumeISOUnit"|"TransactionCurrency"|"NetAmount"|"TotalSDDocReferenceStatus"|"SDDocReferenceStatus"|"MaterialSubstitutionReason"|"MaterialGroup"|"MaterialPricingGroup"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"ServicesRenderedDate"|"Batch"|"ProductionPlant"|"OriginalPlant"|"AltvBsdConfSubstitutionStatus"|"StorageLocation"|"DeliveryGroup"|"ShippingPoint"|"ShippingType"|"DeliveryPriority"|"DeliveryDateQuantityIsFixed"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"TaxAmount"|"ProductTaxClassification1"|"ProductTaxClassification2"|"ProductTaxClassification3"|"ProductTaxClassification4"|"ProductTaxClassification5"|"ProductTaxClassification6"|"ProductTaxClassification7"|"ProductTaxClassification8"|"ProductTaxClassification9"|"MatlAccountAssignmentGroup"|"CostAmount"|"CustomerPaymentTerms"|"FixedValueDate"|"CustomerGroup"|"SalesDocumentRjcnReason"|"ItemBillingBlockReason"|"SlsDocIsRlvtForProofOfDeliv"|"WBSElement"|"ProfitCenter"|"AccountingExchangeRate"|"ReferenceSDDocument"|"ReferenceSDDocumentItem"|"SDProcessStatus"|"DeliveryStatus"|"OrderRelatedBillingStatus"|"Subtotal1Amount"|"Subtotal2Amount"|"Subtotal3Amount"|"Subtotal4Amount"|"Subtotal5Amount"|"Subtotal6Amount"|"to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
-public type SalesOrderItemOfA_SalesOrderItemRelatedObjectSelectOptions ("SalesOrder"|"SalesOrderItem"|"HigherLevelItem"|"HigherLevelItemUsage"|"SalesOrderItemCategory"|"SalesOrderItemText"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"UnderlyingPurchaseOrderItem"|"ExternalItemID"|"Material"|"MaterialByCustomer"|"PricingDate"|"PricingReferenceMaterial"|"BillingPlan"|"RequestedQuantity"|"RequestedQuantityUnit"|"RequestedQuantitySAPUnit"|"RequestedQuantityISOUnit"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ConfdDelivQtyInOrderQtyUnit"|"ItemGrossWeight"|"ItemNetWeight"|"ItemWeightUnit"|"ItemWeightSAPUnit"|"ItemWeightISOUnit"|"ItemVolume"|"ItemVolumeUnit"|"ItemVolumeSAPUnit"|"ItemVolumeISOUnit"|"TransactionCurrency"|"NetAmount"|"TotalSDDocReferenceStatus"|"SDDocReferenceStatus"|"MaterialSubstitutionReason"|"MaterialGroup"|"MaterialPricingGroup"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"ServicesRenderedDate"|"Batch"|"ProductionPlant"|"OriginalPlant"|"AltvBsdConfSubstitutionStatus"|"StorageLocation"|"DeliveryGroup"|"ShippingPoint"|"ShippingType"|"DeliveryPriority"|"DeliveryDateQuantityIsFixed"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"TaxAmount"|"ProductTaxClassification1"|"ProductTaxClassification2"|"ProductTaxClassification3"|"ProductTaxClassification4"|"ProductTaxClassification5"|"ProductTaxClassification6"|"ProductTaxClassification7"|"ProductTaxClassification8"|"ProductTaxClassification9"|"MatlAccountAssignmentGroup"|"CostAmount"|"CustomerPaymentTerms"|"FixedValueDate"|"CustomerGroup"|"SalesDocumentRjcnReason"|"ItemBillingBlockReason"|"SlsDocIsRlvtForProofOfDeliv"|"WBSElement"|"ProfitCenter"|"AccountingExchangeRate"|"ReferenceSDDocument"|"ReferenceSDDocumentItem"|"SDProcessStatus"|"DeliveryStatus"|"OrderRelatedBillingStatus"|"Subtotal1Amount"|"Subtotal2Amount"|"Subtotal3Amount"|"Subtotal4Amount"|"Subtotal5Amount"|"Subtotal6Amount"|"to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
-
-public type Collection\ of\ A_SalesOrderHeaderPrElementType record {
-    count __count?;
-    A_SalesOrderHeaderPrElement[] results?;
+public type CollectionOfA_SalesOrderScheduleLineWrapper record {
+    CollectionOfA_SalesOrderScheduleLine d?;
 };
+
+public type SalesOrderItemOfA_SalesOrderItemRelatedObjectSelectOptions ("SalesOrder"|"SalesOrderItem"|"HigherLevelItem"|"HigherLevelItemUsage"|"SalesOrderItemCategory"|"SalesOrderItemText"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"UnderlyingPurchaseOrderItem"|"ExternalItemID"|"Material"|"MaterialByCustomer"|"PricingDate"|"PricingReferenceMaterial"|"BillingPlan"|"RequestedQuantity"|"RequestedQuantityUnit"|"RequestedQuantitySAPUnit"|"RequestedQuantityISOUnit"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ConfdDelivQtyInOrderQtyUnit"|"ItemGrossWeight"|"ItemNetWeight"|"ItemWeightUnit"|"ItemWeightSAPUnit"|"ItemWeightISOUnit"|"ItemVolume"|"ItemVolumeUnit"|"ItemVolumeSAPUnit"|"ItemVolumeISOUnit"|"TransactionCurrency"|"NetAmount"|"TotalSDDocReferenceStatus"|"SDDocReferenceStatus"|"MaterialSubstitutionReason"|"MaterialGroup"|"MaterialPricingGroup"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"ServicesRenderedDate"|"Batch"|"ProductionPlant"|"OriginalPlant"|"AltvBsdConfSubstitutionStatus"|"StorageLocation"|"DeliveryGroup"|"ShippingPoint"|"ShippingType"|"DeliveryPriority"|"DeliveryDateQuantityIsFixed"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"TaxAmount"|"ProductTaxClassification1"|"ProductTaxClassification2"|"ProductTaxClassification3"|"ProductTaxClassification4"|"ProductTaxClassification5"|"ProductTaxClassification6"|"ProductTaxClassification7"|"ProductTaxClassification8"|"ProductTaxClassification9"|"MatlAccountAssignmentGroup"|"CostAmount"|"CustomerPaymentTerms"|"FixedValueDate"|"CustomerGroup"|"SalesDocumentRjcnReason"|"ItemBillingBlockReason"|"SlsDocIsRlvtForProofOfDeliv"|"WBSElement"|"ProfitCenter"|"AccountingExchangeRate"|"ReferenceSDDocument"|"ReferenceSDDocumentItem"|"SDProcessStatus"|"DeliveryStatus"|"OrderRelatedBillingStatus"|"Subtotal1Amount"|"Subtotal2Amount"|"Subtotal3Amount"|"Subtotal4Amount"|"Subtotal5Amount"|"Subtotal6Amount"|"to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
 public type CreateA_SalesOrderItem record {
     # Sales Order Item
@@ -1813,13 +1721,13 @@ public type CreateA_SalesOrderItem record {
     CreateA_SalesOrderItem_to_Text to_Text?;
 };
 
+public type A_SalesOrderScheduleLineWrapper record {
+    A_SalesOrderScheduleLine d?;
+};
+
 public type A_SalesOrderPartnerAddressExpandOptions ("to_Partner"|"to_SalesOrder")[];
 
 public type PartnerOfA_SalesOrderOrderByOptions ("SalesOrder"|"SalesOrder desc"|"PartnerFunction"|"PartnerFunction desc"|"PartnerFunctionInternalCode"|"PartnerFunctionInternalCode desc"|"Customer"|"Customer desc"|"Supplier"|"Supplier desc"|"Personnel"|"Personnel desc"|"ContactPerson"|"ContactPerson desc"|"ReferenceBusinessPartner"|"ReferenceBusinessPartner desc"|"AddressID"|"AddressID desc"|"VATRegistration"|"VATRegistration desc")[];
-
-public type A_SalesOrderHeaderPrElementType record {
-    A_SalesOrderHeaderPrElement d?;
-};
 
 public type SalesOrderOfA_SalesOrderItemPartnerExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
@@ -1839,8 +1747,17 @@ public type Modified\ A_SlsOrderItemBillingPlanItemType record {
 
 public type SalesOrderItemOfA_SalesOrderItemBillingPlanExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
+public type CollectionOfA_SalesOrderItemPrElementWrapper record {
+    CollectionOfA_SalesOrderItemPrElement d?;
+};
+
 public type Modified\ A_SalesOrderScheduleLineType record {
     UpdateA_SalesOrderScheduleLine d?;
+};
+
+public type CollectionOfA_SalesOrderItmPrecdgProcFlow record {
+    count __count?;
+    A_SalesOrderItmPrecdgProcFlow[] results?;
 };
 
 # Represents the Queries record for the operation: rejectApprovalRequest
@@ -1859,27 +1776,19 @@ public type ListRelatedObjectsOfA_SalesOrderQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
     string \$filter?;
     # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    RelatedObjectOfA_SalesOrderOrderByOptions \$orderby?;
+    A_SalesOrderRelatedObjectOrderByOptions \$orderby?;
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    RelatedObjectOfA_SalesOrderExpandOptions \$expand?;
+    A_SalesOrderRelatedObjectExpandOptions \$expand?;
     # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    RelatedObjectOfA_SalesOrderSelectOptions \$select?;
+    A_SalesOrderRelatedObjectSelectOptions \$select?;
 };
-
-public type Collection\ of\ A_SalesOrderItemPrElementType record {
-    count __count?;
-    A_SalesOrderItemPrElement[] results?;
-};
-
-public type A_SalesOrderItemTextByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"Language"|"LongTextID"|"LongText"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
 public type SalesOrderItemOfA_SalesOrderItemRelatedObjectExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
-public type Collection\ of\ A_SalesOrderHeaderPartnerType record {
-    count __count?;
-    A_SalesOrderHeaderPartner[] results?;
+public type CollectionOfA_SalesOrderRelatedObjectWrapper record {
+    CollectionOfA_SalesOrderRelatedObject d?;
 };
 
 # Represents the Queries record for the operation: getSalesOrderOfA_SalesOrderItemPartnerAddress
@@ -1888,6 +1797,11 @@ public type GetSalesOrderOfA_SalesOrderItemPartnerAddressQueries record {
     SalesOrderOfA_SalesOrderItemPartnerAddressExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     SalesOrderOfA_SalesOrderItemPartnerAddressSelectOptions \$select?;
+};
+
+public type CollectionOfA_SalesOrderItemText record {
+    count __count?;
+    A_SalesOrderItemText[] results?;
 };
 
 public type CreateA_SalesOrderItemText record {
@@ -1904,21 +1818,7 @@ public type CreateA_SalesOrderItem_to_PricingElement record {
     CreateA_SalesOrderItemPrElement[] results?;
 };
 
-public type Wrapper_8 record {
-    Collection\ of\ A_SalesOrderTextType d?;
-};
-
 public type SalesOrderOfA_SalesOrderRelatedObjectSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
-
-public type Wrapper_9 record {
-    Collection\ of\ A_SalesOrderBillingPlanType d?;
-};
-
-public type RelatedObjectOfA_SalesOrderExpandOptions ("to_SalesOrder")[];
-
-public type Wrapper_4 record {
-    Collection\ of\ A_SalesOrderPrecdgProcFlowType d?;
-};
 
 public type UpdateA_SalesOrderItemPartner record {
     # Customer Number
@@ -1933,31 +1833,7 @@ public type UpdateA_SalesOrderItemPartner record {
     string? VATRegistration?;
 };
 
-public type Wrapper_5 record {
-    Collection\ of\ A_SalesOrderHeaderPrElementType d?;
-};
-
-public type Wrapper_6 record {
-    Collection\ of\ A_SalesOrderRelatedObjectType d?;
-};
-
-public type Wrapper_7 record {
-    Collection\ of\ A_SalesOrderSubsqntProcFlowType d?;
-};
-
 public type A_SalesOrderItmSubsqntProcFlowOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"DocRelationshipUUID"|"DocRelationshipUUID desc"|"SubsequentDocument"|"SubsequentDocument desc"|"SubsequentDocumentItem"|"SubsequentDocumentItem desc"|"SubsequentDocumentCategory"|"SubsequentDocumentCategory desc"|"ProcessFlowLevel"|"ProcessFlowLevel desc"|"SubsqntDocItmPrecdgDocument"|"SubsqntDocItmPrecdgDocument desc"|"SubsqntDocItmPrecdgDocItem"|"SubsqntDocItmPrecdgDocItem desc"|"SubsqntDocItmPrecdgDocCategory"|"SubsqntDocItmPrecdgDocCategory desc"|"CreationDate"|"CreationDate desc"|"CreationTime"|"CreationTime desc"|"LastChangeDate"|"LastChangeDate desc")[];
-
-public type Wrapper_1 record {
-    Collection\ of\ A_SalesOrderItemType d?;
-};
-
-public type Wrapper_2 record {
-    Collection\ of\ A_SalesOrderHeaderPartnerType d?;
-};
-
-public type Wrapper_3 record {
-    Collection\ of\ A_SlsOrdPaymentPlanItemDetailsType d?;
-};
 
 # Represents the Queries record for the operation: listTextsOfA_SalesOrderItem
 public type ListTextsOfA_SalesOrderItemQueries record {
@@ -1968,13 +1844,13 @@ public type ListTextsOfA_SalesOrderItemQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
     string \$filter?;
     # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    TextOfA_SalesOrderItemOrderByOptions \$orderby?;
+    A_SalesOrderItemTextOrderByOptions \$orderby?;
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    TextOfA_SalesOrderItemExpandOptions \$expand?;
+    A_SalesOrderItemTextExpandOptions \$expand?;
     # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    TextOfA_SalesOrderItemSelectOptions \$select?;
+    A_SalesOrderItemTextSelectOptions \$select?;
 };
 
 public type CreateA_SalesOrderBillingPlanItem record {
@@ -1999,8 +1875,6 @@ public type UpdateA_SalesOrderItemText record {
     string? LongText?;
 };
 
-public type BillingPlanOfA_SalesOrderItemExpandOptions ("to_BillingPlanItem"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
 public type PartnerOfA_SalesOrderExpandOptions ("to_Address"|"to_SalesOrder")[];
 
 public type CreateA_SalesOrder_to_PrecedingProcFlowDoc record {
@@ -2021,7 +1895,10 @@ public type Modified\ A_SalesOrderType record {
 
 public type PartnerOfA_SalesOrderSelectOptions ("SalesOrder"|"PartnerFunction"|"PartnerFunctionInternalCode"|"Customer"|"Supplier"|"Personnel"|"ContactPerson"|"ReferenceBusinessPartner"|"AddressID"|"VATRegistration"|"to_Address"|"to_SalesOrder")[];
 
-public type A_SlsOrderItemBillingPlanItemByKeyExpandOptions ("to_BillingPlan"|"to_SalesOrder"|"to_SalesOrderItem")[];
+public type CollectionOfA_SalesOrderText record {
+    count __count?;
+    A_SalesOrderText[] results?;
+};
 
 public type A_SlsOrdPaymentPlanItemDetails record {
     @constraint:String {maxLength: 10}
@@ -2088,8 +1965,6 @@ public type A_SlsOrdPaymentPlanItemDetails record {
     A_SalesOrder to_SalesOrder?;
 };
 
-public type A_SalesOrderItmSubsqntProcFlowByKeyExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
-
 public type A_SalesOrder_to_PaymentPlanItemDetails record {
     A_SlsOrdPaymentPlanItemDetails[] results?;
 };
@@ -2100,14 +1975,26 @@ public type Modified\ A_SalesOrderPartnerAddressType record {
 
 public type A_SalesOrderItemBillingPlanOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"BillingPlan"|"BillingPlan desc"|"BillingPlanIsInHeader"|"BillingPlanIsInHeader desc"|"BillingPlanStartDate"|"BillingPlanStartDate desc"|"BillingPlanStartDateRule"|"BillingPlanStartDateRule desc"|"ReferenceBillingPlan"|"ReferenceBillingPlan desc"|"BillingPlanCategory"|"BillingPlanCategory desc"|"BillingPlanType"|"BillingPlanType desc"|"BillingPlanEndDate"|"BillingPlanEndDate desc"|"BillingPlanEndDateRule"|"BillingPlanEndDateRule desc"|"BillingPlanSearchTerm"|"BillingPlanSearchTerm desc")[];
 
+public type A_SalesOrderItemPartnerAddressWrapper record {
+    A_SalesOrderItemPartnerAddress d?;
+};
+
 public type A_SalesOrderItemPartnerSelectOptions ("SalesOrder"|"SalesOrderItem"|"PartnerFunction"|"PartnerFunctionInternalCode"|"Customer"|"Supplier"|"Personnel"|"ContactPerson"|"ReferenceBusinessPartner"|"AddressID"|"VATRegistration"|"to_Address"|"to_SalesOrder"|"to_SalesOrderItem")[];
+
+public type CollectionOfA_SalesOrderItmPrecdgProcFlowWrapper record {
+    CollectionOfA_SalesOrderItmPrecdgProcFlow d?;
+};
+
+public type A_SalesOrderTextWrapper record {
+    A_SalesOrderText d?;
+};
 
 # Represents the Queries record for the operation: getA_SalesOrder
 public type GetA_SalesOrderQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderByKeyExpandOptions \$expand?;
+    A_SalesOrderExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderByKeySelectOptions \$select?;
+    A_SalesOrderSelectOptions \$select?;
 };
 
 public type UpdateA_SalesOrderItemPartnerAddress record {
@@ -2163,14 +2050,12 @@ public type PaymentPlanItemDetailsOfA_SalesOrderOrderByOptions ("SalesOrder"|"Sa
 
 public type BillingPlanOfA_SalesOrderBillingPlanItemExpandOptions ("to_BillingPlanItem"|"to_SalesOrder")[];
 
-public type A_SalesOrderItemTextByKeyExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
+public type CollectionOfA_SlsOrderItemBillingPlanItemWrapper record {
+    CollectionOfA_SlsOrderItemBillingPlanItem d?;
+};
 
 public type CreateA_SalesOrderBillingPlan_to_BillingPlanItem record {
     CreateA_SalesOrderBillingPlanItem[] results?;
-};
-
-public type A_SalesOrderItemType record {
-    A_SalesOrderItem d?;
 };
 
 public type A_SalesOrderItem_to_SubsequentProcFlowDocItem record {
@@ -2186,11 +2071,6 @@ public type A_SlsOrdPaymentPlanItemDetailsSelectOptions ("SalesOrder"|"PaymentPl
 public type SalesOrderItemOfA_SalesOrderItemPrElementExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
 public type A_SalesOrderSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
-
-public type Collection\ of\ A_SalesOrderItemPartnerType record {
-    count __count?;
-    A_SalesOrderItemPartner[] results?;
-};
 
 public type SalesOrderOfA_SalesOrderBillingPlanItemExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
@@ -2231,17 +2111,15 @@ public type ListA_SalesOrderHeaderPartnersQueries record {
 
 public type A_SalesOrderItemRelatedObjectSelectOptions ("SalesOrder"|"SalesOrderItem"|"SDDocRelatedObjectSequenceNmbr"|"SDDocumentRelatedObjectType"|"SDDocRelatedObjectSystem"|"SDDocRelatedObjectReference1"|"SDDocRelatedObjectReference2"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
-public type Collection\ of\ A_SalesOrderItemBillingPlanType record {
-    count __count?;
-    A_SalesOrderItemBillingPlan[] results?;
+public type A_SalesOrderSubsqntProcFlowWrapper record {
+    A_SalesOrderSubsqntProcFlow d?;
+};
+
+public type CollectionOfA_SalesOrderSubsqntProcFlowWrapper record {
+    CollectionOfA_SalesOrderSubsqntProcFlow d?;
 };
 
 public type A_SalesOrderHeaderPartnerExpandOptions ("to_Address"|"to_SalesOrder")[];
-
-public type Collection\ of\ A_SalesOrderPartnerAddressType record {
-    count __count?;
-    A_SalesOrderPartnerAddress[] results?;
-};
 
 public type SalesOrderItemOfA_SlsOrderItemBillingPlanItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"HigherLevelItem"|"HigherLevelItemUsage"|"SalesOrderItemCategory"|"SalesOrderItemText"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"UnderlyingPurchaseOrderItem"|"ExternalItemID"|"Material"|"MaterialByCustomer"|"PricingDate"|"PricingReferenceMaterial"|"BillingPlan"|"RequestedQuantity"|"RequestedQuantityUnit"|"RequestedQuantitySAPUnit"|"RequestedQuantityISOUnit"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ConfdDelivQtyInOrderQtyUnit"|"ItemGrossWeight"|"ItemNetWeight"|"ItemWeightUnit"|"ItemWeightSAPUnit"|"ItemWeightISOUnit"|"ItemVolume"|"ItemVolumeUnit"|"ItemVolumeSAPUnit"|"ItemVolumeISOUnit"|"TransactionCurrency"|"NetAmount"|"TotalSDDocReferenceStatus"|"SDDocReferenceStatus"|"MaterialSubstitutionReason"|"MaterialGroup"|"MaterialPricingGroup"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"ServicesRenderedDate"|"Batch"|"ProductionPlant"|"OriginalPlant"|"AltvBsdConfSubstitutionStatus"|"StorageLocation"|"DeliveryGroup"|"ShippingPoint"|"ShippingType"|"DeliveryPriority"|"DeliveryDateQuantityIsFixed"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"TaxAmount"|"ProductTaxClassification1"|"ProductTaxClassification2"|"ProductTaxClassification3"|"ProductTaxClassification4"|"ProductTaxClassification5"|"ProductTaxClassification6"|"ProductTaxClassification7"|"ProductTaxClassification8"|"ProductTaxClassification9"|"MatlAccountAssignmentGroup"|"CostAmount"|"CustomerPaymentTerms"|"FixedValueDate"|"CustomerGroup"|"SalesDocumentRjcnReason"|"ItemBillingBlockReason"|"SlsDocIsRlvtForProofOfDeliv"|"WBSElement"|"ProfitCenter"|"AccountingExchangeRate"|"ReferenceSDDocument"|"ReferenceSDDocumentItem"|"SDProcessStatus"|"DeliveryStatus"|"OrderRelatedBillingStatus"|"Subtotal1Amount"|"Subtotal2Amount"|"Subtotal3Amount"|"Subtotal4Amount"|"Subtotal5Amount"|"Subtotal6Amount"|"to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
@@ -2357,11 +2235,6 @@ public type CreateA_SalesOrderItemPartner_to_Address record {
     CreateA_SalesOrderItemPartnerAddress[] results?;
 };
 
-public type Collection\ of\ A_SalesOrderItmPrecdgProcFlowType record {
-    count __count?;
-    A_SalesOrderItmPrecdgProcFlow[] results?;
-};
-
 public type CreateA_SalesOrderItmPrecdgProcFlow record {
     # Subsequent Sales and Distribution Document
     @constraint:String {maxLength: 10}
@@ -2409,23 +2282,28 @@ public type CreateA_SalesOrderItemRelatedObject record {
     CreateA_SalesOrderItem to_SalesOrderItem?;
 };
 
-public type A_SalesOrderByKeyExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
+public type A_SalesOrderItemBillingPlanWrapper record {
+    A_SalesOrderItemBillingPlan d?;
+};
+
+public type A_SalesOrderHeaderPrElementWrapper record {
+    A_SalesOrderHeaderPrElement d?;
+};
 
 public type Modified\ A_SalesOrderHeaderPartnerType record {
     UpdateA_SalesOrderHeaderPartner d?;
 };
 
-public type BillingPlanOfA_SalesOrderSelectOptions ("SalesOrder"|"BillingPlan"|"BillingPlanStartDate"|"BillingPlanStartDateRule"|"ReferenceBillingPlan"|"BillingPlanCategory"|"BillingPlanType"|"BillingPlanEndDate"|"BillingPlanEndDateRule"|"BillingPlanSearchTerm"|"to_BillingPlanItem"|"to_SalesOrder")[];
-
 public type A_SalesOrderHeaderPartnerOrderByOptions ("SalesOrder"|"SalesOrder desc"|"PartnerFunction"|"PartnerFunction desc"|"PartnerFunctionInternalCode"|"PartnerFunctionInternalCode desc"|"Customer"|"Customer desc"|"Supplier"|"Supplier desc"|"Personnel"|"Personnel desc"|"ContactPerson"|"ContactPerson desc"|"ReferenceBusinessPartner"|"ReferenceBusinessPartner desc"|"AddressID"|"AddressID desc"|"VATRegistration"|"VATRegistration desc")[];
 
 public type PrecedingProcFlowDocOfA_SalesOrderOrderByOptions ("SalesOrder"|"SalesOrder desc"|"DocRelationshipUUID"|"DocRelationshipUUID desc"|"PrecedingDocument"|"PrecedingDocument desc"|"PrecedingDocumentCategory"|"PrecedingDocumentCategory desc"|"ProcessFlowLevel"|"ProcessFlowLevel desc"|"CreationDate"|"CreationDate desc"|"CreationTime"|"CreationTime desc"|"LastChangeDate"|"LastChangeDate desc")[];
 
-public type A_SalesOrderHeaderPartnerByKeySelectOptions ("SalesOrder"|"PartnerFunction"|"PartnerFunctionInternalCode"|"Customer"|"Supplier"|"Personnel"|"ContactPerson"|"ReferenceBusinessPartner"|"AddressID"|"VATRegistration"|"to_Address"|"to_SalesOrder")[];
-
 public type PrecedingProcFlowDocOfA_SalesOrderExpandOptions ("to_SalesOrder")[];
 
-public type A_SalesOrderTextByKeyExpandOptions ("to_SalesOrder")[];
+public type CollectionOfA_SalesOrder record {
+    count __count?;
+    A_SalesOrder[] results?;
+};
 
 # Represents the Queries record for the operation: listPrecedingProcFlowDocItemsOfA_SalesOrderItem
 public type ListPrecedingProcFlowDocItemsOfA_SalesOrderItemQueries record {
@@ -2606,22 +2484,16 @@ public type FunctionResult record {
 # Represents the Queries record for the operation: getA_SalesOrderItemPrElement
 public type GetA_SalesOrderItemPrElementQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderItemPrElementByKeyExpandOptions \$expand?;
+    A_SalesOrderItemPrElementExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderItemPrElementByKeySelectOptions \$select?;
+    A_SalesOrderItemPrElementSelectOptions \$select?;
 };
 
 public type SalesOrderItemOfA_SalesOrderItemPartnerExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
-public type A_SalesOrderItemPartnerType record {
-    A_SalesOrderItemPartner d?;
-};
-
 public type BillingPlanItemOfA_SalesOrderItemBillingPlanSelectOptions ("SalesOrder"|"SalesOrderItem"|"BillingPlan"|"BillingPlanItem"|"BillingPlanDateCategory"|"BillingPlanBillingDate"|"BillingPlanAmount"|"TransactionCurrency"|"BillingPlanAmountPercent"|"CustomerPaymentTerms"|"ProposedBillingDocumentType"|"BillingPlanDateDescriptionCode"|"BillingBlockReason"|"BillingPlanServiceStartDate"|"BillingPlanServiceEndDate"|"BillingPlanRelatedBillgStatus"|"BillingPlanType"|"AdoptingBillingDateID"|"BillingPlanBillingRule"|"BillingPlanMilestoneUsage"|"BillgPlnDteCorrectionRfndType"|"AccountingExchangeRate"|"PostponementReason"|"to_BillingPlan"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
 public type SalesOrderOfA_SlsOrderItemBillingPlanItemExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
-
-public type A_SalesOrderPrecdgProcFlowByKeyExpandOptions ("to_SalesOrder")[];
 
 public type UpdateA_SalesOrderScheduleLine record {
     # Requested Delivery Date
@@ -2647,7 +2519,16 @@ public type UpdateA_SalesOrderScheduleLine record {
 
 public type A_SalesOrderItemPrElementExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
 
+public type CollectionOfA_SalesOrderScheduleLine record {
+    count __count?;
+    A_SalesOrderScheduleLine[] results?;
+};
+
 public type ScheduleLineOfA_SalesOrderItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"ScheduleLine"|"ScheduleLine desc"|"RequestedDeliveryDate"|"RequestedDeliveryDate desc"|"ConfirmedDeliveryDate"|"ConfirmedDeliveryDate desc"|"OrderQuantityUnit"|"OrderQuantityUnit desc"|"OrderQuantitySAPUnit"|"OrderQuantitySAPUnit desc"|"OrderQuantityISOUnit"|"OrderQuantityISOUnit desc"|"ScheduleLineOrderQuantity"|"ScheduleLineOrderQuantity desc"|"ConfdOrderQtyByMatlAvailCheck"|"ConfdOrderQtyByMatlAvailCheck desc"|"DeliveredQtyInOrderQtyUnit"|"DeliveredQtyInOrderQtyUnit desc"|"OpenConfdDelivQtyInOrdQtyUnit"|"OpenConfdDelivQtyInOrdQtyUnit desc"|"CorrectedQtyInOrderQtyUnit"|"CorrectedQtyInOrderQtyUnit desc"|"DelivBlockReasonForSchedLine"|"DelivBlockReasonForSchedLine desc")[];
+
+public type CollectionOfA_SalesOrderBillingPlanItemWrapper record {
+    CollectionOfA_SalesOrderBillingPlanItem d?;
+};
 
 public type A_SalesOrderPartnerAddressOrderByOptions ("SalesOrder"|"SalesOrder desc"|"PartnerFunction"|"PartnerFunction desc"|"AddressRepresentationCode"|"AddressRepresentationCode desc"|"CorrespondenceLanguage"|"CorrespondenceLanguage desc"|"AddresseeFullName"|"AddresseeFullName desc"|"OrganizationName1"|"OrganizationName1 desc"|"OrganizationName2"|"OrganizationName2 desc"|"OrganizationName3"|"OrganizationName3 desc"|"OrganizationName4"|"OrganizationName4 desc"|"CityName"|"CityName desc"|"DistrictName"|"DistrictName desc"|"PostalCode"|"PostalCode desc"|"StreetPrefixName1"|"StreetPrefixName1 desc"|"StreetPrefixName2"|"StreetPrefixName2 desc"|"StreetName"|"StreetName desc"|"StreetSuffixName1"|"StreetSuffixName1 desc"|"StreetSuffixName2"|"StreetSuffixName2 desc"|"HouseNumber"|"HouseNumber desc"|"Country"|"Country desc"|"Region"|"Region desc"|"FormOfAddress"|"FormOfAddress desc"|"TaxJurisdiction"|"TaxJurisdiction desc"|"TransportZone"|"TransportZone desc"|"POBox"|"POBox desc"|"POBoxPostalCode"|"POBoxPostalCode desc"|"EmailAddress"|"EmailAddress desc"|"MobilePhoneCountry"|"MobilePhoneCountry desc"|"MobileNumber"|"MobileNumber desc"|"PhoneNumberCountry"|"PhoneNumberCountry desc"|"PhoneNumber"|"PhoneNumber desc"|"PhoneExtensionNumber"|"PhoneExtensionNumber desc"|"FaxNumberCountry"|"FaxNumberCountry desc"|"FaxAreaCodeSubscriberNumber"|"FaxAreaCodeSubscriberNumber desc"|"FaxExtensionNumber"|"FaxExtensionNumber desc")[];
 
@@ -2670,17 +2551,21 @@ public type SubsequentProcFlowDocOfA_SalesOrderSelectOptions ("SalesOrder"|"DocR
 
 public type SalesOrderOfA_SalesOrderItemRelatedObjectExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
-public type AddressOfA_SalesOrderItemPartnerExpandOptions ("to_Partner"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
 public type SalesOrderItemOfA_SalesOrderItemPartnerAddressSelectOptions ("SalesOrder"|"SalesOrderItem"|"HigherLevelItem"|"HigherLevelItemUsage"|"SalesOrderItemCategory"|"SalesOrderItemText"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"UnderlyingPurchaseOrderItem"|"ExternalItemID"|"Material"|"MaterialByCustomer"|"PricingDate"|"PricingReferenceMaterial"|"BillingPlan"|"RequestedQuantity"|"RequestedQuantityUnit"|"RequestedQuantitySAPUnit"|"RequestedQuantityISOUnit"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ConfdDelivQtyInOrderQtyUnit"|"ItemGrossWeight"|"ItemNetWeight"|"ItemWeightUnit"|"ItemWeightSAPUnit"|"ItemWeightISOUnit"|"ItemVolume"|"ItemVolumeUnit"|"ItemVolumeSAPUnit"|"ItemVolumeISOUnit"|"TransactionCurrency"|"NetAmount"|"TotalSDDocReferenceStatus"|"SDDocReferenceStatus"|"MaterialSubstitutionReason"|"MaterialGroup"|"MaterialPricingGroup"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"ServicesRenderedDate"|"Batch"|"ProductionPlant"|"OriginalPlant"|"AltvBsdConfSubstitutionStatus"|"StorageLocation"|"DeliveryGroup"|"ShippingPoint"|"ShippingType"|"DeliveryPriority"|"DeliveryDateQuantityIsFixed"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"TaxAmount"|"ProductTaxClassification1"|"ProductTaxClassification2"|"ProductTaxClassification3"|"ProductTaxClassification4"|"ProductTaxClassification5"|"ProductTaxClassification6"|"ProductTaxClassification7"|"ProductTaxClassification8"|"ProductTaxClassification9"|"MatlAccountAssignmentGroup"|"CostAmount"|"CustomerPaymentTerms"|"FixedValueDate"|"CustomerGroup"|"SalesDocumentRjcnReason"|"ItemBillingBlockReason"|"SlsDocIsRlvtForProofOfDeliv"|"WBSElement"|"ProfitCenter"|"AccountingExchangeRate"|"ReferenceSDDocument"|"ReferenceSDDocumentItem"|"SDProcessStatus"|"DeliveryStatus"|"OrderRelatedBillingStatus"|"Subtotal1Amount"|"Subtotal2Amount"|"Subtotal3Amount"|"Subtotal4Amount"|"Subtotal5Amount"|"Subtotal6Amount"|"to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
+public type A_SalesOrderBillingPlanItemWrapper record {
+    A_SalesOrderBillingPlanItem d?;
+};
+
 public type A_SalesOrderItemTextExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
+
+public type CollectionOfA_SalesOrderHeaderPrElementWrapper record {
+    CollectionOfA_SalesOrderHeaderPrElement d?;
+};
 
 public type A_SalesOrderItemPartnerOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"PartnerFunction"|"PartnerFunction desc"|"PartnerFunctionInternalCode"|"PartnerFunctionInternalCode desc"|"Customer"|"Customer desc"|"Supplier"|"Supplier desc"|"Personnel"|"Personnel desc"|"ContactPerson"|"ContactPerson desc"|"ReferenceBusinessPartner"|"ReferenceBusinessPartner desc"|"AddressID"|"AddressID desc"|"VATRegistration"|"VATRegistration desc")[];
 
 public type SalesOrderOfA_SalesOrderItemBillingPlanExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
-
-public type A_SalesOrderHeaderPrElementByKeySelectOptions ("SalesOrder"|"PricingProcedureStep"|"PricingProcedureCounter"|"ConditionType"|"PricingDateTime"|"PriceConditionDeterminationDte"|"ConditionCalculationType"|"ConditionBaseValue"|"ConditionRateValue"|"ConditionCurrency"|"ConditionQuantity"|"ConditionQuantityUnit"|"ConditionQuantitySAPUnit"|"ConditionQuantityISOUnit"|"ConditionCategory"|"ConditionIsForStatistics"|"PricingScaleType"|"ConditionOrigin"|"IsGroupCondition"|"ConditionRecord"|"ConditionSequentialNumber"|"TaxCode"|"WithholdingTaxCode"|"CndnRoundingOffDiffAmount"|"ConditionAmount"|"TransactionCurrency"|"ConditionControl"|"ConditionInactiveReason"|"ConditionClass"|"PrcgProcedureCounterForHeader"|"FactorForConditionBasisValue"|"StructureCondition"|"PeriodFactorForCndnBasisValue"|"PricingScaleBasis"|"ConditionScaleBasisValue"|"ConditionScaleBasisUnit"|"ConditionScaleBasisCurrency"|"CndnIsRelevantForIntcoBilling"|"ConditionIsManuallyChanged"|"ConditionIsForConfiguration"|"VariantCondition"|"to_SalesOrder")[];
 
 public type A_SalesOrderItemRelatedObjectExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
 
@@ -2702,6 +2587,11 @@ public type ListAddressesOfA_SalesOrderHeaderPartnerQueries record {
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     AddressOfA_SalesOrderHeaderPartnerSelectOptions \$select?;
+};
+
+public type CollectionOfA_SalesOrderHeaderPrElement record {
+    count __count?;
+    A_SalesOrderHeaderPrElement[] results?;
 };
 
 public type A_SalesOrderBillingPlanOrderByOptions ("SalesOrder"|"SalesOrder desc"|"BillingPlan"|"BillingPlan desc"|"BillingPlanStartDate"|"BillingPlanStartDate desc"|"BillingPlanStartDateRule"|"BillingPlanStartDateRule desc"|"ReferenceBillingPlan"|"ReferenceBillingPlan desc"|"BillingPlanCategory"|"BillingPlanCategory desc"|"BillingPlanType"|"BillingPlanType desc"|"BillingPlanEndDate"|"BillingPlanEndDate desc"|"BillingPlanEndDateRule"|"BillingPlanEndDateRule desc"|"BillingPlanSearchTerm"|"BillingPlanSearchTerm desc")[];
@@ -2760,8 +2650,8 @@ public type CreateA_SlsOrderItemBillingPlanItem record {
     CreateA_SalesOrderItem to_SalesOrderItem?;
 };
 
-public type Wrapper record {
-    Collection\ of\ A_SalesOrderType d?;
+public type A_SalesOrderItemPrElementWrapper record {
+    A_SalesOrderItemPrElement d?;
 };
 
 public type A_SalesOrderHeaderPartner record {
@@ -2788,9 +2678,11 @@ public type A_SalesOrderHeaderPartner record {
 
 public type A_SalesOrderRelatedObjectOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SDDocRelatedObjectSequenceNmbr"|"SDDocRelatedObjectSequenceNmbr desc"|"SDDocumentRelatedObjectType"|"SDDocumentRelatedObjectType desc"|"SDDocRelatedObjectSystem"|"SDDocRelatedObjectSystem desc"|"SDDocRelatedObjectReference1"|"SDDocRelatedObjectReference1 desc"|"SDDocRelatedObjectReference2"|"SDDocRelatedObjectReference2 desc")[];
 
-public type PartnerOfA_SalesOrderPartnerAddressExpandOptions ("to_Address"|"to_SalesOrder")[];
+public type CollectionOfA_SalesOrderHeaderPartnerWrapper record {
+    CollectionOfA_SalesOrderHeaderPartner d?;
+};
 
-public type A_SlsOrdPaymentPlanItemDetailsByKeySelectOptions ("SalesOrder"|"PaymentPlanItem"|"PaymentPlan"|"ElectronicPaymentType"|"ElectronicPayment"|"EPaytValidityStartDate"|"EPaytValidityEndDate"|"ElectronicPaymentHolderName"|"AuthorizedAmountInAuthznCrcy"|"AuthorizationCurrency"|"AuthorizationByDigitalPaytSrvc"|"AuthorizationByAcquirer"|"AuthorizationDate"|"AuthorizationTime"|"AuthorizationStatusName"|"EPaytByDigitalPaymentSrvc"|"ElectronicPaymentCallStatus"|"EPaytAuthorizationResult"|"EPaytToBeAuthorizedAmount"|"EPaytAuthorizationIsExpired"|"EPaytAmountIsChanged"|"PreauthorizationIsRequested"|"PaymentServiceProvider"|"PaymentByPaymentServicePrvdr"|"TransactionByPaytSrvcPrvdr"|"MerchantByClearingHouse"|"PaymentCardAuthznRelationID"|"MaximumToBeAuthorizedAmount"|"PaytPlnForAuthorizationItem"|"PaytPlnItmForAuthorizationItem"|"to_SalesOrder")[];
+public type PartnerOfA_SalesOrderPartnerAddressExpandOptions ("to_Address"|"to_SalesOrder")[];
 
 # Represents the Queries record for the operation: getSalesOrderItemOfA_SalesOrderItemBillingPlan
 public type GetSalesOrderItemOfA_SalesOrderItemBillingPlanQueries record {
@@ -2798,6 +2690,10 @@ public type GetSalesOrderItemOfA_SalesOrderItemBillingPlanQueries record {
     SalesOrderItemOfA_SalesOrderItemBillingPlanExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     SalesOrderItemOfA_SalesOrderItemBillingPlanSelectOptions \$select?;
+};
+
+public type A_SalesOrderRelatedObjectWrapper record {
+    A_SalesOrderRelatedObject d?;
 };
 
 public type A_SalesOrderBillingPlan_to_BillingPlanItem record {
@@ -2822,19 +2718,17 @@ public type GetSalesOrderOfA_SalesOrderItemBillingPlanQueries record {
     SalesOrderOfA_SalesOrderItemBillingPlanSelectOptions \$select?;
 };
 
+public type CollectionOfA_SalesOrderItemPartnerAddressWrapper record {
+    CollectionOfA_SalesOrderItemPartnerAddress d?;
+};
+
 public type CreateA_SalesOrderItemBillingPlan_to_BillingPlanItem record {
     CreateA_SlsOrderItemBillingPlanItem[] results?;
 };
 
 public type SalesOrderOfA_SalesOrderPartnerAddressExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
-public type PartnerOfA_SalesOrderItemExpandOptions ("to_Address"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
 public type BillingPlanOfA_SlsOrderItemBillingPlanItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"BillingPlan"|"BillingPlanIsInHeader"|"BillingPlanStartDate"|"BillingPlanStartDateRule"|"ReferenceBillingPlan"|"BillingPlanCategory"|"BillingPlanType"|"BillingPlanEndDate"|"BillingPlanEndDateRule"|"BillingPlanSearchTerm"|"to_BillingPlanItem"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
-public type A_SalesOrderRelatedObjectType record {
-    A_SalesOrderRelatedObject d?;
-};
 
 public type CreateA_SalesOrderHeaderPartner_to_Address record {
     CreateA_SalesOrderPartnerAddress[] results?;
@@ -2843,9 +2737,9 @@ public type CreateA_SalesOrderHeaderPartner_to_Address record {
 # Represents the Queries record for the operation: getA_SlsOrderItemBillingPlanItem
 public type GetA_SlsOrderItemBillingPlanItemQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SlsOrderItemBillingPlanItemByKeyExpandOptions \$expand?;
+    A_SlsOrderItemBillingPlanItemExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SlsOrderItemBillingPlanItemByKeySelectOptions \$select?;
+    A_SlsOrderItemBillingPlanItemSelectOptions \$select?;
 };
 
 # Represents the Queries record for the operation: listA_SalesOrderItems
@@ -2959,19 +2853,13 @@ public type A_SalesOrderItemPartnerExpandOptions ("to_Address"|"to_SalesOrder"|"
 # Represents the Queries record for the operation: getA_SalesOrderItmPrecdgProcFlow
 public type GetA_SalesOrderItmPrecdgProcFlowQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderItmPrecdgProcFlowByKeyExpandOptions \$expand?;
+    A_SalesOrderItmPrecdgProcFlowExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderItmPrecdgProcFlowByKeySelectOptions \$select?;
+    A_SalesOrderItmPrecdgProcFlowSelectOptions \$select?;
 };
 
 public type A_SalesOrder_to_Text record {
     A_SalesOrderText[] results?;
-};
-
-public type A_SalesOrderItemPartnerAddressByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"PartnerFunction"|"AddressRepresentationCode"|"CorrespondenceLanguage"|"AddresseeFullName"|"OrganizationName1"|"OrganizationName2"|"OrganizationName3"|"OrganizationName4"|"CityName"|"DistrictName"|"PostalCode"|"StreetName"|"StreetPrefixName1"|"StreetPrefixName2"|"StreetSuffixName1"|"StreetSuffixName2"|"HouseNumber"|"Country"|"Region"|"FormOfAddress"|"TaxJurisdiction"|"TransportZone"|"POBox"|"POBoxPostalCode"|"EmailAddress"|"MobilePhoneCountry"|"MobileNumber"|"PhoneNumberCountry"|"PhoneNumber"|"PhoneExtensionNumber"|"FaxNumberCountry"|"FaxAreaCodeSubscriberNumber"|"FaxExtensionNumber"|"to_Partner"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
-public type A_SalesOrderScheduleLineType record {
-    A_SalesOrderScheduleLine d?;
 };
 
 public type A_SalesOrderItemBillingPlan_to_BillingPlanItem record {
@@ -2982,6 +2870,10 @@ public type A_SlsOrdPaymentPlanItemDetailsExpandOptions ("to_SalesOrder")[];
 
 public type A_SalesOrder_to_SubsequentProcFlowDoc record {
     A_SalesOrderSubsqntProcFlow[] results?;
+};
+
+public type A_SalesOrderWrapper record {
+    A_SalesOrder d?;
 };
 
 # Represents the Queries record for the operation: getSalesOrderItemOfA_SalesOrderItemText
@@ -3003,9 +2895,9 @@ public type CreateA_SalesOrderItem_to_SubsequentProcFlowDocItem record {
 # Represents the Queries record for the operation: getA_SalesOrderSubsqntProcFlow
 public type GetA_SalesOrderSubsqntProcFlowQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderSubsqntProcFlowByKeyExpandOptions \$expand?;
+    A_SalesOrderSubsqntProcFlowExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderSubsqntProcFlowByKeySelectOptions \$select?;
+    A_SalesOrderSubsqntProcFlowSelectOptions \$select?;
 };
 
 public type SalesOrderOfA_SalesOrderSubsqntProcFlowExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
@@ -3029,10 +2921,6 @@ public type ListA_SalesOrderPrecdgProcFlowsQueries record {
 };
 
 public type SalesOrderOfA_SalesOrderItmSubsqntProcFlowSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
-
-public type A_SalesOrderBillingPlanType record {
-    A_SalesOrderBillingPlan d?;
-};
 
 public type A_SalesOrderHeaderPrElement record {
     @constraint:String {maxLength: 10}
@@ -3114,16 +3002,12 @@ public type A_SalesOrderHeaderPrElement record {
 
 public type SalesOrderOfA_SalesOrderPrecdgProcFlowExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
-public type A_SalesOrderPartnerAddressType record {
-    A_SalesOrderPartnerAddress d?;
-};
-
 # Represents the Queries record for the operation: getA_SalesOrderRelatedObject
 public type GetA_SalesOrderRelatedObjectQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderRelatedObjectByKeyExpandOptions \$expand?;
+    A_SalesOrderRelatedObjectExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderRelatedObjectByKeySelectOptions \$select?;
+    A_SalesOrderRelatedObjectSelectOptions \$select?;
 };
 
 public type CreateA_SalesOrderItem_to_Text record {
@@ -3145,16 +3029,29 @@ public type A_SalesOrderText record {
 
 public type A_SlsOrderItemBillingPlanItemExpandOptions ("to_BillingPlan"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
+public type CollectionOfA_SlsOrdPaymentPlanItemDetailsWrapper record {
+    CollectionOfA_SlsOrdPaymentPlanItemDetails d?;
+};
+
 public type PrecedingProcFlowDocItemOfA_SalesOrderItemExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
 
+public type A_SalesOrderItemTextWrapper record {
+    A_SalesOrderItemText d?;
+};
+
 public type PricingElementOfA_SalesOrderItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"PricingProcedureStep"|"PricingProcedureCounter"|"ConditionType"|"PricingDateTime"|"PriceConditionDeterminationDte"|"ConditionCalculationType"|"ConditionBaseValue"|"ConditionRateValue"|"ConditionCurrency"|"ConditionQuantity"|"ConditionQuantityUnit"|"ConditionQuantitySAPUnit"|"ConditionQuantityISOUnit"|"ConditionCategory"|"ConditionIsForStatistics"|"PricingScaleType"|"IsRelevantForAccrual"|"CndnIsRelevantForInvoiceList"|"ConditionOrigin"|"IsGroupCondition"|"ConditionRecord"|"ConditionSequentialNumber"|"TaxCode"|"WithholdingTaxCode"|"CndnRoundingOffDiffAmount"|"ConditionAmount"|"TransactionCurrency"|"ConditionControl"|"ConditionInactiveReason"|"ConditionClass"|"PrcgProcedureCounterForHeader"|"FactorForConditionBasisValue"|"StructureCondition"|"PeriodFactorForCndnBasisValue"|"PricingScaleBasis"|"ConditionScaleBasisValue"|"ConditionScaleBasisUnit"|"ConditionScaleBasisCurrency"|"CndnIsRelevantForIntcoBilling"|"ConditionIsManuallyChanged"|"ConditionIsForConfiguration"|"VariantCondition"|"to_SalesOrder"|"to_SalesOrderItem")[];
+
+public type CollectionOfA_SalesOrderItem record {
+    count __count?;
+    A_SalesOrderItem[] results?;
+};
 
 # Represents the Queries record for the operation: getA_SalesOrderItemRelatedObject
 public type GetA_SalesOrderItemRelatedObjectQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderItemRelatedObjectByKeyExpandOptions \$expand?;
+    A_SalesOrderItemRelatedObjectExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderItemRelatedObjectByKeySelectOptions \$select?;
+    A_SalesOrderItemRelatedObjectSelectOptions \$select?;
 };
 
 # Represents the Queries record for the operation: listPrecedingProcFlowDocsOfA_SalesOrder
@@ -3215,9 +3112,9 @@ public type CreateA_SlsOrdPaymentPlanItemDetails record {
 # Represents the Queries record for the operation: getA_SalesOrderText
 public type GetA_SalesOrderTextQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderTextByKeyExpandOptions \$expand?;
+    A_SalesOrderTextExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderTextByKeySelectOptions \$select?;
+    A_SalesOrderTextSelectOptions \$select?;
 };
 
 public type A_SalesOrderPartnerAddressSelectOptions ("SalesOrder"|"PartnerFunction"|"AddressRepresentationCode"|"CorrespondenceLanguage"|"AddresseeFullName"|"OrganizationName1"|"OrganizationName2"|"OrganizationName3"|"OrganizationName4"|"CityName"|"DistrictName"|"PostalCode"|"StreetPrefixName1"|"StreetPrefixName2"|"StreetName"|"StreetSuffixName1"|"StreetSuffixName2"|"HouseNumber"|"Country"|"Region"|"FormOfAddress"|"TaxJurisdiction"|"TransportZone"|"POBox"|"POBoxPostalCode"|"EmailAddress"|"MobilePhoneCountry"|"MobileNumber"|"PhoneNumberCountry"|"PhoneNumber"|"PhoneExtensionNumber"|"FaxNumberCountry"|"FaxAreaCodeSubscriberNumber"|"FaxExtensionNumber"|"to_Partner"|"to_SalesOrder")[];
@@ -3304,24 +3201,18 @@ public type ListItemsOfA_SalesOrderQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
     string \$filter?;
     # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    ItemOfA_SalesOrderOrderByOptions \$orderby?;
+    A_SalesOrderItemOrderByOptions \$orderby?;
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    ItemOfA_SalesOrderExpandOptions \$expand?;
+    A_SalesOrderItemExpandOptions \$expand?;
     # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    ItemOfA_SalesOrderSelectOptions \$select?;
+    A_SalesOrderItemSelectOptions \$select?;
 };
 
 public type A_SalesOrderItemBillingPlanSelectOptions ("SalesOrder"|"SalesOrderItem"|"BillingPlan"|"BillingPlanIsInHeader"|"BillingPlanStartDate"|"BillingPlanStartDateRule"|"ReferenceBillingPlan"|"BillingPlanCategory"|"BillingPlanType"|"BillingPlanEndDate"|"BillingPlanEndDateRule"|"BillingPlanSearchTerm"|"to_BillingPlanItem"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
 public type A_SalesOrderBillingPlanItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"BillingPlan"|"BillingPlan desc"|"BillingPlanItem"|"BillingPlanItem desc"|"BillingPlanDateCategory"|"BillingPlanDateCategory desc"|"BillingPlanBillingDate"|"BillingPlanBillingDate desc"|"BillingPlanAmount"|"BillingPlanAmount desc"|"TransactionCurrency"|"TransactionCurrency desc"|"BillingPlanAmountPercent"|"BillingPlanAmountPercent desc"|"CustomerPaymentTerms"|"CustomerPaymentTerms desc"|"ProposedBillingDocumentType"|"ProposedBillingDocumentType desc"|"BillingPlanDateDescriptionCode"|"BillingPlanDateDescriptionCode desc"|"BillingBlockReason"|"BillingBlockReason desc"|"BillingPlanServiceStartDate"|"BillingPlanServiceStartDate desc"|"BillingPlanServiceEndDate"|"BillingPlanServiceEndDate desc"|"BillingPlanRelatedBillgStatus"|"BillingPlanRelatedBillgStatus desc"|"BillingPlanType"|"BillingPlanType desc"|"AdoptingBillingDateID"|"AdoptingBillingDateID desc"|"BillingPlanBillingRule"|"BillingPlanBillingRule desc"|"BillingPlanMilestoneUsage"|"BillingPlanMilestoneUsage desc"|"BillgPlnDteCorrectionRfndType"|"BillgPlnDteCorrectionRfndType desc"|"AccountingExchangeRate"|"AccountingExchangeRate desc"|"PostponementReason"|"PostponementReason desc")[];
-
-public type RelatedObjectOfA_SalesOrderItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"SDDocRelatedObjectSequenceNmbr"|"SDDocumentRelatedObjectType"|"SDDocRelatedObjectSystem"|"SDDocRelatedObjectReference1"|"SDDocRelatedObjectReference2"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
-public type A_SalesOrderScheduleLineByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"ScheduleLine"|"RequestedDeliveryDate"|"ConfirmedDeliveryDate"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ScheduleLineOrderQuantity"|"ConfdOrderQtyByMatlAvailCheck"|"DeliveredQtyInOrderQtyUnit"|"OpenConfdDelivQtyInOrdQtyUnit"|"CorrectedQtyInOrderQtyUnit"|"DelivBlockReasonForSchedLine")[];
-
-public type A_SalesOrderHeaderPartnerByKeyExpandOptions ("to_Address"|"to_SalesOrder")[];
 
 # Represents the Queries record for the operation: getSalesOrderOfA_SalesOrderSubsqntProcFlow
 public type GetSalesOrderOfA_SalesOrderSubsqntProcFlowQueries record {
@@ -3331,9 +3222,12 @@ public type GetSalesOrderOfA_SalesOrderSubsqntProcFlowQueries record {
     SalesOrderOfA_SalesOrderSubsqntProcFlowSelectOptions \$select?;
 };
 
-public type SalesOrderOfA_SalesOrderHeaderPartnerSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
+public type CollectionOfA_SalesOrderBillingPlan record {
+    count __count?;
+    A_SalesOrderBillingPlan[] results?;
+};
 
-public type A_SalesOrderItmPrecdgProcFlowByKeyExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
+public type SalesOrderOfA_SalesOrderHeaderPartnerSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
 public type A_SalesOrderSubsqntProcFlowSelectOptions ("SalesOrder"|"DocRelationshipUUID"|"SubsequentDocument"|"SubsequentDocumentCategory"|"ProcessFlowLevel"|"OverallSDProcessStatus"|"CreationDate"|"CreationTime"|"LastChangeDate"|"to_SalesOrder")[];
 
@@ -3357,8 +3251,6 @@ public type ListBillingPlanItemsOfA_SalesOrderBillingPlanQueries record {
     BillingPlanItemOfA_SalesOrderBillingPlanSelectOptions \$select?;
 };
 
-public type TextOfA_SalesOrderOrderByOptions ("SalesOrder"|"SalesOrder desc"|"Language"|"Language desc"|"LongTextID"|"LongTextID desc")[];
-
 # Represents the Queries record for the operation: listBillingPlanItemsOfA_SalesOrderItemBillingPlan
 public type ListBillingPlanItemsOfA_SalesOrderItemBillingPlanQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
@@ -3375,6 +3267,14 @@ public type ListBillingPlanItemsOfA_SalesOrderItemBillingPlanQueries record {
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     BillingPlanItemOfA_SalesOrderItemBillingPlanSelectOptions \$select?;
+};
+
+public type CollectionOfA_SalesOrderBillingPlanWrapper record {
+    CollectionOfA_SalesOrderBillingPlan d?;
+};
+
+public type CollectionOfA_SalesOrderItemWrapper record {
+    CollectionOfA_SalesOrderItem d?;
 };
 
 public type BillingPlanItemOfA_SalesOrderBillingPlanExpandOptions ("to_BillingPlan"|"to_SalesOrder")[];
@@ -3409,12 +3309,21 @@ public type Modified\ A_SlsOrdPaymentPlanItemDetailsType record {
     UpdateA_SlsOrdPaymentPlanItemDetails d?;
 };
 
+public type CollectionOfA_SlsOrderItemBillingPlanItem record {
+    count __count?;
+    A_SlsOrderItemBillingPlanItem[] results?;
+};
+
 # Represents the Queries record for the operation: getPartnerOfA_SalesOrderPartnerAddress
 public type GetPartnerOfA_SalesOrderPartnerAddressQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     PartnerOfA_SalesOrderPartnerAddressExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     PartnerOfA_SalesOrderPartnerAddressSelectOptions \$select?;
+};
+
+public type CollectionOfA_SalesOrderTextWrapper record {
+    CollectionOfA_SalesOrderText d?;
 };
 
 public type SalesOrderOfA_SalesOrderItemRelatedObjectSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
@@ -3473,46 +3382,43 @@ public type A_SalesOrderItemPartner record {
 
 public type A_SalesOrderItemTextSelectOptions ("SalesOrder"|"SalesOrderItem"|"Language"|"LongTextID"|"LongText"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
-public type A_SalesOrderItmSubsqntProcFlowType record {
-    A_SalesOrderItmSubsqntProcFlow d?;
-};
-
 public type BillingPlanItemOfA_SalesOrderItemBillingPlanExpandOptions ("to_BillingPlan"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
 public type Modified\ A_SalesOrderItemPrElementType record {
     UpdateA_SalesOrderItemPrElement d?;
 };
 
+public type CollectionOfA_SalesOrderItemPartnerAddress record {
+    count __count?;
+    A_SalesOrderItemPartnerAddress[] results?;
+};
+
 public type A_SalesOrderHeaderPrElementOrderByOptions ("SalesOrder"|"SalesOrder desc"|"PricingProcedureStep"|"PricingProcedureStep desc"|"PricingProcedureCounter"|"PricingProcedureCounter desc"|"ConditionType"|"ConditionType desc"|"PricingDateTime"|"PricingDateTime desc"|"PriceConditionDeterminationDte"|"PriceConditionDeterminationDte desc"|"ConditionCalculationType"|"ConditionCalculationType desc"|"ConditionBaseValue"|"ConditionBaseValue desc"|"ConditionRateValue"|"ConditionRateValue desc"|"ConditionCurrency"|"ConditionCurrency desc"|"ConditionQuantity"|"ConditionQuantity desc"|"ConditionQuantityUnit"|"ConditionQuantityUnit desc"|"ConditionQuantitySAPUnit"|"ConditionQuantitySAPUnit desc"|"ConditionQuantityISOUnit"|"ConditionQuantityISOUnit desc"|"ConditionCategory"|"ConditionCategory desc"|"ConditionIsForStatistics"|"ConditionIsForStatistics desc"|"PricingScaleType"|"PricingScaleType desc"|"ConditionOrigin"|"ConditionOrigin desc"|"IsGroupCondition"|"IsGroupCondition desc"|"ConditionRecord"|"ConditionRecord desc"|"ConditionSequentialNumber"|"ConditionSequentialNumber desc"|"TaxCode"|"TaxCode desc"|"WithholdingTaxCode"|"WithholdingTaxCode desc"|"CndnRoundingOffDiffAmount"|"CndnRoundingOffDiffAmount desc"|"ConditionAmount"|"ConditionAmount desc"|"TransactionCurrency"|"TransactionCurrency desc"|"ConditionControl"|"ConditionControl desc"|"ConditionInactiveReason"|"ConditionInactiveReason desc"|"ConditionClass"|"ConditionClass desc"|"PrcgProcedureCounterForHeader"|"PrcgProcedureCounterForHeader desc"|"FactorForConditionBasisValue"|"FactorForConditionBasisValue desc"|"StructureCondition"|"StructureCondition desc"|"PeriodFactorForCndnBasisValue"|"PeriodFactorForCndnBasisValue desc"|"PricingScaleBasis"|"PricingScaleBasis desc"|"ConditionScaleBasisValue"|"ConditionScaleBasisValue desc"|"ConditionScaleBasisUnit"|"ConditionScaleBasisUnit desc"|"ConditionScaleBasisCurrency"|"ConditionScaleBasisCurrency desc"|"CndnIsRelevantForIntcoBilling"|"CndnIsRelevantForIntcoBilling desc"|"ConditionIsManuallyChanged"|"ConditionIsManuallyChanged desc"|"ConditionIsForConfiguration"|"ConditionIsForConfiguration desc"|"VariantCondition"|"VariantCondition desc")[];
-
-public type TextOfA_SalesOrderExpandOptions ("to_SalesOrder")[];
-
-public type BillingPlanOfA_SalesOrderBillingPlanItemSelectOptions ("SalesOrder"|"BillingPlan"|"BillingPlanStartDate"|"BillingPlanStartDateRule"|"ReferenceBillingPlan"|"BillingPlanCategory"|"BillingPlanType"|"BillingPlanEndDate"|"BillingPlanEndDateRule"|"BillingPlanSearchTerm"|"to_BillingPlanItem"|"to_SalesOrder")[];
 
 public type A_SalesOrderItemRelatedObjectOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"SDDocRelatedObjectSequenceNmbr"|"SDDocRelatedObjectSequenceNmbr desc"|"SDDocumentRelatedObjectType"|"SDDocumentRelatedObjectType desc"|"SDDocRelatedObjectSystem"|"SDDocRelatedObjectSystem desc"|"SDDocRelatedObjectReference1"|"SDDocRelatedObjectReference1 desc"|"SDDocRelatedObjectReference2"|"SDDocRelatedObjectReference2 desc")[];
 
-public type RelatedObjectOfA_SalesOrderItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"SDDocRelatedObjectSequenceNmbr"|"SDDocRelatedObjectSequenceNmbr desc"|"SDDocumentRelatedObjectType"|"SDDocumentRelatedObjectType desc"|"SDDocRelatedObjectSystem"|"SDDocRelatedObjectSystem desc"|"SDDocRelatedObjectReference1"|"SDDocRelatedObjectReference1 desc"|"SDDocRelatedObjectReference2"|"SDDocRelatedObjectReference2 desc")[];
+public type BillingPlanOfA_SalesOrderBillingPlanItemSelectOptions ("SalesOrder"|"BillingPlan"|"BillingPlanStartDate"|"BillingPlanStartDateRule"|"ReferenceBillingPlan"|"BillingPlanCategory"|"BillingPlanType"|"BillingPlanEndDate"|"BillingPlanEndDateRule"|"BillingPlanSearchTerm"|"to_BillingPlanItem"|"to_SalesOrder")[];
 
-public type A_SalesOrderBillingPlanByKeySelectOptions ("SalesOrder"|"BillingPlan"|"BillingPlanStartDate"|"BillingPlanStartDateRule"|"ReferenceBillingPlan"|"BillingPlanCategory"|"BillingPlanType"|"BillingPlanEndDate"|"BillingPlanEndDateRule"|"BillingPlanSearchTerm"|"to_BillingPlanItem"|"to_SalesOrder")[];
-
-public type Collection\ of\ A_SalesOrderItmSubsqntProcFlowType record {
-    count __count?;
-    A_SalesOrderItmSubsqntProcFlow[] results?;
+public type CollectionOfA_SalesOrderItmSubsqntProcFlowWrapper record {
+    CollectionOfA_SalesOrderItmSubsqntProcFlow d?;
 };
-
-public type A_SalesOrderPartnerAddressByKeyExpandOptions ("to_Partner"|"to_SalesOrder")[];
 
 # Represents the Queries record for the operation: getA_SalesOrderItemBillingPlan
 public type GetA_SalesOrderItemBillingPlanQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderItemBillingPlanByKeyExpandOptions \$expand?;
+    A_SalesOrderItemBillingPlanExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderItemBillingPlanByKeySelectOptions \$select?;
+    A_SalesOrderItemBillingPlanSelectOptions \$select?;
 };
 
-public type A_SalesOrderItemRelatedObjectByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"SDDocRelatedObjectSequenceNmbr"|"SDDocumentRelatedObjectType"|"SDDocRelatedObjectSystem"|"SDDocRelatedObjectReference1"|"SDDocRelatedObjectReference2"|"to_SalesOrder"|"to_SalesOrderItem")[];
+public type CollectionOfA_SalesOrderPrecdgProcFlow record {
+    count __count?;
+    A_SalesOrderPrecdgProcFlow[] results?;
+};
 
-public type A_SalesOrderBillingPlanItemByKeyExpandOptions ("to_BillingPlan"|"to_SalesOrder")[];
+public type CollectionOfA_SalesOrderItemRelatedObjectWrapper record {
+    CollectionOfA_SalesOrderItemRelatedObject d?;
+};
 
 public type SubsequentProcFlowDocOfA_SalesOrderExpandOptions ("to_SalesOrder")[];
 
@@ -3544,9 +3450,15 @@ public type A_SalesOrderScheduleLine record {
     string? DelivBlockReasonForSchedLine?;
 };
 
+public type CollectionOfA_SalesOrderItemTextWrapper record {
+    CollectionOfA_SalesOrderItemText d?;
+};
+
 public type AddressOfA_SalesOrderHeaderPartnerExpandOptions ("to_Partner"|"to_SalesOrder")[];
 
-public type A_SalesOrderByKeySelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
+public type CollectionOfA_SalesOrderItemPartnerWrapper record {
+    CollectionOfA_SalesOrderItemPartner d?;
+};
 
 # Represents the Queries record for the operation: getSalesOrderItemOfA_SalesOrderItmSubsqntProcFlow
 public type GetSalesOrderItemOfA_SalesOrderItmSubsqntProcFlowQueries record {
@@ -3555,10 +3467,6 @@ public type GetSalesOrderItemOfA_SalesOrderItmSubsqntProcFlowQueries record {
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     SalesOrderItemOfA_SalesOrderItmSubsqntProcFlowSelectOptions \$select?;
 };
-
-public type BillingPlanOfA_SalesOrderExpandOptions ("to_BillingPlanItem"|"to_SalesOrder")[];
-
-public type A_SalesOrderPrecdgProcFlowByKeySelectOptions ("SalesOrder"|"DocRelationshipUUID"|"PrecedingDocument"|"PrecedingDocumentCategory"|"ProcessFlowLevel"|"OverallSDProcessStatus"|"CreationDate"|"CreationTime"|"LastChangeDate"|"to_SalesOrder")[];
 
 public type A_SalesOrderItemPartnerAddressExpandOptions ("to_Partner"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
@@ -3670,11 +3578,13 @@ public type A_SalesOrderPartnerAddress record {
     A_SalesOrder to_SalesOrder?;
 };
 
-public type RelatedObjectOfA_SalesOrderOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SDDocRelatedObjectSequenceNmbr"|"SDDocRelatedObjectSequenceNmbr desc"|"SDDocumentRelatedObjectType"|"SDDocumentRelatedObjectType desc"|"SDDocRelatedObjectSystem"|"SDDocRelatedObjectSystem desc"|"SDDocRelatedObjectReference1"|"SDDocRelatedObjectReference1 desc"|"SDDocRelatedObjectReference2"|"SDDocRelatedObjectReference2 desc")[];
-
-public type Collection\ of\ A_SalesOrderSubsqntProcFlowType record {
+public type CollectionOfA_SalesOrderBillingPlanItem record {
     count __count?;
-    A_SalesOrderSubsqntProcFlow[] results?;
+    A_SalesOrderBillingPlanItem[] results?;
+};
+
+public type A_SalesOrderPartnerAddressWrapper record {
+    A_SalesOrderPartnerAddress d?;
 };
 
 # Represents the Queries record for the operation: getSalesOrderOfA_SalesOrderHeaderPartner
@@ -3710,8 +3620,6 @@ public type CreateA_SalesOrderText record {
     CreateA_SalesOrder to_SalesOrder?;
 };
 
-public type A_SalesOrderItemByKeyExpandOptions ("to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
-
 public type PartnerOfA_SalesOrderItemPartnerAddressExpandOptions ("to_Address"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
 public type SalesOrderItemOfA_SalesOrderItemPartnerSelectOptions ("SalesOrder"|"SalesOrderItem"|"HigherLevelItem"|"HigherLevelItemUsage"|"SalesOrderItemCategory"|"SalesOrderItemText"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"UnderlyingPurchaseOrderItem"|"ExternalItemID"|"Material"|"MaterialByCustomer"|"PricingDate"|"PricingReferenceMaterial"|"BillingPlan"|"RequestedQuantity"|"RequestedQuantityUnit"|"RequestedQuantitySAPUnit"|"RequestedQuantityISOUnit"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ConfdDelivQtyInOrderQtyUnit"|"ItemGrossWeight"|"ItemNetWeight"|"ItemWeightUnit"|"ItemWeightSAPUnit"|"ItemWeightISOUnit"|"ItemVolume"|"ItemVolumeUnit"|"ItemVolumeSAPUnit"|"ItemVolumeISOUnit"|"TransactionCurrency"|"NetAmount"|"TotalSDDocReferenceStatus"|"SDDocReferenceStatus"|"MaterialSubstitutionReason"|"MaterialGroup"|"MaterialPricingGroup"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"ServicesRenderedDate"|"Batch"|"ProductionPlant"|"OriginalPlant"|"AltvBsdConfSubstitutionStatus"|"StorageLocation"|"DeliveryGroup"|"ShippingPoint"|"ShippingType"|"DeliveryPriority"|"DeliveryDateQuantityIsFixed"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"TaxAmount"|"ProductTaxClassification1"|"ProductTaxClassification2"|"ProductTaxClassification3"|"ProductTaxClassification4"|"ProductTaxClassification5"|"ProductTaxClassification6"|"ProductTaxClassification7"|"ProductTaxClassification8"|"ProductTaxClassification9"|"MatlAccountAssignmentGroup"|"CostAmount"|"CustomerPaymentTerms"|"FixedValueDate"|"CustomerGroup"|"SalesDocumentRjcnReason"|"ItemBillingBlockReason"|"SlsDocIsRlvtForProofOfDeliv"|"WBSElement"|"ProfitCenter"|"AccountingExchangeRate"|"ReferenceSDDocument"|"ReferenceSDDocumentItem"|"SDProcessStatus"|"DeliveryStatus"|"OrderRelatedBillingStatus"|"Subtotal1Amount"|"Subtotal2Amount"|"Subtotal3Amount"|"Subtotal4Amount"|"Subtotal5Amount"|"Subtotal6Amount"|"to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
@@ -3740,21 +3648,23 @@ public type Modified\ A_SalesOrderBillingPlanType record {
     UpdateA_SalesOrderBillingPlan d?;
 };
 
+public type A_SlsOrdPaymentPlanItemDetailsWrapper record {
+    A_SlsOrdPaymentPlanItemDetails d?;
+};
+
 public type A_SalesOrderItemPrElementSelectOptions ("SalesOrder"|"SalesOrderItem"|"PricingProcedureStep"|"PricingProcedureCounter"|"ConditionType"|"PricingDateTime"|"PriceConditionDeterminationDte"|"ConditionCalculationType"|"ConditionBaseValue"|"ConditionRateValue"|"ConditionCurrency"|"ConditionQuantity"|"ConditionQuantityUnit"|"ConditionQuantitySAPUnit"|"ConditionQuantityISOUnit"|"ConditionCategory"|"ConditionIsForStatistics"|"PricingScaleType"|"IsRelevantForAccrual"|"CndnIsRelevantForInvoiceList"|"ConditionOrigin"|"IsGroupCondition"|"ConditionRecord"|"ConditionSequentialNumber"|"TaxCode"|"WithholdingTaxCode"|"CndnRoundingOffDiffAmount"|"ConditionAmount"|"TransactionCurrency"|"ConditionControl"|"ConditionInactiveReason"|"ConditionClass"|"PrcgProcedureCounterForHeader"|"FactorForConditionBasisValue"|"StructureCondition"|"PeriodFactorForCndnBasisValue"|"PricingScaleBasis"|"ConditionScaleBasisValue"|"ConditionScaleBasisUnit"|"ConditionScaleBasisCurrency"|"CndnIsRelevantForIntcoBilling"|"ConditionIsManuallyChanged"|"ConditionIsForConfiguration"|"VariantCondition"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
 public type CreateA_SalesOrderItem_to_Partner record {
     CreateA_SalesOrderItemPartner[] results?;
 };
 
-public type A_SalesOrderBillingPlanItemByKeySelectOptions ("SalesOrder"|"BillingPlan"|"BillingPlanItem"|"BillingPlanDateCategory"|"BillingPlanBillingDate"|"BillingPlanAmount"|"TransactionCurrency"|"BillingPlanAmountPercent"|"CustomerPaymentTerms"|"ProposedBillingDocumentType"|"BillingPlanDateDescriptionCode"|"BillingBlockReason"|"BillingPlanServiceStartDate"|"BillingPlanServiceEndDate"|"BillingPlanRelatedBillgStatus"|"BillingPlanType"|"AdoptingBillingDateID"|"BillingPlanBillingRule"|"BillingPlanMilestoneUsage"|"BillgPlnDteCorrectionRfndType"|"AccountingExchangeRate"|"PostponementReason"|"to_BillingPlan"|"to_SalesOrder")[];
+public type A_SalesOrderItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"HigherLevelItem"|"HigherLevelItem desc"|"HigherLevelItemUsage"|"HigherLevelItemUsage desc"|"SalesOrderItemCategory"|"SalesOrderItemCategory desc"|"SalesOrderItemText"|"SalesOrderItemText desc"|"PurchaseOrderByCustomer"|"PurchaseOrderByCustomer desc"|"PurchaseOrderByShipToParty"|"PurchaseOrderByShipToParty desc"|"UnderlyingPurchaseOrderItem"|"UnderlyingPurchaseOrderItem desc"|"ExternalItemID"|"ExternalItemID desc"|"Material"|"Material desc"|"MaterialByCustomer"|"MaterialByCustomer desc"|"PricingDate"|"PricingDate desc"|"PricingReferenceMaterial"|"PricingReferenceMaterial desc"|"BillingPlan"|"BillingPlan desc"|"RequestedQuantity"|"RequestedQuantity desc"|"RequestedQuantityUnit"|"RequestedQuantityUnit desc"|"RequestedQuantitySAPUnit"|"RequestedQuantitySAPUnit desc"|"RequestedQuantityISOUnit"|"RequestedQuantityISOUnit desc"|"OrderQuantityUnit"|"OrderQuantityUnit desc"|"OrderQuantitySAPUnit"|"OrderQuantitySAPUnit desc"|"OrderQuantityISOUnit"|"OrderQuantityISOUnit desc"|"ConfdDelivQtyInOrderQtyUnit"|"ConfdDelivQtyInOrderQtyUnit desc"|"ItemGrossWeight"|"ItemGrossWeight desc"|"ItemNetWeight"|"ItemNetWeight desc"|"ItemWeightUnit"|"ItemWeightUnit desc"|"ItemWeightSAPUnit"|"ItemWeightSAPUnit desc"|"ItemWeightISOUnit"|"ItemWeightISOUnit desc"|"ItemVolume"|"ItemVolume desc"|"ItemVolumeUnit"|"ItemVolumeUnit desc"|"ItemVolumeSAPUnit"|"ItemVolumeSAPUnit desc"|"ItemVolumeISOUnit"|"ItemVolumeISOUnit desc"|"TransactionCurrency"|"TransactionCurrency desc"|"NetAmount"|"NetAmount desc"|"TotalSDDocReferenceStatus"|"TotalSDDocReferenceStatus desc"|"SDDocReferenceStatus"|"SDDocReferenceStatus desc"|"MaterialSubstitutionReason"|"MaterialSubstitutionReason desc"|"MaterialGroup"|"MaterialGroup desc"|"MaterialPricingGroup"|"MaterialPricingGroup desc"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup1 desc"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup2 desc"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup3 desc"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup4 desc"|"AdditionalMaterialGroup5"|"AdditionalMaterialGroup5 desc"|"BillingDocumentDate"|"BillingDocumentDate desc"|"ContractAccount"|"ContractAccount desc"|"AdditionalValueDays"|"AdditionalValueDays desc"|"ServicesRenderedDate"|"ServicesRenderedDate desc"|"Batch"|"Batch desc"|"ProductionPlant"|"ProductionPlant desc"|"OriginalPlant"|"OriginalPlant desc"|"AltvBsdConfSubstitutionStatus"|"AltvBsdConfSubstitutionStatus desc"|"StorageLocation"|"StorageLocation desc"|"DeliveryGroup"|"DeliveryGroup desc"|"ShippingPoint"|"ShippingPoint desc"|"ShippingType"|"ShippingType desc"|"DeliveryPriority"|"DeliveryPriority desc"|"DeliveryDateQuantityIsFixed"|"DeliveryDateQuantityIsFixed desc"|"DeliveryDateTypeRule"|"DeliveryDateTypeRule desc"|"IncotermsClassification"|"IncotermsClassification desc"|"IncotermsTransferLocation"|"IncotermsTransferLocation desc"|"IncotermsLocation1"|"IncotermsLocation1 desc"|"IncotermsLocation2"|"IncotermsLocation2 desc"|"TaxAmount"|"TaxAmount desc"|"ProductTaxClassification1"|"ProductTaxClassification1 desc"|"ProductTaxClassification2"|"ProductTaxClassification2 desc"|"ProductTaxClassification3"|"ProductTaxClassification3 desc"|"ProductTaxClassification4"|"ProductTaxClassification4 desc"|"ProductTaxClassification5"|"ProductTaxClassification5 desc"|"ProductTaxClassification6"|"ProductTaxClassification6 desc"|"ProductTaxClassification7"|"ProductTaxClassification7 desc"|"ProductTaxClassification8"|"ProductTaxClassification8 desc"|"ProductTaxClassification9"|"ProductTaxClassification9 desc"|"MatlAccountAssignmentGroup"|"MatlAccountAssignmentGroup desc"|"CostAmount"|"CostAmount desc"|"CustomerPaymentTerms"|"CustomerPaymentTerms desc"|"FixedValueDate"|"FixedValueDate desc"|"CustomerGroup"|"CustomerGroup desc"|"SalesDocumentRjcnReason"|"SalesDocumentRjcnReason desc"|"ItemBillingBlockReason"|"ItemBillingBlockReason desc"|"SlsDocIsRlvtForProofOfDeliv"|"SlsDocIsRlvtForProofOfDeliv desc"|"WBSElement"|"WBSElement desc"|"ProfitCenter"|"ProfitCenter desc"|"AccountingExchangeRate"|"AccountingExchangeRate desc"|"ReferenceSDDocument"|"ReferenceSDDocument desc"|"ReferenceSDDocumentItem"|"ReferenceSDDocumentItem desc"|"SDProcessStatus"|"SDProcessStatus desc"|"DeliveryStatus"|"DeliveryStatus desc"|"OrderRelatedBillingStatus"|"OrderRelatedBillingStatus desc"|"Subtotal1Amount"|"Subtotal1Amount desc"|"Subtotal2Amount"|"Subtotal2Amount desc"|"Subtotal3Amount"|"Subtotal3Amount desc"|"Subtotal4Amount"|"Subtotal4Amount desc"|"Subtotal5Amount"|"Subtotal5Amount desc"|"Subtotal6Amount"|"Subtotal6Amount desc")[];
 
 public type A_SalesOrderPrecdgProcFlowOrderByOptions ("SalesOrder"|"SalesOrder desc"|"DocRelationshipUUID"|"DocRelationshipUUID desc"|"PrecedingDocument"|"PrecedingDocument desc"|"PrecedingDocumentCategory"|"PrecedingDocumentCategory desc"|"ProcessFlowLevel"|"ProcessFlowLevel desc"|"CreationDate"|"CreationDate desc"|"CreationTime"|"CreationTime desc"|"LastChangeDate"|"LastChangeDate desc")[];
 
-public type A_SalesOrderItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"HigherLevelItem"|"HigherLevelItem desc"|"HigherLevelItemUsage"|"HigherLevelItemUsage desc"|"SalesOrderItemCategory"|"SalesOrderItemCategory desc"|"SalesOrderItemText"|"SalesOrderItemText desc"|"PurchaseOrderByCustomer"|"PurchaseOrderByCustomer desc"|"PurchaseOrderByShipToParty"|"PurchaseOrderByShipToParty desc"|"UnderlyingPurchaseOrderItem"|"UnderlyingPurchaseOrderItem desc"|"ExternalItemID"|"ExternalItemID desc"|"Material"|"Material desc"|"MaterialByCustomer"|"MaterialByCustomer desc"|"PricingDate"|"PricingDate desc"|"PricingReferenceMaterial"|"PricingReferenceMaterial desc"|"BillingPlan"|"BillingPlan desc"|"RequestedQuantity"|"RequestedQuantity desc"|"RequestedQuantityUnit"|"RequestedQuantityUnit desc"|"RequestedQuantitySAPUnit"|"RequestedQuantitySAPUnit desc"|"RequestedQuantityISOUnit"|"RequestedQuantityISOUnit desc"|"OrderQuantityUnit"|"OrderQuantityUnit desc"|"OrderQuantitySAPUnit"|"OrderQuantitySAPUnit desc"|"OrderQuantityISOUnit"|"OrderQuantityISOUnit desc"|"ConfdDelivQtyInOrderQtyUnit"|"ConfdDelivQtyInOrderQtyUnit desc"|"ItemGrossWeight"|"ItemGrossWeight desc"|"ItemNetWeight"|"ItemNetWeight desc"|"ItemWeightUnit"|"ItemWeightUnit desc"|"ItemWeightSAPUnit"|"ItemWeightSAPUnit desc"|"ItemWeightISOUnit"|"ItemWeightISOUnit desc"|"ItemVolume"|"ItemVolume desc"|"ItemVolumeUnit"|"ItemVolumeUnit desc"|"ItemVolumeSAPUnit"|"ItemVolumeSAPUnit desc"|"ItemVolumeISOUnit"|"ItemVolumeISOUnit desc"|"TransactionCurrency"|"TransactionCurrency desc"|"NetAmount"|"NetAmount desc"|"TotalSDDocReferenceStatus"|"TotalSDDocReferenceStatus desc"|"SDDocReferenceStatus"|"SDDocReferenceStatus desc"|"MaterialSubstitutionReason"|"MaterialSubstitutionReason desc"|"MaterialGroup"|"MaterialGroup desc"|"MaterialPricingGroup"|"MaterialPricingGroup desc"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup1 desc"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup2 desc"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup3 desc"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup4 desc"|"AdditionalMaterialGroup5"|"AdditionalMaterialGroup5 desc"|"BillingDocumentDate"|"BillingDocumentDate desc"|"ContractAccount"|"ContractAccount desc"|"AdditionalValueDays"|"AdditionalValueDays desc"|"ServicesRenderedDate"|"ServicesRenderedDate desc"|"Batch"|"Batch desc"|"ProductionPlant"|"ProductionPlant desc"|"OriginalPlant"|"OriginalPlant desc"|"AltvBsdConfSubstitutionStatus"|"AltvBsdConfSubstitutionStatus desc"|"StorageLocation"|"StorageLocation desc"|"DeliveryGroup"|"DeliveryGroup desc"|"ShippingPoint"|"ShippingPoint desc"|"ShippingType"|"ShippingType desc"|"DeliveryPriority"|"DeliveryPriority desc"|"DeliveryDateQuantityIsFixed"|"DeliveryDateQuantityIsFixed desc"|"DeliveryDateTypeRule"|"DeliveryDateTypeRule desc"|"IncotermsClassification"|"IncotermsClassification desc"|"IncotermsTransferLocation"|"IncotermsTransferLocation desc"|"IncotermsLocation1"|"IncotermsLocation1 desc"|"IncotermsLocation2"|"IncotermsLocation2 desc"|"TaxAmount"|"TaxAmount desc"|"ProductTaxClassification1"|"ProductTaxClassification1 desc"|"ProductTaxClassification2"|"ProductTaxClassification2 desc"|"ProductTaxClassification3"|"ProductTaxClassification3 desc"|"ProductTaxClassification4"|"ProductTaxClassification4 desc"|"ProductTaxClassification5"|"ProductTaxClassification5 desc"|"ProductTaxClassification6"|"ProductTaxClassification6 desc"|"ProductTaxClassification7"|"ProductTaxClassification7 desc"|"ProductTaxClassification8"|"ProductTaxClassification8 desc"|"ProductTaxClassification9"|"ProductTaxClassification9 desc"|"MatlAccountAssignmentGroup"|"MatlAccountAssignmentGroup desc"|"CostAmount"|"CostAmount desc"|"CustomerPaymentTerms"|"CustomerPaymentTerms desc"|"FixedValueDate"|"FixedValueDate desc"|"CustomerGroup"|"CustomerGroup desc"|"SalesDocumentRjcnReason"|"SalesDocumentRjcnReason desc"|"ItemBillingBlockReason"|"ItemBillingBlockReason desc"|"SlsDocIsRlvtForProofOfDeliv"|"SlsDocIsRlvtForProofOfDeliv desc"|"WBSElement"|"WBSElement desc"|"ProfitCenter"|"ProfitCenter desc"|"AccountingExchangeRate"|"AccountingExchangeRate desc"|"ReferenceSDDocument"|"ReferenceSDDocument desc"|"ReferenceSDDocumentItem"|"ReferenceSDDocumentItem desc"|"SDProcessStatus"|"SDProcessStatus desc"|"DeliveryStatus"|"DeliveryStatus desc"|"OrderRelatedBillingStatus"|"OrderRelatedBillingStatus desc"|"Subtotal1Amount"|"Subtotal1Amount desc"|"Subtotal2Amount"|"Subtotal2Amount desc"|"Subtotal3Amount"|"Subtotal3Amount desc"|"Subtotal4Amount"|"Subtotal4Amount desc"|"Subtotal5Amount"|"Subtotal5Amount desc"|"Subtotal6Amount"|"Subtotal6Amount desc")[];
-
-public type Collection\ of\ A_SlsOrdPaymentPlanItemDetailsType record {
+public type CollectionOfA_SalesOrderItemPartner record {
     count __count?;
-    A_SlsOrdPaymentPlanItemDetails[] results?;
+    A_SalesOrderItemPartner[] results?;
 };
 
 # Represents the Queries record for the operation: listA_SalesOrderItemPartnerAddresses
@@ -3775,19 +3685,15 @@ public type ListA_SalesOrderItemPartnerAddressesQueries record {
     A_SalesOrderItemPartnerAddressSelectOptions \$select?;
 };
 
-public type AddressOfA_SalesOrderItemPartnerOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"PartnerFunction"|"PartnerFunction desc"|"AddressRepresentationCode"|"AddressRepresentationCode desc"|"CorrespondenceLanguage"|"CorrespondenceLanguage desc"|"AddresseeFullName"|"AddresseeFullName desc"|"OrganizationName1"|"OrganizationName1 desc"|"OrganizationName2"|"OrganizationName2 desc"|"OrganizationName3"|"OrganizationName3 desc"|"OrganizationName4"|"OrganizationName4 desc"|"CityName"|"CityName desc"|"DistrictName"|"DistrictName desc"|"PostalCode"|"PostalCode desc"|"StreetName"|"StreetName desc"|"StreetPrefixName1"|"StreetPrefixName1 desc"|"StreetPrefixName2"|"StreetPrefixName2 desc"|"StreetSuffixName1"|"StreetSuffixName1 desc"|"StreetSuffixName2"|"StreetSuffixName2 desc"|"HouseNumber"|"HouseNumber desc"|"Country"|"Country desc"|"Region"|"Region desc"|"FormOfAddress"|"FormOfAddress desc"|"TaxJurisdiction"|"TaxJurisdiction desc"|"TransportZone"|"TransportZone desc"|"POBox"|"POBox desc"|"POBoxPostalCode"|"POBoxPostalCode desc"|"EmailAddress"|"EmailAddress desc"|"MobilePhoneCountry"|"MobilePhoneCountry desc"|"MobileNumber"|"MobileNumber desc"|"PhoneNumberCountry"|"PhoneNumberCountry desc"|"PhoneNumber"|"PhoneNumber desc"|"PhoneExtensionNumber"|"PhoneExtensionNumber desc"|"FaxNumberCountry"|"FaxNumberCountry desc"|"FaxAreaCodeSubscriberNumber"|"FaxAreaCodeSubscriberNumber desc"|"FaxExtensionNumber"|"FaxExtensionNumber desc")[];
-
 public type A_SalesOrderItmPrecdgProcFlowExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
 
 # Represents the Queries record for the operation: getBillingPlanOfA_SalesOrder
 public type GetBillingPlanOfA_SalesOrderQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    BillingPlanOfA_SalesOrderExpandOptions \$expand?;
+    A_SalesOrderBillingPlanExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    BillingPlanOfA_SalesOrderSelectOptions \$select?;
+    A_SalesOrderBillingPlanSelectOptions \$select?;
 };
-
-public type A_SalesOrderRelatedObjectByKeyExpandOptions ("to_SalesOrder")[];
 
 # Represents the Queries record for the operation: listPartnersOfA_SalesOrderItem
 public type ListPartnersOfA_SalesOrderItemQueries record {
@@ -3798,18 +3704,16 @@ public type ListPartnersOfA_SalesOrderItemQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
     string \$filter?;
     # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    PartnerOfA_SalesOrderItemOrderByOptions \$orderby?;
+    A_SalesOrderItemPartnerOrderByOptions \$orderby?;
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    PartnerOfA_SalesOrderItemExpandOptions \$expand?;
+    A_SalesOrderItemPartnerExpandOptions \$expand?;
     # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    PartnerOfA_SalesOrderItemSelectOptions \$select?;
+    A_SalesOrderItemPartnerSelectOptions \$select?;
 };
 
 public type SalesOrderOfA_SalesOrderTextExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
-
-public type A_SalesOrderTextByKeySelectOptions ("SalesOrder"|"Language"|"LongTextID"|"LongText"|"to_SalesOrder")[];
 
 public type SalesOrderOfA_SalesOrderItemPartnerAddressSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
@@ -3822,13 +3726,13 @@ public type ListTextsOfA_SalesOrderQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
     string \$filter?;
     # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    TextOfA_SalesOrderOrderByOptions \$orderby?;
+    A_SalesOrderTextOrderByOptions \$orderby?;
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    TextOfA_SalesOrderExpandOptions \$expand?;
+    A_SalesOrderTextExpandOptions \$expand?;
     # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    TextOfA_SalesOrderSelectOptions \$select?;
+    A_SalesOrderTextSelectOptions \$select?;
 };
 
 public type CreateA_SalesOrderHeaderPrElement record {
@@ -3897,23 +3801,15 @@ public type CreateA_SalesOrderHeaderPartner record {
 # Represents the Queries record for the operation: getA_SalesOrderItemText
 public type GetA_SalesOrderItemTextQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderItemTextByKeyExpandOptions \$expand?;
+    A_SalesOrderItemTextExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderItemTextByKeySelectOptions \$select?;
+    A_SalesOrderItemTextSelectOptions \$select?;
 };
 
 public type A_SalesOrderTextSelectOptions ("SalesOrder"|"Language"|"LongTextID"|"LongText"|"to_SalesOrder")[];
 
 public type A_SalesOrderItem_to_PricingElement record {
     A_SalesOrderItemPrElement[] results?;
-};
-
-public type A_SalesOrderHeaderPartnerType record {
-    A_SalesOrderHeaderPartner d?;
-};
-
-public type A_SalesOrderItemPartnerAddressType record {
-    A_SalesOrderItemPartnerAddress d?;
 };
 
 public type SalesOrderOfA_SalesOrderPrecdgProcFlowSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
@@ -3926,13 +3822,11 @@ public type GetSalesOrderOfA_SalesOrderItemPartnerQueries record {
     SalesOrderOfA_SalesOrderItemPartnerSelectOptions \$select?;
 };
 
-public type A_SalesOrderItemPrElementByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"PricingProcedureStep"|"PricingProcedureCounter"|"ConditionType"|"PricingDateTime"|"PriceConditionDeterminationDte"|"ConditionCalculationType"|"ConditionBaseValue"|"ConditionRateValue"|"ConditionCurrency"|"ConditionQuantity"|"ConditionQuantityUnit"|"ConditionQuantitySAPUnit"|"ConditionQuantityISOUnit"|"ConditionCategory"|"ConditionIsForStatistics"|"PricingScaleType"|"IsRelevantForAccrual"|"CndnIsRelevantForInvoiceList"|"ConditionOrigin"|"IsGroupCondition"|"ConditionRecord"|"ConditionSequentialNumber"|"TaxCode"|"WithholdingTaxCode"|"CndnRoundingOffDiffAmount"|"ConditionAmount"|"TransactionCurrency"|"ConditionControl"|"ConditionInactiveReason"|"ConditionClass"|"PrcgProcedureCounterForHeader"|"FactorForConditionBasisValue"|"StructureCondition"|"PeriodFactorForCndnBasisValue"|"PricingScaleBasis"|"ConditionScaleBasisValue"|"ConditionScaleBasisUnit"|"ConditionScaleBasisCurrency"|"CndnIsRelevantForIntcoBilling"|"ConditionIsManuallyChanged"|"ConditionIsForConfiguration"|"VariantCondition"|"to_SalesOrder"|"to_SalesOrderItem")[];
+public type A_SalesOrderItmSubsqntProcFlowWrapper record {
+    A_SalesOrderItmSubsqntProcFlow d?;
+};
 
 public type SalesOrderOfA_SalesOrderTextSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
-
-public type A_SalesOrderItemTextType record {
-    A_SalesOrderItemText d?;
-};
 
 public type A_SalesOrderItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"HigherLevelItem"|"HigherLevelItemUsage"|"SalesOrderItemCategory"|"SalesOrderItemText"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"UnderlyingPurchaseOrderItem"|"ExternalItemID"|"Material"|"MaterialByCustomer"|"PricingDate"|"PricingReferenceMaterial"|"BillingPlan"|"RequestedQuantity"|"RequestedQuantityUnit"|"RequestedQuantitySAPUnit"|"RequestedQuantityISOUnit"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ConfdDelivQtyInOrderQtyUnit"|"ItemGrossWeight"|"ItemNetWeight"|"ItemWeightUnit"|"ItemWeightSAPUnit"|"ItemWeightISOUnit"|"ItemVolume"|"ItemVolumeUnit"|"ItemVolumeSAPUnit"|"ItemVolumeISOUnit"|"TransactionCurrency"|"NetAmount"|"TotalSDDocReferenceStatus"|"SDDocReferenceStatus"|"MaterialSubstitutionReason"|"MaterialGroup"|"MaterialPricingGroup"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"ServicesRenderedDate"|"Batch"|"ProductionPlant"|"OriginalPlant"|"AltvBsdConfSubstitutionStatus"|"StorageLocation"|"DeliveryGroup"|"ShippingPoint"|"ShippingType"|"DeliveryPriority"|"DeliveryDateQuantityIsFixed"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"TaxAmount"|"ProductTaxClassification1"|"ProductTaxClassification2"|"ProductTaxClassification3"|"ProductTaxClassification4"|"ProductTaxClassification5"|"ProductTaxClassification6"|"ProductTaxClassification7"|"ProductTaxClassification8"|"ProductTaxClassification9"|"MatlAccountAssignmentGroup"|"CostAmount"|"CustomerPaymentTerms"|"FixedValueDate"|"CustomerGroup"|"SalesDocumentRjcnReason"|"ItemBillingBlockReason"|"SlsDocIsRlvtForProofOfDeliv"|"WBSElement"|"ProfitCenter"|"AccountingExchangeRate"|"ReferenceSDDocument"|"ReferenceSDDocumentItem"|"SDProcessStatus"|"DeliveryStatus"|"OrderRelatedBillingStatus"|"Subtotal1Amount"|"Subtotal2Amount"|"Subtotal3Amount"|"Subtotal4Amount"|"Subtotal5Amount"|"Subtotal6Amount"|"to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
@@ -4057,9 +3951,10 @@ public type CreateA_SalesOrderScheduleLine record {
     string? DelivBlockReasonForSchedLine?;
 };
 
-public type A_SalesOrderItmSubsqntProcFlowByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"DocRelationshipUUID"|"SubsequentDocument"|"SubsequentDocumentItem"|"SubsequentDocumentCategory"|"ProcessFlowLevel"|"RelatedProcFlowDocStsFieldName"|"SDProcessStatus"|"AccountingTransferStatus"|"PrelimBillingDocumentStatus"|"SubsqntDocItmPrecdgDocument"|"SubsqntDocItmPrecdgDocItem"|"SubsqntDocItmPrecdgDocCategory"|"CreationDate"|"CreationTime"|"LastChangeDate"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
-public type A_SalesOrderItemPrElementByKeyExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
+public type CollectionOfA_SalesOrderItemPrElement record {
+    count __count?;
+    A_SalesOrderItemPrElement[] results?;
+};
 
 public type A_SalesOrderItem_to_PrecedingProcFlowDocItem record {
     A_SalesOrderItmPrecdgProcFlow[] results?;
@@ -4081,7 +3976,14 @@ public type GetSalesOrderItemOfA_SalesOrderItemPartnerQueries record {
     SalesOrderItemOfA_SalesOrderItemPartnerSelectOptions \$select?;
 };
 
-public type A_SalesOrderSubsqntProcFlowByKeySelectOptions ("SalesOrder"|"DocRelationshipUUID"|"SubsequentDocument"|"SubsequentDocumentCategory"|"ProcessFlowLevel"|"OverallSDProcessStatus"|"CreationDate"|"CreationTime"|"LastChangeDate"|"to_SalesOrder")[];
+public type A_SalesOrderPrecdgProcFlowWrapper record {
+    A_SalesOrderPrecdgProcFlow d?;
+};
+
+public type CollectionOfA_SalesOrderPartnerAddress record {
+    count __count?;
+    A_SalesOrderPartnerAddress[] results?;
+};
 
 public type SubsequentProcFlowDocItemOfA_SalesOrderItemOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"DocRelationshipUUID"|"DocRelationshipUUID desc"|"SubsequentDocument"|"SubsequentDocument desc"|"SubsequentDocumentItem"|"SubsequentDocumentItem desc"|"SubsequentDocumentCategory"|"SubsequentDocumentCategory desc"|"ProcessFlowLevel"|"ProcessFlowLevel desc"|"SubsqntDocItmPrecdgDocument"|"SubsqntDocItmPrecdgDocument desc"|"SubsqntDocItmPrecdgDocItem"|"SubsqntDocItmPrecdgDocItem desc"|"SubsqntDocItmPrecdgDocCategory"|"SubsqntDocItmPrecdgDocCategory desc"|"CreationDate"|"CreationDate desc"|"CreationTime"|"CreationTime desc"|"LastChangeDate"|"LastChangeDate desc")[];
 
@@ -4106,10 +4008,6 @@ public type CreateA_SalesOrderPrecdgProcFlow record {
     # Last Changed On
     string? LastChangeDate?;
     CreateA_SalesOrder to_SalesOrder?;
-};
-
-public type A_SalesOrderItmPrecdgProcFlowType record {
-    A_SalesOrderItmPrecdgProcFlow d?;
 };
 
 public type A_SalesOrderItemText record {
@@ -4306,9 +4204,9 @@ public type A_SalesOrderRelatedObject record {
 # Represents the Queries record for the operation: getBillingPlanOfA_SalesOrderItem
 public type GetBillingPlanOfA_SalesOrderItemQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    BillingPlanOfA_SalesOrderItemExpandOptions \$expand?;
+    A_SalesOrderItemBillingPlanExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    BillingPlanOfA_SalesOrderItemSelectOptions \$select?;
+    A_SalesOrderItemBillingPlanSelectOptions \$select?;
 };
 
 # Represents the Queries record for the operation: listPartnersOfA_SalesOrder
@@ -4358,28 +4256,13 @@ public type UpdateA_SalesOrderItemBillingPlan record {
     string? ReferenceBillingPlan?;
 };
 
-public type Collection\ of\ A_SalesOrderItemPartnerAddressType record {
-    count __count?;
-    A_SalesOrderItemPartnerAddress[] results?;
-};
-
-public type A_SalesOrderItemPrElementType record {
-    A_SalesOrderItemPrElement d?;
-};
-
-public type A_SalesOrderItemRelatedObjectType record {
-    A_SalesOrderItemRelatedObject d?;
-};
-
 public type SalesOrderItemOfA_SalesOrderItemTextSelectOptions ("SalesOrder"|"SalesOrderItem"|"HigherLevelItem"|"HigherLevelItemUsage"|"SalesOrderItemCategory"|"SalesOrderItemText"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"UnderlyingPurchaseOrderItem"|"ExternalItemID"|"Material"|"MaterialByCustomer"|"PricingDate"|"PricingReferenceMaterial"|"BillingPlan"|"RequestedQuantity"|"RequestedQuantityUnit"|"RequestedQuantitySAPUnit"|"RequestedQuantityISOUnit"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ConfdDelivQtyInOrderQtyUnit"|"ItemGrossWeight"|"ItemNetWeight"|"ItemWeightUnit"|"ItemWeightSAPUnit"|"ItemWeightISOUnit"|"ItemVolume"|"ItemVolumeUnit"|"ItemVolumeSAPUnit"|"ItemVolumeISOUnit"|"TransactionCurrency"|"NetAmount"|"TotalSDDocReferenceStatus"|"SDDocReferenceStatus"|"MaterialSubstitutionReason"|"MaterialGroup"|"MaterialPricingGroup"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"ServicesRenderedDate"|"Batch"|"ProductionPlant"|"OriginalPlant"|"AltvBsdConfSubstitutionStatus"|"StorageLocation"|"DeliveryGroup"|"ShippingPoint"|"ShippingType"|"DeliveryPriority"|"DeliveryDateQuantityIsFixed"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"TaxAmount"|"ProductTaxClassification1"|"ProductTaxClassification2"|"ProductTaxClassification3"|"ProductTaxClassification4"|"ProductTaxClassification5"|"ProductTaxClassification6"|"ProductTaxClassification7"|"ProductTaxClassification8"|"ProductTaxClassification9"|"MatlAccountAssignmentGroup"|"CostAmount"|"CustomerPaymentTerms"|"FixedValueDate"|"CustomerGroup"|"SalesDocumentRjcnReason"|"ItemBillingBlockReason"|"SlsDocIsRlvtForProofOfDeliv"|"WBSElement"|"ProfitCenter"|"AccountingExchangeRate"|"ReferenceSDDocument"|"ReferenceSDDocumentItem"|"SDProcessStatus"|"DeliveryStatus"|"OrderRelatedBillingStatus"|"Subtotal1Amount"|"Subtotal2Amount"|"Subtotal3Amount"|"Subtotal4Amount"|"Subtotal5Amount"|"Subtotal6Amount"|"to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
 
 public type SalesOrderOfA_SalesOrderItemPartnerSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
-public type ItemOfA_SalesOrderSelectOptions ("SalesOrder"|"SalesOrderItem"|"HigherLevelItem"|"HigherLevelItemUsage"|"SalesOrderItemCategory"|"SalesOrderItemText"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"UnderlyingPurchaseOrderItem"|"ExternalItemID"|"Material"|"MaterialByCustomer"|"PricingDate"|"PricingReferenceMaterial"|"BillingPlan"|"RequestedQuantity"|"RequestedQuantityUnit"|"RequestedQuantitySAPUnit"|"RequestedQuantityISOUnit"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ConfdDelivQtyInOrderQtyUnit"|"ItemGrossWeight"|"ItemNetWeight"|"ItemWeightUnit"|"ItemWeightSAPUnit"|"ItemWeightISOUnit"|"ItemVolume"|"ItemVolumeUnit"|"ItemVolumeSAPUnit"|"ItemVolumeISOUnit"|"TransactionCurrency"|"NetAmount"|"TotalSDDocReferenceStatus"|"SDDocReferenceStatus"|"MaterialSubstitutionReason"|"MaterialGroup"|"MaterialPricingGroup"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"ServicesRenderedDate"|"Batch"|"ProductionPlant"|"OriginalPlant"|"AltvBsdConfSubstitutionStatus"|"StorageLocation"|"DeliveryGroup"|"ShippingPoint"|"ShippingType"|"DeliveryPriority"|"DeliveryDateQuantityIsFixed"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"TaxAmount"|"ProductTaxClassification1"|"ProductTaxClassification2"|"ProductTaxClassification3"|"ProductTaxClassification4"|"ProductTaxClassification5"|"ProductTaxClassification6"|"ProductTaxClassification7"|"ProductTaxClassification8"|"ProductTaxClassification9"|"MatlAccountAssignmentGroup"|"CostAmount"|"CustomerPaymentTerms"|"FixedValueDate"|"CustomerGroup"|"SalesDocumentRjcnReason"|"ItemBillingBlockReason"|"SlsDocIsRlvtForProofOfDeliv"|"WBSElement"|"ProfitCenter"|"AccountingExchangeRate"|"ReferenceSDDocument"|"ReferenceSDDocumentItem"|"SDProcessStatus"|"DeliveryStatus"|"OrderRelatedBillingStatus"|"Subtotal1Amount"|"Subtotal2Amount"|"Subtotal3Amount"|"Subtotal4Amount"|"Subtotal5Amount"|"Subtotal6Amount"|"to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
-
-public type A_SalesOrderItmPrecdgProcFlowByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"DocRelationshipUUID"|"PrecedingDocument"|"PrecedingDocumentItem"|"PrecedingDocumentCategory"|"ProcessFlowLevel"|"RelatedProcFlowDocStsFieldName"|"SDProcessStatus"|"AccountingTransferStatus"|"PrelimBillingDocumentStatus"|"CreationDate"|"CreationTime"|"LastChangeDate"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
 public type A_SalesOrderRelatedObjectSelectOptions ("SalesOrder"|"SDDocRelatedObjectSequenceNmbr"|"SDDocumentRelatedObjectType"|"SDDocRelatedObjectSystem"|"SDDocRelatedObjectReference1"|"SDDocRelatedObjectReference2"|"to_SalesOrder")[];
+
+public type A_SalesOrderItemPartnerAddressSelectOptions ("SalesOrder"|"SalesOrderItem"|"PartnerFunction"|"AddressRepresentationCode"|"CorrespondenceLanguage"|"AddresseeFullName"|"OrganizationName1"|"OrganizationName2"|"OrganizationName3"|"OrganizationName4"|"CityName"|"DistrictName"|"PostalCode"|"StreetName"|"StreetPrefixName1"|"StreetPrefixName2"|"StreetSuffixName1"|"StreetSuffixName2"|"HouseNumber"|"Country"|"Region"|"FormOfAddress"|"TaxJurisdiction"|"TransportZone"|"POBox"|"POBoxPostalCode"|"EmailAddress"|"MobilePhoneCountry"|"MobileNumber"|"PhoneNumberCountry"|"PhoneNumber"|"PhoneExtensionNumber"|"FaxNumberCountry"|"FaxAreaCodeSubscriberNumber"|"FaxExtensionNumber"|"to_Partner"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
 # Represents the Queries record for the operation: getSalesOrderOfA_SlsOrdPaymentPlanItemDetails
 public type GetSalesOrderOfA_SlsOrdPaymentPlanItemDetailsQueries record {
@@ -4389,28 +4272,24 @@ public type GetSalesOrderOfA_SlsOrdPaymentPlanItemDetailsQueries record {
     SalesOrderOfA_SlsOrdPaymentPlanItemDetailsSelectOptions \$select?;
 };
 
-public type A_SalesOrderItemPartnerAddressSelectOptions ("SalesOrder"|"SalesOrderItem"|"PartnerFunction"|"AddressRepresentationCode"|"CorrespondenceLanguage"|"AddresseeFullName"|"OrganizationName1"|"OrganizationName2"|"OrganizationName3"|"OrganizationName4"|"CityName"|"DistrictName"|"PostalCode"|"StreetName"|"StreetPrefixName1"|"StreetPrefixName2"|"StreetSuffixName1"|"StreetSuffixName2"|"HouseNumber"|"Country"|"Region"|"FormOfAddress"|"TaxJurisdiction"|"TransportZone"|"POBox"|"POBoxPostalCode"|"EmailAddress"|"MobilePhoneCountry"|"MobileNumber"|"PhoneNumberCountry"|"PhoneNumber"|"PhoneExtensionNumber"|"FaxNumberCountry"|"FaxAreaCodeSubscriberNumber"|"FaxExtensionNumber"|"to_Partner"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
-public type A_SalesOrderItemBillingPlanByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"BillingPlan"|"BillingPlanIsInHeader"|"BillingPlanStartDate"|"BillingPlanStartDateRule"|"ReferenceBillingPlan"|"BillingPlanCategory"|"BillingPlanType"|"BillingPlanEndDate"|"BillingPlanEndDateRule"|"BillingPlanSearchTerm"|"to_BillingPlanItem"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
 # Represents the Queries record for the operation: getA_SalesOrderItemPartnerAddress
 public type GetA_SalesOrderItemPartnerAddressQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    A_SalesOrderItemPartnerAddressByKeyExpandOptions \$expand?;
+    A_SalesOrderItemPartnerAddressExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    A_SalesOrderItemPartnerAddressByKeySelectOptions \$select?;
+    A_SalesOrderItemPartnerAddressSelectOptions \$select?;
 };
 
-public type SalesOrderOfA_SalesOrderItmPrecdgProcFlowExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
+public type CollectionOfA_SalesOrderSubsqntProcFlow record {
+    count __count?;
+    A_SalesOrderSubsqntProcFlow[] results?;
+};
 
 public type A_SalesOrderItmPrecdgProcFlowSelectOptions ("SalesOrder"|"SalesOrderItem"|"DocRelationshipUUID"|"PrecedingDocument"|"PrecedingDocumentItem"|"PrecedingDocumentCategory"|"ProcessFlowLevel"|"RelatedProcFlowDocStsFieldName"|"SDProcessStatus"|"AccountingTransferStatus"|"PrelimBillingDocumentStatus"|"CreationDate"|"CreationTime"|"LastChangeDate"|"to_SalesOrder"|"to_SalesOrderItem")[];
 
-public type A_SalesOrderOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderType"|"SalesOrderType desc"|"SalesOrderTypeInternalCode"|"SalesOrderTypeInternalCode desc"|"SalesOrganization"|"SalesOrganization desc"|"DistributionChannel"|"DistributionChannel desc"|"OrganizationDivision"|"OrganizationDivision desc"|"SalesGroup"|"SalesGroup desc"|"SalesOffice"|"SalesOffice desc"|"SalesDistrict"|"SalesDistrict desc"|"SoldToParty"|"SoldToParty desc"|"CreationDate"|"CreationDate desc"|"CreatedByUser"|"CreatedByUser desc"|"LastChangeDate"|"LastChangeDate desc"|"SenderBusinessSystemName"|"SenderBusinessSystemName desc"|"ExternalDocumentID"|"ExternalDocumentID desc"|"LastChangeDateTime"|"LastChangeDateTime desc"|"ExternalDocLastChangeDateTime"|"ExternalDocLastChangeDateTime desc"|"PurchaseOrderByCustomer"|"PurchaseOrderByCustomer desc"|"PurchaseOrderByShipToParty"|"PurchaseOrderByShipToParty desc"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderType desc"|"CustomerPurchaseOrderDate"|"CustomerPurchaseOrderDate desc"|"SalesOrderDate"|"SalesOrderDate desc"|"TotalNetAmount"|"TotalNetAmount desc"|"OverallDeliveryStatus"|"OverallDeliveryStatus desc"|"TotalBlockStatus"|"TotalBlockStatus desc"|"OverallOrdReltdBillgStatus"|"OverallOrdReltdBillgStatus desc"|"OverallSDDocReferenceStatus"|"OverallSDDocReferenceStatus desc"|"TransactionCurrency"|"TransactionCurrency desc"|"SDDocumentReason"|"SDDocumentReason desc"|"PricingDate"|"PricingDate desc"|"PriceDetnExchangeRate"|"PriceDetnExchangeRate desc"|"BillingPlan"|"BillingPlan desc"|"RequestedDeliveryDate"|"RequestedDeliveryDate desc"|"ShippingCondition"|"ShippingCondition desc"|"CompleteDeliveryIsDefined"|"CompleteDeliveryIsDefined desc"|"ShippingType"|"ShippingType desc"|"HeaderBillingBlockReason"|"HeaderBillingBlockReason desc"|"DeliveryBlockReason"|"DeliveryBlockReason desc"|"DeliveryDateTypeRule"|"DeliveryDateTypeRule desc"|"IncotermsClassification"|"IncotermsClassification desc"|"IncotermsTransferLocation"|"IncotermsTransferLocation desc"|"IncotermsLocation1"|"IncotermsLocation1 desc"|"IncotermsLocation2"|"IncotermsLocation2 desc"|"IncotermsVersion"|"IncotermsVersion desc"|"CustomerPriceGroup"|"CustomerPriceGroup desc"|"PriceListType"|"PriceListType desc"|"CustomerPaymentTerms"|"CustomerPaymentTerms desc"|"PaymentMethod"|"PaymentMethod desc"|"FixedValueDate"|"FixedValueDate desc"|"AssignmentReference"|"AssignmentReference desc"|"ReferenceSDDocument"|"ReferenceSDDocument desc"|"ReferenceSDDocumentCategory"|"ReferenceSDDocumentCategory desc"|"AccountingDocExternalReference"|"AccountingDocExternalReference desc"|"CustomerAccountAssignmentGroup"|"CustomerAccountAssignmentGroup desc"|"AccountingExchangeRate"|"AccountingExchangeRate desc"|"CustomerGroup"|"CustomerGroup desc"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup1 desc"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup2 desc"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup3 desc"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup4 desc"|"AdditionalCustomerGroup5"|"AdditionalCustomerGroup5 desc"|"SlsDocIsRlvtForProofOfDeliv"|"SlsDocIsRlvtForProofOfDeliv desc"|"CustomerTaxClassification1"|"CustomerTaxClassification1 desc"|"CustomerTaxClassification2"|"CustomerTaxClassification2 desc"|"CustomerTaxClassification3"|"CustomerTaxClassification3 desc"|"CustomerTaxClassification4"|"CustomerTaxClassification4 desc"|"CustomerTaxClassification5"|"CustomerTaxClassification5 desc"|"CustomerTaxClassification6"|"CustomerTaxClassification6 desc"|"CustomerTaxClassification7"|"CustomerTaxClassification7 desc"|"CustomerTaxClassification8"|"CustomerTaxClassification8 desc"|"CustomerTaxClassification9"|"CustomerTaxClassification9 desc"|"TaxDepartureCountry"|"TaxDepartureCountry desc"|"VATRegistrationCountry"|"VATRegistrationCountry desc"|"SalesOrderApprovalReason"|"SalesOrderApprovalReason desc"|"SalesDocApprovalStatus"|"SalesDocApprovalStatus desc"|"OverallSDProcessStatus"|"OverallSDProcessStatus desc"|"TotalCreditCheckStatus"|"TotalCreditCheckStatus desc"|"OverallTotalDeliveryStatus"|"OverallTotalDeliveryStatus desc"|"OverallSDDocumentRejectionSts"|"OverallSDDocumentRejectionSts desc"|"BillingDocumentDate"|"BillingDocumentDate desc"|"ContractAccount"|"ContractAccount desc"|"AdditionalValueDays"|"AdditionalValueDays desc"|"CustomerPurchaseOrderSuplmnt"|"CustomerPurchaseOrderSuplmnt desc"|"ServicesRenderedDate"|"ServicesRenderedDate desc")[];
+public type SalesOrderOfA_SalesOrderItmPrecdgProcFlowExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
-public type Collection\ of\ A_SalesOrderBillingPlanType record {
-    count __count?;
-    A_SalesOrderBillingPlan[] results?;
-};
+public type A_SalesOrderOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderType"|"SalesOrderType desc"|"SalesOrderTypeInternalCode"|"SalesOrderTypeInternalCode desc"|"SalesOrganization"|"SalesOrganization desc"|"DistributionChannel"|"DistributionChannel desc"|"OrganizationDivision"|"OrganizationDivision desc"|"SalesGroup"|"SalesGroup desc"|"SalesOffice"|"SalesOffice desc"|"SalesDistrict"|"SalesDistrict desc"|"SoldToParty"|"SoldToParty desc"|"CreationDate"|"CreationDate desc"|"CreatedByUser"|"CreatedByUser desc"|"LastChangeDate"|"LastChangeDate desc"|"SenderBusinessSystemName"|"SenderBusinessSystemName desc"|"ExternalDocumentID"|"ExternalDocumentID desc"|"LastChangeDateTime"|"LastChangeDateTime desc"|"ExternalDocLastChangeDateTime"|"ExternalDocLastChangeDateTime desc"|"PurchaseOrderByCustomer"|"PurchaseOrderByCustomer desc"|"PurchaseOrderByShipToParty"|"PurchaseOrderByShipToParty desc"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderType desc"|"CustomerPurchaseOrderDate"|"CustomerPurchaseOrderDate desc"|"SalesOrderDate"|"SalesOrderDate desc"|"TotalNetAmount"|"TotalNetAmount desc"|"OverallDeliveryStatus"|"OverallDeliveryStatus desc"|"TotalBlockStatus"|"TotalBlockStatus desc"|"OverallOrdReltdBillgStatus"|"OverallOrdReltdBillgStatus desc"|"OverallSDDocReferenceStatus"|"OverallSDDocReferenceStatus desc"|"TransactionCurrency"|"TransactionCurrency desc"|"SDDocumentReason"|"SDDocumentReason desc"|"PricingDate"|"PricingDate desc"|"PriceDetnExchangeRate"|"PriceDetnExchangeRate desc"|"BillingPlan"|"BillingPlan desc"|"RequestedDeliveryDate"|"RequestedDeliveryDate desc"|"ShippingCondition"|"ShippingCondition desc"|"CompleteDeliveryIsDefined"|"CompleteDeliveryIsDefined desc"|"ShippingType"|"ShippingType desc"|"HeaderBillingBlockReason"|"HeaderBillingBlockReason desc"|"DeliveryBlockReason"|"DeliveryBlockReason desc"|"DeliveryDateTypeRule"|"DeliveryDateTypeRule desc"|"IncotermsClassification"|"IncotermsClassification desc"|"IncotermsTransferLocation"|"IncotermsTransferLocation desc"|"IncotermsLocation1"|"IncotermsLocation1 desc"|"IncotermsLocation2"|"IncotermsLocation2 desc"|"IncotermsVersion"|"IncotermsVersion desc"|"CustomerPriceGroup"|"CustomerPriceGroup desc"|"PriceListType"|"PriceListType desc"|"CustomerPaymentTerms"|"CustomerPaymentTerms desc"|"PaymentMethod"|"PaymentMethod desc"|"FixedValueDate"|"FixedValueDate desc"|"AssignmentReference"|"AssignmentReference desc"|"ReferenceSDDocument"|"ReferenceSDDocument desc"|"ReferenceSDDocumentCategory"|"ReferenceSDDocumentCategory desc"|"AccountingDocExternalReference"|"AccountingDocExternalReference desc"|"CustomerAccountAssignmentGroup"|"CustomerAccountAssignmentGroup desc"|"AccountingExchangeRate"|"AccountingExchangeRate desc"|"CustomerGroup"|"CustomerGroup desc"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup1 desc"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup2 desc"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup3 desc"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup4 desc"|"AdditionalCustomerGroup5"|"AdditionalCustomerGroup5 desc"|"SlsDocIsRlvtForProofOfDeliv"|"SlsDocIsRlvtForProofOfDeliv desc"|"CustomerTaxClassification1"|"CustomerTaxClassification1 desc"|"CustomerTaxClassification2"|"CustomerTaxClassification2 desc"|"CustomerTaxClassification3"|"CustomerTaxClassification3 desc"|"CustomerTaxClassification4"|"CustomerTaxClassification4 desc"|"CustomerTaxClassification5"|"CustomerTaxClassification5 desc"|"CustomerTaxClassification6"|"CustomerTaxClassification6 desc"|"CustomerTaxClassification7"|"CustomerTaxClassification7 desc"|"CustomerTaxClassification8"|"CustomerTaxClassification8 desc"|"CustomerTaxClassification9"|"CustomerTaxClassification9 desc"|"TaxDepartureCountry"|"TaxDepartureCountry desc"|"VATRegistrationCountry"|"VATRegistrationCountry desc"|"SalesOrderApprovalReason"|"SalesOrderApprovalReason desc"|"SalesDocApprovalStatus"|"SalesDocApprovalStatus desc"|"OverallSDProcessStatus"|"OverallSDProcessStatus desc"|"TotalCreditCheckStatus"|"TotalCreditCheckStatus desc"|"OverallTotalDeliveryStatus"|"OverallTotalDeliveryStatus desc"|"OverallSDDocumentRejectionSts"|"OverallSDDocumentRejectionSts desc"|"BillingDocumentDate"|"BillingDocumentDate desc"|"ContractAccount"|"ContractAccount desc"|"AdditionalValueDays"|"AdditionalValueDays desc"|"CustomerPurchaseOrderSuplmnt"|"CustomerPurchaseOrderSuplmnt desc"|"ServicesRenderedDate"|"ServicesRenderedDate desc")[];
 
 # Represents the Queries record for the operation: listA_SalesOrderItemTexts
 public type ListA_SalesOrderItemTextsQueries record {
@@ -4448,11 +4327,6 @@ public type ListA_SalesOrderItemBillingPlansQueries record {
     A_SalesOrderItemBillingPlanSelectOptions \$select?;
 };
 
-public type Collection\ of\ A_SalesOrderBillingPlanItemType record {
-    count __count?;
-    A_SalesOrderBillingPlanItem[] results?;
-};
-
 # Represents the Queries record for the operation: listAddressesOfA_SalesOrderItemPartner
 public type ListAddressesOfA_SalesOrderItemPartnerQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
@@ -4462,18 +4336,19 @@ public type ListAddressesOfA_SalesOrderItemPartnerQueries record {
     # Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)
     string \$filter?;
     # Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
-    AddressOfA_SalesOrderItemPartnerOrderByOptions \$orderby?;
+    A_SalesOrderItemPartnerAddressOrderByOptions \$orderby?;
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
-    AddressOfA_SalesOrderItemPartnerExpandOptions \$expand?;
+    A_SalesOrderItemPartnerAddressExpandOptions \$expand?;
     # Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
-    AddressOfA_SalesOrderItemPartnerSelectOptions \$select?;
+    A_SalesOrderItemPartnerAddressSelectOptions \$select?;
 };
 
-public type A_SalesOrderBillingPlanByKeyExpandOptions ("to_BillingPlanItem"|"to_SalesOrder")[];
-
-public type A_SalesOrderItemByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"HigherLevelItem"|"HigherLevelItemUsage"|"SalesOrderItemCategory"|"SalesOrderItemText"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"UnderlyingPurchaseOrderItem"|"ExternalItemID"|"Material"|"MaterialByCustomer"|"PricingDate"|"PricingReferenceMaterial"|"BillingPlan"|"RequestedQuantity"|"RequestedQuantityUnit"|"RequestedQuantitySAPUnit"|"RequestedQuantityISOUnit"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ConfdDelivQtyInOrderQtyUnit"|"ItemGrossWeight"|"ItemNetWeight"|"ItemWeightUnit"|"ItemWeightSAPUnit"|"ItemWeightISOUnit"|"ItemVolume"|"ItemVolumeUnit"|"ItemVolumeSAPUnit"|"ItemVolumeISOUnit"|"TransactionCurrency"|"NetAmount"|"TotalSDDocReferenceStatus"|"SDDocReferenceStatus"|"MaterialSubstitutionReason"|"MaterialGroup"|"MaterialPricingGroup"|"AdditionalMaterialGroup1"|"AdditionalMaterialGroup2"|"AdditionalMaterialGroup3"|"AdditionalMaterialGroup4"|"AdditionalMaterialGroup5"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"ServicesRenderedDate"|"Batch"|"ProductionPlant"|"OriginalPlant"|"AltvBsdConfSubstitutionStatus"|"StorageLocation"|"DeliveryGroup"|"ShippingPoint"|"ShippingType"|"DeliveryPriority"|"DeliveryDateQuantityIsFixed"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"TaxAmount"|"ProductTaxClassification1"|"ProductTaxClassification2"|"ProductTaxClassification3"|"ProductTaxClassification4"|"ProductTaxClassification5"|"ProductTaxClassification6"|"ProductTaxClassification7"|"ProductTaxClassification8"|"ProductTaxClassification9"|"MatlAccountAssignmentGroup"|"CostAmount"|"CustomerPaymentTerms"|"FixedValueDate"|"CustomerGroup"|"SalesDocumentRjcnReason"|"ItemBillingBlockReason"|"SlsDocIsRlvtForProofOfDeliv"|"WBSElement"|"ProfitCenter"|"AccountingExchangeRate"|"ReferenceSDDocument"|"ReferenceSDDocumentItem"|"SDProcessStatus"|"DeliveryStatus"|"OrderRelatedBillingStatus"|"Subtotal1Amount"|"Subtotal2Amount"|"Subtotal3Amount"|"Subtotal4Amount"|"Subtotal5Amount"|"Subtotal6Amount"|"to_BillingPlan"|"to_Partner"|"to_PrecedingProcFlowDocItem"|"to_PricingElement"|"to_RelatedObject"|"to_SalesOrder"|"to_ScheduleLine"|"to_SubsequentProcFlowDocItem"|"to_Text")[];
+public type CollectionOfA_SalesOrderItmSubsqntProcFlow record {
+    count __count?;
+    A_SalesOrderItmSubsqntProcFlow[] results?;
+};
 
 public type CreateA_SalesOrderItemPartner record {
     @constraint:String {maxLength: 2}
@@ -4495,17 +4370,7 @@ public type CreateA_SalesOrderItemPartner record {
 
 public type SalesOrderOfA_SalesOrderItemSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
-public type TextOfA_SalesOrderSelectOptions ("SalesOrder"|"Language"|"LongTextID"|"LongText"|"to_SalesOrder")[];
-
-public type A_SalesOrderPrecdgProcFlowType record {
-    A_SalesOrderPrecdgProcFlow d?;
-};
-
-public type A_SalesOrderItemPartnerByKeySelectOptions ("SalesOrder"|"SalesOrderItem"|"PartnerFunction"|"PartnerFunctionInternalCode"|"Customer"|"Supplier"|"Personnel"|"ContactPerson"|"ReferenceBusinessPartner"|"AddressID"|"VATRegistration"|"to_Address"|"to_SalesOrder"|"to_SalesOrderItem")[];
-
 public type A_SlsOrdPaymentPlanItemDetailsOrderByOptions ("SalesOrder"|"SalesOrder desc"|"PaymentPlanItem"|"PaymentPlanItem desc"|"PaymentPlan"|"PaymentPlan desc"|"ElectronicPaymentType"|"ElectronicPaymentType desc"|"ElectronicPayment"|"ElectronicPayment desc"|"EPaytValidityStartDate"|"EPaytValidityStartDate desc"|"EPaytValidityEndDate"|"EPaytValidityEndDate desc"|"ElectronicPaymentHolderName"|"ElectronicPaymentHolderName desc"|"AuthorizedAmountInAuthznCrcy"|"AuthorizedAmountInAuthznCrcy desc"|"AuthorizationCurrency"|"AuthorizationCurrency desc"|"AuthorizationByDigitalPaytSrvc"|"AuthorizationByDigitalPaytSrvc desc"|"AuthorizationByAcquirer"|"AuthorizationByAcquirer desc"|"AuthorizationDate"|"AuthorizationDate desc"|"AuthorizationTime"|"AuthorizationTime desc"|"AuthorizationStatusName"|"AuthorizationStatusName desc"|"EPaytByDigitalPaymentSrvc"|"EPaytByDigitalPaymentSrvc desc"|"ElectronicPaymentCallStatus"|"ElectronicPaymentCallStatus desc"|"EPaytAuthorizationResult"|"EPaytAuthorizationResult desc"|"EPaytToBeAuthorizedAmount"|"EPaytToBeAuthorizedAmount desc"|"EPaytAuthorizationIsExpired"|"EPaytAuthorizationIsExpired desc"|"EPaytAmountIsChanged"|"EPaytAmountIsChanged desc"|"PreauthorizationIsRequested"|"PreauthorizationIsRequested desc"|"PaymentServiceProvider"|"PaymentServiceProvider desc"|"PaymentByPaymentServicePrvdr"|"PaymentByPaymentServicePrvdr desc"|"TransactionByPaytSrvcPrvdr"|"TransactionByPaytSrvcPrvdr desc"|"MerchantByClearingHouse"|"MerchantByClearingHouse desc"|"PaymentCardAuthznRelationID"|"PaymentCardAuthznRelationID desc"|"MaximumToBeAuthorizedAmount"|"MaximumToBeAuthorizedAmount desc"|"PaytPlnForAuthorizationItem"|"PaytPlnForAuthorizationItem desc"|"PaytPlnItmForAuthorizationItem"|"PaytPlnItmForAuthorizationItem desc")[];
-
-public type A_SalesOrderPartnerAddressByKeySelectOptions ("SalesOrder"|"PartnerFunction"|"AddressRepresentationCode"|"CorrespondenceLanguage"|"AddresseeFullName"|"OrganizationName1"|"OrganizationName2"|"OrganizationName3"|"OrganizationName4"|"CityName"|"DistrictName"|"PostalCode"|"StreetPrefixName1"|"StreetPrefixName2"|"StreetName"|"StreetSuffixName1"|"StreetSuffixName2"|"HouseNumber"|"Country"|"Region"|"FormOfAddress"|"TaxJurisdiction"|"TransportZone"|"POBox"|"POBoxPostalCode"|"EmailAddress"|"MobilePhoneCountry"|"MobileNumber"|"PhoneNumberCountry"|"PhoneNumber"|"PhoneExtensionNumber"|"FaxNumberCountry"|"FaxAreaCodeSubscriberNumber"|"FaxExtensionNumber"|"to_Partner"|"to_SalesOrder")[];
 
 public type A_SalesOrderBillingPlanItemSelectOptions ("SalesOrder"|"BillingPlan"|"BillingPlanItem"|"BillingPlanDateCategory"|"BillingPlanBillingDate"|"BillingPlanAmount"|"TransactionCurrency"|"BillingPlanAmountPercent"|"CustomerPaymentTerms"|"ProposedBillingDocumentType"|"BillingPlanDateDescriptionCode"|"BillingBlockReason"|"BillingPlanServiceStartDate"|"BillingPlanServiceEndDate"|"BillingPlanRelatedBillgStatus"|"BillingPlanType"|"AdoptingBillingDateID"|"BillingPlanBillingRule"|"BillingPlanMilestoneUsage"|"BillgPlnDteCorrectionRfndType"|"AccountingExchangeRate"|"PostponementReason"|"to_BillingPlan"|"to_SalesOrder")[];
 
@@ -4542,7 +4407,10 @@ public type A_SalesOrder_to_RelatedObject record {
 
 public type A_SalesOrderBillingPlanExpandOptions ("to_BillingPlanItem"|"to_SalesOrder")[];
 
-public type A_SalesOrderItemRelatedObjectByKeyExpandOptions ("to_SalesOrder"|"to_SalesOrderItem")[];
+public type CollectionOfA_SlsOrdPaymentPlanItemDetails record {
+    count __count?;
+    A_SlsOrdPaymentPlanItemDetails[] results?;
+};
 
 public type A_SalesOrderItemPartner_to_Address record {
     A_SalesOrderItemPartnerAddress[] results?;
@@ -4568,10 +4436,6 @@ public type ListSubsequentProcFlowDocItemsOfA_SalesOrderItemQueries record {
     "allpages"|"none" \$inlinecount?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     SubsequentProcFlowDocItemOfA_SalesOrderItemSelectOptions \$select?;
-};
-
-public type A_SalesOrderSubsqntProcFlowType record {
-    A_SalesOrderSubsqntProcFlow d?;
 };
 
 # Represents the Queries record for the operation: getSalesOrderOfA_SalesOrderRelatedObject

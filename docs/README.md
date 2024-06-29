@@ -2,19 +2,24 @@
 
 _Author_: @niveathika \
 _Created_: 2024/05/21 \
-_Updated_: 2024/05/21 \
+_Updated_: 2024/06/28 \
 _Edition_: Swan Lake  
 
 ## Sanitization Steps
 
-1. Move inline enum parameters to schemas. This simplifies function definitions and enhances documentation. Schema names
+1. Move inline enum parameters to schemas. Use EnumSchema consistently to avoid duplication. This simplifies function
+   definitions and enhances documentation. Schema names
    are generated based on the following pattern:
    `${The Resource Name}Of${Base Path Name}`
 
 2. Remove unnecessary grouping prefixes from schema names. For example:
    `Api_sales_contract_srvA_Salesorder` -> `A_Salesorder`
 
-3. Add operation Ids. This is more user-friendly with SAP-specific scripts. The logic for parameter sanitization is
+3. Improve response schema names by removing unnecessary prefixes and suffixes and renaming them to be more descriptive.
+   `wrapper` -> `A_InspectionlotWrapper`
+   `Collection of A_InspectionlotType` -> `CollectionOfA_Inspectionlot`
+
+4. Add operation Ids. This is more user-friendly with SAP-specific scripts. The logic for parameter sanitization is
    reused, making it less complicated for the tool. The pattern is as follows:
    `${HTTP Method}${The Resource Name}Of${Base Path Name}`
    `/salesorder(asdad)/to_Item` => `getTo_ItemOfSalesorder`

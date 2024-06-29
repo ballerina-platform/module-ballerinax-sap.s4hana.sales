@@ -19,19 +19,19 @@
 
 import ballerina/constraint;
 
-public type Wrapper record {
-    Collection\ of\ A_SalesOrganizationType d?;
+public type CollectionOfA_SalesOrganization record {
+    count __count?;
+    A_SalesOrganization[] results?;
 };
 
 public type A_SalesOrganizationOrderByOptions ("SalesOrganization"|"SalesOrganization desc"|"SalesOrganizationCurrency"|"SalesOrganizationCurrency desc"|"CompanyCode"|"CompanyCode desc"|"IntercompanyBillingCustomer"|"IntercompanyBillingCustomer desc")[];
 
+public type CollectionOfA_SalesOrganizationWrapper record {
+    CollectionOfA_SalesOrganization d?;
+};
+
 # The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option.
 public type count string;
-
-public type Collection\ of\ A_SalesOrganizationType record {
-    count __count?;
-    A_SalesOrganization[] results?;
-};
 
 public type A_SalesOrganization record {
     @constraint:String {maxLength: 4}

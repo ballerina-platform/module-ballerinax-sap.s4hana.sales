@@ -64,7 +64,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesDistrict(string SalesDistrict, map<string|string[]> headers = {}, *GetA_SalesDistrictQueries queries) returns A_SalesDistrictType|error {
+    remote isolated function getA_SalesDistrict(string SalesDistrict, map<string|string[]> headers = {}, *GetA_SalesDistrictQueries queries) returns A_SalesDistrictWrapper|error {
         string resourcePath = string `/A_SalesDistrict('${getEncodedUri(SalesDistrict)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -78,7 +78,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesDistrictText(string SalesDistrict, string Language, map<string|string[]> headers = {}, *GetA_SalesDistrictTextQueries queries) returns A_SalesDistrictTextType|error {
+    remote isolated function getA_SalesDistrictText(string SalesDistrict, string Language, map<string|string[]> headers = {}, *GetA_SalesDistrictTextQueries queries) returns A_SalesDistrictTextWrapper|error {
         string resourcePath = string `/A_SalesDistrictText(SalesDistrict='${getEncodedUri(SalesDistrict)}',Language='${getEncodedUri(Language)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -92,7 +92,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesDistrictOfA_SalesDistrictText(string SalesDistrict, string Language, map<string|string[]> headers = {}, *GetSalesDistrictOfA_SalesDistrictTextQueries queries) returns A_SalesDistrictType|error {
+    remote isolated function getSalesDistrictOfA_SalesDistrictText(string SalesDistrict, string Language, map<string|string[]> headers = {}, *GetSalesDistrictOfA_SalesDistrictTextQueries queries) returns A_SalesDistrictWrapper|error {
         string resourcePath = string `/A_SalesDistrictText(SalesDistrict='${getEncodedUri(SalesDistrict)}',Language='${getEncodedUri(Language)}')/to_SalesDistrict`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -104,7 +104,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesDistrictTexts(map<string|string[]> headers = {}, *ListA_SalesDistrictTextsQueries queries) returns Wrapper_1|error {
+    remote isolated function listA_SalesDistrictTexts(map<string|string[]> headers = {}, *ListA_SalesDistrictTextsQueries queries) returns CollectionOfA_SalesDistrictTextWrapper|error {
         string resourcePath = string `/A_SalesDistrictText`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -116,7 +116,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesDistricts(map<string|string[]> headers = {}, *ListA_SalesDistrictsQueries queries) returns Wrapper|error {
+    remote isolated function listA_SalesDistricts(map<string|string[]> headers = {}, *ListA_SalesDistrictsQueries queries) returns CollectionOfA_SalesDistrictWrapper|error {
         string resourcePath = string `/A_SalesDistrict`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -129,7 +129,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listTextsOfA_SalesDistrict(string SalesDistrict, map<string|string[]> headers = {}, *ListTextsOfA_SalesDistrictQueries queries) returns Wrapper_1|error {
+    remote isolated function listTextsOfA_SalesDistrict(string SalesDistrict, map<string|string[]> headers = {}, *ListTextsOfA_SalesDistrictQueries queries) returns CollectionOfA_SalesDistrictTextWrapper|error {
         string resourcePath = string `/A_SalesDistrict('${getEncodedUri(SalesDistrict)}')/to_Text`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);

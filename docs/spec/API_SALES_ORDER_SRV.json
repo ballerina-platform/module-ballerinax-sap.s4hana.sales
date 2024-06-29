@@ -209,11 +209,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderType",
+                      "title": "CollectionOfA_SalesOrder",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -261,7 +261,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -312,7 +312,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -413,7 +413,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderBillingPlanType",
+                  "title": "A_SalesOrderBillingPlanWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -485,11 +485,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemType",
+                      "title": "CollectionOfA_SalesOrderItem",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -538,7 +538,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -610,11 +610,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderHeaderPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderHeaderPartnerType",
+                      "title": "CollectionOfA_SalesOrderHeaderPartner",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -663,7 +663,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderHeaderPartnerType",
+                  "title": "A_SalesOrderHeaderPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -735,11 +735,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SlsOrdPaymentPlanItemDetailsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SlsOrdPaymentPlanItemDetailsType",
+                      "title": "CollectionOfA_SlsOrdPaymentPlanItemDetails",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -788,7 +788,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SlsOrdPaymentPlanItemDetailsType",
+                  "title": "A_SlsOrdPaymentPlanItemDetailsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -859,11 +859,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderPrecdgProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderPrecdgProcFlowType",
+                      "title": "CollectionOfA_SalesOrderPrecdgProcFlow",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -943,11 +943,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderHeaderPrElementWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderHeaderPrElementType",
+                      "title": "CollectionOfA_SalesOrderHeaderPrElement",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -996,7 +996,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderHeaderPrElementType",
+                  "title": "A_SalesOrderHeaderPrElementWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1068,11 +1068,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderRelatedObjectWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderRelatedObjectType",
+                      "title": "CollectionOfA_SalesOrderRelatedObject",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1121,7 +1121,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderRelatedObjectType",
+                  "title": "A_SalesOrderRelatedObjectWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1192,11 +1192,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderSubsqntProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderSubsqntProcFlowType",
+                      "title": "CollectionOfA_SalesOrderSubsqntProcFlow",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1276,11 +1276,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderTextType",
+                      "title": "CollectionOfA_SalesOrderText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1329,7 +1329,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderTextType",
+                  "title": "A_SalesOrderTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1388,11 +1388,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderBillingPlanWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderBillingPlanType",
+                      "title": "CollectionOfA_SalesOrderBillingPlan",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1461,7 +1461,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderBillingPlanType",
+                  "title": "A_SalesOrderBillingPlanWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1576,11 +1576,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderBillingPlanItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderBillingPlanItemType",
+                      "title": "CollectionOfA_SalesOrderBillingPlanItem",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1629,7 +1629,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderBillingPlanItemType",
+                  "title": "A_SalesOrderBillingPlanItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1691,7 +1691,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1750,11 +1750,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderBillingPlanItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderBillingPlanItemType",
+                      "title": "CollectionOfA_SalesOrderBillingPlanItem",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -1802,7 +1802,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderBillingPlanItemType",
+                  "title": "A_SalesOrderBillingPlanItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1873,7 +1873,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderBillingPlanItemType",
+                  "title": "A_SalesOrderBillingPlanItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -1994,7 +1994,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderBillingPlanType",
+                  "title": "A_SalesOrderBillingPlanWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2066,7 +2066,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2125,11 +2125,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderHeaderPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderHeaderPartnerType",
+                      "title": "CollectionOfA_SalesOrderHeaderPartner",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -2177,7 +2177,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderHeaderPartnerType",
+                  "title": "A_SalesOrderHeaderPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2238,7 +2238,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderHeaderPartnerType",
+                  "title": "A_SalesOrderHeaderPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2369,11 +2369,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderPartnerAddressWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderPartnerAddressType",
+                      "title": "CollectionOfA_SalesOrderPartnerAddress",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -2443,7 +2443,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2502,11 +2502,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderHeaderPrElementWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderHeaderPrElementType",
+                      "title": "CollectionOfA_SalesOrderHeaderPrElement",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -2554,7 +2554,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderHeaderPrElementType",
+                  "title": "A_SalesOrderHeaderPrElementWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2625,7 +2625,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderHeaderPrElementType",
+                  "title": "A_SalesOrderHeaderPrElementWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2746,7 +2746,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2805,11 +2805,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemType",
+                      "title": "CollectionOfA_SalesOrderItem",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -2857,7 +2857,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -2918,7 +2918,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3029,7 +3029,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemBillingPlanType",
+                  "title": "A_SalesOrderItemBillingPlanWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3111,11 +3111,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemPartnerType",
+                      "title": "CollectionOfA_SalesOrderItemPartner",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -3164,7 +3164,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemPartnerType",
+                  "title": "A_SalesOrderItemPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3245,11 +3245,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItmPrecdgProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItmPrecdgProcFlowType",
+                      "title": "CollectionOfA_SalesOrderItmPrecdgProcFlow",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -3339,11 +3339,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemPrElementWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemPrElementType",
+                      "title": "CollectionOfA_SalesOrderItemPrElement",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -3392,7 +3392,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemPrElementType",
+                  "title": "A_SalesOrderItemPrElementWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3474,11 +3474,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemRelatedObjectWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemRelatedObjectType",
+                      "title": "CollectionOfA_SalesOrderItemRelatedObject",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -3527,7 +3527,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemRelatedObjectType",
+                  "title": "A_SalesOrderItemRelatedObjectWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3589,7 +3589,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3668,11 +3668,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderScheduleLineWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderScheduleLineType",
+                      "title": "CollectionOfA_SalesOrderScheduleLine",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -3721,7 +3721,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderScheduleLineType",
+                  "title": "A_SalesOrderScheduleLineWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -3802,11 +3802,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItmSubsqntProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItmSubsqntProcFlowType",
+                      "title": "CollectionOfA_SalesOrderItmSubsqntProcFlow",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -3896,11 +3896,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemTextType",
+                      "title": "CollectionOfA_SalesOrderItemText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -3949,7 +3949,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemTextType",
+                  "title": "A_SalesOrderItemTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -4008,11 +4008,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemBillingPlanWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemBillingPlanType",
+                      "title": "CollectionOfA_SalesOrderItemBillingPlan",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -4091,7 +4091,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemBillingPlanType",
+                  "title": "A_SalesOrderItemBillingPlanWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -4216,11 +4216,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SlsOrderItemBillingPlanItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SlsOrderItemBillingPlanItemType",
+                      "title": "CollectionOfA_SlsOrderItemBillingPlanItem",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -4269,7 +4269,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SlsOrderItemBillingPlanItemType",
+                  "title": "A_SlsOrderItemBillingPlanItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -4341,7 +4341,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -4413,7 +4413,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -4472,11 +4472,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemPartnerType",
+                      "title": "CollectionOfA_SalesOrderItemPartner",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -4524,7 +4524,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemPartnerType",
+                  "title": "A_SalesOrderItemPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -4595,7 +4595,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemPartnerType",
+                  "title": "A_SalesOrderItemPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -4736,11 +4736,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemPartnerAddressWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemPartnerAddressType",
+                      "title": "CollectionOfA_SalesOrderItemPartnerAddress",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -4820,7 +4820,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -4892,7 +4892,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -4951,11 +4951,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemPartnerAddressWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemPartnerAddressType",
+                      "title": "CollectionOfA_SalesOrderItemPartnerAddress",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -5044,7 +5044,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemPartnerAddressType",
+                  "title": "A_SalesOrderItemPartnerAddressWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -5159,7 +5159,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemPartnerType",
+                  "title": "A_SalesOrderItemPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -5240,7 +5240,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -5322,7 +5322,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -5381,11 +5381,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemPrElementWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemPrElementType",
+                      "title": "CollectionOfA_SalesOrderItemPrElement",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -5433,7 +5433,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemPrElementType",
+                  "title": "A_SalesOrderItemPrElementWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -5514,7 +5514,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemPrElementType",
+                  "title": "A_SalesOrderItemPrElementWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -5645,7 +5645,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -5727,7 +5727,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -5786,11 +5786,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemRelatedObjectWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemRelatedObjectType",
+                      "title": "CollectionOfA_SalesOrderItemRelatedObject",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -5838,7 +5838,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemRelatedObjectType",
+                  "title": "A_SalesOrderItemRelatedObjectWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -5909,7 +5909,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemRelatedObjectType",
+                  "title": "A_SalesOrderItemRelatedObjectWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -5997,7 +5997,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -6069,7 +6069,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -6128,11 +6128,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItemTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItemTextType",
+                      "title": "CollectionOfA_SalesOrderItemText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -6180,7 +6180,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemTextType",
+                  "title": "A_SalesOrderItemTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -6261,7 +6261,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemTextType",
+                  "title": "A_SalesOrderItemTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -6392,7 +6392,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -6474,7 +6474,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -6533,11 +6533,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItmPrecdgProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItmPrecdgProcFlowType",
+                      "title": "CollectionOfA_SalesOrderItmPrecdgProcFlow",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -6617,7 +6617,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItmPrecdgProcFlowType",
+                  "title": "A_SalesOrderItmPrecdgProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -6690,7 +6690,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -6763,7 +6763,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -6822,11 +6822,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderItmSubsqntProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderItmSubsqntProcFlowType",
+                      "title": "CollectionOfA_SalesOrderItmSubsqntProcFlow",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -6906,7 +6906,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItmSubsqntProcFlowType",
+                  "title": "A_SalesOrderItmSubsqntProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -6979,7 +6979,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7052,7 +7052,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7111,11 +7111,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderPartnerAddressWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderPartnerAddressType",
+                      "title": "CollectionOfA_SalesOrderPartnerAddress",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -7194,7 +7194,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderPartnerAddressType",
+                  "title": "A_SalesOrderPartnerAddressWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7299,7 +7299,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderHeaderPartnerType",
+                  "title": "A_SalesOrderHeaderPartnerWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7371,7 +7371,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7430,11 +7430,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderPrecdgProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderPrecdgProcFlowType",
+                      "title": "CollectionOfA_SalesOrderPrecdgProcFlow",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -7504,7 +7504,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderPrecdgProcFlowType",
+                  "title": "A_SalesOrderPrecdgProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7567,7 +7567,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7626,11 +7626,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderRelatedObjectWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderRelatedObjectType",
+                      "title": "CollectionOfA_SalesOrderRelatedObject",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -7678,7 +7678,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderRelatedObjectType",
+                  "title": "A_SalesOrderRelatedObjectWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7739,7 +7739,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderRelatedObjectType",
+                  "title": "A_SalesOrderRelatedObjectWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7817,7 +7817,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7873,11 +7873,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderScheduleLineWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderScheduleLineType",
+                      "title": "CollectionOfA_SalesOrderScheduleLine",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -7925,7 +7925,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderScheduleLineType",
+                  "title": "A_SalesOrderScheduleLineWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -7993,7 +7993,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderScheduleLineType",
+                  "title": "A_SalesOrderScheduleLineWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -8101,11 +8101,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderSubsqntProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderSubsqntProcFlowType",
+                      "title": "CollectionOfA_SalesOrderSubsqntProcFlow",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -8175,7 +8175,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderSubsqntProcFlowType",
+                  "title": "A_SalesOrderSubsqntProcFlowWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -8238,7 +8238,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -8297,11 +8297,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrderTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrderTextType",
+                      "title": "CollectionOfA_SalesOrderText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -8349,7 +8349,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderTextType",
+                  "title": "A_SalesOrderTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -8420,7 +8420,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderTextType",
+                  "title": "A_SalesOrderTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -8541,7 +8541,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -8600,11 +8600,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SlsOrderItemBillingPlanItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SlsOrderItemBillingPlanItemType",
+                      "title": "CollectionOfA_SlsOrderItemBillingPlanItem",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -8652,7 +8652,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SlsOrderItemBillingPlanItemType",
+                  "title": "A_SlsOrderItemBillingPlanItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -8733,7 +8733,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SlsOrderItemBillingPlanItemType",
+                  "title": "A_SlsOrderItemBillingPlanItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -8864,7 +8864,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemBillingPlanType",
+                  "title": "A_SalesOrderItemBillingPlanWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -8946,7 +8946,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -9028,7 +9028,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderItemType",
+                  "title": "A_SalesOrderItemWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -9087,11 +9087,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SlsOrdPaymentPlanItemDetailsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SlsOrdPaymentPlanItemDetailsType",
+                      "title": "CollectionOfA_SlsOrdPaymentPlanItemDetails",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -9139,7 +9139,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SlsOrdPaymentPlanItemDetailsType",
+                  "title": "A_SlsOrdPaymentPlanItemDetailsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -9200,7 +9200,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SlsOrdPaymentPlanItemDetailsType",
+                  "title": "A_SlsOrdPaymentPlanItemDetailsWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -9311,7 +9311,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderType",
+                  "title": "A_SalesOrderWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -19442,488 +19442,6 @@
           ]
         }
       },
-      "A_SalesOrderByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderType",
-            "SalesOrderTypeInternalCode",
-            "SalesOrganization",
-            "DistributionChannel",
-            "OrganizationDivision",
-            "SalesGroup",
-            "SalesOffice",
-            "SalesDistrict",
-            "SoldToParty",
-            "CreationDate",
-            "CreatedByUser",
-            "LastChangeDate",
-            "SenderBusinessSystemName",
-            "ExternalDocumentID",
-            "LastChangeDateTime",
-            "ExternalDocLastChangeDateTime",
-            "PurchaseOrderByCustomer",
-            "PurchaseOrderByShipToParty",
-            "CustomerPurchaseOrderType",
-            "CustomerPurchaseOrderDate",
-            "SalesOrderDate",
-            "TotalNetAmount",
-            "OverallDeliveryStatus",
-            "TotalBlockStatus",
-            "OverallOrdReltdBillgStatus",
-            "OverallSDDocReferenceStatus",
-            "TransactionCurrency",
-            "SDDocumentReason",
-            "PricingDate",
-            "PriceDetnExchangeRate",
-            "BillingPlan",
-            "RequestedDeliveryDate",
-            "ShippingCondition",
-            "CompleteDeliveryIsDefined",
-            "ShippingType",
-            "HeaderBillingBlockReason",
-            "DeliveryBlockReason",
-            "DeliveryDateTypeRule",
-            "IncotermsClassification",
-            "IncotermsTransferLocation",
-            "IncotermsLocation1",
-            "IncotermsLocation2",
-            "IncotermsVersion",
-            "CustomerPriceGroup",
-            "PriceListType",
-            "CustomerPaymentTerms",
-            "PaymentMethod",
-            "FixedValueDate",
-            "AssignmentReference",
-            "ReferenceSDDocument",
-            "ReferenceSDDocumentCategory",
-            "AccountingDocExternalReference",
-            "CustomerAccountAssignmentGroup",
-            "AccountingExchangeRate",
-            "CustomerGroup",
-            "AdditionalCustomerGroup1",
-            "AdditionalCustomerGroup2",
-            "AdditionalCustomerGroup3",
-            "AdditionalCustomerGroup4",
-            "AdditionalCustomerGroup5",
-            "SlsDocIsRlvtForProofOfDeliv",
-            "CustomerTaxClassification1",
-            "CustomerTaxClassification2",
-            "CustomerTaxClassification3",
-            "CustomerTaxClassification4",
-            "CustomerTaxClassification5",
-            "CustomerTaxClassification6",
-            "CustomerTaxClassification7",
-            "CustomerTaxClassification8",
-            "CustomerTaxClassification9",
-            "TaxDepartureCountry",
-            "VATRegistrationCountry",
-            "SalesOrderApprovalReason",
-            "SalesDocApprovalStatus",
-            "OverallSDProcessStatus",
-            "TotalCreditCheckStatus",
-            "OverallTotalDeliveryStatus",
-            "OverallSDDocumentRejectionSts",
-            "BillingDocumentDate",
-            "ContractAccount",
-            "AdditionalValueDays",
-            "CustomerPurchaseOrderSuplmnt",
-            "ServicesRenderedDate",
-            "to_BillingPlan",
-            "to_Item",
-            "to_Partner",
-            "to_PaymentPlanItemDetails",
-            "to_PrecedingProcFlowDoc",
-            "to_PricingElement",
-            "to_RelatedObject",
-            "to_SubsequentProcFlowDoc",
-            "to_Text"
-          ]
-        }
-      },
-      "A_SalesOrderByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_BillingPlan",
-            "to_Item",
-            "to_Partner",
-            "to_PaymentPlanItemDetails",
-            "to_PrecedingProcFlowDoc",
-            "to_PricingElement",
-            "to_RelatedObject",
-            "to_SubsequentProcFlowDoc",
-            "to_Text"
-          ]
-        }
-      },
-      "BillingPlanOfA_SalesOrderSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "BillingPlan",
-            "BillingPlanStartDate",
-            "BillingPlanStartDateRule",
-            "ReferenceBillingPlan",
-            "BillingPlanCategory",
-            "BillingPlanType",
-            "BillingPlanEndDate",
-            "BillingPlanEndDateRule",
-            "BillingPlanSearchTerm",
-            "to_BillingPlanItem",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "BillingPlanOfA_SalesOrderExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_BillingPlanItem",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "ItemOfA_SalesOrderOrderByOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrder desc",
-            "SalesOrderItem",
-            "SalesOrderItem desc",
-            "HigherLevelItem",
-            "HigherLevelItem desc",
-            "HigherLevelItemUsage",
-            "HigherLevelItemUsage desc",
-            "SalesOrderItemCategory",
-            "SalesOrderItemCategory desc",
-            "SalesOrderItemText",
-            "SalesOrderItemText desc",
-            "PurchaseOrderByCustomer",
-            "PurchaseOrderByCustomer desc",
-            "PurchaseOrderByShipToParty",
-            "PurchaseOrderByShipToParty desc",
-            "UnderlyingPurchaseOrderItem",
-            "UnderlyingPurchaseOrderItem desc",
-            "ExternalItemID",
-            "ExternalItemID desc",
-            "Material",
-            "Material desc",
-            "MaterialByCustomer",
-            "MaterialByCustomer desc",
-            "PricingDate",
-            "PricingDate desc",
-            "PricingReferenceMaterial",
-            "PricingReferenceMaterial desc",
-            "BillingPlan",
-            "BillingPlan desc",
-            "RequestedQuantity",
-            "RequestedQuantity desc",
-            "RequestedQuantityUnit",
-            "RequestedQuantityUnit desc",
-            "RequestedQuantitySAPUnit",
-            "RequestedQuantitySAPUnit desc",
-            "RequestedQuantityISOUnit",
-            "RequestedQuantityISOUnit desc",
-            "OrderQuantityUnit",
-            "OrderQuantityUnit desc",
-            "OrderQuantitySAPUnit",
-            "OrderQuantitySAPUnit desc",
-            "OrderQuantityISOUnit",
-            "OrderQuantityISOUnit desc",
-            "ConfdDelivQtyInOrderQtyUnit",
-            "ConfdDelivQtyInOrderQtyUnit desc",
-            "ItemGrossWeight",
-            "ItemGrossWeight desc",
-            "ItemNetWeight",
-            "ItemNetWeight desc",
-            "ItemWeightUnit",
-            "ItemWeightUnit desc",
-            "ItemWeightSAPUnit",
-            "ItemWeightSAPUnit desc",
-            "ItemWeightISOUnit",
-            "ItemWeightISOUnit desc",
-            "ItemVolume",
-            "ItemVolume desc",
-            "ItemVolumeUnit",
-            "ItemVolumeUnit desc",
-            "ItemVolumeSAPUnit",
-            "ItemVolumeSAPUnit desc",
-            "ItemVolumeISOUnit",
-            "ItemVolumeISOUnit desc",
-            "TransactionCurrency",
-            "TransactionCurrency desc",
-            "NetAmount",
-            "NetAmount desc",
-            "TotalSDDocReferenceStatus",
-            "TotalSDDocReferenceStatus desc",
-            "SDDocReferenceStatus",
-            "SDDocReferenceStatus desc",
-            "MaterialSubstitutionReason",
-            "MaterialSubstitutionReason desc",
-            "MaterialGroup",
-            "MaterialGroup desc",
-            "MaterialPricingGroup",
-            "MaterialPricingGroup desc",
-            "AdditionalMaterialGroup1",
-            "AdditionalMaterialGroup1 desc",
-            "AdditionalMaterialGroup2",
-            "AdditionalMaterialGroup2 desc",
-            "AdditionalMaterialGroup3",
-            "AdditionalMaterialGroup3 desc",
-            "AdditionalMaterialGroup4",
-            "AdditionalMaterialGroup4 desc",
-            "AdditionalMaterialGroup5",
-            "AdditionalMaterialGroup5 desc",
-            "BillingDocumentDate",
-            "BillingDocumentDate desc",
-            "ContractAccount",
-            "ContractAccount desc",
-            "AdditionalValueDays",
-            "AdditionalValueDays desc",
-            "ServicesRenderedDate",
-            "ServicesRenderedDate desc",
-            "Batch",
-            "Batch desc",
-            "ProductionPlant",
-            "ProductionPlant desc",
-            "OriginalPlant",
-            "OriginalPlant desc",
-            "AltvBsdConfSubstitutionStatus",
-            "AltvBsdConfSubstitutionStatus desc",
-            "StorageLocation",
-            "StorageLocation desc",
-            "DeliveryGroup",
-            "DeliveryGroup desc",
-            "ShippingPoint",
-            "ShippingPoint desc",
-            "ShippingType",
-            "ShippingType desc",
-            "DeliveryPriority",
-            "DeliveryPriority desc",
-            "DeliveryDateQuantityIsFixed",
-            "DeliveryDateQuantityIsFixed desc",
-            "DeliveryDateTypeRule",
-            "DeliveryDateTypeRule desc",
-            "IncotermsClassification",
-            "IncotermsClassification desc",
-            "IncotermsTransferLocation",
-            "IncotermsTransferLocation desc",
-            "IncotermsLocation1",
-            "IncotermsLocation1 desc",
-            "IncotermsLocation2",
-            "IncotermsLocation2 desc",
-            "TaxAmount",
-            "TaxAmount desc",
-            "ProductTaxClassification1",
-            "ProductTaxClassification1 desc",
-            "ProductTaxClassification2",
-            "ProductTaxClassification2 desc",
-            "ProductTaxClassification3",
-            "ProductTaxClassification3 desc",
-            "ProductTaxClassification4",
-            "ProductTaxClassification4 desc",
-            "ProductTaxClassification5",
-            "ProductTaxClassification5 desc",
-            "ProductTaxClassification6",
-            "ProductTaxClassification6 desc",
-            "ProductTaxClassification7",
-            "ProductTaxClassification7 desc",
-            "ProductTaxClassification8",
-            "ProductTaxClassification8 desc",
-            "ProductTaxClassification9",
-            "ProductTaxClassification9 desc",
-            "MatlAccountAssignmentGroup",
-            "MatlAccountAssignmentGroup desc",
-            "CostAmount",
-            "CostAmount desc",
-            "CustomerPaymentTerms",
-            "CustomerPaymentTerms desc",
-            "FixedValueDate",
-            "FixedValueDate desc",
-            "CustomerGroup",
-            "CustomerGroup desc",
-            "SalesDocumentRjcnReason",
-            "SalesDocumentRjcnReason desc",
-            "ItemBillingBlockReason",
-            "ItemBillingBlockReason desc",
-            "SlsDocIsRlvtForProofOfDeliv",
-            "SlsDocIsRlvtForProofOfDeliv desc",
-            "WBSElement",
-            "WBSElement desc",
-            "ProfitCenter",
-            "ProfitCenter desc",
-            "AccountingExchangeRate",
-            "AccountingExchangeRate desc",
-            "ReferenceSDDocument",
-            "ReferenceSDDocument desc",
-            "ReferenceSDDocumentItem",
-            "ReferenceSDDocumentItem desc",
-            "SDProcessStatus",
-            "SDProcessStatus desc",
-            "DeliveryStatus",
-            "DeliveryStatus desc",
-            "OrderRelatedBillingStatus",
-            "OrderRelatedBillingStatus desc",
-            "Subtotal1Amount",
-            "Subtotal1Amount desc",
-            "Subtotal2Amount",
-            "Subtotal2Amount desc",
-            "Subtotal3Amount",
-            "Subtotal3Amount desc",
-            "Subtotal4Amount",
-            "Subtotal4Amount desc",
-            "Subtotal5Amount",
-            "Subtotal5Amount desc",
-            "Subtotal6Amount",
-            "Subtotal6Amount desc"
-          ]
-        }
-      },
-      "ItemOfA_SalesOrderSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "HigherLevelItem",
-            "HigherLevelItemUsage",
-            "SalesOrderItemCategory",
-            "SalesOrderItemText",
-            "PurchaseOrderByCustomer",
-            "PurchaseOrderByShipToParty",
-            "UnderlyingPurchaseOrderItem",
-            "ExternalItemID",
-            "Material",
-            "MaterialByCustomer",
-            "PricingDate",
-            "PricingReferenceMaterial",
-            "BillingPlan",
-            "RequestedQuantity",
-            "RequestedQuantityUnit",
-            "RequestedQuantitySAPUnit",
-            "RequestedQuantityISOUnit",
-            "OrderQuantityUnit",
-            "OrderQuantitySAPUnit",
-            "OrderQuantityISOUnit",
-            "ConfdDelivQtyInOrderQtyUnit",
-            "ItemGrossWeight",
-            "ItemNetWeight",
-            "ItemWeightUnit",
-            "ItemWeightSAPUnit",
-            "ItemWeightISOUnit",
-            "ItemVolume",
-            "ItemVolumeUnit",
-            "ItemVolumeSAPUnit",
-            "ItemVolumeISOUnit",
-            "TransactionCurrency",
-            "NetAmount",
-            "TotalSDDocReferenceStatus",
-            "SDDocReferenceStatus",
-            "MaterialSubstitutionReason",
-            "MaterialGroup",
-            "MaterialPricingGroup",
-            "AdditionalMaterialGroup1",
-            "AdditionalMaterialGroup2",
-            "AdditionalMaterialGroup3",
-            "AdditionalMaterialGroup4",
-            "AdditionalMaterialGroup5",
-            "BillingDocumentDate",
-            "ContractAccount",
-            "AdditionalValueDays",
-            "ServicesRenderedDate",
-            "Batch",
-            "ProductionPlant",
-            "OriginalPlant",
-            "AltvBsdConfSubstitutionStatus",
-            "StorageLocation",
-            "DeliveryGroup",
-            "ShippingPoint",
-            "ShippingType",
-            "DeliveryPriority",
-            "DeliveryDateQuantityIsFixed",
-            "DeliveryDateTypeRule",
-            "IncotermsClassification",
-            "IncotermsTransferLocation",
-            "IncotermsLocation1",
-            "IncotermsLocation2",
-            "TaxAmount",
-            "ProductTaxClassification1",
-            "ProductTaxClassification2",
-            "ProductTaxClassification3",
-            "ProductTaxClassification4",
-            "ProductTaxClassification5",
-            "ProductTaxClassification6",
-            "ProductTaxClassification7",
-            "ProductTaxClassification8",
-            "ProductTaxClassification9",
-            "MatlAccountAssignmentGroup",
-            "CostAmount",
-            "CustomerPaymentTerms",
-            "FixedValueDate",
-            "CustomerGroup",
-            "SalesDocumentRjcnReason",
-            "ItemBillingBlockReason",
-            "SlsDocIsRlvtForProofOfDeliv",
-            "WBSElement",
-            "ProfitCenter",
-            "AccountingExchangeRate",
-            "ReferenceSDDocument",
-            "ReferenceSDDocumentItem",
-            "SDProcessStatus",
-            "DeliveryStatus",
-            "OrderRelatedBillingStatus",
-            "Subtotal1Amount",
-            "Subtotal2Amount",
-            "Subtotal3Amount",
-            "Subtotal4Amount",
-            "Subtotal5Amount",
-            "Subtotal6Amount",
-            "to_BillingPlan",
-            "to_Partner",
-            "to_PrecedingProcFlowDocItem",
-            "to_PricingElement",
-            "to_RelatedObject",
-            "to_SalesOrder",
-            "to_ScheduleLine",
-            "to_SubsequentProcFlowDocItem",
-            "to_Text"
-          ]
-        }
-      },
-      "ItemOfA_SalesOrderExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_BillingPlan",
-            "to_Partner",
-            "to_PrecedingProcFlowDocItem",
-            "to_PricingElement",
-            "to_RelatedObject",
-            "to_SalesOrder",
-            "to_ScheduleLine",
-            "to_SubsequentProcFlowDocItem",
-            "to_Text"
-          ]
-        }
-      },
       "PartnerOfA_SalesOrderOrderByOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -20310,53 +19828,6 @@
           ]
         }
       },
-      "RelatedObjectOfA_SalesOrderOrderByOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrder desc",
-            "SDDocRelatedObjectSequenceNmbr",
-            "SDDocRelatedObjectSequenceNmbr desc",
-            "SDDocumentRelatedObjectType",
-            "SDDocumentRelatedObjectType desc",
-            "SDDocRelatedObjectSystem",
-            "SDDocRelatedObjectSystem desc",
-            "SDDocRelatedObjectReference1",
-            "SDDocRelatedObjectReference1 desc",
-            "SDDocRelatedObjectReference2",
-            "SDDocRelatedObjectReference2 desc"
-          ]
-        }
-      },
-      "RelatedObjectOfA_SalesOrderSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SDDocRelatedObjectSequenceNmbr",
-            "SDDocumentRelatedObjectType",
-            "SDDocRelatedObjectSystem",
-            "SDDocRelatedObjectReference1",
-            "SDDocRelatedObjectReference2",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "RelatedObjectOfA_SalesOrderExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder"
-          ]
-        }
-      },
       "SubsequentProcFlowDocOfA_SalesOrderOrderByOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -20402,45 +19873,6 @@
         }
       },
       "SubsequentProcFlowDocOfA_SalesOrderExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "TextOfA_SalesOrderOrderByOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrder desc",
-            "Language",
-            "Language desc",
-            "LongTextID",
-            "LongTextID desc"
-          ]
-        }
-      },
-      "TextOfA_SalesOrderSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "Language",
-            "LongTextID",
-            "LongText",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "TextOfA_SalesOrderExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -20501,38 +19933,6 @@
         }
       },
       "A_SalesOrderBillingPlanExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_BillingPlanItem",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderBillingPlanByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "BillingPlan",
-            "BillingPlanStartDate",
-            "BillingPlanStartDateRule",
-            "ReferenceBillingPlan",
-            "BillingPlanCategory",
-            "BillingPlanType",
-            "BillingPlanEndDate",
-            "BillingPlanEndDateRule",
-            "BillingPlanSearchTerm",
-            "to_BillingPlanItem",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderBillingPlanByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -20857,50 +20257,6 @@
           ]
         }
       },
-      "A_SalesOrderBillingPlanItemByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "BillingPlan",
-            "BillingPlanItem",
-            "BillingPlanDateCategory",
-            "BillingPlanBillingDate",
-            "BillingPlanAmount",
-            "TransactionCurrency",
-            "BillingPlanAmountPercent",
-            "CustomerPaymentTerms",
-            "ProposedBillingDocumentType",
-            "BillingPlanDateDescriptionCode",
-            "BillingBlockReason",
-            "BillingPlanServiceStartDate",
-            "BillingPlanServiceEndDate",
-            "BillingPlanRelatedBillgStatus",
-            "BillingPlanType",
-            "AdoptingBillingDateID",
-            "BillingPlanBillingRule",
-            "BillingPlanMilestoneUsage",
-            "BillgPlnDteCorrectionRfndType",
-            "AccountingExchangeRate",
-            "PostponementReason",
-            "to_BillingPlan",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderBillingPlanItemByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_BillingPlan",
-            "to_SalesOrder"
-          ]
-        }
-      },
       "BillingPlanOfA_SalesOrderBillingPlanItemSelectOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -21104,38 +20460,6 @@
         }
       },
       "A_SalesOrderHeaderPartnerExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_Address",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderHeaderPartnerByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "PartnerFunction",
-            "PartnerFunctionInternalCode",
-            "Customer",
-            "Supplier",
-            "Personnel",
-            "ContactPerson",
-            "ReferenceBusinessPartner",
-            "AddressID",
-            "VATRegistration",
-            "to_Address",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderHeaderPartnerByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -21542,67 +20866,6 @@
         }
       },
       "A_SalesOrderHeaderPrElementExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderHeaderPrElementByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "PricingProcedureStep",
-            "PricingProcedureCounter",
-            "ConditionType",
-            "PricingDateTime",
-            "PriceConditionDeterminationDte",
-            "ConditionCalculationType",
-            "ConditionBaseValue",
-            "ConditionRateValue",
-            "ConditionCurrency",
-            "ConditionQuantity",
-            "ConditionQuantityUnit",
-            "ConditionQuantitySAPUnit",
-            "ConditionQuantityISOUnit",
-            "ConditionCategory",
-            "ConditionIsForStatistics",
-            "PricingScaleType",
-            "ConditionOrigin",
-            "IsGroupCondition",
-            "ConditionRecord",
-            "ConditionSequentialNumber",
-            "TaxCode",
-            "WithholdingTaxCode",
-            "CndnRoundingOffDiffAmount",
-            "ConditionAmount",
-            "TransactionCurrency",
-            "ConditionControl",
-            "ConditionInactiveReason",
-            "ConditionClass",
-            "PrcgProcedureCounterForHeader",
-            "FactorForConditionBasisValue",
-            "StructureCondition",
-            "PeriodFactorForCndnBasisValue",
-            "PricingScaleBasis",
-            "ConditionScaleBasisValue",
-            "ConditionScaleBasisUnit",
-            "ConditionScaleBasisCurrency",
-            "CndnIsRelevantForIntcoBilling",
-            "ConditionIsManuallyChanged",
-            "ConditionIsForConfiguration",
-            "VariantCondition",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderHeaderPrElementByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -22062,239 +21325,6 @@
           ]
         }
       },
-      "A_SalesOrderItemByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "HigherLevelItem",
-            "HigherLevelItemUsage",
-            "SalesOrderItemCategory",
-            "SalesOrderItemText",
-            "PurchaseOrderByCustomer",
-            "PurchaseOrderByShipToParty",
-            "UnderlyingPurchaseOrderItem",
-            "ExternalItemID",
-            "Material",
-            "MaterialByCustomer",
-            "PricingDate",
-            "PricingReferenceMaterial",
-            "BillingPlan",
-            "RequestedQuantity",
-            "RequestedQuantityUnit",
-            "RequestedQuantitySAPUnit",
-            "RequestedQuantityISOUnit",
-            "OrderQuantityUnit",
-            "OrderQuantitySAPUnit",
-            "OrderQuantityISOUnit",
-            "ConfdDelivQtyInOrderQtyUnit",
-            "ItemGrossWeight",
-            "ItemNetWeight",
-            "ItemWeightUnit",
-            "ItemWeightSAPUnit",
-            "ItemWeightISOUnit",
-            "ItemVolume",
-            "ItemVolumeUnit",
-            "ItemVolumeSAPUnit",
-            "ItemVolumeISOUnit",
-            "TransactionCurrency",
-            "NetAmount",
-            "TotalSDDocReferenceStatus",
-            "SDDocReferenceStatus",
-            "MaterialSubstitutionReason",
-            "MaterialGroup",
-            "MaterialPricingGroup",
-            "AdditionalMaterialGroup1",
-            "AdditionalMaterialGroup2",
-            "AdditionalMaterialGroup3",
-            "AdditionalMaterialGroup4",
-            "AdditionalMaterialGroup5",
-            "BillingDocumentDate",
-            "ContractAccount",
-            "AdditionalValueDays",
-            "ServicesRenderedDate",
-            "Batch",
-            "ProductionPlant",
-            "OriginalPlant",
-            "AltvBsdConfSubstitutionStatus",
-            "StorageLocation",
-            "DeliveryGroup",
-            "ShippingPoint",
-            "ShippingType",
-            "DeliveryPriority",
-            "DeliveryDateQuantityIsFixed",
-            "DeliveryDateTypeRule",
-            "IncotermsClassification",
-            "IncotermsTransferLocation",
-            "IncotermsLocation1",
-            "IncotermsLocation2",
-            "TaxAmount",
-            "ProductTaxClassification1",
-            "ProductTaxClassification2",
-            "ProductTaxClassification3",
-            "ProductTaxClassification4",
-            "ProductTaxClassification5",
-            "ProductTaxClassification6",
-            "ProductTaxClassification7",
-            "ProductTaxClassification8",
-            "ProductTaxClassification9",
-            "MatlAccountAssignmentGroup",
-            "CostAmount",
-            "CustomerPaymentTerms",
-            "FixedValueDate",
-            "CustomerGroup",
-            "SalesDocumentRjcnReason",
-            "ItemBillingBlockReason",
-            "SlsDocIsRlvtForProofOfDeliv",
-            "WBSElement",
-            "ProfitCenter",
-            "AccountingExchangeRate",
-            "ReferenceSDDocument",
-            "ReferenceSDDocumentItem",
-            "SDProcessStatus",
-            "DeliveryStatus",
-            "OrderRelatedBillingStatus",
-            "Subtotal1Amount",
-            "Subtotal2Amount",
-            "Subtotal3Amount",
-            "Subtotal4Amount",
-            "Subtotal5Amount",
-            "Subtotal6Amount",
-            "to_BillingPlan",
-            "to_Partner",
-            "to_PrecedingProcFlowDocItem",
-            "to_PricingElement",
-            "to_RelatedObject",
-            "to_SalesOrder",
-            "to_ScheduleLine",
-            "to_SubsequentProcFlowDocItem",
-            "to_Text"
-          ]
-        }
-      },
-      "A_SalesOrderItemByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_BillingPlan",
-            "to_Partner",
-            "to_PrecedingProcFlowDocItem",
-            "to_PricingElement",
-            "to_RelatedObject",
-            "to_SalesOrder",
-            "to_ScheduleLine",
-            "to_SubsequentProcFlowDocItem",
-            "to_Text"
-          ]
-        }
-      },
-      "BillingPlanOfA_SalesOrderItemSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "BillingPlan",
-            "BillingPlanIsInHeader",
-            "BillingPlanStartDate",
-            "BillingPlanStartDateRule",
-            "ReferenceBillingPlan",
-            "BillingPlanCategory",
-            "BillingPlanType",
-            "BillingPlanEndDate",
-            "BillingPlanEndDateRule",
-            "BillingPlanSearchTerm",
-            "to_BillingPlanItem",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "BillingPlanOfA_SalesOrderItemExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_BillingPlanItem",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "PartnerOfA_SalesOrderItemOrderByOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrder desc",
-            "SalesOrderItem",
-            "SalesOrderItem desc",
-            "PartnerFunction",
-            "PartnerFunction desc",
-            "PartnerFunctionInternalCode",
-            "PartnerFunctionInternalCode desc",
-            "Customer",
-            "Customer desc",
-            "Supplier",
-            "Supplier desc",
-            "Personnel",
-            "Personnel desc",
-            "ContactPerson",
-            "ContactPerson desc",
-            "ReferenceBusinessPartner",
-            "ReferenceBusinessPartner desc",
-            "AddressID",
-            "AddressID desc",
-            "VATRegistration",
-            "VATRegistration desc"
-          ]
-        }
-      },
-      "PartnerOfA_SalesOrderItemSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "PartnerFunction",
-            "PartnerFunctionInternalCode",
-            "Customer",
-            "Supplier",
-            "Personnel",
-            "ContactPerson",
-            "ReferenceBusinessPartner",
-            "AddressID",
-            "VATRegistration",
-            "to_Address",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "PartnerOfA_SalesOrderItemExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_Address",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
       "PrecedingProcFlowDocItemOfA_SalesOrderItemOrderByOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -22513,58 +21543,6 @@
         }
       },
       "PricingElementOfA_SalesOrderItemExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "RelatedObjectOfA_SalesOrderItemOrderByOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrder desc",
-            "SalesOrderItem",
-            "SalesOrderItem desc",
-            "SDDocRelatedObjectSequenceNmbr",
-            "SDDocRelatedObjectSequenceNmbr desc",
-            "SDDocumentRelatedObjectType",
-            "SDDocumentRelatedObjectType desc",
-            "SDDocRelatedObjectSystem",
-            "SDDocRelatedObjectSystem desc",
-            "SDDocRelatedObjectReference1",
-            "SDDocRelatedObjectReference1 desc",
-            "SDDocRelatedObjectReference2",
-            "SDDocRelatedObjectReference2 desc"
-          ]
-        }
-      },
-      "RelatedObjectOfA_SalesOrderItemSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "SDDocRelatedObjectSequenceNmbr",
-            "SDDocumentRelatedObjectType",
-            "SDDocRelatedObjectSystem",
-            "SDDocRelatedObjectReference1",
-            "SDDocRelatedObjectReference2",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "RelatedObjectOfA_SalesOrderItemExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -22829,50 +21807,6 @@
           ]
         }
       },
-      "TextOfA_SalesOrderItemOrderByOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrder desc",
-            "SalesOrderItem",
-            "SalesOrderItem desc",
-            "Language",
-            "Language desc",
-            "LongTextID",
-            "LongTextID desc"
-          ]
-        }
-      },
-      "TextOfA_SalesOrderItemSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "Language",
-            "LongTextID",
-            "LongText",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "TextOfA_SalesOrderItemExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
       "A_SalesOrderItemBillingPlanOrderByOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -22931,42 +21865,6 @@
         }
       },
       "A_SalesOrderItemBillingPlanExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_BillingPlanItem",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItemBillingPlanByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "BillingPlan",
-            "BillingPlanIsInHeader",
-            "BillingPlanStartDate",
-            "BillingPlanStartDateRule",
-            "ReferenceBillingPlan",
-            "BillingPlanCategory",
-            "BillingPlanType",
-            "BillingPlanEndDate",
-            "BillingPlanEndDateRule",
-            "BillingPlanSearchTerm",
-            "to_BillingPlanItem",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItemBillingPlanByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -23397,179 +22295,6 @@
           ]
         }
       },
-      "A_SalesOrderItemPartnerByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "PartnerFunction",
-            "PartnerFunctionInternalCode",
-            "Customer",
-            "Supplier",
-            "Personnel",
-            "ContactPerson",
-            "ReferenceBusinessPartner",
-            "AddressID",
-            "VATRegistration",
-            "to_Address",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItemPartnerByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_Address",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "AddressOfA_SalesOrderItemPartnerOrderByOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrder desc",
-            "SalesOrderItem",
-            "SalesOrderItem desc",
-            "PartnerFunction",
-            "PartnerFunction desc",
-            "AddressRepresentationCode",
-            "AddressRepresentationCode desc",
-            "CorrespondenceLanguage",
-            "CorrespondenceLanguage desc",
-            "AddresseeFullName",
-            "AddresseeFullName desc",
-            "OrganizationName1",
-            "OrganizationName1 desc",
-            "OrganizationName2",
-            "OrganizationName2 desc",
-            "OrganizationName3",
-            "OrganizationName3 desc",
-            "OrganizationName4",
-            "OrganizationName4 desc",
-            "CityName",
-            "CityName desc",
-            "DistrictName",
-            "DistrictName desc",
-            "PostalCode",
-            "PostalCode desc",
-            "StreetName",
-            "StreetName desc",
-            "StreetPrefixName1",
-            "StreetPrefixName1 desc",
-            "StreetPrefixName2",
-            "StreetPrefixName2 desc",
-            "StreetSuffixName1",
-            "StreetSuffixName1 desc",
-            "StreetSuffixName2",
-            "StreetSuffixName2 desc",
-            "HouseNumber",
-            "HouseNumber desc",
-            "Country",
-            "Country desc",
-            "Region",
-            "Region desc",
-            "FormOfAddress",
-            "FormOfAddress desc",
-            "TaxJurisdiction",
-            "TaxJurisdiction desc",
-            "TransportZone",
-            "TransportZone desc",
-            "POBox",
-            "POBox desc",
-            "POBoxPostalCode",
-            "POBoxPostalCode desc",
-            "EmailAddress",
-            "EmailAddress desc",
-            "MobilePhoneCountry",
-            "MobilePhoneCountry desc",
-            "MobileNumber",
-            "MobileNumber desc",
-            "PhoneNumberCountry",
-            "PhoneNumberCountry desc",
-            "PhoneNumber",
-            "PhoneNumber desc",
-            "PhoneExtensionNumber",
-            "PhoneExtensionNumber desc",
-            "FaxNumberCountry",
-            "FaxNumberCountry desc",
-            "FaxAreaCodeSubscriberNumber",
-            "FaxAreaCodeSubscriberNumber desc",
-            "FaxExtensionNumber",
-            "FaxExtensionNumber desc"
-          ]
-        }
-      },
-      "AddressOfA_SalesOrderItemPartnerSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "PartnerFunction",
-            "AddressRepresentationCode",
-            "CorrespondenceLanguage",
-            "AddresseeFullName",
-            "OrganizationName1",
-            "OrganizationName2",
-            "OrganizationName3",
-            "OrganizationName4",
-            "CityName",
-            "DistrictName",
-            "PostalCode",
-            "StreetName",
-            "StreetPrefixName1",
-            "StreetPrefixName2",
-            "StreetSuffixName1",
-            "StreetSuffixName2",
-            "HouseNumber",
-            "Country",
-            "Region",
-            "FormOfAddress",
-            "TaxJurisdiction",
-            "TransportZone",
-            "POBox",
-            "POBoxPostalCode",
-            "EmailAddress",
-            "MobilePhoneCountry",
-            "MobileNumber",
-            "PhoneNumberCountry",
-            "PhoneNumber",
-            "PhoneExtensionNumber",
-            "FaxNumberCountry",
-            "FaxAreaCodeSubscriberNumber",
-            "FaxExtensionNumber",
-            "to_Partner",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "AddressOfA_SalesOrderItemPartnerExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_Partner",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
       "SalesOrderOfA_SalesOrderItemPartnerSelectOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -23948,65 +22673,6 @@
         }
       },
       "A_SalesOrderItemPartnerAddressExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_Partner",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItemPartnerAddressByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "PartnerFunction",
-            "AddressRepresentationCode",
-            "CorrespondenceLanguage",
-            "AddresseeFullName",
-            "OrganizationName1",
-            "OrganizationName2",
-            "OrganizationName3",
-            "OrganizationName4",
-            "CityName",
-            "DistrictName",
-            "PostalCode",
-            "StreetName",
-            "StreetPrefixName1",
-            "StreetPrefixName2",
-            "StreetSuffixName1",
-            "StreetSuffixName2",
-            "HouseNumber",
-            "Country",
-            "Region",
-            "FormOfAddress",
-            "TaxJurisdiction",
-            "TransportZone",
-            "POBox",
-            "POBoxPostalCode",
-            "EmailAddress",
-            "MobilePhoneCountry",
-            "MobileNumber",
-            "PhoneNumberCountry",
-            "PhoneNumber",
-            "PhoneExtensionNumber",
-            "FaxNumberCountry",
-            "FaxAreaCodeSubscriberNumber",
-            "FaxExtensionNumber",
-            "to_Partner",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItemPartnerAddressByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -24467,72 +23133,6 @@
           ]
         }
       },
-      "A_SalesOrderItemPrElementByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "PricingProcedureStep",
-            "PricingProcedureCounter",
-            "ConditionType",
-            "PricingDateTime",
-            "PriceConditionDeterminationDte",
-            "ConditionCalculationType",
-            "ConditionBaseValue",
-            "ConditionRateValue",
-            "ConditionCurrency",
-            "ConditionQuantity",
-            "ConditionQuantityUnit",
-            "ConditionQuantitySAPUnit",
-            "ConditionQuantityISOUnit",
-            "ConditionCategory",
-            "ConditionIsForStatistics",
-            "PricingScaleType",
-            "IsRelevantForAccrual",
-            "CndnIsRelevantForInvoiceList",
-            "ConditionOrigin",
-            "IsGroupCondition",
-            "ConditionRecord",
-            "ConditionSequentialNumber",
-            "TaxCode",
-            "WithholdingTaxCode",
-            "CndnRoundingOffDiffAmount",
-            "ConditionAmount",
-            "TransactionCurrency",
-            "ConditionControl",
-            "ConditionInactiveReason",
-            "ConditionClass",
-            "PrcgProcedureCounterForHeader",
-            "FactorForConditionBasisValue",
-            "StructureCondition",
-            "PeriodFactorForCndnBasisValue",
-            "PricingScaleBasis",
-            "ConditionScaleBasisValue",
-            "ConditionScaleBasisUnit",
-            "ConditionScaleBasisCurrency",
-            "CndnIsRelevantForIntcoBilling",
-            "ConditionIsManuallyChanged",
-            "ConditionIsForConfiguration",
-            "VariantCondition",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItemPrElementByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
       "SalesOrderOfA_SalesOrderItemPrElementSelectOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -24836,35 +23436,6 @@
           ]
         }
       },
-      "A_SalesOrderItemRelatedObjectByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "SDDocRelatedObjectSequenceNmbr",
-            "SDDocumentRelatedObjectType",
-            "SDDocRelatedObjectSystem",
-            "SDDocRelatedObjectReference1",
-            "SDDocRelatedObjectReference2",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItemRelatedObjectByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
       "SalesOrderOfA_SalesOrderItemRelatedObjectSelectOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -25150,33 +23721,6 @@
         }
       },
       "A_SalesOrderItemTextExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItemTextByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "Language",
-            "LongTextID",
-            "LongText",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItemTextByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -25503,42 +24047,6 @@
           ]
         }
       },
-      "A_SalesOrderItmPrecdgProcFlowByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "DocRelationshipUUID",
-            "PrecedingDocument",
-            "PrecedingDocumentItem",
-            "PrecedingDocumentCategory",
-            "ProcessFlowLevel",
-            "RelatedProcFlowDocStsFieldName",
-            "SDProcessStatus",
-            "AccountingTransferStatus",
-            "PrelimBillingDocumentStatus",
-            "CreationDate",
-            "CreationTime",
-            "LastChangeDate",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItmPrecdgProcFlowByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
       "SalesOrderOfA_SalesOrderItmPrecdgProcFlowSelectOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -25854,45 +24362,6 @@
         }
       },
       "A_SalesOrderItmSubsqntProcFlowExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItmSubsqntProcFlowByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "DocRelationshipUUID",
-            "SubsequentDocument",
-            "SubsequentDocumentItem",
-            "SubsequentDocumentCategory",
-            "ProcessFlowLevel",
-            "RelatedProcFlowDocStsFieldName",
-            "SDProcessStatus",
-            "AccountingTransferStatus",
-            "PrelimBillingDocumentStatus",
-            "SubsqntDocItmPrecdgDocument",
-            "SubsqntDocItmPrecdgDocItem",
-            "SubsqntDocItmPrecdgDocCategory",
-            "CreationDate",
-            "CreationTime",
-            "LastChangeDate",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SalesOrderItmSubsqntProcFlowByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -26287,62 +24756,6 @@
           ]
         }
       },
-      "A_SalesOrderPartnerAddressByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "PartnerFunction",
-            "AddressRepresentationCode",
-            "CorrespondenceLanguage",
-            "AddresseeFullName",
-            "OrganizationName1",
-            "OrganizationName2",
-            "OrganizationName3",
-            "OrganizationName4",
-            "CityName",
-            "DistrictName",
-            "PostalCode",
-            "StreetPrefixName1",
-            "StreetPrefixName2",
-            "StreetName",
-            "StreetSuffixName1",
-            "StreetSuffixName2",
-            "HouseNumber",
-            "Country",
-            "Region",
-            "FormOfAddress",
-            "TaxJurisdiction",
-            "TransportZone",
-            "POBox",
-            "POBoxPostalCode",
-            "EmailAddress",
-            "MobilePhoneCountry",
-            "MobileNumber",
-            "PhoneNumberCountry",
-            "PhoneNumber",
-            "PhoneExtensionNumber",
-            "FaxNumberCountry",
-            "FaxAreaCodeSubscriberNumber",
-            "FaxExtensionNumber",
-            "to_Partner",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderPartnerAddressByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_Partner",
-            "to_SalesOrder"
-          ]
-        }
-      },
       "PartnerOfA_SalesOrderPartnerAddressSelectOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -26549,35 +24962,6 @@
           ]
         }
       },
-      "A_SalesOrderPrecdgProcFlowByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "DocRelationshipUUID",
-            "PrecedingDocument",
-            "PrecedingDocumentCategory",
-            "ProcessFlowLevel",
-            "OverallSDProcessStatus",
-            "CreationDate",
-            "CreationTime",
-            "LastChangeDate",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderPrecdgProcFlowByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder"
-          ]
-        }
-      },
       "SalesOrderOfA_SalesOrderPrecdgProcFlowSelectOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -26736,32 +25120,6 @@
         }
       },
       "A_SalesOrderRelatedObjectExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderRelatedObjectByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SDDocRelatedObjectSequenceNmbr",
-            "SDDocumentRelatedObjectType",
-            "SDDocRelatedObjectSystem",
-            "SDDocRelatedObjectReference1",
-            "SDDocRelatedObjectReference2",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderRelatedObjectByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -26951,29 +25309,6 @@
           ]
         }
       },
-      "A_SalesOrderScheduleLineByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "ScheduleLine",
-            "RequestedDeliveryDate",
-            "ConfirmedDeliveryDate",
-            "OrderQuantityUnit",
-            "OrderQuantitySAPUnit",
-            "OrderQuantityISOUnit",
-            "ScheduleLineOrderQuantity",
-            "ConfdOrderQtyByMatlAvailCheck",
-            "DeliveredQtyInOrderQtyUnit",
-            "OpenConfdDelivQtyInOrdQtyUnit",
-            "CorrectedQtyInOrderQtyUnit",
-            "DelivBlockReasonForSchedLine"
-          ]
-        }
-      },
       "A_SalesOrderSubsqntProcFlowOrderByOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -27019,35 +25354,6 @@
         }
       },
       "A_SalesOrderSubsqntProcFlowExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderSubsqntProcFlowByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "DocRelationshipUUID",
-            "SubsequentDocument",
-            "SubsequentDocumentCategory",
-            "ProcessFlowLevel",
-            "OverallSDProcessStatus",
-            "CreationDate",
-            "CreationTime",
-            "LastChangeDate",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderSubsqntProcFlowByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -27207,30 +25513,6 @@
         }
       },
       "A_SalesOrderTextExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderTextByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "Language",
-            "LongTextID",
-            "LongText",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SalesOrderTextByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -27451,53 +25733,6 @@
         }
       },
       "A_SlsOrderItemBillingPlanItemExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_BillingPlan",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SlsOrderItemBillingPlanItemByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "SalesOrderItem",
-            "BillingPlan",
-            "BillingPlanItem",
-            "BillingPlanDateCategory",
-            "BillingPlanBillingDate",
-            "BillingPlanAmount",
-            "TransactionCurrency",
-            "BillingPlanAmountPercent",
-            "CustomerPaymentTerms",
-            "ProposedBillingDocumentType",
-            "BillingPlanDateDescriptionCode",
-            "BillingBlockReason",
-            "BillingPlanServiceStartDate",
-            "BillingPlanServiceEndDate",
-            "BillingPlanRelatedBillgStatus",
-            "BillingPlanType",
-            "AdoptingBillingDateID",
-            "BillingPlanBillingRule",
-            "BillingPlanMilestoneUsage",
-            "BillgPlnDteCorrectionRfndType",
-            "AccountingExchangeRate",
-            "PostponementReason",
-            "to_BillingPlan",
-            "to_SalesOrder",
-            "to_SalesOrderItem"
-          ]
-        }
-      },
-      "A_SlsOrderItemBillingPlanItemByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -27906,56 +26141,6 @@
         }
       },
       "A_SlsOrdPaymentPlanItemDetailsExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SlsOrdPaymentPlanItemDetailsByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrder",
-            "PaymentPlanItem",
-            "PaymentPlan",
-            "ElectronicPaymentType",
-            "ElectronicPayment",
-            "EPaytValidityStartDate",
-            "EPaytValidityEndDate",
-            "ElectronicPaymentHolderName",
-            "AuthorizedAmountInAuthznCrcy",
-            "AuthorizationCurrency",
-            "AuthorizationByDigitalPaytSrvc",
-            "AuthorizationByAcquirer",
-            "AuthorizationDate",
-            "AuthorizationTime",
-            "AuthorizationStatusName",
-            "EPaytByDigitalPaymentSrvc",
-            "ElectronicPaymentCallStatus",
-            "EPaytAuthorizationResult",
-            "EPaytToBeAuthorizedAmount",
-            "EPaytAuthorizationIsExpired",
-            "EPaytAmountIsChanged",
-            "PreauthorizationIsRequested",
-            "PaymentServiceProvider",
-            "PaymentByPaymentServicePrvdr",
-            "TransactionByPaytSrvcPrvdr",
-            "MerchantByClearingHouse",
-            "PaymentCardAuthznRelationID",
-            "MaximumToBeAuthorizedAmount",
-            "PaytPlnForAuthorizationItem",
-            "PaytPlnItmForAuthorizationItem",
-            "to_SalesOrder"
-          ]
-        }
-      },
-      "A_SlsOrdPaymentPlanItemDetailsByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -28151,7 +26336,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderSelectOptions"
         }
       },
       "A_SalesOrderByKeyExpandOptions": {
@@ -28160,7 +26345,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderExpandOptions"
         }
       },
       "BillingPlanOfA_SalesOrderSelectOptions": {
@@ -28169,7 +26354,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/BillingPlanOfA_SalesOrderSelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderBillingPlanSelectOptions"
         }
       },
       "BillingPlanOfA_SalesOrderExpandOptions": {
@@ -28178,7 +26363,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/BillingPlanOfA_SalesOrderExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderBillingPlanExpandOptions"
         }
       },
       "ItemOfA_SalesOrderOrderByOptions": {
@@ -28187,7 +26372,7 @@
         "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/ItemOfA_SalesOrderOrderByOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemOrderByOptions"
         }
       },
       "ItemOfA_SalesOrderSelectOptions": {
@@ -28196,7 +26381,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/ItemOfA_SalesOrderSelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemSelectOptions"
         }
       },
       "ItemOfA_SalesOrderExpandOptions": {
@@ -28205,7 +26390,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/ItemOfA_SalesOrderExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemExpandOptions"
         }
       },
       "PartnerOfA_SalesOrderOrderByOptions": {
@@ -28322,7 +26507,7 @@
         "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/RelatedObjectOfA_SalesOrderOrderByOptions"
+          "$ref": "#/components/schemas/A_SalesOrderRelatedObjectOrderByOptions"
         }
       },
       "RelatedObjectOfA_SalesOrderSelectOptions": {
@@ -28331,7 +26516,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/RelatedObjectOfA_SalesOrderSelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderRelatedObjectSelectOptions"
         }
       },
       "RelatedObjectOfA_SalesOrderExpandOptions": {
@@ -28340,7 +26525,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/RelatedObjectOfA_SalesOrderExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderRelatedObjectExpandOptions"
         }
       },
       "SubsequentProcFlowDocOfA_SalesOrderOrderByOptions": {
@@ -28376,7 +26561,7 @@
         "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesOrderOrderByOptions"
+          "$ref": "#/components/schemas/A_SalesOrderTextOrderByOptions"
         }
       },
       "TextOfA_SalesOrderSelectOptions": {
@@ -28385,7 +26570,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesOrderSelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderTextSelectOptions"
         }
       },
       "TextOfA_SalesOrderExpandOptions": {
@@ -28394,7 +26579,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesOrderExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderTextExpandOptions"
         }
       },
       "A_SalesOrderBillingPlanOrderByOptions": {
@@ -28430,7 +26615,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderBillingPlanByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderBillingPlanSelectOptions"
         }
       },
       "A_SalesOrderBillingPlanByKeyExpandOptions": {
@@ -28439,7 +26624,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderBillingPlanByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderBillingPlanExpandOptions"
         }
       },
       "BillingPlanItemOfA_SalesOrderBillingPlanOrderByOptions": {
@@ -28520,7 +26705,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderBillingPlanItemByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderBillingPlanItemSelectOptions"
         }
       },
       "A_SalesOrderBillingPlanItemByKeyExpandOptions": {
@@ -28529,7 +26714,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderBillingPlanItemByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderBillingPlanItemExpandOptions"
         }
       },
       "BillingPlanOfA_SalesOrderBillingPlanItemSelectOptions": {
@@ -28601,7 +26786,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderHeaderPartnerByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderHeaderPartnerSelectOptions"
         }
       },
       "A_SalesOrderHeaderPartnerByKeyExpandOptions": {
@@ -28610,7 +26795,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderHeaderPartnerByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderHeaderPartnerExpandOptions"
         }
       },
       "AddressOfA_SalesOrderHeaderPartnerOrderByOptions": {
@@ -28691,7 +26876,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderHeaderPrElementByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderHeaderPrElementSelectOptions"
         }
       },
       "A_SalesOrderHeaderPrElementByKeyExpandOptions": {
@@ -28700,7 +26885,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderHeaderPrElementByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderHeaderPrElementExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderHeaderPrElementSelectOptions": {
@@ -28754,7 +26939,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemSelectOptions"
         }
       },
       "A_SalesOrderItemByKeyExpandOptions": {
@@ -28763,7 +26948,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemExpandOptions"
         }
       },
       "BillingPlanOfA_SalesOrderItemSelectOptions": {
@@ -28772,7 +26957,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/BillingPlanOfA_SalesOrderItemSelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemBillingPlanSelectOptions"
         }
       },
       "BillingPlanOfA_SalesOrderItemExpandOptions": {
@@ -28781,7 +26966,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/BillingPlanOfA_SalesOrderItemExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemBillingPlanExpandOptions"
         }
       },
       "PartnerOfA_SalesOrderItemOrderByOptions": {
@@ -28790,7 +26975,7 @@
         "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/PartnerOfA_SalesOrderItemOrderByOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPartnerOrderByOptions"
         }
       },
       "PartnerOfA_SalesOrderItemSelectOptions": {
@@ -28799,7 +26984,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/PartnerOfA_SalesOrderItemSelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPartnerSelectOptions"
         }
       },
       "PartnerOfA_SalesOrderItemExpandOptions": {
@@ -28808,7 +26993,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/PartnerOfA_SalesOrderItemExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPartnerExpandOptions"
         }
       },
       "PrecedingProcFlowDocItemOfA_SalesOrderItemOrderByOptions": {
@@ -28871,7 +27056,7 @@
         "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/RelatedObjectOfA_SalesOrderItemOrderByOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemRelatedObjectOrderByOptions"
         }
       },
       "RelatedObjectOfA_SalesOrderItemSelectOptions": {
@@ -28880,7 +27065,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/RelatedObjectOfA_SalesOrderItemSelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemRelatedObjectSelectOptions"
         }
       },
       "RelatedObjectOfA_SalesOrderItemExpandOptions": {
@@ -28889,7 +27074,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/RelatedObjectOfA_SalesOrderItemExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemRelatedObjectExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderItemSelectOptions": {
@@ -28961,7 +27146,7 @@
         "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesOrderItemOrderByOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemTextOrderByOptions"
         }
       },
       "TextOfA_SalesOrderItemSelectOptions": {
@@ -28970,7 +27155,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesOrderItemSelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemTextSelectOptions"
         }
       },
       "TextOfA_SalesOrderItemExpandOptions": {
@@ -28979,7 +27164,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesOrderItemExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemTextExpandOptions"
         }
       },
       "A_SalesOrderItemBillingPlanOrderByOptions": {
@@ -29015,7 +27200,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemBillingPlanByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemBillingPlanSelectOptions"
         }
       },
       "A_SalesOrderItemBillingPlanByKeyExpandOptions": {
@@ -29024,7 +27209,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemBillingPlanByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemBillingPlanExpandOptions"
         }
       },
       "BillingPlanItemOfA_SalesOrderItemBillingPlanOrderByOptions": {
@@ -29123,7 +27308,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemPartnerByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPartnerSelectOptions"
         }
       },
       "A_SalesOrderItemPartnerByKeyExpandOptions": {
@@ -29132,7 +27317,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemPartnerByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPartnerExpandOptions"
         }
       },
       "AddressOfA_SalesOrderItemPartnerOrderByOptions": {
@@ -29141,7 +27326,7 @@
         "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/AddressOfA_SalesOrderItemPartnerOrderByOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPartnerAddressOrderByOptions"
         }
       },
       "AddressOfA_SalesOrderItemPartnerSelectOptions": {
@@ -29150,7 +27335,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/AddressOfA_SalesOrderItemPartnerSelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPartnerAddressSelectOptions"
         }
       },
       "AddressOfA_SalesOrderItemPartnerExpandOptions": {
@@ -29159,7 +27344,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/AddressOfA_SalesOrderItemPartnerExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPartnerAddressExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderItemPartnerSelectOptions": {
@@ -29231,7 +27416,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemPartnerAddressByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPartnerAddressSelectOptions"
         }
       },
       "A_SalesOrderItemPartnerAddressByKeyExpandOptions": {
@@ -29240,7 +27425,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemPartnerAddressByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPartnerAddressExpandOptions"
         }
       },
       "PartnerOfA_SalesOrderItemPartnerAddressSelectOptions": {
@@ -29330,7 +27515,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemPrElementByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPrElementSelectOptions"
         }
       },
       "A_SalesOrderItemPrElementByKeyExpandOptions": {
@@ -29339,7 +27524,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemPrElementByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemPrElementExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderItemPrElementSelectOptions": {
@@ -29411,7 +27596,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemRelatedObjectByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemRelatedObjectSelectOptions"
         }
       },
       "A_SalesOrderItemRelatedObjectByKeyExpandOptions": {
@@ -29420,7 +27605,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemRelatedObjectByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemRelatedObjectExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderItemRelatedObjectSelectOptions": {
@@ -29492,7 +27677,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemTextByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemTextSelectOptions"
         }
       },
       "A_SalesOrderItemTextByKeyExpandOptions": {
@@ -29501,7 +27686,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItemTextByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItemTextExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderItemTextSelectOptions": {
@@ -29573,7 +27758,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItmPrecdgProcFlowByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItmPrecdgProcFlowSelectOptions"
         }
       },
       "A_SalesOrderItmPrecdgProcFlowByKeyExpandOptions": {
@@ -29582,7 +27767,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItmPrecdgProcFlowByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItmPrecdgProcFlowExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderItmPrecdgProcFlowSelectOptions": {
@@ -29654,7 +27839,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItmSubsqntProcFlowByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItmSubsqntProcFlowSelectOptions"
         }
       },
       "A_SalesOrderItmSubsqntProcFlowByKeyExpandOptions": {
@@ -29663,7 +27848,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderItmSubsqntProcFlowByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderItmSubsqntProcFlowExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderItmSubsqntProcFlowSelectOptions": {
@@ -29735,7 +27920,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderPartnerAddressByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderPartnerAddressSelectOptions"
         }
       },
       "A_SalesOrderPartnerAddressByKeyExpandOptions": {
@@ -29744,7 +27929,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderPartnerAddressByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderPartnerAddressExpandOptions"
         }
       },
       "PartnerOfA_SalesOrderPartnerAddressSelectOptions": {
@@ -29816,7 +28001,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderPrecdgProcFlowByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderPrecdgProcFlowSelectOptions"
         }
       },
       "A_SalesOrderPrecdgProcFlowByKeyExpandOptions": {
@@ -29825,7 +28010,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderPrecdgProcFlowByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderPrecdgProcFlowExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderPrecdgProcFlowSelectOptions": {
@@ -29879,7 +28064,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderRelatedObjectByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderRelatedObjectSelectOptions"
         }
       },
       "A_SalesOrderRelatedObjectByKeyExpandOptions": {
@@ -29888,7 +28073,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderRelatedObjectByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderRelatedObjectExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderRelatedObjectSelectOptions": {
@@ -29933,7 +28118,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderScheduleLineByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderScheduleLineSelectOptions"
         }
       },
       "A_SalesOrderSubsqntProcFlowOrderByOptions": {
@@ -29969,7 +28154,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderSubsqntProcFlowByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderSubsqntProcFlowSelectOptions"
         }
       },
       "A_SalesOrderSubsqntProcFlowByKeyExpandOptions": {
@@ -29978,7 +28163,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderSubsqntProcFlowByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderSubsqntProcFlowExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderSubsqntProcFlowSelectOptions": {
@@ -30032,7 +28217,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderTextByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrderTextSelectOptions"
         }
       },
       "A_SalesOrderTextByKeyExpandOptions": {
@@ -30041,7 +28226,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrderTextByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrderTextExpandOptions"
         }
       },
       "SalesOrderOfA_SalesOrderTextSelectOptions": {
@@ -30095,7 +28280,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SlsOrderItemBillingPlanItemByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SlsOrderItemBillingPlanItemSelectOptions"
         }
       },
       "A_SlsOrderItemBillingPlanItemByKeyExpandOptions": {
@@ -30104,7 +28289,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SlsOrderItemBillingPlanItemByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SlsOrderItemBillingPlanItemExpandOptions"
         }
       },
       "BillingPlanOfA_SlsOrderItemBillingPlanItemSelectOptions": {
@@ -30194,7 +28379,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SlsOrdPaymentPlanItemDetailsByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SlsOrdPaymentPlanItemDetailsSelectOptions"
         }
       },
       "A_SlsOrdPaymentPlanItemDetailsByKeyExpandOptions": {
@@ -30203,7 +28388,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SlsOrdPaymentPlanItemDetailsByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SlsOrdPaymentPlanItemDetailsExpandOptions"
         }
       },
       "SalesOrderOfA_SlsOrdPaymentPlanItemDetailsSelectOptions": {

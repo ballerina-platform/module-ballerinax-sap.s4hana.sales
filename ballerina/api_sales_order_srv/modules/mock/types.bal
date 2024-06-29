@@ -322,10 +322,6 @@ public type A_SalesOrderItem_to_Partner record {
     A_SalesOrderItemPartner[] results?;
 };
 
-public type A_SalesOrderType record {
-    A_SalesOrder d?;
-};
-
 public type A_SalesOrderExpandOptions ("to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
 
 public type A_SalesOrderItemText record {
@@ -594,10 +590,6 @@ public type CreateA_SlsOrderItemBillingPlanItem record {
     CreateA_SalesOrderItemBillingPlan to_BillingPlan?;
     CreateA_SalesOrder to_SalesOrder?;
     CreateA_SalesOrderItem to_SalesOrderItem?;
-};
-
-public type Wrapper record {
-    Collection\ of\ A_SalesOrderType d?;
 };
 
 public type A_SalesOrderSelectOptions ("SalesOrder"|"SalesOrderType"|"SalesOrderTypeInternalCode"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"SenderBusinessSystemName"|"ExternalDocumentID"|"LastChangeDateTime"|"ExternalDocLastChangeDateTime"|"PurchaseOrderByCustomer"|"PurchaseOrderByShipToParty"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesOrderDate"|"TotalNetAmount"|"OverallDeliveryStatus"|"TotalBlockStatus"|"OverallOrdReltdBillgStatus"|"OverallSDDocReferenceStatus"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"PriceDetnExchangeRate"|"BillingPlan"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"DeliveryDateTypeRule"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPriceGroup"|"PriceListType"|"CustomerPaymentTerms"|"PaymentMethod"|"FixedValueDate"|"AssignmentReference"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"AccountingDocExternalReference"|"CustomerAccountAssignmentGroup"|"AccountingExchangeRate"|"CustomerGroup"|"AdditionalCustomerGroup1"|"AdditionalCustomerGroup2"|"AdditionalCustomerGroup3"|"AdditionalCustomerGroup4"|"AdditionalCustomerGroup5"|"SlsDocIsRlvtForProofOfDeliv"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"TaxDepartureCountry"|"VATRegistrationCountry"|"SalesOrderApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallTotalDeliveryStatus"|"OverallSDDocumentRejectionSts"|"BillingDocumentDate"|"ContractAccount"|"AdditionalValueDays"|"CustomerPurchaseOrderSuplmnt"|"ServicesRenderedDate"|"to_BillingPlan"|"to_Item"|"to_Partner"|"to_PaymentPlanItemDetails"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
@@ -1229,13 +1221,13 @@ public type A_SalesOrderBillingPlan record {
     A_SalesOrder to_SalesOrder?;
 };
 
-public type Collection\ of\ A_SalesOrderType record {
-    count __count?;
-    A_SalesOrder[] results?;
-};
-
 public type CreateA_SalesOrder_to_Partner record {
     CreateA_SalesOrderHeaderPartner[] results?;
+};
+
+public type CollectionOfA_SalesOrder record {
+    count __count?;
+    A_SalesOrder[] results?;
 };
 
 public type A_SalesOrderPrecdgProcFlow record {
@@ -1455,6 +1447,10 @@ public type CreateA_SalesOrder_to_PrecedingProcFlowDoc record {
     CreateA_SalesOrderPrecdgProcFlow[] results?;
 };
 
+public type CollectionOfA_SalesOrderWrapper record {
+    CollectionOfA_SalesOrder d?;
+};
+
 public type A_SalesOrderItemBillingPlan record {
     @constraint:String {maxLength: 10}
     string SalesOrder?;
@@ -1602,6 +1598,10 @@ public type A_SalesOrder_to_PaymentPlanItemDetails record {
 
 public type A_SalesOrder_to_SubsequentProcFlowDoc record {
     A_SalesOrderSubsqntProcFlow[] results?;
+};
+
+public type A_SalesOrderWrapper record {
+    A_SalesOrder d?;
 };
 
 public type A_SalesOrderItem record {

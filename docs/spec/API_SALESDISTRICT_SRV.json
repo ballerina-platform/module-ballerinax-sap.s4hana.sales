@@ -119,11 +119,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesDistrictWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesDistrictType",
+                      "title": "CollectionOfA_SalesDistrict",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -181,7 +181,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesDistrictType",
+                  "title": "A_SalesDistrictWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -252,11 +252,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesDistrictTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesDistrictTextType",
+                      "title": "CollectionOfA_SalesDistrictText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -322,11 +322,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesDistrictTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesDistrictTextType",
+                      "title": "CollectionOfA_SalesDistrictText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -394,7 +394,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesDistrictTextType",
+                  "title": "A_SalesDistrictTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -455,7 +455,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesDistrictType",
+                  "title": "A_SalesDistrictWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -671,65 +671,6 @@
           ]
         }
       },
-      "A_SalesDistrictByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesDistrict",
-            "to_Text"
-          ]
-        }
-      },
-      "A_SalesDistrictByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_Text"
-          ]
-        }
-      },
-      "TextOfA_SalesDistrictOrderByOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesDistrict",
-            "SalesDistrict desc",
-            "Language",
-            "Language desc",
-            "SalesDistrictName",
-            "SalesDistrictName desc"
-          ]
-        }
-      },
-      "TextOfA_SalesDistrictSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesDistrict",
-            "Language",
-            "SalesDistrictName",
-            "to_SalesDistrict"
-          ]
-        }
-      },
-      "TextOfA_SalesDistrictExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesDistrict"
-          ]
-        }
-      },
       "A_SalesDistrictTextOrderByOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -759,29 +700,6 @@
         }
       },
       "A_SalesDistrictTextExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesDistrict"
-          ]
-        }
-      },
-      "A_SalesDistrictTextByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesDistrict",
-            "Language",
-            "SalesDistrictName",
-            "to_SalesDistrict"
-          ]
-        }
-      },
-      "A_SalesDistrictTextByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -878,7 +796,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesDistrictByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesDistrictSelectOptions"
         }
       },
       "A_SalesDistrictByKeyExpandOptions": {
@@ -887,7 +805,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesDistrictByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesDistrictExpandOptions"
         }
       },
       "TextOfA_SalesDistrictOrderByOptions": {
@@ -896,7 +814,7 @@
         "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesDistrictOrderByOptions"
+          "$ref": "#/components/schemas/A_SalesDistrictTextOrderByOptions"
         }
       },
       "TextOfA_SalesDistrictSelectOptions": {
@@ -905,7 +823,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesDistrictSelectOptions"
+          "$ref": "#/components/schemas/A_SalesDistrictTextSelectOptions"
         }
       },
       "TextOfA_SalesDistrictExpandOptions": {
@@ -914,7 +832,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesDistrictExpandOptions"
+          "$ref": "#/components/schemas/A_SalesDistrictTextExpandOptions"
         }
       },
       "A_SalesDistrictTextOrderByOptions": {
@@ -950,7 +868,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesDistrictTextByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesDistrictTextSelectOptions"
         }
       },
       "A_SalesDistrictTextByKeyExpandOptions": {
@@ -959,7 +877,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesDistrictTextByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesDistrictTextExpandOptions"
         }
       },
       "SalesDistrictOfA_SalesDistrictTextSelectOptions": {

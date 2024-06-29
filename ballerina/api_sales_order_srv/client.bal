@@ -70,7 +70,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrder(CreateA_SalesOrder payload, map<string|string[]> headers = {}) returns A_SalesOrderType|error {
+    remote isolated function createA_SalesOrder(CreateA_SalesOrder payload, map<string|string[]> headers = {}) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrder`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -83,7 +83,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderBillingPlanItem(CreateA_SalesOrderBillingPlanItem payload, map<string|string[]> headers = {}) returns A_SalesOrderBillingPlanItemType|error {
+    remote isolated function createA_SalesOrderBillingPlanItem(CreateA_SalesOrderBillingPlanItem payload, map<string|string[]> headers = {}) returns A_SalesOrderBillingPlanItemWrapper|error {
         string resourcePath = string `/A_SalesOrderBillingPlanItem`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -96,7 +96,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderHeaderPartner(CreateA_SalesOrderHeaderPartner payload, map<string|string[]> headers = {}) returns A_SalesOrderHeaderPartnerType|error {
+    remote isolated function createA_SalesOrderHeaderPartner(CreateA_SalesOrderHeaderPartner payload, map<string|string[]> headers = {}) returns A_SalesOrderHeaderPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrderHeaderPartner`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -109,7 +109,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderHeaderPrElement(CreateA_SalesOrderHeaderPrElement payload, map<string|string[]> headers = {}) returns A_SalesOrderHeaderPrElementType|error {
+    remote isolated function createA_SalesOrderHeaderPrElement(CreateA_SalesOrderHeaderPrElement payload, map<string|string[]> headers = {}) returns A_SalesOrderHeaderPrElementWrapper|error {
         string resourcePath = string `/A_SalesOrderHeaderPrElement`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -122,7 +122,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderItem(CreateA_SalesOrderItem payload, map<string|string[]> headers = {}) returns A_SalesOrderItemType|error {
+    remote isolated function createA_SalesOrderItem(CreateA_SalesOrderItem payload, map<string|string[]> headers = {}) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItem`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -135,7 +135,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderItemPartner(CreateA_SalesOrderItemPartner payload, map<string|string[]> headers = {}) returns A_SalesOrderItemPartnerType|error {
+    remote isolated function createA_SalesOrderItemPartner(CreateA_SalesOrderItemPartner payload, map<string|string[]> headers = {}) returns A_SalesOrderItemPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartner`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -148,7 +148,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderItemPrElement(CreateA_SalesOrderItemPrElement payload, map<string|string[]> headers = {}) returns A_SalesOrderItemPrElementType|error {
+    remote isolated function createA_SalesOrderItemPrElement(CreateA_SalesOrderItemPrElement payload, map<string|string[]> headers = {}) returns A_SalesOrderItemPrElementWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPrElement`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -161,7 +161,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderItemRelatedObject(CreateA_SalesOrderItemRelatedObject payload, map<string|string[]> headers = {}) returns A_SalesOrderItemRelatedObjectType|error {
+    remote isolated function createA_SalesOrderItemRelatedObject(CreateA_SalesOrderItemRelatedObject payload, map<string|string[]> headers = {}) returns A_SalesOrderItemRelatedObjectWrapper|error {
         string resourcePath = string `/A_SalesOrderItemRelatedObject`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -174,7 +174,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderItemText(CreateA_SalesOrderItemText payload, map<string|string[]> headers = {}) returns A_SalesOrderItemTextType|error {
+    remote isolated function createA_SalesOrderItemText(CreateA_SalesOrderItemText payload, map<string|string[]> headers = {}) returns A_SalesOrderItemTextWrapper|error {
         string resourcePath = string `/A_SalesOrderItemText`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -187,7 +187,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderRelatedObject(CreateA_SalesOrderRelatedObject payload, map<string|string[]> headers = {}) returns A_SalesOrderRelatedObjectType|error {
+    remote isolated function createA_SalesOrderRelatedObject(CreateA_SalesOrderRelatedObject payload, map<string|string[]> headers = {}) returns A_SalesOrderRelatedObjectWrapper|error {
         string resourcePath = string `/A_SalesOrderRelatedObject`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -200,7 +200,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderScheduleLine(CreateA_SalesOrderScheduleLine payload, map<string|string[]> headers = {}) returns A_SalesOrderScheduleLineType|error {
+    remote isolated function createA_SalesOrderScheduleLine(CreateA_SalesOrderScheduleLine payload, map<string|string[]> headers = {}) returns A_SalesOrderScheduleLineWrapper|error {
         string resourcePath = string `/A_SalesOrderScheduleLine`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -213,7 +213,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SalesOrderText(CreateA_SalesOrderText payload, map<string|string[]> headers = {}) returns A_SalesOrderTextType|error {
+    remote isolated function createA_SalesOrderText(CreateA_SalesOrderText payload, map<string|string[]> headers = {}) returns A_SalesOrderTextWrapper|error {
         string resourcePath = string `/A_SalesOrderText`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -226,7 +226,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SlsOrdPaymentPlanItemDetails(CreateA_SlsOrdPaymentPlanItemDetails payload, map<string|string[]> headers = {}) returns A_SlsOrdPaymentPlanItemDetailsType|error {
+    remote isolated function createA_SlsOrdPaymentPlanItemDetails(CreateA_SlsOrdPaymentPlanItemDetails payload, map<string|string[]> headers = {}) returns A_SlsOrdPaymentPlanItemDetailsWrapper|error {
         string resourcePath = string `/A_SlsOrdPaymentPlanItemDetails`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -239,7 +239,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SlsOrderItemBillingPlanItem(CreateA_SlsOrderItemBillingPlanItem payload, map<string|string[]> headers = {}) returns A_SlsOrderItemBillingPlanItemType|error {
+    remote isolated function createA_SlsOrderItemBillingPlanItem(CreateA_SlsOrderItemBillingPlanItem payload, map<string|string[]> headers = {}) returns A_SlsOrderItemBillingPlanItemWrapper|error {
         string resourcePath = string `/A_SlsOrderItemBillingPlanItem`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -254,7 +254,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createBillingPlanItemOfA_SalesOrderBillingPlan(string SalesOrder, string BillingPlan, CreateA_SalesOrderBillingPlanItem payload, map<string|string[]> headers = {}) returns A_SalesOrderBillingPlanItemType|error {
+    remote isolated function createBillingPlanItemOfA_SalesOrderBillingPlan(string SalesOrder, string BillingPlan, CreateA_SalesOrderBillingPlanItem payload, map<string|string[]> headers = {}) returns A_SalesOrderBillingPlanItemWrapper|error {
         string resourcePath = string `/A_SalesOrderBillingPlan(SalesOrder='${getEncodedUri(SalesOrder)}',BillingPlan='${getEncodedUri(BillingPlan)}')/to_BillingPlanItem`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -270,7 +270,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createBillingPlanItemOfA_SalesOrderItemBillingPlan(string SalesOrder, string SalesOrderItem, string BillingPlan, CreateA_SlsOrderItemBillingPlanItem payload, map<string|string[]> headers = {}) returns A_SlsOrderItemBillingPlanItemType|error {
+    remote isolated function createBillingPlanItemOfA_SalesOrderItemBillingPlan(string SalesOrder, string SalesOrderItem, string BillingPlan, CreateA_SlsOrderItemBillingPlanItem payload, map<string|string[]> headers = {}) returns A_SlsOrderItemBillingPlanItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItemBillingPlan(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',BillingPlan='${getEncodedUri(BillingPlan)}')/to_BillingPlanItem`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -284,7 +284,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createItemOfA_SalesOrder(string SalesOrder, CreateA_SalesOrderItem payload, map<string|string[]> headers = {}) returns A_SalesOrderItemType|error {
+    remote isolated function createItemOfA_SalesOrder(string SalesOrder, CreateA_SalesOrderItem payload, map<string|string[]> headers = {}) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_Item`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -298,7 +298,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createPartnerOfA_SalesOrder(string SalesOrder, CreateA_SalesOrderHeaderPartner payload, map<string|string[]> headers = {}) returns A_SalesOrderHeaderPartnerType|error {
+    remote isolated function createPartnerOfA_SalesOrder(string SalesOrder, CreateA_SalesOrderHeaderPartner payload, map<string|string[]> headers = {}) returns A_SalesOrderHeaderPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_Partner`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -313,7 +313,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createPartnerOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, CreateA_SalesOrderItemPartner payload, map<string|string[]> headers = {}) returns A_SalesOrderItemPartnerType|error {
+    remote isolated function createPartnerOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, CreateA_SalesOrderItemPartner payload, map<string|string[]> headers = {}) returns A_SalesOrderItemPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_Partner`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -327,7 +327,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createPaymentPlanItemDetailsOfA_SalesOrder(string SalesOrder, CreateA_SlsOrdPaymentPlanItemDetails payload, map<string|string[]> headers = {}) returns A_SlsOrdPaymentPlanItemDetailsType|error {
+    remote isolated function createPaymentPlanItemDetailsOfA_SalesOrder(string SalesOrder, CreateA_SlsOrdPaymentPlanItemDetails payload, map<string|string[]> headers = {}) returns A_SlsOrdPaymentPlanItemDetailsWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_PaymentPlanItemDetails`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -341,7 +341,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createPricingElementOfA_SalesOrder(string SalesOrder, CreateA_SalesOrderHeaderPrElement payload, map<string|string[]> headers = {}) returns A_SalesOrderHeaderPrElementType|error {
+    remote isolated function createPricingElementOfA_SalesOrder(string SalesOrder, CreateA_SalesOrderHeaderPrElement payload, map<string|string[]> headers = {}) returns A_SalesOrderHeaderPrElementWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_PricingElement`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -356,7 +356,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createPricingElementOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, CreateA_SalesOrderItemPrElement payload, map<string|string[]> headers = {}) returns A_SalesOrderItemPrElementType|error {
+    remote isolated function createPricingElementOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, CreateA_SalesOrderItemPrElement payload, map<string|string[]> headers = {}) returns A_SalesOrderItemPrElementWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_PricingElement`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -370,7 +370,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createRelatedObjectOfA_SalesOrder(string SalesOrder, CreateA_SalesOrderRelatedObject payload, map<string|string[]> headers = {}) returns A_SalesOrderRelatedObjectType|error {
+    remote isolated function createRelatedObjectOfA_SalesOrder(string SalesOrder, CreateA_SalesOrderRelatedObject payload, map<string|string[]> headers = {}) returns A_SalesOrderRelatedObjectWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_RelatedObject`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -385,7 +385,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createRelatedObjectOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, CreateA_SalesOrderItemRelatedObject payload, map<string|string[]> headers = {}) returns A_SalesOrderItemRelatedObjectType|error {
+    remote isolated function createRelatedObjectOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, CreateA_SalesOrderItemRelatedObject payload, map<string|string[]> headers = {}) returns A_SalesOrderItemRelatedObjectWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_RelatedObject`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -400,7 +400,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createScheduleLineOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, CreateA_SalesOrderScheduleLine payload, map<string|string[]> headers = {}) returns A_SalesOrderScheduleLineType|error {
+    remote isolated function createScheduleLineOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, CreateA_SalesOrderScheduleLine payload, map<string|string[]> headers = {}) returns A_SalesOrderScheduleLineWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_ScheduleLine`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -414,7 +414,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createTextOfA_SalesOrder(string SalesOrder, CreateA_SalesOrderText payload, map<string|string[]> headers = {}) returns A_SalesOrderTextType|error {
+    remote isolated function createTextOfA_SalesOrder(string SalesOrder, CreateA_SalesOrderText payload, map<string|string[]> headers = {}) returns A_SalesOrderTextWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_Text`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -429,7 +429,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createTextOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, CreateA_SalesOrderItemText payload, map<string|string[]> headers = {}) returns A_SalesOrderItemTextType|error {
+    remote isolated function createTextOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, CreateA_SalesOrderItemText payload, map<string|string[]> headers = {}) returns A_SalesOrderItemTextWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_Text`;
         http:Request request = new;
         json jsonBody = payload.toJson();
@@ -608,7 +608,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *GetA_SalesOrderQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *GetA_SalesOrderQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -622,7 +622,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderBillingPlan(string SalesOrder, string BillingPlan, map<string|string[]> headers = {}, *GetA_SalesOrderBillingPlanQueries queries) returns A_SalesOrderBillingPlanType|error {
+    remote isolated function getA_SalesOrderBillingPlan(string SalesOrder, string BillingPlan, map<string|string[]> headers = {}, *GetA_SalesOrderBillingPlanQueries queries) returns A_SalesOrderBillingPlanWrapper|error {
         string resourcePath = string `/A_SalesOrderBillingPlan(SalesOrder='${getEncodedUri(SalesOrder)}',BillingPlan='${getEncodedUri(BillingPlan)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -637,7 +637,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderBillingPlanItem(string SalesOrder, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetA_SalesOrderBillingPlanItemQueries queries) returns A_SalesOrderBillingPlanItemType|error {
+    remote isolated function getA_SalesOrderBillingPlanItem(string SalesOrder, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetA_SalesOrderBillingPlanItemQueries queries) returns A_SalesOrderBillingPlanItemWrapper|error {
         string resourcePath = string `/A_SalesOrderBillingPlanItem(SalesOrder='${getEncodedUri(SalesOrder)}',BillingPlan='${getEncodedUri(BillingPlan)}',BillingPlanItem='${getEncodedUri(BillingPlanItem)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -651,7 +651,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderHeaderPartner(string SalesOrder, string PartnerFunction, map<string|string[]> headers = {}, *GetA_SalesOrderHeaderPartnerQueries queries) returns A_SalesOrderHeaderPartnerType|error {
+    remote isolated function getA_SalesOrderHeaderPartner(string SalesOrder, string PartnerFunction, map<string|string[]> headers = {}, *GetA_SalesOrderHeaderPartnerQueries queries) returns A_SalesOrderHeaderPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrderHeaderPartner(SalesOrder='${getEncodedUri(SalesOrder)}',PartnerFunction='${getEncodedUri(PartnerFunction)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -666,7 +666,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderHeaderPrElement(string SalesOrder, string PricingProcedureStep, string PricingProcedureCounter, map<string|string[]> headers = {}, *GetA_SalesOrderHeaderPrElementQueries queries) returns A_SalesOrderHeaderPrElementType|error {
+    remote isolated function getA_SalesOrderHeaderPrElement(string SalesOrder, string PricingProcedureStep, string PricingProcedureCounter, map<string|string[]> headers = {}, *GetA_SalesOrderHeaderPrElementQueries queries) returns A_SalesOrderHeaderPrElementWrapper|error {
         string resourcePath = string `/A_SalesOrderHeaderPrElement(SalesOrder='${getEncodedUri(SalesOrder)}',PricingProcedureStep='${getEncodedUri(PricingProcedureStep)}',PricingProcedureCounter='${getEncodedUri(PricingProcedureCounter)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -680,7 +680,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *GetA_SalesOrderItemQueries queries) returns A_SalesOrderItemType|error {
+    remote isolated function getA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *GetA_SalesOrderItemQueries queries) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -695,7 +695,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderItemBillingPlan(string SalesOrder, string SalesOrderItem, string BillingPlan, map<string|string[]> headers = {}, *GetA_SalesOrderItemBillingPlanQueries queries) returns A_SalesOrderItemBillingPlanType|error {
+    remote isolated function getA_SalesOrderItemBillingPlan(string SalesOrder, string SalesOrderItem, string BillingPlan, map<string|string[]> headers = {}, *GetA_SalesOrderItemBillingPlanQueries queries) returns A_SalesOrderItemBillingPlanWrapper|error {
         string resourcePath = string `/A_SalesOrderItemBillingPlan(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',BillingPlan='${getEncodedUri(BillingPlan)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -710,7 +710,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderItemPartner(string SalesOrder, string SalesOrderItem, string PartnerFunction, map<string|string[]> headers = {}, *GetA_SalesOrderItemPartnerQueries queries) returns A_SalesOrderItemPartnerType|error {
+    remote isolated function getA_SalesOrderItemPartner(string SalesOrder, string SalesOrderItem, string PartnerFunction, map<string|string[]> headers = {}, *GetA_SalesOrderItemPartnerQueries queries) returns A_SalesOrderItemPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartner(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PartnerFunction='${getEncodedUri(PartnerFunction)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -726,7 +726,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderItemPartnerAddress(string SalesOrder, string SalesOrderItem, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetA_SalesOrderItemPartnerAddressQueries queries) returns A_SalesOrderItemPartnerAddressType|error {
+    remote isolated function getA_SalesOrderItemPartnerAddress(string SalesOrder, string SalesOrderItem, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetA_SalesOrderItemPartnerAddressQueries queries) returns A_SalesOrderItemPartnerAddressWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartnerAddress(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PartnerFunction='${getEncodedUri(PartnerFunction)}',AddressRepresentationCode='${getEncodedUri(AddressRepresentationCode)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -742,7 +742,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderItemPrElement(string SalesOrder, string SalesOrderItem, string PricingProcedureStep, string PricingProcedureCounter, map<string|string[]> headers = {}, *GetA_SalesOrderItemPrElementQueries queries) returns A_SalesOrderItemPrElementType|error {
+    remote isolated function getA_SalesOrderItemPrElement(string SalesOrder, string SalesOrderItem, string PricingProcedureStep, string PricingProcedureCounter, map<string|string[]> headers = {}, *GetA_SalesOrderItemPrElementQueries queries) returns A_SalesOrderItemPrElementWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPrElement(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PricingProcedureStep='${getEncodedUri(PricingProcedureStep)}',PricingProcedureCounter='${getEncodedUri(PricingProcedureCounter)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -757,7 +757,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderItemRelatedObject(string SalesOrder, string SalesOrderItem, string SDDocRelatedObjectSequenceNmbr, map<string|string[]> headers = {}, *GetA_SalesOrderItemRelatedObjectQueries queries) returns A_SalesOrderItemRelatedObjectType|error {
+    remote isolated function getA_SalesOrderItemRelatedObject(string SalesOrder, string SalesOrderItem, string SDDocRelatedObjectSequenceNmbr, map<string|string[]> headers = {}, *GetA_SalesOrderItemRelatedObjectQueries queries) returns A_SalesOrderItemRelatedObjectWrapper|error {
         string resourcePath = string `/A_SalesOrderItemRelatedObject(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',SDDocRelatedObjectSequenceNmbr='${getEncodedUri(SDDocRelatedObjectSequenceNmbr)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -773,7 +773,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderItemText(string SalesOrder, string SalesOrderItem, string Language, string LongTextID, map<string|string[]> headers = {}, *GetA_SalesOrderItemTextQueries queries) returns A_SalesOrderItemTextType|error {
+    remote isolated function getA_SalesOrderItemText(string SalesOrder, string SalesOrderItem, string Language, string LongTextID, map<string|string[]> headers = {}, *GetA_SalesOrderItemTextQueries queries) returns A_SalesOrderItemTextWrapper|error {
         string resourcePath = string `/A_SalesOrderItemText(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',Language='${getEncodedUri(Language)}',LongTextID='${getEncodedUri(LongTextID)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -788,7 +788,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderItmPrecdgProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetA_SalesOrderItmPrecdgProcFlowQueries queries) returns A_SalesOrderItmPrecdgProcFlowType|error {
+    remote isolated function getA_SalesOrderItmPrecdgProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetA_SalesOrderItmPrecdgProcFlowQueries queries) returns A_SalesOrderItmPrecdgProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrderItmPrecdgProcFlow(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',DocRelationshipUUID=guid'${getEncodedUri(DocRelationshipUUID)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -803,7 +803,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderItmSubsqntProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetA_SalesOrderItmSubsqntProcFlowQueries queries) returns A_SalesOrderItmSubsqntProcFlowType|error {
+    remote isolated function getA_SalesOrderItmSubsqntProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetA_SalesOrderItmSubsqntProcFlowQueries queries) returns A_SalesOrderItmSubsqntProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrderItmSubsqntProcFlow(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',DocRelationshipUUID=guid'${getEncodedUri(DocRelationshipUUID)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -818,7 +818,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderPartnerAddress(string SalesOrder, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetA_SalesOrderPartnerAddressQueries queries) returns A_SalesOrderPartnerAddressType|error {
+    remote isolated function getA_SalesOrderPartnerAddress(string SalesOrder, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetA_SalesOrderPartnerAddressQueries queries) returns A_SalesOrderPartnerAddressWrapper|error {
         string resourcePath = string `/A_SalesOrderPartnerAddress(SalesOrder='${getEncodedUri(SalesOrder)}',PartnerFunction='${getEncodedUri(PartnerFunction)}',AddressRepresentationCode='${getEncodedUri(AddressRepresentationCode)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -832,7 +832,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderPrecdgProcFlow(string SalesOrder, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetA_SalesOrderPrecdgProcFlowQueries queries) returns A_SalesOrderPrecdgProcFlowType|error {
+    remote isolated function getA_SalesOrderPrecdgProcFlow(string SalesOrder, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetA_SalesOrderPrecdgProcFlowQueries queries) returns A_SalesOrderPrecdgProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrderPrecdgProcFlow(SalesOrder='${getEncodedUri(SalesOrder)}',DocRelationshipUUID=guid'${getEncodedUri(DocRelationshipUUID)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -846,7 +846,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderRelatedObject(string SalesOrder, string SDDocRelatedObjectSequenceNmbr, map<string|string[]> headers = {}, *GetA_SalesOrderRelatedObjectQueries queries) returns A_SalesOrderRelatedObjectType|error {
+    remote isolated function getA_SalesOrderRelatedObject(string SalesOrder, string SDDocRelatedObjectSequenceNmbr, map<string|string[]> headers = {}, *GetA_SalesOrderRelatedObjectQueries queries) returns A_SalesOrderRelatedObjectWrapper|error {
         string resourcePath = string `/A_SalesOrderRelatedObject(SalesOrder='${getEncodedUri(SalesOrder)}',SDDocRelatedObjectSequenceNmbr='${getEncodedUri(SDDocRelatedObjectSequenceNmbr)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -861,7 +861,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderScheduleLine(string SalesOrder, string SalesOrderItem, string ScheduleLine, map<string|string[]> headers = {}, *GetA_SalesOrderScheduleLineQueries queries) returns A_SalesOrderScheduleLineType|error {
+    remote isolated function getA_SalesOrderScheduleLine(string SalesOrder, string SalesOrderItem, string ScheduleLine, map<string|string[]> headers = {}, *GetA_SalesOrderScheduleLineQueries queries) returns A_SalesOrderScheduleLineWrapper|error {
         string resourcePath = string `/A_SalesOrderScheduleLine(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',ScheduleLine='${getEncodedUri(ScheduleLine)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -875,7 +875,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderSubsqntProcFlow(string SalesOrder, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetA_SalesOrderSubsqntProcFlowQueries queries) returns A_SalesOrderSubsqntProcFlowType|error {
+    remote isolated function getA_SalesOrderSubsqntProcFlow(string SalesOrder, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetA_SalesOrderSubsqntProcFlowQueries queries) returns A_SalesOrderSubsqntProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrderSubsqntProcFlow(SalesOrder='${getEncodedUri(SalesOrder)}',DocRelationshipUUID=guid'${getEncodedUri(DocRelationshipUUID)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -890,7 +890,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SalesOrderText(string SalesOrder, string Language, string LongTextID, map<string|string[]> headers = {}, *GetA_SalesOrderTextQueries queries) returns A_SalesOrderTextType|error {
+    remote isolated function getA_SalesOrderText(string SalesOrder, string Language, string LongTextID, map<string|string[]> headers = {}, *GetA_SalesOrderTextQueries queries) returns A_SalesOrderTextWrapper|error {
         string resourcePath = string `/A_SalesOrderText(SalesOrder='${getEncodedUri(SalesOrder)}',Language='${getEncodedUri(Language)}',LongTextID='${getEncodedUri(LongTextID)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -904,7 +904,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SlsOrdPaymentPlanItemDetails(string SalesOrder, string PaymentPlanItem, map<string|string[]> headers = {}, *GetA_SlsOrdPaymentPlanItemDetailsQueries queries) returns A_SlsOrdPaymentPlanItemDetailsType|error {
+    remote isolated function getA_SlsOrdPaymentPlanItemDetails(string SalesOrder, string PaymentPlanItem, map<string|string[]> headers = {}, *GetA_SlsOrdPaymentPlanItemDetailsQueries queries) returns A_SlsOrdPaymentPlanItemDetailsWrapper|error {
         string resourcePath = string `/A_SlsOrdPaymentPlanItemDetails(SalesOrder='${getEncodedUri(SalesOrder)}',PaymentPlanItem='${getEncodedUri(PaymentPlanItem)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -920,7 +920,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SlsOrderItemBillingPlanItem(string SalesOrder, string SalesOrderItem, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetA_SlsOrderItemBillingPlanItemQueries queries) returns A_SlsOrderItemBillingPlanItemType|error {
+    remote isolated function getA_SlsOrderItemBillingPlanItem(string SalesOrder, string SalesOrderItem, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetA_SlsOrderItemBillingPlanItemQueries queries) returns A_SlsOrderItemBillingPlanItemWrapper|error {
         string resourcePath = string `/A_SlsOrderItemBillingPlanItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',BillingPlan='${getEncodedUri(BillingPlan)}',BillingPlanItem='${getEncodedUri(BillingPlanItem)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -933,7 +933,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getBillingPlanOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *GetBillingPlanOfA_SalesOrderQueries queries) returns A_SalesOrderBillingPlanType|error {
+    remote isolated function getBillingPlanOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *GetBillingPlanOfA_SalesOrderQueries queries) returns A_SalesOrderBillingPlanWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_BillingPlan`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -948,7 +948,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getBillingPlanOfA_SalesOrderBillingPlanItem(string SalesOrder, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetBillingPlanOfA_SalesOrderBillingPlanItemQueries queries) returns A_SalesOrderBillingPlanType|error {
+    remote isolated function getBillingPlanOfA_SalesOrderBillingPlanItem(string SalesOrder, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetBillingPlanOfA_SalesOrderBillingPlanItemQueries queries) returns A_SalesOrderBillingPlanWrapper|error {
         string resourcePath = string `/A_SalesOrderBillingPlanItem(SalesOrder='${getEncodedUri(SalesOrder)}',BillingPlan='${getEncodedUri(BillingPlan)}',BillingPlanItem='${getEncodedUri(BillingPlanItem)}')/to_BillingPlan`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -962,7 +962,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getBillingPlanOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *GetBillingPlanOfA_SalesOrderItemQueries queries) returns A_SalesOrderItemBillingPlanType|error {
+    remote isolated function getBillingPlanOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *GetBillingPlanOfA_SalesOrderItemQueries queries) returns A_SalesOrderItemBillingPlanWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_BillingPlan`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -978,7 +978,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getBillingPlanOfA_SlsOrderItemBillingPlanItem(string SalesOrder, string SalesOrderItem, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetBillingPlanOfA_SlsOrderItemBillingPlanItemQueries queries) returns A_SalesOrderItemBillingPlanType|error {
+    remote isolated function getBillingPlanOfA_SlsOrderItemBillingPlanItem(string SalesOrder, string SalesOrderItem, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetBillingPlanOfA_SlsOrderItemBillingPlanItemQueries queries) returns A_SalesOrderItemBillingPlanWrapper|error {
         string resourcePath = string `/A_SlsOrderItemBillingPlanItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',BillingPlan='${getEncodedUri(BillingPlan)}',BillingPlanItem='${getEncodedUri(BillingPlanItem)}')/to_BillingPlan`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -994,7 +994,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getPartnerOfA_SalesOrderItemPartnerAddress(string SalesOrder, string SalesOrderItem, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetPartnerOfA_SalesOrderItemPartnerAddressQueries queries) returns A_SalesOrderItemPartnerType|error {
+    remote isolated function getPartnerOfA_SalesOrderItemPartnerAddress(string SalesOrder, string SalesOrderItem, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetPartnerOfA_SalesOrderItemPartnerAddressQueries queries) returns A_SalesOrderItemPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartnerAddress(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PartnerFunction='${getEncodedUri(PartnerFunction)}',AddressRepresentationCode='${getEncodedUri(AddressRepresentationCode)}')/to_Partner`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1009,7 +1009,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getPartnerOfA_SalesOrderPartnerAddress(string SalesOrder, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetPartnerOfA_SalesOrderPartnerAddressQueries queries) returns A_SalesOrderHeaderPartnerType|error {
+    remote isolated function getPartnerOfA_SalesOrderPartnerAddress(string SalesOrder, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetPartnerOfA_SalesOrderPartnerAddressQueries queries) returns A_SalesOrderHeaderPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrderPartnerAddress(SalesOrder='${getEncodedUri(SalesOrder)}',PartnerFunction='${getEncodedUri(PartnerFunction)}',AddressRepresentationCode='${getEncodedUri(AddressRepresentationCode)}')/to_Partner`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1024,7 +1024,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderItemOfA_SalesOrderItemBillingPlan(string SalesOrder, string SalesOrderItem, string BillingPlan, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemBillingPlanQueries queries) returns A_SalesOrderItemType|error {
+    remote isolated function getSalesOrderItemOfA_SalesOrderItemBillingPlan(string SalesOrder, string SalesOrderItem, string BillingPlan, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemBillingPlanQueries queries) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItemBillingPlan(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',BillingPlan='${getEncodedUri(BillingPlan)}')/to_SalesOrderItem`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1039,7 +1039,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderItemOfA_SalesOrderItemPartner(string SalesOrder, string SalesOrderItem, string PartnerFunction, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemPartnerQueries queries) returns A_SalesOrderItemType|error {
+    remote isolated function getSalesOrderItemOfA_SalesOrderItemPartner(string SalesOrder, string SalesOrderItem, string PartnerFunction, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemPartnerQueries queries) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartner(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PartnerFunction='${getEncodedUri(PartnerFunction)}')/to_SalesOrderItem`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1055,7 +1055,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderItemOfA_SalesOrderItemPartnerAddress(string SalesOrder, string SalesOrderItem, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemPartnerAddressQueries queries) returns A_SalesOrderItemType|error {
+    remote isolated function getSalesOrderItemOfA_SalesOrderItemPartnerAddress(string SalesOrder, string SalesOrderItem, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemPartnerAddressQueries queries) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartnerAddress(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PartnerFunction='${getEncodedUri(PartnerFunction)}',AddressRepresentationCode='${getEncodedUri(AddressRepresentationCode)}')/to_SalesOrderItem`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1071,7 +1071,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderItemOfA_SalesOrderItemPrElement(string SalesOrder, string SalesOrderItem, string PricingProcedureStep, string PricingProcedureCounter, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemPrElementQueries queries) returns A_SalesOrderItemType|error {
+    remote isolated function getSalesOrderItemOfA_SalesOrderItemPrElement(string SalesOrder, string SalesOrderItem, string PricingProcedureStep, string PricingProcedureCounter, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemPrElementQueries queries) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPrElement(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PricingProcedureStep='${getEncodedUri(PricingProcedureStep)}',PricingProcedureCounter='${getEncodedUri(PricingProcedureCounter)}')/to_SalesOrderItem`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1086,7 +1086,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderItemOfA_SalesOrderItemRelatedObject(string SalesOrder, string SalesOrderItem, string SDDocRelatedObjectSequenceNmbr, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemRelatedObjectQueries queries) returns A_SalesOrderItemType|error {
+    remote isolated function getSalesOrderItemOfA_SalesOrderItemRelatedObject(string SalesOrder, string SalesOrderItem, string SDDocRelatedObjectSequenceNmbr, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemRelatedObjectQueries queries) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItemRelatedObject(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',SDDocRelatedObjectSequenceNmbr='${getEncodedUri(SDDocRelatedObjectSequenceNmbr)}')/to_SalesOrderItem`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1102,7 +1102,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderItemOfA_SalesOrderItemText(string SalesOrder, string SalesOrderItem, string Language, string LongTextID, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemTextQueries queries) returns A_SalesOrderItemType|error {
+    remote isolated function getSalesOrderItemOfA_SalesOrderItemText(string SalesOrder, string SalesOrderItem, string Language, string LongTextID, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItemTextQueries queries) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItemText(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',Language='${getEncodedUri(Language)}',LongTextID='${getEncodedUri(LongTextID)}')/to_SalesOrderItem`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1117,7 +1117,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderItemOfA_SalesOrderItmPrecdgProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItmPrecdgProcFlowQueries queries) returns A_SalesOrderItemType|error {
+    remote isolated function getSalesOrderItemOfA_SalesOrderItmPrecdgProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItmPrecdgProcFlowQueries queries) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItmPrecdgProcFlow(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',DocRelationshipUUID=guid'${getEncodedUri(DocRelationshipUUID)}')/to_SalesOrderItem`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1132,7 +1132,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderItemOfA_SalesOrderItmSubsqntProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItmSubsqntProcFlowQueries queries) returns A_SalesOrderItemType|error {
+    remote isolated function getSalesOrderItemOfA_SalesOrderItmSubsqntProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SalesOrderItmSubsqntProcFlowQueries queries) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItmSubsqntProcFlow(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',DocRelationshipUUID=guid'${getEncodedUri(DocRelationshipUUID)}')/to_SalesOrderItem`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1148,7 +1148,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderItemOfA_SlsOrderItemBillingPlanItem(string SalesOrder, string SalesOrderItem, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SlsOrderItemBillingPlanItemQueries queries) returns A_SalesOrderItemType|error {
+    remote isolated function getSalesOrderItemOfA_SlsOrderItemBillingPlanItem(string SalesOrder, string SalesOrderItem, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetSalesOrderItemOfA_SlsOrderItemBillingPlanItemQueries queries) returns A_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SlsOrderItemBillingPlanItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',BillingPlan='${getEncodedUri(BillingPlan)}',BillingPlanItem='${getEncodedUri(BillingPlanItem)}')/to_SalesOrderItem`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1162,7 +1162,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderBillingPlan(string SalesOrder, string BillingPlan, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderBillingPlanQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderBillingPlan(string SalesOrder, string BillingPlan, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderBillingPlanQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderBillingPlan(SalesOrder='${getEncodedUri(SalesOrder)}',BillingPlan='${getEncodedUri(BillingPlan)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1177,7 +1177,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderBillingPlanItem(string SalesOrder, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderBillingPlanItemQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderBillingPlanItem(string SalesOrder, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderBillingPlanItemQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderBillingPlanItem(SalesOrder='${getEncodedUri(SalesOrder)}',BillingPlan='${getEncodedUri(BillingPlan)}',BillingPlanItem='${getEncodedUri(BillingPlanItem)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1191,7 +1191,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderHeaderPartner(string SalesOrder, string PartnerFunction, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderHeaderPartnerQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderHeaderPartner(string SalesOrder, string PartnerFunction, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderHeaderPartnerQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderHeaderPartner(SalesOrder='${getEncodedUri(SalesOrder)}',PartnerFunction='${getEncodedUri(PartnerFunction)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1206,7 +1206,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderHeaderPrElement(string SalesOrder, string PricingProcedureStep, string PricingProcedureCounter, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderHeaderPrElementQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderHeaderPrElement(string SalesOrder, string PricingProcedureStep, string PricingProcedureCounter, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderHeaderPrElementQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderHeaderPrElement(SalesOrder='${getEncodedUri(SalesOrder)}',PricingProcedureStep='${getEncodedUri(PricingProcedureStep)}',PricingProcedureCounter='${getEncodedUri(PricingProcedureCounter)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1220,7 +1220,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1235,7 +1235,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderItemBillingPlan(string SalesOrder, string SalesOrderItem, string BillingPlan, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemBillingPlanQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderItemBillingPlan(string SalesOrder, string SalesOrderItem, string BillingPlan, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemBillingPlanQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderItemBillingPlan(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',BillingPlan='${getEncodedUri(BillingPlan)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1250,7 +1250,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderItemPartner(string SalesOrder, string SalesOrderItem, string PartnerFunction, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemPartnerQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderItemPartner(string SalesOrder, string SalesOrderItem, string PartnerFunction, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemPartnerQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartner(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PartnerFunction='${getEncodedUri(PartnerFunction)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1266,7 +1266,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderItemPartnerAddress(string SalesOrder, string SalesOrderItem, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemPartnerAddressQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderItemPartnerAddress(string SalesOrder, string SalesOrderItem, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemPartnerAddressQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartnerAddress(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PartnerFunction='${getEncodedUri(PartnerFunction)}',AddressRepresentationCode='${getEncodedUri(AddressRepresentationCode)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1282,7 +1282,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderItemPrElement(string SalesOrder, string SalesOrderItem, string PricingProcedureStep, string PricingProcedureCounter, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemPrElementQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderItemPrElement(string SalesOrder, string SalesOrderItem, string PricingProcedureStep, string PricingProcedureCounter, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemPrElementQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPrElement(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PricingProcedureStep='${getEncodedUri(PricingProcedureStep)}',PricingProcedureCounter='${getEncodedUri(PricingProcedureCounter)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1297,7 +1297,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderItemRelatedObject(string SalesOrder, string SalesOrderItem, string SDDocRelatedObjectSequenceNmbr, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemRelatedObjectQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderItemRelatedObject(string SalesOrder, string SalesOrderItem, string SDDocRelatedObjectSequenceNmbr, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemRelatedObjectQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderItemRelatedObject(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',SDDocRelatedObjectSequenceNmbr='${getEncodedUri(SDDocRelatedObjectSequenceNmbr)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1313,7 +1313,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderItemText(string SalesOrder, string SalesOrderItem, string Language, string LongTextID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemTextQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderItemText(string SalesOrder, string SalesOrderItem, string Language, string LongTextID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItemTextQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderItemText(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',Language='${getEncodedUri(Language)}',LongTextID='${getEncodedUri(LongTextID)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1328,7 +1328,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderItmPrecdgProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItmPrecdgProcFlowQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderItmPrecdgProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItmPrecdgProcFlowQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderItmPrecdgProcFlow(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',DocRelationshipUUID=guid'${getEncodedUri(DocRelationshipUUID)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1343,7 +1343,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderItmSubsqntProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItmSubsqntProcFlowQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderItmSubsqntProcFlow(string SalesOrder, string SalesOrderItem, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderItmSubsqntProcFlowQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderItmSubsqntProcFlow(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',DocRelationshipUUID=guid'${getEncodedUri(DocRelationshipUUID)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1358,7 +1358,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderPartnerAddress(string SalesOrder, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderPartnerAddressQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderPartnerAddress(string SalesOrder, string PartnerFunction, string AddressRepresentationCode, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderPartnerAddressQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderPartnerAddress(SalesOrder='${getEncodedUri(SalesOrder)}',PartnerFunction='${getEncodedUri(PartnerFunction)}',AddressRepresentationCode='${getEncodedUri(AddressRepresentationCode)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1372,7 +1372,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderPrecdgProcFlow(string SalesOrder, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderPrecdgProcFlowQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderPrecdgProcFlow(string SalesOrder, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderPrecdgProcFlowQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderPrecdgProcFlow(SalesOrder='${getEncodedUri(SalesOrder)}',DocRelationshipUUID=guid'${getEncodedUri(DocRelationshipUUID)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1386,7 +1386,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderRelatedObject(string SalesOrder, string SDDocRelatedObjectSequenceNmbr, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderRelatedObjectQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderRelatedObject(string SalesOrder, string SDDocRelatedObjectSequenceNmbr, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderRelatedObjectQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderRelatedObject(SalesOrder='${getEncodedUri(SalesOrder)}',SDDocRelatedObjectSequenceNmbr='${getEncodedUri(SDDocRelatedObjectSequenceNmbr)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1400,7 +1400,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderSubsqntProcFlow(string SalesOrder, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderSubsqntProcFlowQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderSubsqntProcFlow(string SalesOrder, string DocRelationshipUUID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderSubsqntProcFlowQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderSubsqntProcFlow(SalesOrder='${getEncodedUri(SalesOrder)}',DocRelationshipUUID=guid'${getEncodedUri(DocRelationshipUUID)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1415,7 +1415,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SalesOrderText(string SalesOrder, string Language, string LongTextID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderTextQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SalesOrderText(string SalesOrder, string Language, string LongTextID, map<string|string[]> headers = {}, *GetSalesOrderOfA_SalesOrderTextQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrderText(SalesOrder='${getEncodedUri(SalesOrder)}',Language='${getEncodedUri(Language)}',LongTextID='${getEncodedUri(LongTextID)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1429,7 +1429,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SlsOrdPaymentPlanItemDetails(string SalesOrder, string PaymentPlanItem, map<string|string[]> headers = {}, *GetSalesOrderOfA_SlsOrdPaymentPlanItemDetailsQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SlsOrdPaymentPlanItemDetails(string SalesOrder, string PaymentPlanItem, map<string|string[]> headers = {}, *GetSalesOrderOfA_SlsOrdPaymentPlanItemDetailsQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SlsOrdPaymentPlanItemDetails(SalesOrder='${getEncodedUri(SalesOrder)}',PaymentPlanItem='${getEncodedUri(PaymentPlanItem)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1445,7 +1445,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSalesOrderOfA_SlsOrderItemBillingPlanItem(string SalesOrder, string SalesOrderItem, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetSalesOrderOfA_SlsOrderItemBillingPlanItemQueries queries) returns A_SalesOrderType|error {
+    remote isolated function getSalesOrderOfA_SlsOrderItemBillingPlanItem(string SalesOrder, string SalesOrderItem, string BillingPlan, string BillingPlanItem, map<string|string[]> headers = {}, *GetSalesOrderOfA_SlsOrderItemBillingPlanItemQueries queries) returns A_SalesOrderWrapper|error {
         string resourcePath = string `/A_SlsOrderItemBillingPlanItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',BillingPlan='${getEncodedUri(BillingPlan)}',BillingPlanItem='${getEncodedUri(BillingPlanItem)}')/to_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1457,7 +1457,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderBillingPlanItems(map<string|string[]> headers = {}, *ListA_SalesOrderBillingPlanItemsQueries queries) returns Wrapper_10|error {
+    remote isolated function listA_SalesOrderBillingPlanItems(map<string|string[]> headers = {}, *ListA_SalesOrderBillingPlanItemsQueries queries) returns CollectionOfA_SalesOrderBillingPlanItemWrapper|error {
         string resourcePath = string `/A_SalesOrderBillingPlanItem`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1469,7 +1469,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderBillingPlans(map<string|string[]> headers = {}, *ListA_SalesOrderBillingPlansQueries queries) returns Wrapper_9|error {
+    remote isolated function listA_SalesOrderBillingPlans(map<string|string[]> headers = {}, *ListA_SalesOrderBillingPlansQueries queries) returns CollectionOfA_SalesOrderBillingPlanWrapper|error {
         string resourcePath = string `/A_SalesOrderBillingPlan`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1481,7 +1481,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderHeaderPartners(map<string|string[]> headers = {}, *ListA_SalesOrderHeaderPartnersQueries queries) returns Wrapper_2|error {
+    remote isolated function listA_SalesOrderHeaderPartners(map<string|string[]> headers = {}, *ListA_SalesOrderHeaderPartnersQueries queries) returns CollectionOfA_SalesOrderHeaderPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrderHeaderPartner`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1493,7 +1493,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderHeaderPrElements(map<string|string[]> headers = {}, *ListA_SalesOrderHeaderPrElementsQueries queries) returns Wrapper_5|error {
+    remote isolated function listA_SalesOrderHeaderPrElements(map<string|string[]> headers = {}, *ListA_SalesOrderHeaderPrElementsQueries queries) returns CollectionOfA_SalesOrderHeaderPrElementWrapper|error {
         string resourcePath = string `/A_SalesOrderHeaderPrElement`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1505,7 +1505,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderItemBillingPlans(map<string|string[]> headers = {}, *ListA_SalesOrderItemBillingPlansQueries queries) returns Wrapper_19|error {
+    remote isolated function listA_SalesOrderItemBillingPlans(map<string|string[]> headers = {}, *ListA_SalesOrderItemBillingPlansQueries queries) returns CollectionOfA_SalesOrderItemBillingPlanWrapper|error {
         string resourcePath = string `/A_SalesOrderItemBillingPlan`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1517,7 +1517,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderItemPartnerAddresses(map<string|string[]> headers = {}, *ListA_SalesOrderItemPartnerAddressesQueries queries) returns Wrapper_21|error {
+    remote isolated function listA_SalesOrderItemPartnerAddresses(map<string|string[]> headers = {}, *ListA_SalesOrderItemPartnerAddressesQueries queries) returns CollectionOfA_SalesOrderItemPartnerAddressWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartnerAddress`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1529,7 +1529,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderItemPartners(map<string|string[]> headers = {}, *ListA_SalesOrderItemPartnersQueries queries) returns Wrapper_12|error {
+    remote isolated function listA_SalesOrderItemPartners(map<string|string[]> headers = {}, *ListA_SalesOrderItemPartnersQueries queries) returns CollectionOfA_SalesOrderItemPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartner`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1541,7 +1541,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderItemPrElements(map<string|string[]> headers = {}, *ListA_SalesOrderItemPrElementsQueries queries) returns Wrapper_14|error {
+    remote isolated function listA_SalesOrderItemPrElements(map<string|string[]> headers = {}, *ListA_SalesOrderItemPrElementsQueries queries) returns CollectionOfA_SalesOrderItemPrElementWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPrElement`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1553,7 +1553,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderItemRelatedObjects(map<string|string[]> headers = {}, *ListA_SalesOrderItemRelatedObjectsQueries queries) returns Wrapper_15|error {
+    remote isolated function listA_SalesOrderItemRelatedObjects(map<string|string[]> headers = {}, *ListA_SalesOrderItemRelatedObjectsQueries queries) returns CollectionOfA_SalesOrderItemRelatedObjectWrapper|error {
         string resourcePath = string `/A_SalesOrderItemRelatedObject`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1565,7 +1565,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderItemTexts(map<string|string[]> headers = {}, *ListA_SalesOrderItemTextsQueries queries) returns Wrapper_18|error {
+    remote isolated function listA_SalesOrderItemTexts(map<string|string[]> headers = {}, *ListA_SalesOrderItemTextsQueries queries) returns CollectionOfA_SalesOrderItemTextWrapper|error {
         string resourcePath = string `/A_SalesOrderItemText`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1577,7 +1577,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderItems(map<string|string[]> headers = {}, *ListA_SalesOrderItemsQueries queries) returns Wrapper_1|error {
+    remote isolated function listA_SalesOrderItems(map<string|string[]> headers = {}, *ListA_SalesOrderItemsQueries queries) returns CollectionOfA_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItem`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1589,7 +1589,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderItmPrecdgProcFlows(map<string|string[]> headers = {}, *ListA_SalesOrderItmPrecdgProcFlowsQueries queries) returns Wrapper_13|error {
+    remote isolated function listA_SalesOrderItmPrecdgProcFlows(map<string|string[]> headers = {}, *ListA_SalesOrderItmPrecdgProcFlowsQueries queries) returns CollectionOfA_SalesOrderItmPrecdgProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrderItmPrecdgProcFlow`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1601,7 +1601,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderItmSubsqntProcFlows(map<string|string[]> headers = {}, *ListA_SalesOrderItmSubsqntProcFlowsQueries queries) returns Wrapper_17|error {
+    remote isolated function listA_SalesOrderItmSubsqntProcFlows(map<string|string[]> headers = {}, *ListA_SalesOrderItmSubsqntProcFlowsQueries queries) returns CollectionOfA_SalesOrderItmSubsqntProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrderItmSubsqntProcFlow`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1613,7 +1613,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderPartnerAddresses(map<string|string[]> headers = {}, *ListA_SalesOrderPartnerAddressesQueries queries) returns Wrapper_11|error {
+    remote isolated function listA_SalesOrderPartnerAddresses(map<string|string[]> headers = {}, *ListA_SalesOrderPartnerAddressesQueries queries) returns CollectionOfA_SalesOrderPartnerAddressWrapper|error {
         string resourcePath = string `/A_SalesOrderPartnerAddress`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1625,7 +1625,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderPrecdgProcFlows(map<string|string[]> headers = {}, *ListA_SalesOrderPrecdgProcFlowsQueries queries) returns Wrapper_4|error {
+    remote isolated function listA_SalesOrderPrecdgProcFlows(map<string|string[]> headers = {}, *ListA_SalesOrderPrecdgProcFlowsQueries queries) returns CollectionOfA_SalesOrderPrecdgProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrderPrecdgProcFlow`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1637,7 +1637,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderRelatedObjects(map<string|string[]> headers = {}, *ListA_SalesOrderRelatedObjectsQueries queries) returns Wrapper_6|error {
+    remote isolated function listA_SalesOrderRelatedObjects(map<string|string[]> headers = {}, *ListA_SalesOrderRelatedObjectsQueries queries) returns CollectionOfA_SalesOrderRelatedObjectWrapper|error {
         string resourcePath = string `/A_SalesOrderRelatedObject`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1649,7 +1649,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderScheduleLines(map<string|string[]> headers = {}, *ListA_SalesOrderScheduleLinesQueries queries) returns Wrapper_16|error {
+    remote isolated function listA_SalesOrderScheduleLines(map<string|string[]> headers = {}, *ListA_SalesOrderScheduleLinesQueries queries) returns CollectionOfA_SalesOrderScheduleLineWrapper|error {
         string resourcePath = string `/A_SalesOrderScheduleLine`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1661,7 +1661,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderSubsqntProcFlows(map<string|string[]> headers = {}, *ListA_SalesOrderSubsqntProcFlowsQueries queries) returns Wrapper_7|error {
+    remote isolated function listA_SalesOrderSubsqntProcFlows(map<string|string[]> headers = {}, *ListA_SalesOrderSubsqntProcFlowsQueries queries) returns CollectionOfA_SalesOrderSubsqntProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrderSubsqntProcFlow`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1673,7 +1673,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrderTexts(map<string|string[]> headers = {}, *ListA_SalesOrderTextsQueries queries) returns Wrapper_8|error {
+    remote isolated function listA_SalesOrderTexts(map<string|string[]> headers = {}, *ListA_SalesOrderTextsQueries queries) returns CollectionOfA_SalesOrderTextWrapper|error {
         string resourcePath = string `/A_SalesOrderText`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1685,7 +1685,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SalesOrders(map<string|string[]> headers = {}, *ListA_SalesOrdersQueries queries) returns Wrapper|error {
+    remote isolated function listA_SalesOrders(map<string|string[]> headers = {}, *ListA_SalesOrdersQueries queries) returns CollectionOfA_SalesOrderWrapper|error {
         string resourcePath = string `/A_SalesOrder`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1697,7 +1697,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SlsOrdPaymentPlanItemDetails(map<string|string[]> headers = {}, *ListA_SlsOrdPaymentPlanItemDetailsQueries queries) returns Wrapper_3|error {
+    remote isolated function listA_SlsOrdPaymentPlanItemDetails(map<string|string[]> headers = {}, *ListA_SlsOrdPaymentPlanItemDetailsQueries queries) returns CollectionOfA_SlsOrdPaymentPlanItemDetailsWrapper|error {
         string resourcePath = string `/A_SlsOrdPaymentPlanItemDetails`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1709,7 +1709,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SlsOrderItemBillingPlanItems(map<string|string[]> headers = {}, *ListA_SlsOrderItemBillingPlanItemsQueries queries) returns Wrapper_20|error {
+    remote isolated function listA_SlsOrderItemBillingPlanItems(map<string|string[]> headers = {}, *ListA_SlsOrderItemBillingPlanItemsQueries queries) returns CollectionOfA_SlsOrderItemBillingPlanItemWrapper|error {
         string resourcePath = string `/A_SlsOrderItemBillingPlanItem`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1723,7 +1723,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listAddressesOfA_SalesOrderHeaderPartner(string SalesOrder, string PartnerFunction, map<string|string[]> headers = {}, *ListAddressesOfA_SalesOrderHeaderPartnerQueries queries) returns Wrapper_11|error {
+    remote isolated function listAddressesOfA_SalesOrderHeaderPartner(string SalesOrder, string PartnerFunction, map<string|string[]> headers = {}, *ListAddressesOfA_SalesOrderHeaderPartnerQueries queries) returns CollectionOfA_SalesOrderPartnerAddressWrapper|error {
         string resourcePath = string `/A_SalesOrderHeaderPartner(SalesOrder='${getEncodedUri(SalesOrder)}',PartnerFunction='${getEncodedUri(PartnerFunction)}')/to_Address`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1738,7 +1738,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listAddressesOfA_SalesOrderItemPartner(string SalesOrder, string SalesOrderItem, string PartnerFunction, map<string|string[]> headers = {}, *ListAddressesOfA_SalesOrderItemPartnerQueries queries) returns Wrapper_21|error {
+    remote isolated function listAddressesOfA_SalesOrderItemPartner(string SalesOrder, string SalesOrderItem, string PartnerFunction, map<string|string[]> headers = {}, *ListAddressesOfA_SalesOrderItemPartnerQueries queries) returns CollectionOfA_SalesOrderItemPartnerAddressWrapper|error {
         string resourcePath = string `/A_SalesOrderItemPartner(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',PartnerFunction='${getEncodedUri(PartnerFunction)}')/to_Address`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1752,7 +1752,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listBillingPlanItemsOfA_SalesOrderBillingPlan(string SalesOrder, string BillingPlan, map<string|string[]> headers = {}, *ListBillingPlanItemsOfA_SalesOrderBillingPlanQueries queries) returns Wrapper_10|error {
+    remote isolated function listBillingPlanItemsOfA_SalesOrderBillingPlan(string SalesOrder, string BillingPlan, map<string|string[]> headers = {}, *ListBillingPlanItemsOfA_SalesOrderBillingPlanQueries queries) returns CollectionOfA_SalesOrderBillingPlanItemWrapper|error {
         string resourcePath = string `/A_SalesOrderBillingPlan(SalesOrder='${getEncodedUri(SalesOrder)}',BillingPlan='${getEncodedUri(BillingPlan)}')/to_BillingPlanItem`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1767,7 +1767,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listBillingPlanItemsOfA_SalesOrderItemBillingPlan(string SalesOrder, string SalesOrderItem, string BillingPlan, map<string|string[]> headers = {}, *ListBillingPlanItemsOfA_SalesOrderItemBillingPlanQueries queries) returns Wrapper_20|error {
+    remote isolated function listBillingPlanItemsOfA_SalesOrderItemBillingPlan(string SalesOrder, string SalesOrderItem, string BillingPlan, map<string|string[]> headers = {}, *ListBillingPlanItemsOfA_SalesOrderItemBillingPlanQueries queries) returns CollectionOfA_SlsOrderItemBillingPlanItemWrapper|error {
         string resourcePath = string `/A_SalesOrderItemBillingPlan(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}',BillingPlan='${getEncodedUri(BillingPlan)}')/to_BillingPlanItem`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1780,7 +1780,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listItemsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListItemsOfA_SalesOrderQueries queries) returns Wrapper_1|error {
+    remote isolated function listItemsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListItemsOfA_SalesOrderQueries queries) returns CollectionOfA_SalesOrderItemWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_Item`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1793,7 +1793,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listPartnersOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListPartnersOfA_SalesOrderQueries queries) returns Wrapper_2|error {
+    remote isolated function listPartnersOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListPartnersOfA_SalesOrderQueries queries) returns CollectionOfA_SalesOrderHeaderPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_Partner`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1807,7 +1807,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listPartnersOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListPartnersOfA_SalesOrderItemQueries queries) returns Wrapper_12|error {
+    remote isolated function listPartnersOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListPartnersOfA_SalesOrderItemQueries queries) returns CollectionOfA_SalesOrderItemPartnerWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_Partner`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1820,7 +1820,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listPaymentPlanItemDetailsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListPaymentPlanItemDetailsOfA_SalesOrderQueries queries) returns Wrapper_3|error {
+    remote isolated function listPaymentPlanItemDetailsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListPaymentPlanItemDetailsOfA_SalesOrderQueries queries) returns CollectionOfA_SlsOrdPaymentPlanItemDetailsWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_PaymentPlanItemDetails`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1834,7 +1834,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listPrecedingProcFlowDocItemsOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListPrecedingProcFlowDocItemsOfA_SalesOrderItemQueries queries) returns Wrapper_13|error {
+    remote isolated function listPrecedingProcFlowDocItemsOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListPrecedingProcFlowDocItemsOfA_SalesOrderItemQueries queries) returns CollectionOfA_SalesOrderItmPrecdgProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_PrecedingProcFlowDocItem`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1847,7 +1847,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listPrecedingProcFlowDocsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListPrecedingProcFlowDocsOfA_SalesOrderQueries queries) returns Wrapper_4|error {
+    remote isolated function listPrecedingProcFlowDocsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListPrecedingProcFlowDocsOfA_SalesOrderQueries queries) returns CollectionOfA_SalesOrderPrecdgProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_PrecedingProcFlowDoc`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1860,7 +1860,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listPricingElementsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListPricingElementsOfA_SalesOrderQueries queries) returns Wrapper_5|error {
+    remote isolated function listPricingElementsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListPricingElementsOfA_SalesOrderQueries queries) returns CollectionOfA_SalesOrderHeaderPrElementWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_PricingElement`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1874,7 +1874,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listPricingElementsOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListPricingElementsOfA_SalesOrderItemQueries queries) returns Wrapper_14|error {
+    remote isolated function listPricingElementsOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListPricingElementsOfA_SalesOrderItemQueries queries) returns CollectionOfA_SalesOrderItemPrElementWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_PricingElement`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1887,7 +1887,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listRelatedObjectsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListRelatedObjectsOfA_SalesOrderQueries queries) returns Wrapper_6|error {
+    remote isolated function listRelatedObjectsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListRelatedObjectsOfA_SalesOrderQueries queries) returns CollectionOfA_SalesOrderRelatedObjectWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_RelatedObject`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1901,7 +1901,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listRelatedObjectsOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListRelatedObjectsOfA_SalesOrderItemQueries queries) returns Wrapper_15|error {
+    remote isolated function listRelatedObjectsOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListRelatedObjectsOfA_SalesOrderItemQueries queries) returns CollectionOfA_SalesOrderItemRelatedObjectWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_RelatedObject`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1915,7 +1915,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listScheduleLinesOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListScheduleLinesOfA_SalesOrderItemQueries queries) returns Wrapper_16|error {
+    remote isolated function listScheduleLinesOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListScheduleLinesOfA_SalesOrderItemQueries queries) returns CollectionOfA_SalesOrderScheduleLineWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_ScheduleLine`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1929,7 +1929,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSubsequentProcFlowDocItemsOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListSubsequentProcFlowDocItemsOfA_SalesOrderItemQueries queries) returns Wrapper_17|error {
+    remote isolated function listSubsequentProcFlowDocItemsOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListSubsequentProcFlowDocItemsOfA_SalesOrderItemQueries queries) returns CollectionOfA_SalesOrderItmSubsqntProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_SubsequentProcFlowDocItem`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1942,7 +1942,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSubsequentProcFlowDocsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListSubsequentProcFlowDocsOfA_SalesOrderQueries queries) returns Wrapper_7|error {
+    remote isolated function listSubsequentProcFlowDocsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListSubsequentProcFlowDocsOfA_SalesOrderQueries queries) returns CollectionOfA_SalesOrderSubsqntProcFlowWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_SubsequentProcFlowDoc`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1955,7 +1955,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listTextsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListTextsOfA_SalesOrderQueries queries) returns Wrapper_8|error {
+    remote isolated function listTextsOfA_SalesOrder(string SalesOrder, map<string|string[]> headers = {}, *ListTextsOfA_SalesOrderQueries queries) returns CollectionOfA_SalesOrderTextWrapper|error {
         string resourcePath = string `/A_SalesOrder('${getEncodedUri(SalesOrder)}')/to_Text`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -1969,7 +1969,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listTextsOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListTextsOfA_SalesOrderItemQueries queries) returns Wrapper_18|error {
+    remote isolated function listTextsOfA_SalesOrderItem(string SalesOrder, string SalesOrderItem, map<string|string[]> headers = {}, *ListTextsOfA_SalesOrderItemQueries queries) returns CollectionOfA_SalesOrderItemTextWrapper|error {
         string resourcePath = string `/A_SalesOrderItem(SalesOrder='${getEncodedUri(SalesOrder)}',SalesOrderItem='${getEncodedUri(SalesOrderItem)}')/to_Text`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);

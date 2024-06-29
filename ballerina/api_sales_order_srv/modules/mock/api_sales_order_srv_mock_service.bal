@@ -53,7 +53,7 @@ service /sap/opu/odata/sap/API_SALES_ORDER_SRV on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (Retrieved entities)
     # http:Response (Error)
-    resource function get A_SalesOrder(int? \$top, int? \$skip, string? \$filter, "allpages"|"none"? \$inlinecount, A_SalesOrderOrderByOptions? \$orderby, A_SalesOrderSelectOptions? \$select, A_SalesOrderExpandOptions? \$expand) returns Wrapper|http:Response {
+    resource function get A_SalesOrder(int? \$top, int? \$skip, string? \$filter, "allpages"|"none"? \$inlinecount, A_SalesOrderOrderByOptions? \$orderby, A_SalesOrderSelectOptions? \$select, A_SalesOrderExpandOptions? \$expand) returns CollectionOfA_SalesOrderWrapper|http:Response {
         return {
             d: {
                 results: [
@@ -71,7 +71,7 @@ service /sap/opu/odata/sap/API_SALES_ORDER_SRV on ep0 {
     # + return - returns can be any of following types 
     # http:Created (Created entity)
     # http:Response (Error)
-    resource function post A_SalesOrder(@http:Payload CreateA_SalesOrder payload) returns A_SalesOrderType|http:Response {
+    resource function post A_SalesOrder(@http:Payload CreateA_SalesOrder payload) returns A_SalesOrderWrapper|http:Response {
         http:Response res = new;
         res.statusCode = 404;
         return res;

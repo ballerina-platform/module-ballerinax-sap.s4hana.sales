@@ -45,8 +45,8 @@ service /sap/opu/odata/sap/API_SALESORGANIZATION_SRV on ep0 {
     # + return - returns can be any of following types 
     # http:Ok (Retrieved entities)
     # http:Response (Error)
-    resource function get A_SalesOrganization(int? \$top, int? \$skip, string? \$filter, "allpages"|"none"? \$inlinecount, A_SalesOrganizationOrderByOptions? \$orderby, A_SalesOrganizationSelectOptions? \$select, A_SalesOrganizationExpandOptions? \$expand) returns Wrapper|http:Response {
-        return {
+    resource function get A_SalesOrganization(int? \$top, int? \$skip, string? \$filter, "allpages"|"none"? \$inlinecount, A_SalesOrganizationOrderByOptions? \$orderby, A_SalesOrganizationSelectOptions? \$select, A_SalesOrganizationExpandOptions? \$expand) returns CollectionOfA_SalesOrganizationWrapper|http:Response {
+    return {
             d: {
                 results: [
                     {

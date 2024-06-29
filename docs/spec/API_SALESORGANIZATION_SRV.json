@@ -127,11 +127,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrganizationWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrganizationType",
+                      "title": "CollectionOfA_SalesOrganization",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -189,7 +189,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrganizationType",
+                  "title": "A_SalesOrganizationWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -260,11 +260,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrganizationTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrganizationTextType",
+                      "title": "CollectionOfA_SalesOrganizationText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -330,11 +330,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SalesOrganizationTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SalesOrganizationTextType",
+                      "title": "CollectionOfA_SalesOrganizationText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -402,7 +402,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrganizationTextType",
+                  "title": "A_SalesOrganizationTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -463,7 +463,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrganizationType",
+                  "title": "A_SalesOrganizationWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
@@ -750,68 +750,6 @@
           ]
         }
       },
-      "A_SalesOrganizationByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrganization",
-            "SalesOrganizationCurrency",
-            "CompanyCode",
-            "IntercompanyBillingCustomer",
-            "to_Text"
-          ]
-        }
-      },
-      "A_SalesOrganizationByKeyExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_Text"
-          ]
-        }
-      },
-      "TextOfA_SalesOrganizationOrderByOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrganization",
-            "SalesOrganization desc",
-            "Language",
-            "Language desc",
-            "SalesOrganizationName",
-            "SalesOrganizationName desc"
-          ]
-        }
-      },
-      "TextOfA_SalesOrganizationSelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrganization",
-            "Language",
-            "SalesOrganizationName",
-            "to_SalesOrganization"
-          ]
-        }
-      },
-      "TextOfA_SalesOrganizationExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrganization"
-          ]
-        }
-      },
       "A_SalesOrganizationTextOrderByOptions": {
         "type": "array",
         "uniqueItems": true,
@@ -841,29 +779,6 @@
         }
       },
       "A_SalesOrganizationTextExpandOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "to_SalesOrganization"
-          ]
-        }
-      },
-      "A_SalesOrganizationTextByKeySelectOptions": {
-        "type": "array",
-        "uniqueItems": true,
-        "items": {
-          "type": "string",
-          "enum": [
-            "SalesOrganization",
-            "Language",
-            "SalesOrganizationName",
-            "to_SalesOrganization"
-          ]
-        }
-      },
-      "A_SalesOrganizationTextByKeyExpandOptions": {
         "type": "array",
         "uniqueItems": true,
         "items": {
@@ -963,7 +878,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrganizationByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrganizationSelectOptions"
         }
       },
       "A_SalesOrganizationByKeyExpandOptions": {
@@ -972,7 +887,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrganizationByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrganizationExpandOptions"
         }
       },
       "TextOfA_SalesOrganizationOrderByOptions": {
@@ -981,7 +896,7 @@
         "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesOrganizationOrderByOptions"
+          "$ref": "#/components/schemas/A_SalesOrganizationTextOrderByOptions"
         }
       },
       "TextOfA_SalesOrganizationSelectOptions": {
@@ -990,7 +905,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesOrganizationSelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrganizationTextSelectOptions"
         }
       },
       "TextOfA_SalesOrganizationExpandOptions": {
@@ -999,7 +914,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/TextOfA_SalesOrganizationExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrganizationTextExpandOptions"
         }
       },
       "A_SalesOrganizationTextOrderByOptions": {
@@ -1035,7 +950,7 @@
         "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrganizationTextByKeySelectOptions"
+          "$ref": "#/components/schemas/A_SalesOrganizationTextSelectOptions"
         }
       },
       "A_SalesOrganizationTextByKeyExpandOptions": {
@@ -1044,7 +959,7 @@
         "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
         "explode": false,
         "schema": {
-          "$ref": "#/components/schemas/A_SalesOrganizationTextByKeyExpandOptions"
+          "$ref": "#/components/schemas/A_SalesOrganizationTextExpandOptions"
         }
       },
       "SalesOrganizationOfA_SalesOrganizationTextSelectOptions": {

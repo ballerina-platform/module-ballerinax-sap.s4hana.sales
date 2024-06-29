@@ -19,10 +19,19 @@
 
 import ballerina/constraint;
 
-public type A_SalesDistrictTextExpandOptions ("to_SalesDistrict")[];
+public type A_SalesDistrict_to_Text record {
+    A_SalesDistrictText[] results?;
+};
 
-public type Wrapper record {
-    Collection\ of\ A_SalesDistrictType d?;
+public type A_SalesDistrictSelectOptions ("SalesDistrict"|"to_Text")[];
+
+public type CollectionOfA_SalesDistrict record {
+    count __count?;
+    A_SalesDistrict[] results?;
+};
+
+public type CollectionOfA_SalesDistrictWrapper record {
+    CollectionOfA_SalesDistrict d?;
 };
 
 public type A_SalesDistrictOrderByOptions ("SalesDistrict"|"SalesDistrict desc")[];
@@ -37,30 +46,6 @@ public type A_SalesDistrict record {
 };
 
 public type A_SalesDistrictExpandOptions ("to_Text")[];
-
-public type Collection\ of\ A_SalesDistrictType record {
-    count __count?;
-    A_SalesDistrict[] results?;
-};
-
-public type A_SalesDistrict_to_Text record {
-    A_SalesDistrictText[] results?;
-};
-
-public type A_SalesDistrictTextOrderByOptions ("SalesDistrict"|"SalesDistrict desc"|"Language"|"Language desc"|"SalesDistrictName"|"SalesDistrictName desc")[];
-
-public type A_SalesDistrictTextSelectOptions ("SalesDistrict"|"Language"|"SalesDistrictName"|"to_SalesDistrict")[];
-
-public type A_SalesDistrictSelectOptions ("SalesDistrict"|"to_Text")[];
-
-public type Collection\ of\ A_SalesDistrictTextType record {
-    count __count?;
-    A_SalesDistrictText[] results?;
-};
-
-public type Wrapper_1 record {
-    Collection\ of\ A_SalesDistrictTextType d?;
-};
 
 public type A_SalesDistrictText record {
     @constraint:String {maxLength: 6}
