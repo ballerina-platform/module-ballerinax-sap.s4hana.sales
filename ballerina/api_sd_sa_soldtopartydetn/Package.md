@@ -3,7 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-
+The `ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn` package provides APIs that enable seamless integration with the [Sold-to Party Assignment of Sales Scheduling Agreement - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_SA_SOLDTOPARTYDETN/overview). The service allows users to read sold-to party assignment of sales scheduling agreement master data.
 
 ## Setup guide
 
@@ -13,7 +13,7 @@ designed for large-scale enterprises by SAP SE.
 
    ![Display Scenarios](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-1-display-scenarios.png)
 
-3. In the search bar, type `` and select the corresponding scenario from the results.
+3. In the search bar, type `Sold-to Party Assignment of Sales Scheduling Agreement Integration` and select the corresponding scenario from the results.
 
    ![Search Sales Order](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-2-search-sales-order.png)
 
@@ -42,7 +42,7 @@ To use the `sap.s4hana.api_sd_sa_soldtopartydetn` connector in your Ballerina ap
 Import the `sap.s4hana.api_sd_sa_soldtopartydetn` module.
 
 ```ballerina
-
+import ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn as soldToParty;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -54,7 +54,7 @@ configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-
+soldToParty:Client soldToPartyClient = check new (
     hostname = hostname,
     config = {
         auth: {
@@ -70,7 +70,7 @@ configurable string password = ?;
 Now, utilize the available connector operations.
 
 ```ballerina
-
+soldToParty:CollectionOfA_DelivSchedSoldToPartyDetnWrapper listDeliverySched = check soldToPartyClient->listA_DelivSchedSoldToPartyDetns();
 ```
 
 ### Step 4: Run the Ballerina application

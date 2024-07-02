@@ -1,7 +1,7 @@
 {
-  "description": "",
-  "communication-scenario": "",
-  "import-statement": "",
-  "client-init": "",
-  "api-invocation": ""
+  "description": "The `ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn` package provides APIs that enable seamless integration with the [Sold-to Party Assignment of Sales Scheduling Agreement - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_SA_SOLDTOPARTYDETN/overview). The service allows users to read sold-to party assignment of sales scheduling agreement master data.",
+  "communication-scenario": "Sold-to Party Assignment of Sales Scheduling Agreement Integration",
+  "import-statement": "import ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn as soldToParty;",
+  "client-init": "soldToParty:Client soldToPartyClient = check new (",
+  "api-invocation": "soldToParty:CollectionOfA_DelivSchedSoldToPartyDetnWrapper listDeliverySched = check soldToPartyClient->listA_DelivSchedSoldToPartyDetns();"
 }
