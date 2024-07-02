@@ -24,6 +24,10 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
    the [Sales Order (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_ORDER_SRV/overview). The service allows to
    create, read, update, and delete sales orders.
 
+4. The `ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn` package provides APIs that enable seamless integration with
+   the [Sold-to Party Assignment of Sales Scheduling Agreement - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_SA_SOLDTOPARTYDETN/overview).
+   The service allows users to read sold-to party assignment of sales scheduling agreement master data.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
@@ -80,7 +84,7 @@ Execute the commands below to build from the source.
    ```
 
    | API Name              | Connector                                     |
-   |-----------------------|-----------------------------------------------|
+      |-----------------------|-----------------------------------------------|
    | api_salesdistrict_srv | ballerinax/sap.s4hana.api_salesdistrict_srv   |
    | api_salesorganization_srv | ballerinax/sap.s4hana.api_salesorganization_srv   |
    | api_sales_order_srv   | ballerinax/sap.s4hana.api_sales_order_srv     |
