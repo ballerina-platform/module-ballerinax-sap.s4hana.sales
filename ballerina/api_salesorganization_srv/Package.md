@@ -70,7 +70,7 @@ salesorg:Client salesOrgClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-salesorg:Wrapper listASalesOrganization = check salesOrgClient->listA_SalesOrganizations();
+salesorg:CollectionOfA_SalesOrganizationWrapper listASalesOrganization = check salesOrgClient->listA_SalesOrganizations();
 ```
 
 ### Step 4: Run the Ballerina application

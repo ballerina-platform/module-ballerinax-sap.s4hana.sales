@@ -11,6 +11,7 @@ on:
           - api_salesdistrict_srv
           - api_salesorganization_srv
           - api_sales_order_srv
+          - api_sd_sa_soldtopartydetn
 
 jobs:
   call_workflow:

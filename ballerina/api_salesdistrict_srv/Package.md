@@ -70,7 +70,7 @@ salesdistrict:Client salesDistrictClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-salesdistrict:Wrapper listASalesDistricts = check salesDistrictClient->listA_SalesDistricts();
+salesdistrict:CollectionOfA_SalesDistrictWrapper listASalesDistricts = check salesDistrictClient->listA_SalesDistricts();
 ```
 
 ### Step 4: Run the Ballerina application

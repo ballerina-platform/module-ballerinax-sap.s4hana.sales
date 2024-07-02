@@ -3,5 +3,5 @@
   "communication-scenario": "Sales Order Integration",
   "import-statement": "import ballerinax/sap.s4hana.api_sales_order_srv as salesorder;",
   "client-init": "salesorder:Client salesOrderClient = check new (",
-  "api-invocation": "salesorder:Wrapper listASalesOrder = check salesOrderClient->listA_SalesOrders();"
+  "api-invocation": "salesorder:CollectionOfA_SalesOrderWrapper listASalesOrder = check salesOrderClient->listA_SalesOrders();"
 }

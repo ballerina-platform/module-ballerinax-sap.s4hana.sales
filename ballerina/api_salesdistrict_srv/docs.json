@@ -3,5 +3,5 @@
   "communication-scenario": "SAP Analytics Cloud for Planning Integration",
   "import-statement": "import ballerinax/sap.s4hana.api_salesdistrict_srv as salesdistrict;",
   "client-init": "salesdistrict:Client salesDistrictClient = check new (",
-  "api-invocation": "salesdistrict:Wrapper listASalesDistricts = check salesDistrictClient->listA_SalesDistricts();"
+  "api-invocation": "salesdistrict:CollectionOfA_SalesDistrictWrapper listASalesDistricts = check salesDistrictClient->listA_SalesDistricts();"
 }

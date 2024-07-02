@@ -1,9 +1,9 @@
-## Overview
+## Package Overview
 
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The `ballerinax/sap.s4hana.api_salesorganization_srv` package provides APIs that enable seamless integration with the [Sales Organization - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service allows users to read sales organization master data.
+The `ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn` package provides APIs that enable seamless integration with the [Sold-to Party Assignment of Sales Scheduling Agreement - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_SA_SOLDTOPARTYDETN/overview). The service allows users to read sold-to party assignment of sales scheduling agreement master data.
 
 ## Setup guide
 
@@ -13,7 +13,7 @@ The `ballerinax/sap.s4hana.api_salesorganization_srv` package provides APIs that
 
    ![Display Scenarios](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-1-display-scenarios.png)
 
-3. In the search bar, type `SAP Analytics Cloud for Planning Integration` and select the corresponding scenario from the results.
+3. In the search bar, type `Sold-to Party Assignment of Sales Scheduling Agreement Integration` and select the corresponding scenario from the results.
 
    ![Search Sales Order](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-2-search-sales-order.png)
 
@@ -35,14 +35,14 @@ The `ballerinax/sap.s4hana.api_salesorganization_srv` package provides APIs that
 
 ## Quickstart
 
-To use the `sap.s4hana.api_salesorganization_srv` connector in your Ballerina application, modify the `.bal` file as follows:
+To use the `sap.s4hana.api_sd_sa_soldtopartydetn` connector in your Ballerina application, modify the `.bal` file as follows:
 
 ### Step 1: Import the module
 
-Import the `sap.s4hana.api_salesorganization_srv` module.
+Import the `sap.s4hana.api_sd_sa_soldtopartydetn` module.
 
 ```ballerina
-import ballerinax/sap.s4hana.api_salesorganization_srv as salesorg;
+import ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn as soldToParty;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -54,7 +54,7 @@ configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-salesorg:Client salesOrgClient = check new (
+soldToParty:Client soldToPartyClient = check new (
     hostname = hostname,
     config = {
         auth: {
@@ -70,7 +70,7 @@ salesorg:Client salesOrgClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-salesorg:CollectionOfA_SalesOrganizationWrapper listASalesOrganization = check salesOrgClient->listA_SalesOrganizations();
+soldToParty:CollectionOfA_DelivSchedSoldToPartyDetnWrapper listDeliverySched = check soldToPartyClient->listA_DelivSchedSoldToPartyDetns();
 ```
 
 ### Step 4: Run the Ballerina application
@@ -90,3 +90,13 @@ use cases like accessing S/4HANA Sales Order (A2X) API.
    Demonstrates leveraging the `sap.s4hana.api_sales_order_srv:Client` in Ballerina for S/4HANA API interactions. It
    specifically showcases how to respond to a Salesforce Opportunity Close event by automatically generating a Sales
    Order in the S/4HANA SD module.
+
+## Report Issues
+
+To report bugs, request new features, start new discussions, view project boards, etc., go to
+the [Ballerina library parent repository](https://github.com/ballerina-platform/ballerina-library).
+
+## Useful Links
+
+- Chat live with us via our [Discord server](https://discord.gg/ballerinalang).
+- Post all technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
