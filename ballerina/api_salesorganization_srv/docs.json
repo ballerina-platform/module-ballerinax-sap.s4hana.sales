@@ -3,5 +3,5 @@
   "communication-scenario": "SAP Analytics Cloud for Planning Integration",
   "import-statement": "import ballerinax/sap.s4hana.api_salesorganization_srv as salesorg;",
   "client-init": "salesorg:Client salesOrgClient = check new (",
-  "api-invocation": "salesorg:Wrapper listASalesOrganization = check salesOrgClient->listA_SalesOrganizations();"
+  "api-invocation": "salesorg:CollectionOfA_SalesOrganizationWrapper listASalesOrganization = check salesOrgClient->listA_SalesOrganizations();"
 }

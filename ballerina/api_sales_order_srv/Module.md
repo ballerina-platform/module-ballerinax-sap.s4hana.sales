@@ -70,7 +70,7 @@ salesorder:Client salesOrderClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-salesorder:Wrapper listASalesOrder = check salesOrderClient->listA_SalesOrders();
+salesorder:CollectionOfA_SalesOrderWrapper listASalesOrder = check salesOrderClient->listA_SalesOrders();
 ```
 
 ### Step 4: Run the Ballerina application
