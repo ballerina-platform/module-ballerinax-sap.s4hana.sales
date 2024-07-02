@@ -118,7 +118,7 @@ function getSanitisedPathName(string key, HttpMethod method, boolean isODATA4, j
 
     regexp:RegExp pathRegex;
     if isODATA4 {
-        pathRegex = re `^/([^/]+)?(/[^{]+)?(/[^/{]+)?(/.*)?$`;
+        pathRegex = re `/([^{]*)(\{.*\})?(/.*)?`;
     } else {
         pathRegex = re `/([^(]*)(\(.*\))?(/.*)?`;
     }
@@ -158,6 +158,13 @@ function getSanitisedPathName(string key, HttpMethod method, boolean isODATA4, j
                 if resourcePathString.startsWith("to_") {
                     resourcePathString = resourcePathString.substring(3);
                 }
+                if resourcePathString.startsWith("_") {
+                    resourcePathString = resourcePathString.substring(1);
+                }
+                if resourcePathString.startsWith("SAP__self.") {
+                    resourcePathString = resourcePathString.substring(10, 11).toLowerAscii() + resourcePathString.substring(11);
+                    return resourcePathString;
+                }
                 resourcePathString = resourcePathString.substring(0, 1).toUpperAscii() + resourcePathString.substring(1);
 
                 resourcePathString = check getSanitizedName(resourcePathString, isCollectionReturnedResult);
@@ -169,6 +176,10 @@ function getSanitisedPathName(string key, HttpMethod method, boolean isODATA4, j
                 parameterName += resourcePathString.concat("Of", basePath.substring());
             }
         }
+    }
+
+    if parameterName.endsWith("/") {
+        parameterName = parameterName.substring(0, parameterName.length() - 1);
     }
 
     match method {
