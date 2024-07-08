@@ -30,6 +30,7 @@ plugins {
 
 rootProject.name = "module-ballerinax-sap.s4hana.sales"
 
+include ':sales-sanitation'
 include ':sales-ballerina'
 include ':sales-ballerina:api_salesdistrict_srv'
 include ':sales-ballerina:api_salesorganization_srv'
@@ -37,7 +38,7 @@ include ':sales-ballerina:api_sales_order_srv'
 include ':sales-ballerina:api_sd_sa_soldtopartydetn'
 include ':sales-examples'
 
-
+project(':sales-sanitation').projectDir = file("docs/sanitation")
 project(':sales-ballerina').projectDir = file("ballerina")
 project(':sales-ballerina:api_salesdistrict_srv').projectDir = file("ballerina/api_salesdistrict_srv")
 project(':sales-ballerina:api_salesorganization_srv').projectDir = file("ballerina/api_salesorganization_srv")
