@@ -33,7 +33,7 @@ Client s4HanaClient = test:mock(Client);
 
 @test:BeforeSuite
 function initializeClientsForS4HanaServer() returns error? {
-    if (isTestOnLiveServer) {
+    if isTestOnLiveServer {
         log:printInfo("Running tests on S4HANA server");
         s4HanaClient = check new (
             config = {
