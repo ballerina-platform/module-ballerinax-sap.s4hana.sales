@@ -63,7 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.BALLERINA_BOT_TOKEN }}
         run: |
           sed -i 's/version=\(.*\)-SNAPSHOT/version=\1/g' gradle.properties
-          ./gradlew clean :sales-ballerina:${{ inputs.connector}}:build -x:sales-examples:build -PpublishToCentral=true 
+          ./gradlew clean :sales-ballerina:${{ inputs.connector}}:build -x :sales-examples:test -PpublishToCentral=true 
 
       - name: Ballerina Central Stage Push
         if: ${{ inputs.environment == 'STAGE CENTRAL' }}
@@ -76,4 +76,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.BALLERINA_BOT_TOKEN }}
         run: |
           sed -i 's/version=\(.*\)-SNAPSHOT/version=\1/g' gradle.properties
-          ./gradlew clean :sales-ballerina:${{ inputs.connector }}:build -x:sales-examples:build -PpublishToCentral=true 
+          ./gradlew clean :sales-ballerina:${{ inputs.connector }}:build -x :sales-examples:test -PpublishToCentral=true 

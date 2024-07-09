@@ -65,7 +65,7 @@ jobs:
           packageUser: ${{ github.actor }}
           packagePAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ./gradlew build -x test -x :sales-examples:build
+          ./gradlew build -x test 
 
       - name: Create lib Directory if not Exists
         run: mkdir -p ballerina/lib
@@ -88,10 +88,8 @@ jobs:
           echo "Version: ${VERSION}"
           git checkout -b release-${{ inputs.connector }}-${VERSION}
 
-      - name: Remove Target Directory
+      - name: Remove Lib Directory
         run: |
-          sudo rm -rf ballerina/target
-          sudo rm -rf ballerina/build
           sudo rm -rf ballerina/lib
 
       - name: Publish Package
@@ -103,8 +101,8 @@ jobs:
           publishUser: ${{ secrets.BALLERINA_BOT_USERNAME }}
           publishPAT: ${{ secrets.BALLERINA_BOT_TOKEN }}
         run: |
-          ./gradlew clean :sales-ballerina:${{ inputs.connector }}:release -x :sales-examples:build -Prelease.useAutomaticVersion=true 
-          ./gradlew -Pversion=${VERSION} :sales-ballerina:${{ inputs.connector }}:publish -x test -x :sales-examples:build -PpublishToCentral=true 
+          ./gradlew clean :sales-ballerina:${{ inputs.connector }}:release -x :sales-examples:test -Prelease.useAutomaticVersion=true 
+          ./gradlew -Pversion=${VERSION} :sales-ballerina:${{ inputs.connector }}:publish -x test -PpublishToCentral=true 
 
       - name: GitHub Release and Release Sync PR
         env:
