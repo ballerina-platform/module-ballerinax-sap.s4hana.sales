@@ -89,7 +89,7 @@ service sftrigger:RecordService on sfdcEventListener {
             return;
         }
 
-        salesorder:A_SalesOrderType|error aSalesOrder = salesOrderClient->createA_SalesOrder(salesOrder);
+        salesorder:A_SalesOrderWrapper|error aSalesOrder = salesOrderClient->createA_SalesOrder(salesOrder);
         if aSalesOrder is error {
             log:printError("Error while creating SAP order: " + aSalesOrder.message());
         } else {

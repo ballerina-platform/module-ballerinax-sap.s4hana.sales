@@ -27,9 +27,8 @@ done
 echo "Successfully cleaned the cache directories"
 
 cd $BAL_HOME_DIR
-connectorDir=$(ls -d $BAL_HOME_DIR/*/ 2>/dev/null) || true
-for dir in "${connectorDir[@]}"; do
-  if [[ "$dir" == *resources/ ]]; then
+for dir in $(find "$BAL_HOME_DIR" -type d -maxdepth 1  -mindepth 1); do
+  if [[ "$dir" == *resources ]]; then
     continue
   fi
   # Read Ballerina package name
