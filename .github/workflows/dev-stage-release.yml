@@ -19,4 +19,4 @@ jobs:
     secrets: inherit
     with:
       environment: ${{ github.event.inputs.environment }}
-      additional-publish-flags: "-x :sales-examples:test -x :sales-sanitation:build"
+      additional-publish-flags: "-x :sales-examples:build -x :sales-sanitation:build"
