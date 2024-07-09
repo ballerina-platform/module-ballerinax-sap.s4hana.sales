@@ -55,13 +55,13 @@ configurable string username = ?;
 configurable string password = ?;
 
 salesorg:Client salesOrgClient = check new (
-    hostname = hostname,
-    config = {
-        auth: {
-            username,
-            password
-        }
-    }
+    {
+      auth: {
+        username,
+        password
+      }
+    },
+    hostname
 );
 ```
 

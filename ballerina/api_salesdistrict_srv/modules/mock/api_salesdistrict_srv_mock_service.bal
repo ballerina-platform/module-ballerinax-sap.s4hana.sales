@@ -48,7 +48,7 @@ service /sap/opu/odata/sap/API_SALESDISTRICT_SRV on ep0 {
     # http:Response (Error)
     resource function get A_SalesDistrict(int? \$top, int? \$skip, string? \$filter, "allpages"|"none"? \$inlinecount, A_SalesDistrictOrderByOptions? \$orderby, A_SalesDistrictSelectOptions? \$select, A_SalesDistrictExpandOptions? \$expand) returns CollectionOfA_SalesDistrictWrapper|http:Response {
         return {
-        d: {
+            d: {
                 results: [
                     {
                         SalesDistrict: "123456"
