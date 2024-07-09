@@ -15,7 +15,8 @@ _Edition_: Swan Lake
    `Api_sales_contract_srvA_Salesorder` -> `A_Salesorder`  
    `com\.sap\.gateway\.srvd_a2x\.api_defect\.v0001\.Defect_Type` -> `Defect`
 
-3. Improve response schema names by removing unnecessary prefixes and suffixes and renaming them to be more descriptive.  
+3. Improve response schema names by removing unnecessary prefixes and suffixes and renaming them to be more
+   descriptive.  
    `wrapper` -> `A_InspectionlotWrapper`  
    `Collection of A_InspectionlotType` -> `CollectionOfA_Inspectionlot`
 
