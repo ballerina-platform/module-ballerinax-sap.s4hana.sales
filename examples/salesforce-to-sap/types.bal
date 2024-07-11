@@ -28,7 +28,7 @@ type SalesforceClientConfig record {|
     string refreshUrl;
 |};
 
-type S4HANAClientConfig record {|
+type S4HanaClientConfig record {|
     string hostname;
     string username;
     string password;

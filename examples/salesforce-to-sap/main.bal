@@ -22,7 +22,7 @@ import ballerinax/trigger.salesforce as sftrigger;
 
 configurable SalesforceListenerConfig salesforceListenerConfig = ?;
 configurable SalesforceClientConfig salesforceClientConfig = ?;
-configurable S4HANAClientConfig s4hanaClientConfig = ?;
+configurable S4HanaClientConfig s4hanaClientConfig = ?;
 
 listener sftrigger:Listener sfdcEventListener = new ({
     username: salesforceListenerConfig.username,
@@ -42,13 +42,13 @@ final salesforce:Client sfClient = check new ({
 });
 
 final salesorder:Client salesOrderClient = check new (
-    config = {
+    {
         auth: {
             username: s4hanaClientConfig.username,
             password: s4hanaClientConfig.password
         }
     },
-    hostname = s4hanaClientConfig.hostname
+    s4hanaClientConfig.hostname
 );
 
 service sftrigger:RecordService on sfdcEventListener {
