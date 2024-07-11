@@ -22,7 +22,7 @@ import ballerinax/trigger.salesforce as sftrigger;
 
 configurable SalesforceListenerConfig salesforceListenerConfig = ?;
 configurable SalesforceClientConfig salesforceClientConfig = ?;
-configurable S4HANAClientConfig s4hanaClientConfig = ?;
+configurable S4HanaClientConfig s4hanaClientConfig = ?;
 
 listener sftrigger:Listener sfdcEventListener = new ({
     username: salesforceListenerConfig.username,
@@ -42,13 +42,13 @@ final salesforce:Client sfClient = check new ({
 });
 
 final salesorder:Client salesOrderClient = check new (
-    config = {
+    {
         auth: {
             username: s4hanaClientConfig.username,
             password: s4hanaClientConfig.password
         }
     },
-    hostname = s4hanaClientConfig.hostname
+    s4hanaClientConfig.hostname
 );
 
 service sftrigger:RecordService on sfdcEventListener {
@@ -82,7 +82,7 @@ service sftrigger:RecordService on sfdcEventListener {
             return;
         }
 
-        salesorder:CreateA_SalesOrder|error salesOrder = trap transformOrderData(retrievedItems);
+        salesorder:CreateA_SalesOrder|error salesOrder = transformOrderData(retrievedItems);
         if salesOrder is error {
             log:printError("Error while transforming order: " + salesOrder.message());
             return;
@@ -106,15 +106,11 @@ service sftrigger:RecordService on sfdcEventListener {
 }
 
 isolated function retrieveOpportunityItems(string opportunityId) returns SalesforceOpportunityItem[]|error {
-    stream<record {}, error?> sfOpportunityItems = check sfClient->query(
+    stream<SalesforceOpportunityItem, error?> sfOpportunityItems = check sfClient->query(
         string `SELECT ProductCode, Name, Quantity FROM OpportunityLineItem 
         WHERE OpportunityId='${opportunityId}'`);
-    return check from record {} sfOpportunityItem in sfOpportunityItems
-        select {
-            ProductCode: <string>sfOpportunityItem["ProductCode"],
-            Quantity: <float>sfOpportunityItem["Quantity"],
-            Name: <string>sfOpportunityItem["Name"]
-        };
+    return check from var item in sfOpportunityItems
+        select {...item};
 }
 
 isolated function transformOrderData(SalesforceOpportunityItem[] salesforceItems) returns salesorder:CreateA_SalesOrder|error {
