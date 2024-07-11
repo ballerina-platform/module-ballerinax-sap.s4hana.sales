@@ -1,0 +1,5 @@
+[package]
+org = "wso2"
+name = "shopify_to_sap"
+version = "0.1.0"
+distribution = "2201.9.1"
