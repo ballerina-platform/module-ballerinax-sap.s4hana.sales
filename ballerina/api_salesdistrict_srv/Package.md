@@ -88,7 +88,7 @@ use cases like accessing S/4HANA Sales Order (A2X) API.
 
 1. [Salesforce to S/4HANA Integration](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/tree/main/examples/salesforce-to-sap) -
    Demonstrates leveraging the `sap.s4hana.api_sales_order_srv:Client` in Ballerina for S/4HANA API interactions. It
-   specifically showcases how to respond to a Salesforce Opportunity Close event by automatically generating a Sales
+   specifically showcases how to respond to a Salesforce Opportunity Close Event by automatically generating a Sales
    Order in the S/4HANA SD module.
 
 ## Report Issues

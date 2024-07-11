@@ -1,7 +1,7 @@
-# Send a reminder on approval of pending orders
+# Salesforce to S/4 HANA Integration
 
-This example illustrates demonstrates leveraging the `sap.s4hana.api_sales_order_srv:Client` in Ballerina for S/4HANA
-API interactions. It specifically showcases how to respond to a Salesforce Opportunity Close event by automatically
+This example illustrates leveraging the `sap.s4hana.api_sales_order_srv:Client` in Ballerina for S/4HANA
+API interactions. It specifically showcases how to respond to a Salesforce Opportunity Close Event by automatically
 generating a Sales Order in the S/4HANA SD module.
 
 ## Prerequisites
@@ -43,6 +43,12 @@ hostname = "<Hostname>"
 username = "<Username>"
 password = "<Password>"
 ```
+
+### 4. Update Constants
+
+To simplify the examples, some of the organization structure in S/4HANA and mapping from Salesforce to S/4HANA Material
+code is hardcoded.
+This can be changed in the `constants.bal` file.
 
 ## Run the Example
 
