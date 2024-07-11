@@ -14,34 +14,18 @@
 // specific language governing permissions and limitations
 // under the License.
 
-type SalesforceListenerConfig record {|
-    string username;
-    string password;
-    string environment;
-|};
+// Organizational constants
+const SALES_ORDER_TYPE = "OR";
+const SALES_ORGANIZATION = "1710";
+const DISTRIBUTION_CHANNEL = "10";
+const ORG_DIVISION = "00";
 
-type SalesforceClientConfig record {|
-    string baseUrl;
-    string clientId;
-    string clientSecret;
-    string refreshToken;
-    string refreshUrl;
-|};
-
-type S4HANAClientConfig record {|
-    string hostname;
-    string username;
-    string password;
-|};
-
-type SalesforceOpportunityItem record {
-    string ProductCode;
-    float Quantity;
-    string Name;
+// Master Data Mapping
+const SOLD_TO_PARTY = "17100001";
+const CODE_TO_MATERIAL = {
+    "SL9020": {
+        Material: "FG011",
+        SalesOrderItemCategory: "TAN",
+        RequestedQuantityUnit: "PC"
+    }
 };
-
-type S4HanaMaterial record {|
-    string Material;
-    string SalesOrderItemCategory;
-    string RequestedQuantityUnit;
-|};
