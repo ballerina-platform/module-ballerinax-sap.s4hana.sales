@@ -10,6 +10,12 @@ use cases like accessing S/4HANA Sales Order (A2X) API.
    specifically showcases how to respond to a Salesforce Opportunity Close Event by automatically generating a Sales
    Order in the S/4HANA SD module.
 
+2. [Shopify to S/4HANA Integration](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/tree/main/examples/shopify-to-sap) -
+   Details the integration process between [Shopify](https://admin.shopify.com/), a leading e-commerce platform,
+   and [SAP S/4HANA](https://www.sap.com/products/erp/s4hana.html), a comprehensive ERP system. The objective is to
+   automate SAP sales order creation for new orders placed on Shopify, enhancing efficiency and accuracy in order
+   management.
+
 ## Prerequisites
 
 Each example includes detailed steps.
