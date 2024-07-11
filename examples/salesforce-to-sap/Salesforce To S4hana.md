@@ -4,6 +4,14 @@ This example illustrates leveraging the `sap.s4hana.api_sales_order_srv:Client` 
 API interactions. It specifically showcases how to respond to a Salesforce Opportunity Close Event by automatically
 generating a Sales Order in the S/4HANA SD module.
 
+## Use Case
+
+Salesforce, a leading cloud-based CRM platform, empowers organizations to streamline their sales, marketing, and customer service workflows. On the other hand, SAP S/4HANA, an advanced ERP system, enables efficient management of core business processes.
+
+In numerous organizations, the transition of sales orders into SAP often entails cumbersome manual data entry, leading to potential inaccuracies. Moreover, the prompt creation of sales orders following the generation of new opportunities is crucial. This integration aims to automate the generation of SAP sales orders upon the creation of Salesforce opportunities, significantly reducing manual labor and enhancing data precision.
+
+This solution actively monitors for the closing of opportunities within Salesforce. Upon detecting opportunity closed as won, it automatically initiates the creation of a corresponding SAP sales order via the SAP API, streamlining the process.
+
 ## Prerequisites
 
 ### 1. Setup the S/4HANA API
