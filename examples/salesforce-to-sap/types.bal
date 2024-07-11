@@ -36,7 +36,7 @@ type S4HANAClientConfig record {|
 
 type SalesforceOpportunityItem record {
     string ProductCode;
-    float Quantity;
+    decimal Quantity;
     string Name;
 };
 

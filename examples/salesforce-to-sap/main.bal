@@ -82,7 +82,7 @@ service sftrigger:RecordService on sfdcEventListener {
             return;
         }
 
-        salesorder:CreateA_SalesOrder|error salesOrder = trap transformOrderData(retrievedItems);
+        salesorder:CreateA_SalesOrder|error salesOrder = transformOrderData(retrievedItems);
         if salesOrder is error {
             log:printError("Error while transforming order: " + salesOrder.message());
             return;
@@ -106,15 +106,11 @@ service sftrigger:RecordService on sfdcEventListener {
 }
 
 isolated function retrieveOpportunityItems(string opportunityId) returns SalesforceOpportunityItem[]|error {
-    stream<record {}, error?> sfOpportunityItems = check sfClient->query(
+    stream<SalesforceOpportunityItem, error?> sfOpportunityItems = check sfClient->query(
         string `SELECT ProductCode, Name, Quantity FROM OpportunityLineItem 
         WHERE OpportunityId='${opportunityId}'`);
-    return check from record {} sfOpportunityItem in sfOpportunityItems
-        select {
-            ProductCode: <string>sfOpportunityItem["ProductCode"],
-            Quantity: <float>sfOpportunityItem["Quantity"],
-            Name: <string>sfOpportunityItem["Name"]
-        };
+    return check from var item in sfOpportunityItems
+        select {...item};
 }
 
 isolated function transformOrderData(SalesforceOpportunityItem[] salesforceItems) returns salesorder:CreateA_SalesOrder|error {
