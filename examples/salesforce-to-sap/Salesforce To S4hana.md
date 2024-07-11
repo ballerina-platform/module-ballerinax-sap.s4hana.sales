@@ -10,7 +10,7 @@ Salesforce, a leading cloud-based CRM platform, empowers organizations to stream
 
 In numerous organizations, the transition of sales orders into SAP often entails cumbersome manual data entry, leading to potential inaccuracies. Moreover, the prompt creation of sales orders following the generation of new opportunities is crucial. This integration aims to automate the generation of SAP sales orders upon the creation of Salesforce opportunities, significantly reducing manual labor and enhancing data precision.
 
-This solution actively monitors for the closing of opportunities within Salesforce. Upon detecting opportunity closed as won, it automatically initiates the creation of a corresponding SAP sales order via the SAP API, streamlining the process.
+This solution actively monitors the closing of opportunities within Salesforce. Upon detecting an opportunity closed as won, it automatically initiates the creation of a corresponding SAP sales order via the SAP API, streamlining the process.
 
 ## Prerequisites
 
