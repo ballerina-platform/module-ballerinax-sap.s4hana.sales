@@ -98,6 +98,7 @@
   "paths": {
     "/SalesArea": {
       "get": {
+        "operationId": "listSalesAreas",
         "summary": "Get entities from SalesArea",
         "tags": [
           "Sales Area"
@@ -190,6 +191,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesArea",
         "summary": "Get entity from SalesArea by key",
         "tags": [
           "Sales Area"
@@ -218,6 +220,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_BatchRequests).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
