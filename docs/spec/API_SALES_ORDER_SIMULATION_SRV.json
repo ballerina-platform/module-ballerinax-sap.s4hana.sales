@@ -136,7 +136,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-create"
+                "$ref": "#/components/schemas/CreateA_SalesOrderSimulation"
               }
             }
           }
@@ -147,11 +147,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SalesOrderSimulationType",
+                  "title": "A_SalesOrderSimulationWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType"
+                      "$ref": "#/components/schemas/A_SalesOrderSimulation"
                     }
                   }
                 }
@@ -189,86 +189,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ValueAddedServiceType",
-                  "ValueAddedServiceType desc",
-                  "ValueAddedSubServiceType",
-                  "ValueAddedSubServiceType desc",
-                  "SalesOrder",
-                  "SalesOrder desc",
-                  "SalesOrderItem",
-                  "SalesOrderItem desc",
-                  "ValAddedSrvcTransactionNumber",
-                  "ValAddedSrvcTransactionNumber desc",
-                  "ValAddedSrvcItemGroup",
-                  "ValAddedSrvcItemGroup desc",
-                  "ValAddedSrvcItemNumber",
-                  "ValAddedSrvcItemNumber desc",
-                  "ValueAddedServiceProduct",
-                  "ValueAddedServiceProduct desc",
-                  "ValAddedSrvcHasToBeOrdered",
-                  "ValAddedSrvcHasToBeOrdered desc",
-                  "ValAddedSrvcIncrement",
-                  "ValAddedSrvcIncrement desc",
-                  "ValueAddedServiceChargeCode",
-                  "ValueAddedServiceChargeCode desc",
-                  "ValAddedSrvcIsCreatedManually",
-                  "ValAddedSrvcIsCreatedManually desc",
-                  "ValAddedSrvcItemNumberInSD",
-                  "ValAddedSrvcItemNumberInSD desc",
-                  "ValAddedSrvcIsRlvtForProcmt",
-                  "ValAddedSrvcIsRlvtForProcmt desc",
-                  "ValueAddedServiceText1",
-                  "ValueAddedServiceText1 desc",
-                  "ValueAddedServiceText2",
-                  "ValueAddedServiceText2 desc",
-                  "ValueAddedServiceText3",
-                  "ValueAddedServiceText3 desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SlsOrdSimlnValAddedSrvcOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ValueAddedServiceType",
-                  "ValueAddedSubServiceType",
-                  "SalesOrder",
-                  "SalesOrderItem",
-                  "ValAddedSrvcTransactionNumber",
-                  "ValAddedSrvcItemGroup",
-                  "ValAddedSrvcItemNumber",
-                  "ValueAddedServiceProduct",
-                  "ValAddedSrvcHasToBeOrdered",
-                  "ValAddedSrvcIncrement",
-                  "ValueAddedServiceChargeCode",
-                  "ValAddedSrvcIsCreatedManually",
-                  "ValAddedSrvcItemNumberInSD",
-                  "ValAddedSrvcIsRlvtForProcmt",
-                  "ValueAddedServiceText1",
-                  "ValueAddedServiceText2",
-                  "ValueAddedServiceText3",
-                  "ValueAddedServiceLongText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SlsOrdSimlnValAddedSrvcSelectOptions"
           }
         ],
         "responses": {
@@ -277,11 +201,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_SlsOrdSimlnValAddedSrvcWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_SlsOrdSimlnValAddedSrvcType",
+                      "title": "CollectionOfA_SlsOrdSimlnValAddedSrvc",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -290,7 +214,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SlsOrdSimlnValAddedSrvcType"
+                            "$ref": "#/components/schemas/A_SlsOrdSimlnValAddedSrvc"
                           }
                         }
                       }
@@ -316,7 +240,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SlsOrdSimlnValAddedSrvcType-create"
+                "$ref": "#/components/schemas/CreateA_SlsOrdSimlnValAddedSrvc"
               }
             }
           }
@@ -327,11 +251,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SlsOrdSimlnValAddedSrvcType",
+                  "title": "A_SlsOrdSimlnValAddedSrvcWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SlsOrdSimlnValAddedSrvcType"
+                      "$ref": "#/components/schemas/A_SlsOrdSimlnValAddedSrvc"
                     }
                   }
                 }
@@ -394,37 +318,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "ValueAddedServiceType",
-                  "ValueAddedSubServiceType",
-                  "SalesOrder",
-                  "SalesOrderItem",
-                  "ValAddedSrvcTransactionNumber",
-                  "ValAddedSrvcItemGroup",
-                  "ValAddedSrvcItemNumber",
-                  "ValueAddedServiceProduct",
-                  "ValAddedSrvcHasToBeOrdered",
-                  "ValAddedSrvcIncrement",
-                  "ValueAddedServiceChargeCode",
-                  "ValAddedSrvcIsCreatedManually",
-                  "ValAddedSrvcItemNumberInSD",
-                  "ValAddedSrvcIsRlvtForProcmt",
-                  "ValueAddedServiceText1",
-                  "ValueAddedServiceText2",
-                  "ValueAddedServiceText3",
-                  "ValueAddedServiceLongText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_SlsOrdSimlnValAddedSrvcByKeySelectOptions"
           }
         ],
         "responses": {
@@ -433,11 +327,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_SlsOrdSimlnValAddedSrvcType",
+                  "title": "A_SlsOrdSimlnValAddedSrvcWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SlsOrdSimlnValAddedSrvcType"
+                      "$ref": "#/components/schemas/A_SlsOrdSimlnValAddedSrvc"
                     }
                   }
                 }
@@ -464,7 +358,7 @@
                 "type": "object",
                 "properties": {
                   "d": {
-                    "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SlsOrdSimlnValAddedSrvcType-update"
+                    "$ref": "#/components/schemas/UpdateA_SlsOrdSimlnValAddedSrvc"
                   }
                 }
               }
@@ -535,7 +429,7 @@
   },
   "components": {
     "schemas": {
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderCreditSimulationType": {
+      "A_SalesOrderCreditSimulation": {
         "type": "object",
         "properties": {
           "SalesOrder": {
@@ -551,12 +445,12 @@
             "description": "Overall Status of Credit Checks"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderSimulation"
           }
         },
         "title": "Sales Order Credit Simulation (API)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderCreditSimulationType-create": {
+      "CreateA_SalesOrderCreditSimulation": {
         "type": "object",
         "properties": {
           "TotalCreditCheckStatus": {
@@ -567,12 +461,12 @@
             "description": "Overall Status of Credit Checks"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderSimulation"
           }
         },
         "title": "Sales Order Credit Simulation (API) (for create)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderCreditSimulationType-update": {
+      "UpdateA_SalesOrderCreditSimulation": {
         "type": "object",
         "properties": {
           "TotalCreditCheckStatus": {
@@ -585,7 +479,7 @@
         },
         "title": "Sales Order Credit Simulation (API) (for update)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemPartnerSimlnType": {
+      "A_SalesOrderItemPartnerSimln": {
         "type": "object",
         "properties": {
           "SalesOrder": {
@@ -639,15 +533,15 @@
             "description": "VAT Registration Number"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderSimulation"
           },
           "to_SalesOrderItem": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderItemSimulation"
           }
         },
         "title": "Sales Order Item Partner Sim (API)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemPartnerSimlnType-create": {
+      "CreateA_SalesOrderItemPartnerSimln": {
         "type": "object",
         "properties": {
           "PartnerFunction": {
@@ -690,10 +584,10 @@
             "description": "VAT Registration Number"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderSimulation"
           },
           "to_SalesOrderItem": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderItemSimulation"
           }
         },
         "required": [
@@ -701,7 +595,7 @@
         ],
         "title": "Sales Order Item Partner Sim (API) (for create)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemPartnerSimlnType-update": {
+      "UpdateA_SalesOrderItemPartnerSimln": {
         "type": "object",
         "properties": {
           "Customer": {
@@ -741,7 +635,7 @@
         },
         "title": "Sales Order Item Partner Sim (API) (for update)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType": {
+      "A_SalesOrderItemSimulation": {
         "type": "object",
         "properties": {
           "SalesOrder": {
@@ -1271,7 +1165,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemPartnerSimlnType"
+                  "$ref": "#/components/schemas/A_SalesOrderItemPartnerSimln"
                 }
               }
             }
@@ -1282,13 +1176,13 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItmPrcgElmntSimlnType"
+                  "$ref": "#/components/schemas/A_SalesOrderItmPrcgElmntSimln"
                 }
               }
             }
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderSimulation"
           },
           "to_ScheduleLine": {
             "type": "object",
@@ -1296,7 +1190,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderScheduleLineSimlnType"
+                  "$ref": "#/components/schemas/A_SalesOrderScheduleLineSimln"
                 }
               }
             }
@@ -1304,7 +1198,7 @@
         },
         "title": "Sales Order Item Simulation (API)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType-create": {
+      "CreateA_SalesOrderItemSimulation": {
         "type": "object",
         "properties": {
           "SalesOrderItem": {
@@ -1581,7 +1475,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemPartnerSimlnType-create"
+                  "$ref": "#/components/schemas/CreateA_SalesOrderItemPartnerSimln"
                 }
               }
             }
@@ -1592,13 +1486,13 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItmPrcgElmntSimlnType-create"
+                  "$ref": "#/components/schemas/CreateA_SalesOrderItmPrcgElmntSimln"
                 }
               }
             }
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderSimulation"
           },
           "to_ScheduleLine": {
             "type": "object",
@@ -1606,7 +1500,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderScheduleLineSimlnType-create"
+                  "$ref": "#/components/schemas/CreateA_SalesOrderScheduleLineSimln"
                 }
               }
             }
@@ -1617,7 +1511,7 @@
         ],
         "title": "Sales Order Item Simulation (API) (for create)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType-update": {
+      "UpdateA_SalesOrderItemSimulation": {
         "type": "object",
         "properties": {
           "HigherLevelItem": {
@@ -1885,7 +1779,7 @@
         },
         "title": "Sales Order Item Simulation (API) (for update)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItmPrcgElmntSimlnType": {
+      "A_SalesOrderItmPrcgElmntSimln": {
         "type": "object",
         "properties": {
           "SalesOrder": {
@@ -2066,15 +1960,15 @@
             "description": "Condition Changed Manually"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderSimulation"
           },
           "to_SalesOrderItem": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderItemSimulation"
           }
         },
         "title": "Sales Order Item Pricing Elmnt Sim (API)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItmPrcgElmntSimlnType-create": {
+      "CreateA_SalesOrderItmPrcgElmntSimln": {
         "type": "object",
         "properties": {
           "PricingProcedureStep": {
@@ -2154,10 +2048,10 @@
             "description": "SD Document Currency"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderSimulation"
           },
           "to_SalesOrderItem": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderItemSimulation"
           }
         },
         "required": [
@@ -2166,7 +2060,7 @@
         ],
         "title": "Sales Order Item Pricing Elmnt Sim (API) (for create)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItmPrcgElmntSimlnType-update": {
+      "UpdateA_SalesOrderItmPrcgElmntSimln": {
         "type": "object",
         "properties": {
           "ConditionType": {
@@ -2237,7 +2131,7 @@
         },
         "title": "Sales Order Item Pricing Elmnt Sim (API) (for update)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPartnerSimulationType": {
+      "A_SalesOrderPartnerSimulation": {
         "type": "object",
         "properties": {
           "SalesOrder": {
@@ -2285,12 +2179,12 @@
             "description": "VAT Registration Number"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderSimulation"
           }
         },
         "title": "Sales Order Partner Simulation (API)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPartnerSimulationType-create": {
+      "CreateA_SalesOrderPartnerSimulation": {
         "type": "object",
         "properties": {
           "PartnerFunction": {
@@ -2333,7 +2227,7 @@
             "description": "VAT Registration Number"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderSimulation"
           }
         },
         "required": [
@@ -2341,7 +2235,7 @@
         ],
         "title": "Sales Order Partner Simulation (API) (for create)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPartnerSimulationType-update": {
+      "UpdateA_SalesOrderPartnerSimulation": {
         "type": "object",
         "properties": {
           "Customer": {
@@ -2381,7 +2275,7 @@
         },
         "title": "Sales Order Partner Simulation (API) (for update)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPrcgElmntSimlnType": {
+      "A_SalesOrderPrcgElmntSimln": {
         "type": "object",
         "properties": {
           "SalesOrder": {
@@ -2556,12 +2450,12 @@
             "description": "Condition Changed Manually"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderSimulation"
           }
         },
         "title": "Sales Order Pricing Elmnt Sim (API)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPrcgElmntSimlnType-create": {
+      "CreateA_SalesOrderPrcgElmntSimln": {
         "type": "object",
         "properties": {
           "PricingProcedureStep": {
@@ -2641,7 +2535,7 @@
             "description": "SD Document Currency"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderSimulation"
           }
         },
         "required": [
@@ -2650,7 +2544,7 @@
         ],
         "title": "Sales Order Pricing Elmnt Sim (API) (for create)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPrcgElmntSimlnType-update": {
+      "UpdateA_SalesOrderPrcgElmntSimln": {
         "type": "object",
         "properties": {
           "ConditionType": {
@@ -2721,7 +2615,7 @@
         },
         "title": "Sales Order Pricing Elmnt Sim (API) (for update)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPricingSimulationType": {
+      "A_SalesOrderPricingSimulation": {
         "type": "object",
         "properties": {
           "SalesOrder": {
@@ -2748,12 +2642,12 @@
             "description": "SD Document Currency"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderSimulation"
           }
         },
         "title": "Sales Order Pricing Simulation (API)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPricingSimulationType-create": {
+      "CreateA_SalesOrderPricingSimulation": {
         "type": "object",
         "properties": {
           "TotalNetAmount": {
@@ -2768,12 +2662,12 @@
             "description": "Net Value of the Sales Document in Document Currency"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderSimulation"
           }
         },
         "title": "Sales Order Pricing Simulation (API) (for create)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPricingSimulationType-update": {
+      "UpdateA_SalesOrderPricingSimulation": {
         "type": "object",
         "properties": {
           "TotalNetAmount": {
@@ -2790,7 +2684,7 @@
         },
         "title": "Sales Order Pricing Simulation (API) (for update)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderScheduleLineSimlnType": {
+      "A_SalesOrderScheduleLineSimln": {
         "type": "object",
         "properties": {
           "SalesOrder": {
@@ -2894,15 +2788,15 @@
             "description": "Corrected quantity in sales unit"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderSimulation"
           },
           "to_SalesOrderItem": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderItemSimulation"
           }
         },
         "title": "Sales Order Schedule Line Sim (API)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderScheduleLineSimlnType-create": {
+      "CreateA_SalesOrderScheduleLineSimln": {
         "type": "object",
         "properties": {
           "ScheduleLine": {
@@ -2996,10 +2890,10 @@
             "description": "Corrected quantity in sales unit"
           },
           "to_SalesOrder": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderSimulation"
           },
           "to_SalesOrderItem": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderItemSimulation"
           }
         },
         "required": [
@@ -3007,7 +2901,7 @@
         ],
         "title": "Sales Order Schedule Line Sim (API) (for create)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderScheduleLineSimlnType-update": {
+      "UpdateA_SalesOrderScheduleLineSimln": {
         "type": "object",
         "properties": {
           "RequestedDeliveryDate": {
@@ -3098,7 +2992,7 @@
         },
         "title": "Sales Order Schedule Line Sim (API) (for update)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType": {
+      "A_SalesOrderSimulation": {
         "type": "object",
         "properties": {
           "SalesOrder": {
@@ -3414,7 +3308,7 @@
             "title": "Payment Method"
           },
           "to_Credit": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderCreditSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderCreditSimulation"
           },
           "to_Item": {
             "type": "object",
@@ -3422,7 +3316,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType"
+                  "$ref": "#/components/schemas/A_SalesOrderItemSimulation"
                 }
               }
             }
@@ -3433,13 +3327,13 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPartnerSimulationType"
+                  "$ref": "#/components/schemas/A_SalesOrderPartnerSimulation"
                 }
               }
             }
           },
           "to_Pricing": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPricingSimulationType"
+            "$ref": "#/components/schemas/A_SalesOrderPricingSimulation"
           },
           "to_PricingElement": {
             "type": "object",
@@ -3447,7 +3341,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPrcgElmntSimlnType"
+                  "$ref": "#/components/schemas/A_SalesOrderPrcgElmntSimln"
                 }
               }
             }
@@ -3455,7 +3349,7 @@
         },
         "title": "Sales Order Simulation"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-create": {
+      "CreateA_SalesOrderSimulation": {
         "type": "object",
         "properties": {
           "SalesOrder": {
@@ -3764,7 +3658,7 @@
             "title": "Payment Method"
           },
           "to_Credit": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderCreditSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderCreditSimulation"
           },
           "to_Item": {
             "type": "object",
@@ -3772,7 +3666,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderItemSimulationType-create"
+                  "$ref": "#/components/schemas/CreateA_SalesOrderItemSimulation"
                 }
               }
             }
@@ -3783,13 +3677,13 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPartnerSimulationType-create"
+                  "$ref": "#/components/schemas/CreateA_SalesOrderPartnerSimulation"
                 }
               }
             }
           },
           "to_Pricing": {
-            "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPricingSimulationType-create"
+            "$ref": "#/components/schemas/CreateA_SalesOrderPricingSimulation"
           },
           "to_PricingElement": {
             "type": "object",
@@ -3797,7 +3691,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderPrcgElmntSimlnType-create"
+                  "$ref": "#/components/schemas/CreateA_SalesOrderPrcgElmntSimln"
                 }
               }
             }
@@ -3808,7 +3702,7 @@
         ],
         "title": "Sales Order Simulation (for create)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SalesOrderSimulationType-update": {
+      "UpdateA_SalesOrderSimulation": {
         "type": "object",
         "properties": {
           "SalesOrderType": {
@@ -4114,7 +4008,7 @@
         },
         "title": "Sales Order Simulation (for update)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SlsOrdSimlnValAddedSrvcType": {
+      "A_SlsOrdSimlnValAddedSrvc": {
         "type": "object",
         "properties": {
           "ValueAddedServiceType": {
@@ -4233,7 +4127,7 @@
         },
         "title": "Value Added Service for SO Simulation"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SlsOrdSimlnValAddedSrvcType-create": {
+      "CreateA_SlsOrdSimlnValAddedSrvc": {
         "type": "object",
         "properties": {
           "ValueAddedServiceType": {
@@ -4326,7 +4220,7 @@
         ],
         "title": "Value Added Service for SO Simulation (for create)"
       },
-      "API_SALES_ORDER_SIMULATION_SRV.A_SlsOrdSimlnValAddedSrvcType-update": {
+      "UpdateA_SlsOrdSimlnValAddedSrvc": {
         "type": "object",
         "properties": {
           "ValueAddedServiceProduct": {
@@ -4433,6 +4327,76 @@
             }
           }
         }
+      },
+      "A_SlsOrdSimlnValAddedSrvcOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "ValueAddedServiceType",
+            "ValueAddedServiceType desc",
+            "ValueAddedSubServiceType",
+            "ValueAddedSubServiceType desc",
+            "SalesOrder",
+            "SalesOrder desc",
+            "SalesOrderItem",
+            "SalesOrderItem desc",
+            "ValAddedSrvcTransactionNumber",
+            "ValAddedSrvcTransactionNumber desc",
+            "ValAddedSrvcItemGroup",
+            "ValAddedSrvcItemGroup desc",
+            "ValAddedSrvcItemNumber",
+            "ValAddedSrvcItemNumber desc",
+            "ValueAddedServiceProduct",
+            "ValueAddedServiceProduct desc",
+            "ValAddedSrvcHasToBeOrdered",
+            "ValAddedSrvcHasToBeOrdered desc",
+            "ValAddedSrvcIncrement",
+            "ValAddedSrvcIncrement desc",
+            "ValueAddedServiceChargeCode",
+            "ValueAddedServiceChargeCode desc",
+            "ValAddedSrvcIsCreatedManually",
+            "ValAddedSrvcIsCreatedManually desc",
+            "ValAddedSrvcItemNumberInSD",
+            "ValAddedSrvcItemNumberInSD desc",
+            "ValAddedSrvcIsRlvtForProcmt",
+            "ValAddedSrvcIsRlvtForProcmt desc",
+            "ValueAddedServiceText1",
+            "ValueAddedServiceText1 desc",
+            "ValueAddedServiceText2",
+            "ValueAddedServiceText2 desc",
+            "ValueAddedServiceText3",
+            "ValueAddedServiceText3 desc"
+          ]
+        }
+      },
+      "A_SlsOrdSimlnValAddedSrvcSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "ValueAddedServiceType",
+            "ValueAddedSubServiceType",
+            "SalesOrder",
+            "SalesOrderItem",
+            "ValAddedSrvcTransactionNumber",
+            "ValAddedSrvcItemGroup",
+            "ValAddedSrvcItemNumber",
+            "ValueAddedServiceProduct",
+            "ValAddedSrvcHasToBeOrdered",
+            "ValAddedSrvcIncrement",
+            "ValueAddedServiceChargeCode",
+            "ValAddedSrvcIsCreatedManually",
+            "ValAddedSrvcItemNumberInSD",
+            "ValAddedSrvcIsRlvtForProcmt",
+            "ValueAddedServiceText1",
+            "ValueAddedServiceText2",
+            "ValueAddedServiceText3",
+            "ValueAddedServiceLongText"
+          ]
+        }
       }
     },
     "parameters": {
@@ -4465,6 +4429,33 @@
             "allpages",
             "none"
           ]
+        }
+      },
+      "A_SlsOrdSimlnValAddedSrvcOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SlsOrdSimlnValAddedSrvcOrderByOptions"
+        }
+      },
+      "A_SlsOrdSimlnValAddedSrvcSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SlsOrdSimlnValAddedSrvcSelectOptions"
+        }
+      },
+      "A_SlsOrdSimlnValAddedSrvcByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SlsOrdSimlnValAddedSrvcSelectOptions"
         }
       }
     },
