@@ -121,43 +121,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "SalesOrganization desc",
-                  "DistributionChannel",
-                  "DistributionChannel desc",
-                  "Division",
-                  "Division desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/SalesAreaOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "DistributionChannel",
-                  "Division"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/SalesAreaSelectOptions"
           }
         ],
         "responses": {
@@ -166,7 +133,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Collection of SalesAreaType",
+                  "title": "CollectionOfSalesArea",
                   "type": "object",
                   "properties": {
                     "@odata.count": {
@@ -175,7 +142,7 @@
                     "value": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_salesarea.v0001.SalesAreaType"
+                        "$ref": "#/components/schemas/SalesArea"
                       }
                     }
                   }
@@ -229,22 +196,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "SalesOrganization",
-                  "DistributionChannel",
-                  "Division"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/SalesAreaByKeySelectOptions"
           }
         ],
         "responses": {
@@ -253,7 +205,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/com.sap.gateway.srvd_a2x.api_salesarea.v0001.SalesAreaType"
+                  "$ref": "#/components/schemas/SalesArea"
                 }
               }
             }
@@ -304,7 +256,7 @@
   },
   "components": {
     "schemas": {
-      "com.sap.gateway.srvd_a2x.api_salesarea.v0001.SalesAreaType": {
+      "SalesArea": {
         "type": "object",
         "properties": {
           "SalesOrganization": {
@@ -325,7 +277,7 @@
         },
         "title": "Sales Area"
       },
-      "com.sap.gateway.srvd_a2x.api_salesarea.v0001.SalesAreaType-create": {
+      "CreateSalesArea": {
         "type": "object",
         "properties": {
           "SalesOrganization": {
@@ -351,7 +303,7 @@
         ],
         "title": "Sales Area (for create)"
       },
-      "com.sap.gateway.srvd_a2x.api_salesarea.v0001.SalesAreaType-update": {
+      "UpdateSalesArea": {
         "type": "object",
         "title": "Sales Area (for update)"
       },
@@ -416,6 +368,33 @@
             }
           }
         }
+      },
+      "SalesAreaOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "SalesOrganization desc",
+            "DistributionChannel",
+            "DistributionChannel desc",
+            "Division",
+            "Division desc"
+          ]
+        }
+      },
+      "SalesAreaSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesOrganization",
+            "DistributionChannel",
+            "Division"
+          ]
+        }
       }
     },
     "parameters": {
@@ -452,6 +431,33 @@
         "description": "Search items by search phrases, see [Searching](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionsearch)",
         "schema": {
           "type": "string"
+        }
+      },
+      "SalesAreaOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/SalesAreaOrderByOptions"
+        }
+      },
+      "SalesAreaSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/SalesAreaSelectOptions"
+        }
+      },
+      "SalesAreaByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/SalesAreaSelectOptions"
         }
       }
     },
