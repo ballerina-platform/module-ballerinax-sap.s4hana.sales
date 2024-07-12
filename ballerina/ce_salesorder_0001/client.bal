@@ -18,6 +18,7 @@
 // under the License.
 
 import ballerina/http;
+import ballerinax/sap;
 
 # 
 # 
@@ -35,13 +36,15 @@ import ballerina/http;
 # 
 # For every operation, you can call the API in a synchronous or asynchronous mode. In an asynchronous mode, you can fetch the response from a separate URL later.
 public isolated client class Client {
-    final http:Client clientEp;
+    final sap:Client clientEp;
+
     # Gets invoked to initialize the `connector`.
     #
     # + config - The configurations to be used when initializing the `connector` 
     # + serviceUrl - URL of the target service 
     # + return - An error if connector initialization failed 
-    public isolated function init(ConnectionConfig config, string serviceUrl) returns error? {
+    public isolated function init(ConnectionConfig config, string hostname, int port = 443) returns error? {
+        string serviceUrl = string `https://${hostname}:${port}/sap/opu/odata4/sap/api_salesorder/srvd_a2x/sap/salesorder/0001`;
         http:ClientConfiguration httpClientConfig = {auth: config.auth, httpVersion: config.httpVersion, timeout: config.timeout, forwarded: config.forwarded, poolConfig: config.poolConfig, compression: config.compression, circuitBreaker: config.circuitBreaker, retryConfig: config.retryConfig, validation: config.validation};
         do {
             if config.http1Settings is ClientHttp1Settings {
@@ -64,7 +67,7 @@ public isolated client class Client {
                 httpClientConfig.proxy = check config.proxy.ensureType(http:ProxyConfig);
             }
         }
-        http:Client httpEp = check new (serviceUrl, httpClientConfig);
+        sap:Client httpEp = check new (serviceUrl, httpClientConfig);
         self.clientEp = httpEp;
         return;
     }
