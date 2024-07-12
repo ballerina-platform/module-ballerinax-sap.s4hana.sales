@@ -528,6 +528,9 @@ function sanitizeResponseSchemaNames(string specPath) returns error? {
                         if sanitizedTitle.endsWith("Type") {
                             sanitizedTitle = sanitizedTitle.substring(0, sanitizedTitle.length() - 4);
                         }
+                        if sanitizedTitle.endsWith("_") {
+                            sanitizedTitle = sanitizedTitle.substring(0, sanitizedTitle.length() - 1);
+                        }
                         schema.title = sanitizedTitle;
                     }
                 } else if item.description == "Retrieved entity" {
