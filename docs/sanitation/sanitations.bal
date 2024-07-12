@@ -523,8 +523,12 @@ function sanitizeResponseSchemaNames(string specPath) returns error? {
                     } else {
                         string sanitizedTitle = schema.title ?: "";
                         if sanitizedTitle.startsWith("Collection of") {
-                            schema.title = "CollectionOf" + sanitizedTitle.substring(14, sanitizedTitle.length() - 5);
+                            sanitizedTitle = "CollectionOf" + sanitizedTitle.substring(14);
                         }
+                        if sanitizedTitle.endsWith("Type") {
+                            sanitizedTitle = sanitizedTitle.substring(0, sanitizedTitle.length() - 4);
+                        }
+                        schema.title = sanitizedTitle;
                     }
                 } else if item.description == "Retrieved entity" {
                     map<ResponseHeader> content = item.content ?: {};
