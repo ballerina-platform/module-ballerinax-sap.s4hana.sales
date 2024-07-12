@@ -131,6 +131,7 @@
   "paths": {
     "/SalesOrder": {
       "get": {
+        "operationId": "listSalesOrders",
         "summary": "Get entities from SalesOrder",
         "tags": [
           "Sales Order Header"
@@ -192,6 +193,7 @@
         }
       },
       "post": {
+        "operationId": "createSalesOrder",
         "summary": "Add new entity to SalesOrder",
         "tags": [
           "Sales Order Header"
@@ -238,6 +240,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrder",
         "summary": "Get entity from SalesOrder by key",
         "tags": [
           "Sales Order Header"
@@ -267,6 +270,7 @@
         }
       },
       "patch": {
+        "operationId": "patchSalesOrder",
         "summary": "Update entity in SalesOrder",
         "tags": [
           "Sales Order Header"
@@ -306,6 +310,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemsOfSalesOrder",
         "summary": "Get entities from related _Item",
         "tags": [
           "Sales Order Header",
@@ -368,6 +373,7 @@
         }
       },
       "post": {
+        "operationId": "createItemOfSalesOrder",
         "summary": "Add new entity to related _Item",
         "tags": [
           "Sales Order Header",
@@ -415,6 +421,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfSalesOrder",
         "summary": "Get entities from related _Partner",
         "tags": [
           "Sales Order Header",
@@ -477,6 +484,7 @@
         }
       },
       "post": {
+        "operationId": "createPartnerOfSalesOrder",
         "summary": "Add new entity to related _Partner",
         "tags": [
           "Sales Order Header",
@@ -524,6 +532,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfSalesOrder",
         "summary": "Get entities from related _PricingElement",
         "tags": [
           "Sales Order Header",
@@ -578,6 +587,7 @@
         }
       },
       "post": {
+        "operationId": "createPricingElementOfSalesOrder",
         "summary": "Add new entity to related _PricingElement",
         "tags": [
           "Sales Order Header",
@@ -625,6 +635,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfSalesOrder",
         "summary": "Get entities from related _Text",
         "tags": [
           "Sales Order Header",
@@ -687,6 +698,7 @@
         }
       },
       "post": {
+        "operationId": "createTextOfSalesOrder",
         "summary": "Add new entity to related _Text",
         "tags": [
           "Sales Order Header",
@@ -722,6 +734,7 @@
     },
     "/SalesOrderItem": {
       "get": {
+        "operationId": "listSalesOrderItems",
         "summary": "Get entities from SalesOrderItem",
         "tags": [
           "Sales Order Item"
@@ -807,6 +820,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderItem",
         "summary": "Get entity from SalesOrderItem by key",
         "tags": [
           "Sales Order Item"
@@ -836,6 +850,7 @@
         }
       },
       "patch": {
+        "operationId": "patchSalesOrderItem",
         "summary": "Update entity in SalesOrderItem",
         "tags": [
           "Sales Order Item"
@@ -861,6 +876,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteSalesOrderItem",
         "summary": "Delete entity from SalesOrderItem",
         "tags": [
           "Sales Order Item"
@@ -899,6 +915,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemPartnersOfSalesOrderItem",
         "summary": "Get entities from related _ItemPartner",
         "tags": [
           "Sales Order Item",
@@ -961,6 +978,7 @@
         }
       },
       "post": {
+        "operationId": "createItemPartnerOfSalesOrderItem",
         "summary": "Add new entity to related _ItemPartner",
         "tags": [
           "Sales Order Item",
@@ -1018,6 +1036,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemPricingElementsOfSalesOrderItem",
         "summary": "Get entities from related _ItemPricingElement",
         "tags": [
           "Sales Order Item",
@@ -1072,6 +1091,7 @@
         }
       },
       "post": {
+        "operationId": "createItemPricingElementOfSalesOrderItem",
         "summary": "Add new entity to related _ItemPricingElement",
         "tags": [
           "Sales Order Item",
@@ -1129,6 +1149,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemTextsOfSalesOrderItem",
         "summary": "Get entities from related _ItemText",
         "tags": [
           "Sales Order Item",
@@ -1191,6 +1212,7 @@
         }
       },
       "post": {
+        "operationId": "createItemTextOfSalesOrderItem",
         "summary": "Add new entity to related _ItemText",
         "tags": [
           "Sales Order Item",
@@ -1248,6 +1270,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderOfSalesOrderItem",
         "summary": "Get related _SalesOrder",
         "tags": [
           "Sales Order Item",
@@ -1302,6 +1325,7 @@
         }
       ],
       "get": {
+        "operationId": "listScheduleLinesOfSalesOrderItem",
         "summary": "Get entities from related _ScheduleLine",
         "tags": [
           "Sales Order Item",
@@ -1366,6 +1390,7 @@
     },
     "/SalesOrderItemPartner": {
       "get": {
+        "operationId": "listSalesOrderItemPartners",
         "summary": "Get entities from SalesOrderItemPartner",
         "tags": [
           "Item Partner"
@@ -1462,6 +1487,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderItemPartner",
         "summary": "Get entity from SalesOrderItemPartner by key",
         "tags": [
           "Item Partner"
@@ -1491,6 +1517,7 @@
         }
       },
       "patch": {
+        "operationId": "patchSalesOrderItemPartner",
         "summary": "Update entity in SalesOrderItemPartner",
         "tags": [
           "Item Partner"
@@ -1516,6 +1543,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteSalesOrderItemPartner",
         "summary": "Delete entity from SalesOrderItemPartner",
         "tags": [
           "Item Partner"
@@ -1565,6 +1593,7 @@
         }
       ],
       "get": {
+        "operationId": "getItemOfSalesOrderItemPartner",
         "summary": "Get related _Item",
         "tags": [
           "Item Partner",
@@ -1630,6 +1659,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderOfSalesOrderItemPartner",
         "summary": "Get related _SalesOrder",
         "tags": [
           "Item Partner",
@@ -1662,6 +1692,7 @@
     },
     "/SalesOrderItemPricingElement": {
       "get": {
+        "operationId": "listSalesOrderItemPricingElements",
         "summary": "Get entities from SalesOrderItemPricingElement",
         "tags": [
           "Item Pricing Element"
@@ -1767,6 +1798,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderItemPricingElement",
         "summary": "Get entity from SalesOrderItemPricingElement by key",
         "tags": [
           "Item Pricing Element"
@@ -1796,6 +1828,7 @@
         }
       },
       "patch": {
+        "operationId": "patchSalesOrderItemPricingElement",
         "summary": "Update entity in SalesOrderItemPricingElement",
         "tags": [
           "Item Pricing Element"
@@ -1821,6 +1854,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteSalesOrderItemPricingElement",
         "summary": "Delete entity from SalesOrderItemPricingElement",
         "tags": [
           "Item Pricing Element"
@@ -1879,6 +1913,7 @@
         }
       ],
       "get": {
+        "operationId": "getItemOfSalesOrderItemPricingElement",
         "summary": "Get related _Item",
         "tags": [
           "Item Pricing Element",
@@ -1953,6 +1988,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderOfSalesOrderItemPricingElement",
         "summary": "Get related _SalesOrder",
         "tags": [
           "Item Pricing Element",
@@ -1985,6 +2021,7 @@
     },
     "/SalesOrderItemText": {
       "get": {
+        "operationId": "listSalesOrderItemTexts",
         "summary": "Get entities from SalesOrderItemText",
         "tags": [
           "Item Text"
@@ -2090,6 +2127,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderItemText",
         "summary": "Get entity from SalesOrderItemText by key",
         "tags": [
           "Item Text"
@@ -2119,6 +2157,7 @@
         }
       },
       "patch": {
+        "operationId": "patchSalesOrderItemText",
         "summary": "Update entity in SalesOrderItemText",
         "tags": [
           "Item Text"
@@ -2144,6 +2183,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteSalesOrderItemText",
         "summary": "Delete entity from SalesOrderItemText",
         "tags": [
           "Item Text"
@@ -2202,6 +2242,7 @@
         }
       ],
       "get": {
+        "operationId": "getItemOfSalesOrderItemText",
         "summary": "Get related _Item",
         "tags": [
           "Item Text",
@@ -2276,6 +2317,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderOfSalesOrderItemText",
         "summary": "Get related _SalesOrder",
         "tags": [
           "Item Text",
@@ -2308,6 +2350,7 @@
     },
     "/SalesOrderPartner": {
       "get": {
+        "operationId": "listSalesOrderPartners",
         "summary": "Get entities from SalesOrderPartner",
         "tags": [
           "Header Partner"
@@ -2394,6 +2437,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderPartner",
         "summary": "Get entity from SalesOrderPartner by key",
         "tags": [
           "Header Partner"
@@ -2423,6 +2467,7 @@
         }
       },
       "patch": {
+        "operationId": "patchSalesOrderPartner",
         "summary": "Update entity in SalesOrderPartner",
         "tags": [
           "Header Partner"
@@ -2448,6 +2493,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteSalesOrderPartner",
         "summary": "Delete entity from SalesOrderPartner",
         "tags": [
           "Header Partner"
@@ -2487,6 +2533,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderOfSalesOrderPartner",
         "summary": "Get related _SalesOrder",
         "tags": [
           "Header Partner",
@@ -2519,6 +2566,7 @@
     },
     "/SalesOrderPricingElement": {
       "get": {
+        "operationId": "listSalesOrderPricingElements",
         "summary": "Get entities from SalesOrderPricingElement",
         "tags": [
           "Header Pricing Element"
@@ -2614,6 +2662,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderPricingElement",
         "summary": "Get entity from SalesOrderPricingElement by key",
         "tags": [
           "Header Pricing Element"
@@ -2643,6 +2692,7 @@
         }
       },
       "patch": {
+        "operationId": "patchSalesOrderPricingElement",
         "summary": "Update entity in SalesOrderPricingElement",
         "tags": [
           "Header Pricing Element"
@@ -2668,6 +2718,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteSalesOrderPricingElement",
         "summary": "Delete entity from SalesOrderPricingElement",
         "tags": [
           "Header Pricing Element"
@@ -2716,6 +2767,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderOfSalesOrderPricingElement",
         "summary": "Get related _SalesOrder",
         "tags": [
           "Header Pricing Element",
@@ -2748,6 +2800,7 @@
     },
     "/SalesOrderScheduleLine": {
       "get": {
+        "operationId": "listSalesOrderScheduleLines",
         "summary": "Get entities from SalesOrderScheduleLine",
         "tags": [
           "Item Schedule Line"
@@ -2843,6 +2896,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderScheduleLine",
         "summary": "Get entity from SalesOrderScheduleLine by key",
         "tags": [
           "Item Schedule Line"
@@ -2906,6 +2960,7 @@
         }
       ],
       "get": {
+        "operationId": "getItemOfSalesOrderScheduleLine",
         "summary": "Get related _Item",
         "tags": [
           "Item Schedule Line",
@@ -2970,6 +3025,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderOfSalesOrderScheduleLine",
         "summary": "Get related _SalesOrder",
         "tags": [
           "Item Schedule Line",
@@ -3002,6 +3058,7 @@
     },
     "/SalesOrderText": {
       "get": {
+        "operationId": "listSalesOrderTexts",
         "summary": "Get entities from SalesOrderText",
         "tags": [
           "Header Text"
@@ -3097,6 +3154,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderText",
         "summary": "Get entity from SalesOrderText by key",
         "tags": [
           "Header Text"
@@ -3126,6 +3184,7 @@
         }
       },
       "patch": {
+        "operationId": "patchSalesOrderText",
         "summary": "Update entity in SalesOrderText",
         "tags": [
           "Header Text"
@@ -3151,6 +3210,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteSalesOrderText",
         "summary": "Delete entity from SalesOrderText",
         "tags": [
           "Header Text"
@@ -3199,6 +3259,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesOrderOfSalesOrderText",
         "summary": "Get related _SalesOrder",
         "tags": [
           "Header Text",
@@ -3231,6 +3292,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_BatchRequests).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
