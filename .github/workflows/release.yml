@@ -14,6 +14,7 @@ on:
           - api_sd_sa_soldtopartydetn
           - salesarea_0001
           - api_sd_incoterms_srv
+          - api_sales_inquiry_srv
 
 jobs:
   call_workflow:
