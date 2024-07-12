@@ -98,6 +98,7 @@
   "paths": {
     "/A_IncotermsClassification": {
       "get": {
+        "operationId": "listA_IncotermsClassifications",
         "summary": "Reads the IDs and descriptions of all Incoterms.",
         "description": "Reads the IDs and descriptions of all Incoterms in the system.",
         "tags": [
@@ -181,6 +182,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_IncotermsClassification",
         "summary": "Reads the ID and description of a specific Incoterm.",
         "description": "Reads the ID and description of a specific Incoterm. Consumers must pass the Incoterm ID (for example, CFR).",
         "tags": [
@@ -232,6 +234,7 @@
         }
       ],
       "get": {
+        "operationId": "listIncotermsClassificationTextsOfA_IncotermsClassification",
         "summary": "Reads the description of a specific Incoterm.",
         "description": "Reads the description of a specific Incoterm. Consumers must pass the Incoterm ID (for example, CFR).",
         "tags": [
@@ -300,6 +303,7 @@
     },
     "/A_IncotermsClassificationText": {
       "get": {
+        "operationId": "listA_IncotermsClassificationTexts",
         "summary": "Reads the descriptions of all Incoterms.",
         "description": "Reads the descriptions of all Incoterms in the system.",
         "tags": [
@@ -390,6 +394,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_IncotermsClassificationText",
         "summary": "Reads the description of a specific Incoterm in a specific language.",
         "description": "Reads the description of a specific Incoterm in a specific language. Consumers must pass the Incoterm ID (for example, CFR) and language key.",
         "tags": [
@@ -425,6 +430,7 @@
     },
     "/A_IncotermsVersion": {
       "get": {
+        "operationId": "listA_IncotermsVersions",
         "summary": "Reads the IDs and descriptions of all Incoterms versions.",
         "description": "Reads the IDs and descriptions of all Incoterms versions in the system.",
         "tags": [
@@ -508,6 +514,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_IncotermsVersion",
         "summary": "Reads the ID and description of a specific Incoterms version.",
         "description": "Reads the ID and description of a specific Incoterms version. Consumers must pass the Incoterms version.",
         "tags": [
@@ -559,6 +566,7 @@
         }
       ],
       "get": {
+        "operationId": "listIncotermsVersionTextsOfA_IncotermsVersion",
         "summary": "Reads the description of a specific Incoterms version.",
         "description": "Reads the description of a specific Incoterms version. Consumers must pass the Incoterms version.",
         "tags": [
@@ -627,6 +635,7 @@
     },
     "/A_IncotermsVersionText": {
       "get": {
+        "operationId": "listA_IncotermsVersionTexts",
         "summary": "Reads the descriptions of all Incoterms versions.",
         "description": "Reads the descriptions of all Incoterms versions in the system.",
         "tags": [
@@ -717,6 +726,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_IncotermsVersionText",
         "summary": "Reads the description of a specific Incoterms version in a specific language.",
         "description": "Reads the description of a specific Incoterms version in a specific language. Consumers must pass the Incoterms version and language key.",
         "tags": [
@@ -752,6 +762,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
