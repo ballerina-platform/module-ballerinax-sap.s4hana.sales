@@ -28,6 +28,31 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
    the [Sold-to Party Assignment of Sales Scheduling Agreement - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_SA_SOLDTOPARTYDETN/overview).
    The service allows users to read sold-to party assignment of sales scheduling agreement master data.
 
+5. The `ballerinax/sap.s4hana.salesarea_0001` package provides APIs that enable seamless integration with
+   the [Sales Area - Read (A2X) v1.0.0](https://api.sap.com/api/SALESAREA_0001/overview). The service allows users to
+   read sales areas.
+
+6. The `ballerinax/sap.s4hana.api_sd_incoterms_srv` package provides APIs that enable seamless integration with
+   the [Incoterm - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_INCOTERMS_SRV/overview). The service allows users
+   to read incoterms defined in the system.
+
+7. The `ballerinax/sap.s4hana.api_sales_inquiry_srv` package provides APIs that enable seamless integration with
+   the [Sales Inquiry - Read (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_INQUIRY_SRV/overview). The service
+   allows to read Sales Inquiries.
+
+8. The `ballerinax/sap.s4hana.api_sales_quotation_srv` package provides APIs that enable seamless integration with
+   the [Sales Quotation (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_QUOTATION_SRV/overview). The service allows
+   to create, read, update, and delete sales quotation.
+
+9. The `ballerinax/sap.s4hana.api_sales_order_simulation_srv` package provides APIs that enable seamless integration
+   with the [Sales Order - Simulate (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_ORDER_SIMULATE_SRV/overview).
+   The service gives you information about pricing, material availability, and the customer's credit limit. The
+   simulated sales order is not saved.
+
+10. The `ballerinax/sap.s4hana.ce_salesorder_0001` package provides APIs that enable seamless integration with
+    the [Sales Order (A2X) API (ODatav4) v1.0.0](https://api.sap.com/api/CE_SALESORDER_0001/overview). The service
+    allows to create, read, update, and delete sales orders.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
@@ -83,12 +108,18 @@ Execute the commands below to build from the source.
    ./gradlew clean :sales-ballerina:<api_name>:build
    ```
 
-   | API Name                  | Connector                                       |
-   |---------------------------|-------------------------------------------------|
-   | api_salesdistrict_srv     | ballerinax/sap.s4hana.api_salesdistrict_srv     |
-   | api_salesorganization_srv | ballerinax/sap.s4hana.api_salesorganization_srv |
-   | api_sales_order_srv       | ballerinax/sap.s4hana.api_sales_order_srv       |
-   | api_sd_sa_soldtopartydetn | ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn |
+   | API Name                       | Connector                                            |
+   |--------------------------------|------------------------------------------------------|
+   | api_salesdistrict_srv          | ballerinax/sap.s4hana.api_salesdistrict_srv          |
+   | api_salesorganization_srv      | ballerinax/sap.s4hana.api_salesorganization_srv      |
+   | api_sales_order_srv            | ballerinax/sap.s4hana.api_sales_order_srv            |
+   | api_sd_sa_soldtopartydetn      | ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn      |
+   | salesarea_0001                 | ballerinax/sap.s4hana.salesarea_0001                 |
+   | api_sd_incoterms_srv           | ballerinax/sap.s4hana.api_sd_incoterms_srv           |
+   | api_sales_inquiry_srv          | ballerinax/sap.s4hana.api_sales_inquiry_srv          |
+   | api_sales_quotation_srv        | ballerinax/sap.s4hana.api_sales_quotation_srv        |
+   | api_sales_order_simulation_srv | ballerinax/sap.s4hana.api_sales_order_simulation_srv |
+   | ce_salesorder_0001             | ballerinax/sap.s4hana.ce_salesorder_0001             |
 
 5. To run tests against different environment:
 

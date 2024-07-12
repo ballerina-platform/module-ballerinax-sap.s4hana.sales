@@ -1,0 +1,7 @@
+{
+  "description": "The `ballerinax/sap.s4hana.salesarea_0001` package provides APIs that enable seamless integration with the [Sales Area - Read (A2X) v1.0.0](https://api.sap.com/api/SALESAREA_0001/overview). The service allows users to read sales areas.",
+  "communication-scenario": "Sales Master Data Integration",
+  "import-statement": "import ballerinax/sap.s4hana.salesarea_0001 as salesarea;",
+  "client-init": "salesarea:Client salesareaClient = check new (",
+  "api-invocation": "salesarea:CollectionOfSalesArea listAreas = check salesareaClient->listSalesAreas();"
+}

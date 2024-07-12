@@ -1,0 +1,2493 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sales Inquiry - Read (A2X)",
+    "version": "1.0.0",
+    "description": "The service contains header, header partner, header pricing element, item, item partner, and item pricing element entities. You can retrieve all existing data or apply filters."
+  },
+  "externalDocs": {
+    "description": "Business Documentation",
+    "url": "https://help.sap.com/http.svc/ahp2/SAP_S4HANA_CLOUD/2402.latest/EN/39/13cc82abf14e5ca269ff691c7a2958/frameset.htm"
+  },
+  "x-sap-api-type": "ODATA",
+  "x-sap-shortText": "Read sales inquiries using this synchronous inbound service",
+  "x-sap-software-min-version": "2402",
+  "x-sap-ext-overview": [
+    {
+      "name": "Communication Scenario",
+      "values": [
+        {
+          "text": "Sales Inquiry Integration(SAP_COM_0117)",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Scope Items",
+      "values": [
+        {
+          "text": "[Sales Inquiry(1IQ)](https://me.sap.com/processnavigator/SolP/1IQ \" Link To BP \")",
+          "format": "markdown"
+        }
+      ]
+    },
+    {
+      "name": "Authentication Methods",
+      "values": [
+        {
+          "text": "x509",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Business Object",
+      "values": [
+        {
+          "text": "Sales Inquiry",
+          "format": "plain"
+        }
+      ]
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://{host}:{port}/sap/opu/odata/sap/API_SALES_INQUIRY_SRV",
+      "variables": {
+        "host": {
+          "default": ""
+        },
+        "port": {
+          "default": ""
+        }
+      }
+    },
+    {
+      "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_INQUIRY_SRV"
+    }
+  ],
+  "x-sap-extensible": {
+    "supported": "manual",
+    "description": "API can be extended by custom fields on the following business contexts (field usage for this API needs to be selected):\r\n* Sales: Sales Document (SD_SALESDOC)\r\n* Sales: Sales Document Item (SD_SALESDOCITEM)\r\n\r\n[How to add an extension field to an API](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/ce819b8557194ae0aa180ba4ac6a04de.html)"
+  },
+  "tags": [
+    {
+      "name": "Sales Inquiry Header"
+    },
+    {
+      "name": "Sales Inquiry Item"
+    },
+    {
+      "name": "Item Partner"
+    },
+    {
+      "name": "Item Pricing Element"
+    },
+    {
+      "name": "Header Partner"
+    },
+    {
+      "name": "Header Pricing Element"
+    }
+  ],
+  "paths": {
+    "/A_SalesInquiry": {
+      "get": {
+        "operationId": "listA_SalesInquiries",
+        "summary": "Reads all sales inquiry headers.",
+        "description": "Reads the header data of all sales inquiries.",
+        "tags": [
+          "Sales Inquiry Header"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesInquiryOrderByOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesInquirySelectOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_SalesInquiryExpandOptions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "CollectionOfA_SalesInquiryWrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "CollectionOfA_SalesInquiry",
+                      "type": "object",
+                      "properties": {
+                        "__count": {
+                          "$ref": "#/components/schemas/count"
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/A_SalesInquiry"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "A_SalesInquiry": {
+        "type": "object",
+        "properties": {
+          "SalesInquiry": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Inquiry"
+          },
+          "SalesInquiryType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "SalesInquiryType",
+            "title": "Sales Document Type"
+          },
+          "SalesOrganization": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Organization"
+          },
+          "DistributionChannel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Distribution Channel"
+          },
+          "OrganizationDivision": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Division"
+          },
+          "SalesGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sales Group"
+          },
+          "SalesOffice": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Office"
+          },
+          "SalesDistrict": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Sales District"
+          },
+          "SoldToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Sold-to Party"
+          },
+          "CreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Record Creation Date"
+          },
+          "CreatedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Created By",
+            "description": "Name of Person Responsible for Creating the Object"
+          },
+          "LastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "LastChangeDateTime": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492098664000)/",
+            "title": "Time Stamp",
+            "description": "UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "CustomerPurchaseOrderType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purchase Order Type",
+            "description": "Customer Purchase Order Type"
+          },
+          "CustomerPurchaseOrderDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Customer Reference Date"
+          },
+          "SalesInquiryDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Document Date",
+            "description": "Document Date (Date Received/Sent)"
+          },
+          "TotalNetAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Net Value",
+            "description": "Net Value of the Sales Document in Document Currency"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "SDDocumentReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "SalesDocumentReason",
+            "title": "Order Reason",
+            "description": "Order Reason (Reason for the Business Transaction)"
+          },
+          "PricingDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Pricing Date",
+            "description": "Date for Pricing and Exchange Rate"
+          },
+          "HeaderBillingBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Billing Block",
+            "description": "Billing Block in SD Document"
+          },
+          "BindingPeriodValidityStartDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid From",
+            "description": "Inquiry valid from date"
+          },
+          "BindingPeriodValidityEndDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid To",
+            "description": "Inquiry valid to date"
+          },
+          "HdrOrderProbabilityInPercent": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Probability",
+            "description": "Sales probability"
+          },
+          "ExpectedOrderNetAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Expd Ord Net Amt",
+            "description": "Expected Order Net Amount"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "IncotermsVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "IncotermsVersion",
+            "title": "Incoterms Version"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "PaymentMethod": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PaymentMethod",
+            "title": "Payment Method"
+          },
+          "OverallSDProcessStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "OverallSDProcessStatus",
+            "title": "Overall Status",
+            "description": "Overall Processing Status (Header/All Items)"
+          },
+          "TotalCreditCheckStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "TotalCreditCheckStatus",
+            "title": "Credit Status",
+            "description": "Overall Status of Credit Checks"
+          },
+          "OverallSDDocumentRejectionSts": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "OverallSDDocumentRejectionSts",
+            "title": "Rejection Status",
+            "description": "Rejection Status (All Items)"
+          },
+          "to_Item": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_SalesInquiryItem"
+                }
+              }
+            }
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_SalesInquiryPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_SalesInquiryPrcgElmnt"
+                }
+              }
+            }
+          }
+        },
+        "title": "Sales Inquiry Header"
+      },
+      "CreateA_SalesInquiry": {
+        "type": "object",
+        "properties": {
+          "SalesInquiry": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Inquiry"
+          },
+          "SalesInquiryType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "SalesInquiryType",
+            "title": "Sales Document Type"
+          },
+          "SalesOrganization": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Organization"
+          },
+          "DistributionChannel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Distribution Channel"
+          },
+          "OrganizationDivision": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Division"
+          },
+          "SalesGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sales Group"
+          },
+          "SalesOffice": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Office"
+          },
+          "SalesDistrict": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Sales District"
+          },
+          "SoldToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Sold-to Party"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "CustomerPurchaseOrderType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purchase Order Type",
+            "description": "Customer Purchase Order Type"
+          },
+          "CustomerPurchaseOrderDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Customer Reference Date"
+          },
+          "SalesInquiryDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Document Date",
+            "description": "Document Date (Date Received/Sent)"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "SDDocumentReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "SalesDocumentReason",
+            "title": "Order Reason",
+            "description": "Order Reason (Reason for the Business Transaction)"
+          },
+          "PricingDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Pricing Date",
+            "description": "Date for Pricing and Exchange Rate"
+          },
+          "HeaderBillingBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Billing Block",
+            "description": "Billing Block in SD Document"
+          },
+          "BindingPeriodValidityStartDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid From",
+            "description": "Inquiry valid from date"
+          },
+          "BindingPeriodValidityEndDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid To",
+            "description": "Inquiry valid to date"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "IncotermsVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "IncotermsVersion",
+            "title": "Incoterms Version"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "PaymentMethod": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PaymentMethod",
+            "title": "Payment Method"
+          },
+          "to_Item": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_SalesInquiryItem"
+                }
+              }
+            }
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_SalesInquiryPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_SalesInquiryPrcgElmnt"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "SalesInquiry"
+        ],
+        "title": "Sales Inquiry Header (for create)"
+      },
+      "A_SalesInquiryItem": {
+        "type": "object",
+        "properties": {
+          "SalesInquiry": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Inquiry"
+          },
+          "SalesInquiryItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sales Inquiry Item"
+          },
+          "HigherLevelItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Higher-Level Item",
+            "description": "Higher-Level Item in Bill of Material Structures"
+          },
+          "SalesInquiryItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Item Category",
+            "description": "Sales Document Item Category"
+          },
+          "SalesInquiryItemText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Description",
+            "description": "Short Text for Sales Order Item"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "Material": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "MaterialByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Material",
+            "description": "Material Number Used by Customer"
+          },
+          "RequestedQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Requested Quantity"
+          },
+          "RequestedQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Requested Qty Unit",
+            "description": "Unit of the Requested Quantity"
+          },
+          "ItemOrderProbabilityInPercent": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Order Probability",
+            "description": "Order Probability of the Item"
+          },
+          "AlternativeToItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Alternative to Item",
+            "description": "Item for Which this Item is an Alternative"
+          },
+          "ItemGrossWeight": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Gross Weight",
+            "description": "Gross Weight of the Item"
+          },
+          "ItemNetWeight": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Net Weight",
+            "description": "Net Weight of the Item"
+          },
+          "ItemWeightUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Unit of Weight"
+          },
+          "ItemVolume": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Volume",
+            "description": "Volume of the item"
+          },
+          "ItemVolumeUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Volume Unit"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "NetAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Net Value",
+            "description": "Net Value of the Document Item in Document Currency"
+          },
+          "MaterialGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 9,
+            "title": "Material Group"
+          },
+          "Batch": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Batch",
+            "description": "Batch Number"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "SalesDocumentRjcnReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "SalesDocumentRjcnReason",
+            "title": "Reason for Rejection",
+            "description": "Reason for Rejection of Sales Documents"
+          },
+          "WBSElement": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 24,
+            "title": "WBS Element",
+            "description": "Work Breakdown Structure Element (WBS Element)"
+          },
+          "SDProcessStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "SDProcessStatus",
+            "title": "Overall Status",
+            "description": "Overall Processing Status (Item)"
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_SalesInquiryItemPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_SalesInquiryItemPrcgElmnt"
+                }
+              }
+            }
+          },
+          "to_SalesInquiry": {
+            "$ref": "#/components/schemas/A_SalesInquiry"
+          }
+        },
+        "title": "Sales Inquiry Item"
+      },
+      "CreateA_SalesInquiryItem": {
+        "type": "object",
+        "properties": {
+          "SalesInquiryItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sales Inquiry Item"
+          },
+          "HigherLevelItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Higher-Level Item",
+            "description": "Higher-Level Item in Bill of Material Structures"
+          },
+          "SalesInquiryItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Item Category",
+            "description": "Sales Document Item Category"
+          },
+          "SalesInquiryItemText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Description",
+            "description": "Short Text for Sales Order Item"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "Material": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "MaterialByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Material",
+            "description": "Material Number Used by Customer"
+          },
+          "RequestedQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Requested Quantity"
+          },
+          "RequestedQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Requested Qty Unit",
+            "description": "Unit of the Requested Quantity"
+          },
+          "ItemOrderProbabilityInPercent": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Order Probability",
+            "description": "Order Probability of the Item"
+          },
+          "AlternativeToItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Alternative to Item",
+            "description": "Item for Which this Item is an Alternative"
+          },
+          "MaterialGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 9,
+            "title": "Material Group"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "SalesDocumentRjcnReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "SalesDocumentRjcnReason",
+            "title": "Reason for Rejection",
+            "description": "Reason for Rejection of Sales Documents"
+          },
+          "WBSElement": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 24,
+            "title": "WBS Element",
+            "description": "Work Breakdown Structure Element (WBS Element)"
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_SalesInquiryItemPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_SalesInquiryItemPrcgElmnt"
+                }
+              }
+            }
+          },
+          "to_SalesInquiry": {
+            "$ref": "#/components/schemas/CreateA_SalesInquiry"
+          }
+        },
+        "required": [
+          "SalesInquiryItem"
+        ],
+        "title": "Sales Inquiry Item (for create)"
+      },
+      "A_SalesInquiryItemPartner": {
+        "type": "object",
+        "properties": {
+          "SalesInquiry": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "SD Document",
+            "description": "Sales and Distribution Document Number"
+          },
+          "SalesInquiryItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item (SD)",
+            "description": "Item number of the SD document"
+          },
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "to_SalesInquiry": {
+            "$ref": "#/components/schemas/A_SalesInquiry"
+          },
+          "to_SalesInquiryItem": {
+            "$ref": "#/components/schemas/A_SalesInquiryItem"
+          }
+        },
+        "title": "Item Partner"
+      },
+      "CreateA_SalesInquiryItemPartner": {
+        "type": "object",
+        "properties": {
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "to_SalesInquiry": {
+            "$ref": "#/components/schemas/CreateA_SalesInquiry"
+          },
+          "to_SalesInquiryItem": {
+            "$ref": "#/components/schemas/CreateA_SalesInquiryItem"
+          }
+        },
+        "required": [
+          "PartnerFunction"
+        ],
+        "title": "Item Partner (for create)"
+      },
+      "A_SalesInquiryItemPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "SalesInquiry": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Document"
+          },
+          "SalesInquiryItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item",
+            "description": "Condition item number"
+          },
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionApplication": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Application"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "PricingDateTime": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 14,
+            "title": "Valid From",
+            "description": "Timestamp for Pricing"
+          },
+          "ConditionCalculationType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "PriceConditionCalculationType",
+            "title": "Calculation Type",
+            "description": "Calculation Type for Condition"
+          },
+          "ConditionBaseValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Condition Basis"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "ConditionToBaseQtyNmrtr": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 10,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -9999999999,
+            "maximum": 9999999999,
+            "example": "0",
+            "title": "Numerator",
+            "description": "Numerator for Converting to Base UoM"
+          },
+          "ConditionToBaseQtyDnmntr": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 10,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -9999999999,
+            "maximum": 9999999999,
+            "example": "0",
+            "title": "Denominator",
+            "description": "Denominator for Converting to Base UoM"
+          },
+          "ConditionCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionCategory",
+            "title": "Condition Category",
+            "description": "Condition Category (Examples: Tax, Freight, Price, Cost)"
+          },
+          "ConditionIsForStatistics": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Statistical",
+            "description": "Condition is used for statistics"
+          },
+          "PricingScaleType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Scale Type"
+          },
+          "IsRelevantForAccrual": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Accruals",
+            "description": "Condition is Relevant for Accrual  (e.g. Freight)"
+          },
+          "CndnIsRelevantForInvoiceList": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Invoice List Cond.",
+            "description": "Condition for Invoice List"
+          },
+          "ConditionOrigin": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionOrigin",
+            "title": "Condition Origin",
+            "description": "Origin of the Condition"
+          },
+          "IsGroupCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Group Condition"
+          },
+          "AccessNumberOfAccessSequence": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Access",
+            "description": "Access sequence - Access number"
+          },
+          "ConditionRecord": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Condition Record No.",
+            "description": "Number of Condition Record"
+          },
+          "ConditionSequentialNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sequent.No. of Cond.",
+            "description": "Sequential Number of the Condition"
+          },
+          "TaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Tax Code",
+            "description": "Tax on Sales/Purchases Code"
+          },
+          "WithholdingTaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "WithholdingTaxCode",
+            "title": "W/Tax Code",
+            "description": "Withholding Tax Code"
+          },
+          "CndnRoundingOffDiffAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 6,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999.999,
+            "maximum": 999.999,
+            "example": "0",
+            "title": "Cond.Rounding Diff.",
+            "description": "Rounding-Off Difference of the Condition"
+          },
+          "ConditionAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Condition Value"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "ConditionControl": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionControl",
+            "title": "Condition Control"
+          },
+          "ConditionInactiveReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionInactiveReason",
+            "title": "Inactive Condition",
+            "description": "Condition is Inactive"
+          },
+          "ConditionClass": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionClass",
+            "title": "Condition Class"
+          },
+          "PrcgProcedureCounterForHeader": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter (Header)"
+          },
+          "FactorForConditionBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Base Value"
+          },
+          "StructureCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Structure Condition"
+          },
+          "PeriodFactorForCndnBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Basis (Period)"
+          },
+          "PricingScaleBasis": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Basis",
+            "description": "Scale Basis Indicator"
+          },
+          "ConditionScaleBasisValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Scale Base Val.",
+            "description": "Scale Base Value"
+          },
+          "ConditionScaleBasisUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Unit of Meas.",
+            "description": "Condition Scale Unit of Measure"
+          },
+          "ConditionScaleBasisCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Scale Currency"
+          },
+          "ConditionAlternativeCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Condition Currency",
+            "description": "Condition Currency (for Cumulation Fields)"
+          },
+          "ConditionAmountInLocalCrcy": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Condition Value"
+          },
+          "CndnIsRelevantForIntcoBilling": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Intercomp.Billing",
+            "description": "Condition for Intercompany Billing"
+          },
+          "ConditionIsManuallyChanged": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Changed Manually",
+            "description": "Condition Changed Manually"
+          },
+          "CumulatedConditionBasisValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Condition Basis"
+          },
+          "ConditionIsForConfiguration": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "UsedforVariantConfig",
+            "description": "Condition Used for Variant Configuration"
+          },
+          "VariantCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 26,
+            "title": "Variant Key",
+            "description": "Variant Condition Key"
+          },
+          "to_SalesInquiry": {
+            "$ref": "#/components/schemas/A_SalesInquiry"
+          },
+          "to_SalesInquiryItem": {
+            "$ref": "#/components/schemas/A_SalesInquiryItem"
+          }
+        },
+        "title": "Item Pricing Element"
+      },
+      "CreateA_SalesInquiryItemPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "to_SalesInquiry": {
+            "$ref": "#/components/schemas/CreateA_SalesInquiry"
+          },
+          "to_SalesInquiryItem": {
+            "$ref": "#/components/schemas/CreateA_SalesInquiryItem"
+          }
+        },
+        "required": [
+          "PricingProcedureStep",
+          "PricingProcedureCounter"
+        ],
+        "title": "Item Pricing Element (for create)"
+      },
+      "A_SalesInquiryPartner": {
+        "type": "object",
+        "properties": {
+          "SalesInquiry": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "SD Document",
+            "description": "Sales and Distribution Document Number"
+          },
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "to_SalesInquiry": {
+            "$ref": "#/components/schemas/A_SalesInquiry"
+          }
+        },
+        "title": "Header Partner"
+      },
+      "CreateA_SalesInquiryPartner": {
+        "type": "object",
+        "properties": {
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "to_SalesInquiry": {
+            "$ref": "#/components/schemas/CreateA_SalesInquiry"
+          }
+        },
+        "required": [
+          "PartnerFunction"
+        ],
+        "title": "Header Partner (for create)"
+      },
+      "A_SalesInquiryPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "SalesInquiry": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Document"
+          },
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionApplication": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Application"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "PricingDateTime": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 14,
+            "title": "Valid From",
+            "description": "Timestamp for Pricing"
+          },
+          "ConditionCalculationType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "PriceConditionCalculationType",
+            "title": "Calculation Type",
+            "description": "Calculation Type for Condition"
+          },
+          "ConditionBaseValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Condition Basis"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "ConditionToBaseQtyNmrtr": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 10,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -9999999999,
+            "maximum": 9999999999,
+            "example": "0",
+            "title": "Numerator",
+            "description": "Numerator for Converting to Base UoM"
+          },
+          "ConditionToBaseQtyDnmntr": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 10,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -9999999999,
+            "maximum": 9999999999,
+            "example": "0",
+            "title": "Denominator",
+            "description": "Denominator for Converting to Base UoM"
+          },
+          "ConditionCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionCategory",
+            "title": "Condition Category",
+            "description": "Condition Category (Examples: Tax, Freight, Price, Cost)"
+          },
+          "ConditionIsForStatistics": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Statistical",
+            "description": "Condition is used for statistics"
+          },
+          "PricingScaleType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Scale Type"
+          },
+          "IsRelevantForAccrual": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Accruals",
+            "description": "Condition is Relevant for Accrual  (e.g. Freight)"
+          },
+          "CndnIsRelevantForInvoiceList": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Invoice List Cond.",
+            "description": "Condition for Invoice List"
+          },
+          "ConditionOrigin": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionOrigin",
+            "title": "Condition Origin",
+            "description": "Origin of the Condition"
+          },
+          "IsGroupCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Group Condition"
+          },
+          "AccessNumberOfAccessSequence": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Access",
+            "description": "Access sequence - Access number"
+          },
+          "ConditionRecord": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Condition Record No.",
+            "description": "Number of Condition Record"
+          },
+          "ConditionSequentialNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sequent.No. of Cond.",
+            "description": "Sequential Number of the Condition"
+          },
+          "TaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Tax Code",
+            "description": "Tax on Sales/Purchases Code"
+          },
+          "WithholdingTaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "WithholdingTaxCode",
+            "title": "W/Tax Code",
+            "description": "Withholding Tax Code"
+          },
+          "CndnRoundingOffDiffAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 6,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999.999,
+            "maximum": 999.999,
+            "example": "0",
+            "title": "Cond.Rounding Diff.",
+            "description": "Rounding-Off Difference of the Condition"
+          },
+          "ConditionAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Condition Value"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "ConditionControl": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionControl",
+            "title": "Condition Control"
+          },
+          "ConditionInactiveReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionInactiveReason",
+            "title": "Inactive Condition",
+            "description": "Condition is Inactive"
+          },
+          "ConditionClass": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionClass",
+            "title": "Condition Class"
+          },
+          "PrcgProcedureCounterForHeader": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter (Header)"
+          },
+          "FactorForConditionBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Base Value"
+          },
+          "StructureCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Structure Condition"
+          },
+          "PeriodFactorForCndnBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Basis (Period)"
+          },
+          "PricingScaleBasis": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Basis",
+            "description": "Scale Basis Indicator"
+          },
+          "ConditionScaleBasisValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Scale Base Val.",
+            "description": "Scale Base Value"
+          },
+          "ConditionScaleBasisUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Unit of Meas.",
+            "description": "Condition Scale Unit of Measure"
+          },
+          "ConditionScaleBasisCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Scale Currency"
+          },
+          "ConditionAlternativeCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Condition Currency",
+            "description": "Condition Currency (for Cumulation Fields)"
+          },
+          "ConditionAmountInLocalCrcy": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Condition Value"
+          },
+          "CndnIsRelevantForIntcoBilling": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Intercomp.Billing",
+            "description": "Condition for Intercompany Billing"
+          },
+          "ConditionIsManuallyChanged": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Changed Manually",
+            "description": "Condition Changed Manually"
+          },
+          "CumulatedConditionBasisValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Condition Basis"
+          },
+          "ConditionIsForConfiguration": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "UsedforVariantConfig",
+            "description": "Condition Used for Variant Configuration"
+          },
+          "VariantCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 26,
+            "title": "Variant Key",
+            "description": "Variant Condition Key"
+          },
+          "to_SalesInquiry": {
+            "$ref": "#/components/schemas/A_SalesInquiry"
+          }
+        },
+        "title": "Header Pricing Element"
+      },
+      "CreateA_SalesInquiryPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "to_SalesInquiry": {
+            "$ref": "#/components/schemas/CreateA_SalesInquiry"
+          }
+        },
+        "required": [
+          "PricingProcedureStep",
+          "PricingProcedureCounter"
+        ],
+        "title": "Header Pricing Element (for create)"
+      },
+      "count": {
+        "type": "string",
+        "description": "The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option."
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "required": [
+                  "lang",
+                  "value"
+                ],
+                "properties": {
+                  "lang": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "innererror": {
+                "type": "object",
+                "description": "The structure of this object is service-specific"
+              }
+            }
+          }
+        }
+      },
+      "A_SalesInquiryOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesInquiry",
+            "SalesInquiry desc",
+            "SalesInquiryType",
+            "SalesInquiryType desc",
+            "SalesOrganization",
+            "SalesOrganization desc",
+            "DistributionChannel",
+            "DistributionChannel desc",
+            "OrganizationDivision",
+            "OrganizationDivision desc",
+            "SalesGroup",
+            "SalesGroup desc",
+            "SalesOffice",
+            "SalesOffice desc",
+            "SalesDistrict",
+            "SalesDistrict desc",
+            "SoldToParty",
+            "SoldToParty desc",
+            "CreationDate",
+            "CreationDate desc",
+            "CreatedByUser",
+            "CreatedByUser desc",
+            "LastChangeDate",
+            "LastChangeDate desc",
+            "LastChangeDateTime",
+            "LastChangeDateTime desc",
+            "PurchaseOrderByCustomer",
+            "PurchaseOrderByCustomer desc",
+            "CustomerPurchaseOrderType",
+            "CustomerPurchaseOrderType desc",
+            "CustomerPurchaseOrderDate",
+            "CustomerPurchaseOrderDate desc",
+            "SalesInquiryDate",
+            "SalesInquiryDate desc",
+            "TotalNetAmount",
+            "TotalNetAmount desc",
+            "TransactionCurrency",
+            "TransactionCurrency desc",
+            "SDDocumentReason",
+            "SDDocumentReason desc",
+            "PricingDate",
+            "PricingDate desc",
+            "HeaderBillingBlockReason",
+            "HeaderBillingBlockReason desc",
+            "BindingPeriodValidityStartDate",
+            "BindingPeriodValidityStartDate desc",
+            "BindingPeriodValidityEndDate",
+            "BindingPeriodValidityEndDate desc",
+            "HdrOrderProbabilityInPercent",
+            "HdrOrderProbabilityInPercent desc",
+            "ExpectedOrderNetAmount",
+            "ExpectedOrderNetAmount desc",
+            "IncotermsClassification",
+            "IncotermsClassification desc",
+            "IncotermsTransferLocation",
+            "IncotermsTransferLocation desc",
+            "IncotermsLocation1",
+            "IncotermsLocation1 desc",
+            "IncotermsLocation2",
+            "IncotermsLocation2 desc",
+            "IncotermsVersion",
+            "IncotermsVersion desc",
+            "CustomerPaymentTerms",
+            "CustomerPaymentTerms desc",
+            "PaymentMethod",
+            "PaymentMethod desc",
+            "OverallSDProcessStatus",
+            "OverallSDProcessStatus desc",
+            "TotalCreditCheckStatus",
+            "TotalCreditCheckStatus desc",
+            "OverallSDDocumentRejectionSts",
+            "OverallSDDocumentRejectionSts desc"
+          ]
+        }
+      },
+      "A_SalesInquirySelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "SalesInquiry",
+            "SalesInquiryType",
+            "SalesOrganization",
+            "DistributionChannel",
+            "OrganizationDivision",
+            "SalesGroup",
+            "SalesOffice",
+            "SalesDistrict",
+            "SoldToParty",
+            "CreationDate",
+            "CreatedByUser",
+            "LastChangeDate",
+            "LastChangeDateTime",
+            "PurchaseOrderByCustomer",
+            "CustomerPurchaseOrderType",
+            "CustomerPurchaseOrderDate",
+            "SalesInquiryDate",
+            "TotalNetAmount",
+            "TransactionCurrency",
+            "SDDocumentReason",
+            "PricingDate",
+            "HeaderBillingBlockReason",
+            "BindingPeriodValidityStartDate",
+            "BindingPeriodValidityEndDate",
+            "HdrOrderProbabilityInPercent",
+            "ExpectedOrderNetAmount",
+            "IncotermsClassification",
+            "IncotermsTransferLocation",
+            "IncotermsLocation1",
+            "IncotermsLocation2",
+            "IncotermsVersion",
+            "CustomerPaymentTerms",
+            "PaymentMethod",
+            "OverallSDProcessStatus",
+            "TotalCreditCheckStatus",
+            "OverallSDDocumentRejectionSts",
+            "to_Item",
+            "to_Partner",
+            "to_PricingElement"
+          ]
+        }
+      },
+      "A_SalesInquiryExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_Item",
+            "to_Partner",
+            "to_PricingElement"
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "count": {
+        "name": "$inlinecount",
+        "in": "query",
+        "description": "Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "allpages",
+            "none"
+          ]
+        }
+      },
+      "A_SalesInquiryOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesInquiryOrderByOptions"
+        }
+      },
+      "A_SalesInquirySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesInquirySelectOptions"
+        }
+      },
+      "A_SalesInquiryExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_SalesInquiryExpandOptions"
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "BasicAuth": []
+    }
+  ]
+}

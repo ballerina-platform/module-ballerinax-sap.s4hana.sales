@@ -46,3 +46,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## sap.s4hana.salesarea_0001
+
+## [Unreleased]
+
+### Added
+
+- Initial client implementation
+
+### Changed
+
+## sap.s4hana.api_sd_incoterms_srv
+
+## [Unreleased]
+
+### Added
+
+- Initial client implementation
+
+### Changed
+
+## sap.s4hana.api_sales_inquiry_srv
+
+## [Unreleased]
+
+### Added
+
+- Initial client implementation
+
+### Changed
+
+## sap.s4hana.api_sales_quotation_srv
+
+### Added
+
+- Initial client implementation
+
+### Changed
+
+## sap.s4hana.api_sales_order_simulation_srv
+
+### Added
+
+- Initial client implementation
+
+### Changed
+
+## sap.s4hana.ce_salesorder_0001
+
+### Added
+
+- Initial client implementation
+
+### Changed

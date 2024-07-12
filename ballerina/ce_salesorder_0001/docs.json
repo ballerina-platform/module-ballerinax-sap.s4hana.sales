@@ -1,0 +1,7 @@
+{
+  "description": "The `ballerinax/sap.s4hana.ce_salesorder_0001` package provides APIs that enable seamless integration with the [Sales Order (A2X) API (ODatav4) v1.0.0](https://api.sap.com/api/CE_SALESORDER_0001/overview). The service allows to create, read, update, and delete sales orders.",
+  "communication-scenario": "Sales Order Integration",
+  "import-statement": "import ballerinax/sap.s4hana.ce_salesorder_0001 as salesorder;",
+  "client-init": "salesorder:Client salesOrderClient = check new (",
+  "api-invocation": "salesorder:CollectionOfSalesOrder listASalesOrder = check salesOrderClient->listA_SalesOrders();"
+}
