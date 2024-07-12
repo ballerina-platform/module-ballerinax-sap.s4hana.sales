@@ -49,6 +49,10 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
    The service gives you information about pricing, material availability, and the customer's credit limit. The
    simulated sales order is not saved.
 
+10. The `ballerinax/sap.s4hana.ce_salesorder_0001` package provides APIs that enable seamless integration with
+    the [Sales Order (A2X) API (ODatav4) v1.0.0](https://api.sap.com/api/CE_SALESORDER_0001/overview). The service
+    allows to create, read, update, and delete sales orders.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
