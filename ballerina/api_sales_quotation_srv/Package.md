@@ -3,7 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-
+The `ballerinax/sap.s4hana.api_sales_quotation_srv` package provides APIs that enable seamless integration with the [Sales Quotation (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_QUOTATION_SRV/overview). The service allows to create, read, update, and delete sales quotation.
 
 ## Setup guide
 
@@ -13,7 +13,7 @@ designed for large-scale enterprises by SAP SE.
 
    ![Display Scenarios](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-1-display-scenarios.png)
 
-3. In the search bar, type `` and select the corresponding scenario from the results.
+3. In the search bar, type `Sales Quotation Integration` and select the corresponding scenario from the results.
 
    ![Search Sales Order](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-2-search-sales-order.png)
 
@@ -42,7 +42,7 @@ To use the `sap.s4hana.api_sales_quotation_srv` connector in your Ballerina appl
 Import the `sap.s4hana.api_sales_quotation_srv` module.
 
 ```ballerina
-
+import ballerinax/sap.s4hana.api_sales_quotation_srv as quotation;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -54,7 +54,7 @@ configurable string hostname = ?;
 configurable string username = ?;
 configurable string password = ?;
 
-
+quotation:Client quotationClient = check new (
     {
       auth: {
         username,
@@ -70,7 +70,7 @@ configurable string password = ?;
 Now, utilize the available connector operations.
 
 ```ballerina
-
+quotation:CollectionOfA_SalesQuotationWrapper listASalesOrder = check quotationClient->listA_SalesQuotations();
 ```
 
 ### Step 4: Run the Ballerina application
