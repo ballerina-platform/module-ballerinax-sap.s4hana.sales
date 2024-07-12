@@ -1,7 +1,7 @@
 {
-  "description": "",
-  "communication-scenario": "",
-  "import-statement": "",
-  "client-init": "",
-  "api-invocation": ""
+  "description": "The `ballerinax/sap.s4hana.api_sd_incoterms_srv` package provides APIs that enable seamless integration with the [Incoterm - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_INCOTERMS_SRV/overview). The service allows users to read incoterms defined in the system.",
+  "communication-scenario": "Sales Master Data Integration",
+  "import-statement": "import ballerinax/sap.s4hana.api_sd_incoterms_srv as incoterms;",
+  "client-init": "incoterms:Client incotermsClient = check new (",
+  "api-invocation": "incoterms:CollectionOfA_IncotermsClassificationWrapper listIncoTerms = check incotermsClient->listA_IncotermsClassifications();"
 }
