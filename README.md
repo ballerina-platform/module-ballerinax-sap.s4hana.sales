@@ -28,6 +28,14 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
    the [Sold-to Party Assignment of Sales Scheduling Agreement - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_SA_SOLDTOPARTYDETN/overview).
    The service allows users to read sold-to party assignment of sales scheduling agreement master data.
 
+5. The `ballerinax/sap.s4hana.salesarea_0001` package provides APIs that enable seamless integration with
+   the [Sales Area - Read (A2X) v1.0.0](https://api.sap.com/api/SALESAREA_0001/overview). The service allows users to
+   read sales areas.
+
+6. The `ballerinax/sap.s4hana.api_sd_incoterms_srv` package provides APIs that enable seamless integration with
+   the [Incoterm - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_INCOTERMS_SRV/overview). The service allows users
+   to read incoterms defined in the system.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
