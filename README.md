@@ -115,6 +115,7 @@ Execute the commands below to build from the source.
    | api_sales_inquiry_srv          | ballerinax/sap.s4hana.api_sales_inquiry_srv          |
    | api_sales_quotation_srv        | ballerinax/sap.s4hana.api_sales_quotation_srv        |
    | api_sales_order_simulation_srv | ballerinax/sap.s4hana.api_sales_order_simulation_srv |
+   | ce_salesorder_0001             | ballerinax/sap.s4hana.ce_salesorder_0001             |
 
 5. To run tests against different environment:
 

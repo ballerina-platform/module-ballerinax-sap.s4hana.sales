@@ -24,6 +24,7 @@ on:
           - api_sales_inquiry_srv
           - api_sales_quotation_srv
           - api_sales_order_simulation_srv
+          - ce_salesorder_0001
 
 jobs:
   publish-release:
