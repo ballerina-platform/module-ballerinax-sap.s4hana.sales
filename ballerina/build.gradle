@@ -88,6 +88,7 @@ task build {
     dependsOn(':sales-ballerina:api_sales_order_srv:build')
     dependsOn(':sales-ballerina:api_sd_sa_soldtopartydetn:build')
     dependsOn(':sales-ballerina:salesarea_0001:build')
+    dependsOn(':sales-ballerina:api_sd_incoterms_srv:build')
 }
 
 publishToMavenLocal.dependsOn build

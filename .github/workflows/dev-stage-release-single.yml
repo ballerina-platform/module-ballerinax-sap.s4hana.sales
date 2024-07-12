@@ -20,6 +20,7 @@ on:
           - api_sales_order_srv
           - api_sd_sa_soldtopartydetn
           - salesarea_0001
+          - api_sd_incoterms_srv
 
 jobs:
   publish-release:

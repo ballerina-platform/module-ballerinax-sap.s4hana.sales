@@ -90,6 +90,7 @@ Execute the commands below to build from the source.
    | api_sales_order_srv       | ballerinax/sap.s4hana.api_sales_order_srv       |
    | api_sd_sa_soldtopartydetn | ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn |
    | salesarea_0001            | ballerinax/sap.s4hana.salesarea_0001            |
+   | api_sd_incoterms_srv      | ballerinax/sap.s4hana.api_sd_incoterms_srv      |
 
 5. To run tests against different environment:
 
