@@ -125,6 +125,7 @@
   "paths": {
     "/A_SalesOrderSimulation": {
       "post": {
+        "operationId": "createA_SalesOrderSimulation",
         "summary": "Simulates the creation of a sales order.",
         "description": "Simulates the creation of a sales order, including price calculation with results, Available-to-Promise (ATP) check, partner determination, and credit check.",
         "tags": [
@@ -166,6 +167,7 @@
     },
     "/A_SlsOrdSimlnValAddedSrvc": {
       "get": {
+        "operationId": "listA_SlsOrdSimlnValAddedSrvcs",
         "summary": "Get entities from A_SlsOrdSimlnValAddedSrvc",
         "tags": [
           "Value Added Service for SO Simulation"
@@ -230,6 +232,7 @@
         }
       },
       "post": {
+        "operationId": "createA_SlsOrdSimlnValAddedSrvc",
         "summary": "Add new entity to A_SlsOrdSimlnValAddedSrvc",
         "tags": [
           "Value Added Service for SO Simulation"
@@ -312,6 +315,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsOrdSimlnValAddedSrvc",
         "summary": "Get entity from A_SlsOrdSimlnValAddedSrvc by key",
         "tags": [
           "Value Added Service for SO Simulation"
@@ -344,6 +348,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SlsOrdSimlnValAddedSrvc",
         "summary": "Update entity in A_SlsOrdSimlnValAddedSrvc",
         "tags": [
           "Value Added Service for SO Simulation"
@@ -375,6 +380,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SlsOrdSimlnValAddedSrvc",
         "summary": "Delete entity from A_SlsOrdSimlnValAddedSrvc",
         "tags": [
           "Value Added Service for SO Simulation"
@@ -391,6 +397,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
