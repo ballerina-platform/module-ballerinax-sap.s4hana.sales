@@ -122,57 +122,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsClassification",
-                  "IncotermsClassification desc",
-                  "LocationIsMandatory",
-                  "LocationIsMandatory desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsClassificationOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsClassification",
-                  "LocationIsMandatory",
-                  "to_IncotermsClassificationText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsClassificationSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_IncotermsClassificationText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsClassificationExpandOptions"
           }
         ],
         "responses": {
@@ -181,11 +137,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_IncotermsClassificationWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_IncotermsClassificationType",
+                      "title": "CollectionOfA_IncotermsClassification",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -194,7 +150,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsClassificationType"
+                            "$ref": "#/components/schemas/A_IncotermsClassification"
                           }
                         }
                       }
@@ -232,38 +188,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsClassification",
-                  "LocationIsMandatory",
-                  "to_IncotermsClassificationText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsClassificationByKeySelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_IncotermsClassificationText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsClassificationByKeyExpandOptions"
           }
         ],
         "responses": {
@@ -272,11 +200,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_IncotermsClassificationType",
+                  "title": "A_IncotermsClassificationWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsClassificationType"
+                      "$ref": "#/components/schemas/A_IncotermsClassification"
                     }
                   }
                 }
@@ -329,43 +257,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsClassification",
-                  "IncotermsClassification desc",
-                  "Language",
-                  "Language desc",
-                  "IncotermsClassificationName",
-                  "IncotermsClassificationName desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/IncotermsClassificationTextOfA_IncotermsClassificationOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsClassification",
-                  "Language",
-                  "IncotermsClassificationName"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/IncotermsClassificationTextOfA_IncotermsClassificationSelectOptions"
           }
         ],
         "responses": {
@@ -374,11 +269,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_IncotermsClassificationTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_IncotermsClassificationTextType",
+                      "title": "CollectionOfA_IncotermsClassificationText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -387,7 +282,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsClassificationTextType"
+                            "$ref": "#/components/schemas/A_IncotermsClassificationText"
                           }
                         }
                       }
@@ -429,43 +324,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsClassification",
-                  "IncotermsClassification desc",
-                  "Language",
-                  "Language desc",
-                  "IncotermsClassificationName",
-                  "IncotermsClassificationName desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsClassificationTextOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsClassification",
-                  "Language",
-                  "IncotermsClassificationName"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsClassificationTextSelectOptions"
           }
         ],
         "responses": {
@@ -474,11 +336,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_IncotermsClassificationTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_IncotermsClassificationTextType",
+                      "title": "CollectionOfA_IncotermsClassificationText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -487,7 +349,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsClassificationTextType"
+                            "$ref": "#/components/schemas/A_IncotermsClassificationText"
                           }
                         }
                       }
@@ -535,22 +397,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsClassification",
-                  "Language",
-                  "IncotermsClassificationName"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsClassificationTextByKeySelectOptions"
           }
         ],
         "responses": {
@@ -559,11 +406,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_IncotermsClassificationTextType",
+                  "title": "A_IncotermsClassificationTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsClassificationTextType"
+                      "$ref": "#/components/schemas/A_IncotermsClassificationText"
                     }
                   }
                 }
@@ -602,54 +449,13 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsVersion",
-                  "IncotermsVersion desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsVersionOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsVersion",
-                  "to_IncotermsVersionText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsVersionSelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_IncotermsVersionText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsVersionExpandOptions"
           }
         ],
         "responses": {
@@ -658,11 +464,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_IncotermsVersionWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_IncotermsVersionType",
+                      "title": "CollectionOfA_IncotermsVersion",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -671,7 +477,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsVersionType"
+                            "$ref": "#/components/schemas/A_IncotermsVersion"
                           }
                         }
                       }
@@ -709,37 +515,10 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsVersion",
-                  "to_IncotermsVersionText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsVersionByKeySelectOptions"
           },
           {
-            "name": "$expand",
-            "in": "query",
-            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "to_IncotermsVersionText"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsVersionByKeyExpandOptions"
           }
         ],
         "responses": {
@@ -748,11 +527,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_IncotermsVersionType",
+                  "title": "A_IncotermsVersionWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsVersionType"
+                      "$ref": "#/components/schemas/A_IncotermsVersion"
                     }
                   }
                 }
@@ -805,43 +584,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsVersion",
-                  "IncotermsVersion desc",
-                  "Language",
-                  "Language desc",
-                  "IncotermsVersionName",
-                  "IncotermsVersionName desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/IncotermsVersionTextOfA_IncotermsVersionOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsVersion",
-                  "Language",
-                  "IncotermsVersionName"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/IncotermsVersionTextOfA_IncotermsVersionSelectOptions"
           }
         ],
         "responses": {
@@ -850,11 +596,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_IncotermsVersionTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_IncotermsVersionTextType",
+                      "title": "CollectionOfA_IncotermsVersionText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -863,7 +609,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsVersionTextType"
+                            "$ref": "#/components/schemas/A_IncotermsVersionText"
                           }
                         }
                       }
@@ -905,43 +651,10 @@
             "$ref": "#/components/parameters/count"
           },
           {
-            "name": "$orderby",
-            "in": "query",
-            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsVersion",
-                  "IncotermsVersion desc",
-                  "Language",
-                  "Language desc",
-                  "IncotermsVersionName",
-                  "IncotermsVersionName desc"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsVersionTextOrderByOptions"
           },
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsVersion",
-                  "Language",
-                  "IncotermsVersionName"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsVersionTextSelectOptions"
           }
         ],
         "responses": {
@@ -950,11 +663,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Wrapper",
+                  "title": "CollectionOfA_IncotermsVersionTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "title": "Collection of A_IncotermsVersionTextType",
+                      "title": "CollectionOfA_IncotermsVersionText",
                       "type": "object",
                       "properties": {
                         "__count": {
@@ -963,7 +676,7 @@
                         "results": {
                           "type": "array",
                           "items": {
-                            "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsVersionTextType"
+                            "$ref": "#/components/schemas/A_IncotermsVersionText"
                           }
                         }
                       }
@@ -1011,22 +724,7 @@
         ],
         "parameters": [
           {
-            "name": "$select",
-            "in": "query",
-            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "uniqueItems": true,
-              "items": {
-                "type": "string",
-                "enum": [
-                  "IncotermsVersion",
-                  "Language",
-                  "IncotermsVersionName"
-                ]
-              }
-            }
+            "$ref": "#/components/parameters/A_IncotermsVersionTextByKeySelectOptions"
           }
         ],
         "responses": {
@@ -1035,11 +733,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "A_IncotermsVersionTextType",
+                  "title": "A_IncotermsVersionTextWrapper",
                   "type": "object",
                   "properties": {
                     "d": {
-                      "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsVersionTextType"
+                      "$ref": "#/components/schemas/A_IncotermsVersionText"
                     }
                   }
                 }
@@ -1092,7 +790,7 @@
   },
   "components": {
     "schemas": {
-      "API_SD_INCOTERMS_SRV.A_IncotermsClassificationType": {
+      "A_IncotermsClassification": {
         "type": "object",
         "properties": {
           "IncotermsClassification": {
@@ -1114,7 +812,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsClassificationTextType"
+                  "$ref": "#/components/schemas/A_IncotermsClassificationText"
                 }
               }
             }
@@ -1122,7 +820,7 @@
         },
         "title": "Incoterms"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsClassificationType-create": {
+      "CreateA_IncotermsClassification": {
         "type": "object",
         "properties": {
           "IncotermsClassification": {
@@ -1144,7 +842,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsClassificationTextType-create"
+                  "$ref": "#/components/schemas/CreateA_IncotermsClassificationText"
                 }
               }
             }
@@ -1155,7 +853,7 @@
         ],
         "title": "Incoterms (for create)"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsClassificationType-update": {
+      "UpdateA_IncotermsClassification": {
         "type": "object",
         "properties": {
           "LocationIsMandatory": {
@@ -1167,7 +865,7 @@
         },
         "title": "Incoterms (for update)"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsClassificationTextType": {
+      "A_IncotermsClassificationText": {
         "type": "object",
         "properties": {
           "IncotermsClassification": {
@@ -1191,7 +889,7 @@
         },
         "title": "Incoterms Description"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsClassificationTextType-create": {
+      "CreateA_IncotermsClassificationText": {
         "type": "object",
         "properties": {
           "IncotermsClassification": {
@@ -1219,7 +917,7 @@
         ],
         "title": "Incoterms Description (for create)"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsClassificationTextType-update": {
+      "UpdateA_IncotermsClassificationText": {
         "type": "object",
         "properties": {
           "IncotermsClassificationName": {
@@ -1231,7 +929,7 @@
         },
         "title": "Incoterms Description (for update)"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsVersionType": {
+      "A_IncotermsVersion": {
         "type": "object",
         "properties": {
           "IncotermsVersion": {
@@ -1246,7 +944,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsVersionTextType"
+                  "$ref": "#/components/schemas/A_IncotermsVersionText"
                 }
               }
             }
@@ -1254,7 +952,7 @@
         },
         "title": "Incoterms Version"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsVersionType-create": {
+      "CreateA_IncotermsVersion": {
         "type": "object",
         "properties": {
           "IncotermsVersion": {
@@ -1269,7 +967,7 @@
               "results": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/API_SD_INCOTERMS_SRV.A_IncotermsVersionTextType-create"
+                  "$ref": "#/components/schemas/CreateA_IncotermsVersionText"
                 }
               }
             }
@@ -1280,11 +978,11 @@
         ],
         "title": "Incoterms Version (for create)"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsVersionType-update": {
+      "UpdateA_IncotermsVersion": {
         "type": "object",
         "title": "Incoterms Version (for update)"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsVersionTextType": {
+      "A_IncotermsVersionText": {
         "type": "object",
         "properties": {
           "IncotermsVersion": {
@@ -1307,7 +1005,7 @@
         },
         "title": "Version Description"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsVersionTextType-create": {
+      "CreateA_IncotermsVersionText": {
         "type": "object",
         "properties": {
           "IncotermsVersion": {
@@ -1334,7 +1032,7 @@
         ],
         "title": "Version Description (for create)"
       },
-      "API_SD_INCOTERMS_SRV.A_IncotermsVersionTextType-update": {
+      "UpdateA_IncotermsVersionText": {
         "type": "object",
         "properties": {
           "IncotermsVersionName": {
@@ -1388,6 +1086,181 @@
             }
           }
         }
+      },
+      "A_IncotermsClassificationOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsClassification",
+            "IncotermsClassification desc",
+            "LocationIsMandatory",
+            "LocationIsMandatory desc"
+          ]
+        }
+      },
+      "A_IncotermsClassificationSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsClassification",
+            "LocationIsMandatory",
+            "to_IncotermsClassificationText"
+          ]
+        }
+      },
+      "A_IncotermsClassificationExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_IncotermsClassificationText"
+          ]
+        }
+      },
+      "IncotermsClassificationTextOfA_IncotermsClassificationOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsClassification",
+            "IncotermsClassification desc",
+            "Language",
+            "Language desc",
+            "IncotermsClassificationName",
+            "IncotermsClassificationName desc"
+          ]
+        }
+      },
+      "IncotermsClassificationTextOfA_IncotermsClassificationSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsClassification",
+            "Language",
+            "IncotermsClassificationName"
+          ]
+        }
+      },
+      "A_IncotermsClassificationTextOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsClassification",
+            "IncotermsClassification desc",
+            "Language",
+            "Language desc",
+            "IncotermsClassificationName",
+            "IncotermsClassificationName desc"
+          ]
+        }
+      },
+      "A_IncotermsClassificationTextSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsClassification",
+            "Language",
+            "IncotermsClassificationName"
+          ]
+        }
+      },
+      "A_IncotermsVersionOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsVersion",
+            "IncotermsVersion desc"
+          ]
+        }
+      },
+      "A_IncotermsVersionSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsVersion",
+            "to_IncotermsVersionText"
+          ]
+        }
+      },
+      "A_IncotermsVersionExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_IncotermsVersionText"
+          ]
+        }
+      },
+      "IncotermsVersionTextOfA_IncotermsVersionOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsVersion",
+            "IncotermsVersion desc",
+            "Language",
+            "Language desc",
+            "IncotermsVersionName",
+            "IncotermsVersionName desc"
+          ]
+        }
+      },
+      "IncotermsVersionTextOfA_IncotermsVersionSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsVersion",
+            "Language",
+            "IncotermsVersionName"
+          ]
+        }
+      },
+      "A_IncotermsVersionTextOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsVersion",
+            "IncotermsVersion desc",
+            "Language",
+            "Language desc",
+            "IncotermsVersionName",
+            "IncotermsVersionName desc"
+          ]
+        }
+      },
+      "A_IncotermsVersionTextSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsVersion",
+            "Language",
+            "IncotermsVersionName"
+          ]
+        }
       }
     },
     "parameters": {
@@ -1420,6 +1293,186 @@
             "allpages",
             "none"
           ]
+        }
+      },
+      "A_IncotermsClassificationOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationOrderByOptions"
+        }
+      },
+      "A_IncotermsClassificationSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationSelectOptions"
+        }
+      },
+      "A_IncotermsClassificationExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationExpandOptions"
+        }
+      },
+      "A_IncotermsClassificationByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationSelectOptions"
+        }
+      },
+      "A_IncotermsClassificationByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationExpandOptions"
+        }
+      },
+      "IncotermsClassificationTextOfA_IncotermsClassificationOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/IncotermsClassificationTextOfA_IncotermsClassificationOrderByOptions"
+        }
+      },
+      "IncotermsClassificationTextOfA_IncotermsClassificationSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/IncotermsClassificationTextOfA_IncotermsClassificationSelectOptions"
+        }
+      },
+      "A_IncotermsClassificationTextOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationTextOrderByOptions"
+        }
+      },
+      "A_IncotermsClassificationTextSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationTextSelectOptions"
+        }
+      },
+      "A_IncotermsClassificationTextByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationTextSelectOptions"
+        }
+      },
+      "A_IncotermsVersionOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsVersionOrderByOptions"
+        }
+      },
+      "A_IncotermsVersionSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsVersionSelectOptions"
+        }
+      },
+      "A_IncotermsVersionExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsVersionExpandOptions"
+        }
+      },
+      "A_IncotermsVersionByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsVersionSelectOptions"
+        }
+      },
+      "A_IncotermsVersionByKeyExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsVersionExpandOptions"
+        }
+      },
+      "IncotermsVersionTextOfA_IncotermsVersionOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/IncotermsVersionTextOfA_IncotermsVersionOrderByOptions"
+        }
+      },
+      "IncotermsVersionTextOfA_IncotermsVersionSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/IncotermsVersionTextOfA_IncotermsVersionSelectOptions"
+        }
+      },
+      "A_IncotermsVersionTextOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsVersionTextOrderByOptions"
+        }
+      },
+      "A_IncotermsVersionTextSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsVersionTextSelectOptions"
+        }
+      },
+      "A_IncotermsVersionTextByKeySelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsVersionTextSelectOptions"
         }
       }
     },
