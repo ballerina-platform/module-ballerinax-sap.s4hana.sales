@@ -117,6 +117,7 @@
   "paths": {
     "/A_SalesQuotation": {
       "get": {
+        "operationId": "listA_SalesQuotations",
         "summary": "Reads all sales quotation headers.",
         "description": "Reads the header data of all sales quotations in the system.",
         "tags": [
@@ -185,6 +186,7 @@
         }
       },
       "post": {
+        "operationId": "createA_SalesQuotation",
         "summary": "Creates a sales quotation.",
         "description": "Creates a sales quotation header using deep insert requests. This means consumers can create a sales quotation with all possible sub-entities (for example, header partners or items).",
         "tags": [
@@ -238,6 +240,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesQuotation",
         "summary": "Reads the header of a specific sales quotation.",
         "description": "Reads the header data of a specific sales quotation. Consumers must pass the sales quotation ID (key field).",
         "tags": [
@@ -274,6 +277,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SalesQuotation",
         "summary": "Updates a specific sales quotation.",
         "description": "Updates the header data of a specific sales quotation. Consumers must pass the sales quotation ID (key field).",
         "tags": [
@@ -306,6 +310,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SalesQuotation",
         "summary": "Deletes a specific sales quotation.",
         "description": "Deletes the header data of a specific sales quotation. Consumers must pass the sales quotation ID (key field).",
         "tags": [
@@ -335,6 +340,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemsOfA_SalesQuotation",
         "summary": "Reads all items of a specific sales quotation.",
         "description": "Reads all item data of a specific sales quotation. Consumers must pass the sales quotation ID (key field).",
         "tags": [
@@ -404,6 +410,7 @@
         }
       },
       "post": {
+        "operationId": "createItemOfA_SalesQuotation",
         "summary": "Creates a sales quotation item for a specific sales quotation.",
         "description": "Creates a sales quotation item for a specific sales quotation using deep insert requests. This means consumers can create an item with all possible sub-entities (for example, item partners or item texts).",
         "tags": [
@@ -458,6 +465,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_SalesQuotation",
         "summary": "Reads the header partners of a specific sales quotation.",
         "description": "Reads the business partner data from the header of a specific sales quotation. Consumers must pass the sales quotation ID (key field). The data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -541,6 +549,7 @@
         }
       ],
       "get": {
+        "operationId": "listPrecedingProcFlowDocsOfA_SalesQuotation",
         "summary": "Reads the preceding documents of a sales quotation.",
         "description": "Reads the preceding documents of a specific sales quotation in the latter's process flow. Consumers must pass the sales quotation ID.",
         "tags": [
@@ -624,6 +633,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_SalesQuotation",
         "summary": "Reads the header pricing element of a specific sales quotation.",
         "description": "Reads the pricing element data from the header of a specific sales quotation. Consumers must pass the sales quotation ID (key field).",
         "tags": [
@@ -707,6 +717,7 @@
         }
       ],
       "get": {
+        "operationId": "listRelatedObjectsOfA_SalesQuotation",
         "summary": "Reads the related objects of a sales quotation.",
         "description": "Reads related objects from the header of a specific sales quotation. Consumers must pass the sales quotation ID.",
         "tags": [
@@ -776,6 +787,7 @@
         }
       },
       "post": {
+        "operationId": "createRelatedObjectOfA_SalesQuotation",
         "summary": "Creates related objects for a sales quotation.",
         "description": "Creates related objects for the header of a specific sales quotation. Consumers must pass the sales quotation ID, related object type, and related object reference 1.",
         "tags": [
@@ -830,6 +842,7 @@
         }
       ],
       "get": {
+        "operationId": "listSubsequentProcFlowDocsOfA_SalesQuotation",
         "summary": "Reads the subsequent documents of a sales quotation.",
         "description": "Reads the subsequent documents of a specific sales quotation in the latter's process flow. Consumers must pass the sales quotation ID.",
         "tags": [
@@ -913,6 +926,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_SalesQuotation",
         "summary": "Reads the header texts of a specific sales quotation.",
         "description": "Reads the text data from the header of a specific sales quotation. Consumers must pass the sales quotation ID (key field).",
         "tags": [
@@ -984,6 +998,7 @@
     },
     "/A_SalesQuotationItem": {
       "get": {
+        "operationId": "listA_SalesQuotationItems",
         "summary": "Reads all sales quotation items.",
         "description": "Reads the item data of all sales quotations in the system.",
         "tags": [
@@ -1052,6 +1067,7 @@
         }
       },
       "post": {
+        "operationId": "createA_SalesQuotationItem",
         "summary": "Creates a sales quotation item.",
         "description": "Creates a sales quotation item using deep insert requests. This means consumers can create an item with all possible sub-entities (for example, item partners or item texts).",
         "tags": [
@@ -1115,6 +1131,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesQuotationItem",
         "summary": "Reads a specific sales quotation item.",
         "description": "Reads the data of a specific sales quotation item. Consumers must pass the following key fields: sales quotation ID and item number.",
         "tags": [
@@ -1151,6 +1168,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SalesQuotationItem",
         "summary": "Updates a specific sales quotation item.",
         "description": "Updates the data of a specific sales quotation item. Consumers must pass the following key fields: sales quotation ID and item number.",
         "tags": [
@@ -1183,6 +1201,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SalesQuotationItem",
         "summary": "Deletes a specific sales quotation item.",
         "description": "Deletes the data of a specific sales quotation item. Consumers must pass the following key fields: sales quotation ID and item number.",
         "tags": [
@@ -1222,6 +1241,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_SalesQuotationItem",
         "summary": "Reads the item partners of a specific sales quotation item.",
         "description": "Reads the partner data for a specific item of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID and item number.",
         "tags": [
@@ -1315,6 +1335,7 @@
         }
       ],
       "get": {
+        "operationId": "listPrecedingProcFlowDocItemsOfA_SalesQuotationItem",
         "summary": "Reads the preceding items of a sales quotation item.",
         "description": "Reads the preceding items of a specific sales quotation item in the latter's process flow. Consumers must pass the sales quotation ID and item number.",
         "tags": [
@@ -1408,6 +1429,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_SalesQuotationItem",
         "summary": "Reads the pricing element of a specific sales quotation item.",
         "description": "Reads the pricing element data for a specific item of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID and item number.",
         "tags": [
@@ -1501,6 +1523,7 @@
         }
       ],
       "get": {
+        "operationId": "listRelatedObjectsOfA_SalesQuotationItem",
         "summary": "Reads the related objects of a sales quotation item.",
         "description": "Reads related objects from a specific sales quotation item. Consumers must pass the sales quotation ID and item number.",
         "tags": [
@@ -1570,6 +1593,7 @@
         }
       },
       "post": {
+        "operationId": "createRelatedObjectOfA_SalesQuotationItem",
         "summary": "Creates related objects for a sales quotation item.",
         "description": "Creates related objects for a specific sales quotation item. Consumers must pass the sales quotation ID, item number, related object type, and related object reference 1.",
         "tags": [
@@ -1634,6 +1658,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SalesQuotationItem",
         "summary": "Reads the sales quotation header for a specific item.",
         "description": "Reads the sales quotation header data for a specific item. Consumers must pass the following key fields: sales quotation ID and item number.",
         "tags": [
@@ -1695,6 +1720,7 @@
         }
       ],
       "get": {
+        "operationId": "listSubsequentProcFlowDocItemsOfA_SalesQuotationItem",
         "summary": "Reads the subsequent items of a sales quotation item.",
         "description": "Reads the subsequent items of a specific sales quotation item in the latter's process flow. Consumers must pass the sales quotation ID and item number.",
         "tags": [
@@ -1788,6 +1814,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_SalesQuotationItem",
         "summary": "Reads the text of a specific sales quotation item.",
         "description": "Reads the text data for a specific item. Consumers must pass the following key fields: sales quotation ID and item number.",
         "tags": [
@@ -1859,6 +1886,7 @@
     },
     "/A_SalesQuotationItemPartner": {
       "get": {
+        "operationId": "listA_SalesQuotationItemPartners",
         "summary": "Reads the item partners for all sales quotations.",
         "description": "Reads the partner data from the items of all sales quotations in the system.",
         "tags": [
@@ -1962,6 +1990,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesQuotationItemPartner",
         "summary": "Reads the item partners of a specific item and with a specific partner function in a specific sales quotation.",
         "description": "Reads the item partners with a specific partner function of a specific sales quotation item. Consumers must pass the following key fields: sales quotation ID, item number, and partner function.",
         "tags": [
@@ -1998,6 +2027,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SalesQuotationItemPartner",
         "summary": "Updates the item partners of a specific item and with a specific partner function in a specific sales quotation.",
         "description": "Updates the item partners with a specific partner function of a specific sales quotation item. Consumers must pass the following key fields: sales quotation ID, item number, and partner function.",
         "tags": [
@@ -2030,6 +2060,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SalesQuotationItemPartner",
         "summary": "Deletes the item partners of a specific item and with a specific partner function in a specific sales quotation.",
         "description": "Deletes the item partners with a specific partner function of a specific sales quotation item. Consumers must pass the following key fields: sales quotation ID, item number, and partner function.",
         "tags": [
@@ -2080,6 +2111,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SalesQuotationItemPartner",
         "summary": "Reads the sales quotation header for a specific partner function of a sales quotation item.",
         "description": "Reads the sales quotation header data for a specific item partner function. Consumers must pass the following key fields: sales quotation ID, item number, and partner function.",
         "tags": [
@@ -2152,6 +2184,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationItemOfA_SalesQuotationItemPartner",
         "summary": "Reads the sales quotation item for a specific partner function of a sales quotation item.",
         "description": "Reads the sales quotation item data for a specific item partner function. Consumers must pass the following key fields: sales quotation ID, item number, and partner function.",
         "tags": [
@@ -2191,6 +2224,7 @@
     },
     "/A_SalesQuotationItemPrcgElmnt": {
       "get": {
+        "operationId": "listA_SalesQuotationItemPrcgElmnts",
         "summary": "Reads the item pricing elements of all sales quotations.",
         "description": "Reads the pricing element data from the items of all sales quotations in the system.",
         "tags": [
@@ -2303,6 +2337,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesQuotationItemPrcgElmnt",
         "summary": "Reads the pricing element of a specific sales quotation item.",
         "description": "Reads the pricing element data for a specific item of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID and item number.",
         "tags": [
@@ -2339,6 +2374,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SalesQuotationItemPrcgElmnt",
         "summary": "Updates an item pricing element.",
         "description": "Updates an item pricing element of a specific sales quotation item. Consumers must pass the following key fields: sales quotation ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -2371,6 +2407,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SalesQuotationItemPrcgElmnt",
         "summary": "Deletes an item pricing element.",
         "description": "Deletes an item pricing element of a specific sales quotation item. Consumers must pass the following key fields: sales quotation ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -2430,6 +2467,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SalesQuotationItemPrcgElmnt",
         "summary": "Reads the sales quotation header for a specific pricing element.",
         "description": "Reads the sales quotation header data for a specific pricing element of a specific sales quotation item. Consumers must pass the following key fields: sales quotation ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -2511,6 +2549,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationItemOfA_SalesQuotationItemPrcgElmnt",
         "summary": "Reads the sales quotation item for a specific pricing element.",
         "description": "Reads the sales quotation item data for a specific pricing element of a specific sales quotation item. Consumers must pass the following key fields: sales quotation ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -2550,6 +2589,7 @@
     },
     "/A_SalesQuotationItemText": {
       "get": {
+        "operationId": "listA_SalesQuotationItemTexts",
         "summary": "Reads item texts of all sales quotations.",
         "description": "Reads the text data from the items of all sales quotations in the system.",
         "tags": [
@@ -2662,6 +2702,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesQuotationItemText",
         "summary": "Reads a specific item text.",
         "description": "Reads a specific item text in a specific language. Consumers must pass the following key fields: sales quotation ID, item number, language, and text ID.",
         "tags": [
@@ -2698,6 +2739,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SalesQuotationItemText",
         "summary": "Updates a specific item text.",
         "description": "Updates a specific item text in a specific language. Consumers must pass the following key fields: sales quotation ID, item number, language, and text ID.",
         "tags": [
@@ -2730,6 +2772,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SalesQuotationItemText",
         "summary": "Deletes a specific item text.",
         "description": "Deletes a specific item text in a specific language. Consumers must pass the following key fields: sales quotation ID, item number, language, and text ID.",
         "tags": [
@@ -2789,6 +2832,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SalesQuotationItemText",
         "summary": "Reads the sales quotation header for a specific text of a sales quotation item.",
         "description": "Reads the sales quotation header data for a specific text of a specific sales quotation item in a specific language. Consumers must pass the following key fields: sales quotation ID, item number, language, and text ID.",
         "tags": [
@@ -2870,6 +2914,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationItemOfA_SalesQuotationItemText",
         "summary": "Reads the sales quotation item for a specific item text.",
         "description": "Reads the sales quotation item data for a specific text in a specific language. Consumers must pass the following key fields: sales quotation ID, item number, language, and text ID.",
         "tags": [
@@ -2909,6 +2954,7 @@
     },
     "/A_SalesQuotationPartner": {
       "get": {
+        "operationId": "listA_SalesQuotationPartners",
         "summary": "Reads the header partners of all sales quotations.",
         "description": "Reads the partner data from the headers of all sales quotations in the system. The data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -3002,6 +3048,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesQuotationPartner",
         "summary": "Reads the header partners of a specific sales quotation and with a specific partner function.",
         "description": "Reads the data of partners with a specific partner function from the header of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID and partner function.",
         "tags": [
@@ -3038,6 +3085,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SalesQuotationPartner",
         "summary": "Updates the header partners of a specific sales quotation and with a specific partner function.",
         "description": "Updates the data of partners with a specific partner function from the header of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID and partner function.",
         "tags": [
@@ -3070,6 +3118,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SalesQuotationPartner",
         "summary": "Deletes the header partners of a specific sales quotation and with a specific partner function.",
         "description": "Deletes the data of partners with a specific partner function from the header of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID and partner function.",
         "tags": [
@@ -3110,6 +3159,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SalesQuotationPartner",
         "summary": "Reads the sales quotation header for a specific header partner.",
         "description": "Reads the sales quotation header data for a specific header partner function. Consumers must pass the following key fields: partner function and the sales quotation ID.",
         "tags": [
@@ -3149,6 +3199,7 @@
     },
     "/A_SalesQuotationPrcgElmnt": {
       "get": {
+        "operationId": "listA_SalesQuotationPrcgElmnts",
         "summary": "Reads the header pricing elements of all sales quotations.",
         "description": "Reads the pricing element data from the headers of all sales quotations in the system.",
         "tags": [
@@ -3251,6 +3302,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesQuotationPrcgElmnt",
         "summary": "Reads the header pricing element for a specific sales quotation.",
         "description": "Reads the pricing element data from the header of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -3287,6 +3339,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SalesQuotationPrcgElmnt",
         "summary": "Updates a header pricing element for a specific sales quotation.",
         "description": "Updates the pricing element data from the header of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -3319,6 +3372,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SalesQuotationPrcgElmnt",
         "summary": "Deletes a header pricing element for a specific sales quotation.",
         "description": "Deletes the pricing element data from the header of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -3368,6 +3422,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SalesQuotationPrcgElmnt",
         "summary": "Reads the sales quotation header for a specific pricing element.",
         "description": "Reads the sales quotation header data for a specific pricing element. Consumers must pass the following key fields: sales quotation ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -3407,6 +3462,7 @@
     },
     "/A_SalesQuotationRelatedObject": {
       "get": {
+        "operationId": "listA_SalesQuotationRelatedObjects",
         "summary": "Reads the related objects of all sales quotations.",
         "description": "Reads related objects from the headers of all sales quotations in the system.",
         "tags": [
@@ -3475,6 +3531,7 @@
         }
       },
       "post": {
+        "operationId": "createA_SalesQuotationRelatedObject",
         "summary": "Creates a related object for a sales quotation.",
         "description": "Creates a related object for the header of a specific sales quotation. Consumers must pass the sales quotation ID, related object type, and related object reference 1.",
         "tags": [
@@ -3538,6 +3595,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesQuotationRelatedObject",
         "summary": "Reads a related object of a sales quotation.",
         "description": "Reads a related object from the header of a specific sales quotation. Consumers must pass the sales quotation ID and sequence number of the related object.",
         "tags": [
@@ -3574,6 +3632,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SalesQuotationRelatedObject",
         "summary": "Deletes a related object from a sales quotation.",
         "description": "Deletes a related object from the header of a specific sales quotation. Consumers must pass the sales quotation ID and sequence number of the related object.",
         "tags": [
@@ -3613,6 +3672,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SalesQuotationRelatedObject",
         "summary": "Reads the sales quotation header for a related object of a sales quotation.",
         "description": "Reads the sales quotation header data for a specific header related object. Consumers must pass the sales quotation ID and sequence number of the related object.",
         "tags": [
@@ -3652,6 +3712,7 @@
     },
     "/A_SalesQuotationText": {
       "get": {
+        "operationId": "listA_SalesQuotationTexts",
         "summary": "Reads the header texts of all sales quotations.",
         "description": "Reads the text data from the headers of all sales quotations in the system.",
         "tags": [
@@ -3754,6 +3815,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesQuotationText",
         "summary": "Reads the header texts of a specific sales quotation.",
         "description": "Reads the text data from the header of a specific sales quotation. Consumers must pass the sales quotation ID (key field).",
         "tags": [
@@ -3790,6 +3852,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SalesQuotationText",
         "summary": "Updates a specific header text for a specific sales quotation.",
         "description": "Updates the text data from the header of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID, language, and text ID.",
         "tags": [
@@ -3822,6 +3885,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SalesQuotationText",
         "summary": "Deletes a specific header text for a specific sales quotation.",
         "description": "Deletes the text data from the header of a specific sales quotation. Consumers must pass the following key fields: sales quotation ID, language, and text ID.",
         "tags": [
@@ -3871,6 +3935,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SalesQuotationText",
         "summary": "Reads the sales quotation header for a specific header text.",
         "description": "Reads the sales quotation header data for a specific header text. Consumers must pass the following key fields: sales quotation ID, language, and text ID.",
         "tags": [
@@ -3910,6 +3975,7 @@
     },
     "/A_SlsQtanItemRelatedObject": {
       "get": {
+        "operationId": "listA_SlsQtanItemRelatedObjects",
         "summary": "Reads related objects from all sales quotation items.",
         "description": "Reads related objects from the items of all sales quotations in the system.",
         "tags": [
@@ -3978,6 +4044,7 @@
         }
       },
       "post": {
+        "operationId": "createA_SlsQtanItemRelatedObject",
         "summary": "Creates a related object for a sales quotation item.",
         "description": "Creates a related object for a specific sales quotation item. Consumers must pass the sales quotation ID, item number, related object type, and related object reference 1.",
         "tags": [
@@ -4051,6 +4118,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsQtanItemRelatedObject",
         "summary": "Reads a related object from a sales quotation item.",
         "description": "Reads a related object from a specific sales quotation item. Consumers must pass the sales quotation ID, item number, and sequence number of the related object.",
         "tags": [
@@ -4087,6 +4155,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SlsQtanItemRelatedObject",
         "summary": "Deletes a related object from a sales quotation item.",
         "description": "Deletes a related object from a specific sales quotation item. Consumers must pass the sales quotation ID, item number, and sequence number of the related object.",
         "tags": [
@@ -4136,6 +4205,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SlsQtanItemRelatedObject",
         "summary": "Reads the sales quotation header for a related object of a sales quotation item.",
         "description": "Reads the sales quotation header data for a specific item related object. Consumers must pass the sales quotation ID, item number, and sequence number of the related object.",
         "tags": [
@@ -4207,6 +4277,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationItemOfA_SlsQtanItemRelatedObject",
         "summary": "Reads the sales quotation item for a related object of a sales quotation item.",
         "description": "Reads the sales quotation item data for a specific item related object. Consumers must pass the sales quotation ID, item number, and sequence number of the related object.",
         "tags": [
@@ -4246,6 +4317,7 @@
     },
     "/A_SlsQtanItmPrecdgProcFlow": {
       "get": {
+        "operationId": "listA_SlsQtanItmPrecdgProcFlows",
         "summary": "Reads the preceding items of all sales quotation items.",
         "description": "Reads the preceding items of all sales quotation items in the latter's process flow.",
         "tags": [
@@ -4349,6 +4421,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsQtanItmPrecdgProcFlow",
         "summary": "Reads a preceding item of a sales quotation item.",
         "description": "Reads a preceding item of a specific sales quotation item in the latter's process flow. Consumers must pass the sales quotation ID, item number, and document relationship UUID.",
         "tags": [
@@ -4420,6 +4493,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SlsQtanItmPrecdgProcFlow",
         "summary": "Reads the sales quotation header for a preceding item of a sales quotation item.",
         "description": "Reads the sales quotation header data for a specific preceding item of a sales quotation item. Consumers must pass the sales quotation ID, item number, and document relationship UUID.",
         "tags": [
@@ -4492,6 +4566,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationItemOfA_SlsQtanItmPrecdgProcFlow",
         "summary": "Reads the sales quotation item for a preceding item of a sales quotation item.",
         "description": "Reads the sales quotation item data for a specific preceding item of a sales quotation item. Consumers must pass the sales quotation ID, item number, and document relationship UUID.",
         "tags": [
@@ -4531,6 +4606,7 @@
     },
     "/A_SlsQtanItmSubsqntProcFlow": {
       "get": {
+        "operationId": "listA_SlsQtanItmSubsqntProcFlows",
         "summary": "Reads the subsequent items of all sales quotation items.",
         "description": "Reads the subsequent items of all sales quotation items in the latter's process flow.",
         "tags": [
@@ -4634,6 +4710,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsQtanItmSubsqntProcFlow",
         "summary": "Reads a subsequent item of a sales quotation item.",
         "description": "Reads a subsequent item of a specific sales quotation item in the latter's process flow. Consumers must pass the sales quotation ID, item number, and document relationship UUID.",
         "tags": [
@@ -4705,6 +4782,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SlsQtanItmSubsqntProcFlow",
         "summary": "Reads the sales quotation header for a subsequent item of a sales quotation item.",
         "description": "Reads the sales quotation header data for a specific subsequent item of a sales quotation item. Consumers must pass the sales quotation ID, item number, and document relationship UUID.",
         "tags": [
@@ -4777,6 +4855,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationItemOfA_SlsQtanItmSubsqntProcFlow",
         "summary": "Reads the sales quotation item for a subsequent item of a sales quotation item.",
         "description": "Reads the sales quotation item data for a specific subsequent item of a sales quotation item. Consumers must pass the sales quotation ID, item number, and document relationship UUID.",
         "tags": [
@@ -4816,6 +4895,7 @@
     },
     "/A_SlsQtanPrecdgProcFlow": {
       "get": {
+        "operationId": "listA_SlsQtanPrecdgProcFlows",
         "summary": "Reads the preceding documents of all sales quotations.",
         "description": "Reads the preceding documents of all sales quotations in the latter's process flow.",
         "tags": [
@@ -4909,6 +4989,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsQtanPrecdgProcFlow",
         "summary": "Reads a preceding document of a sales quotation.",
         "description": "Reads a preceding document of a specific sales quotation in the latter's process flow. Consumers must pass the sales quotation ID and document relationship UUID.",
         "tags": [
@@ -4970,6 +5051,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SlsQtanPrecdgProcFlow",
         "summary": "Reads the sales quotation header for a preceding document of a sales quotation.",
         "description": "Read the sales quotation header data for a specific preceding document of a specific sales quotation. Consumers must pass the sales quotation ID and document relationship UUID.",
         "tags": [
@@ -5009,6 +5091,7 @@
     },
     "/A_SlsQtanSubsqntProcFlow": {
       "get": {
+        "operationId": "listA_SlsQtanSubsqntProcFlows",
         "summary": "Reads the subsequent documents of all sales quotations.",
         "description": "Reads the subsequent documents of all sales quotations in the latter's process flow.",
         "tags": [
@@ -5102,6 +5185,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsQtanSubsqntProcFlow",
         "summary": "Reads a subsequent document of a sales quotation.",
         "description": "Reads a subsequent document of a specific sales quotation in the latter's process flow. Consumers must pass the sales quotation ID and document relationship UUID.",
         "tags": [
@@ -5163,6 +5247,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesQuotationOfA_SlsQtanSubsqntProcFlow",
         "summary": "Reads the sales quotation header for a subsequent document of a sales quotation.",
         "description": "Read the sales quotation header data for a specific subsequent document of a specific sales quotation. Consumers must pass the sales quotation ID and document relationship UUID.",
         "tags": [
@@ -5202,6 +5287,7 @@
     },
     "/releaseApprovalRequest": {
       "post": {
+        "operationId": "releaseApprovalRequest",
         "summary": "Invoke action releaseApprovalRequest",
         "tags": [
           "Service Operations"
@@ -5249,6 +5335,7 @@
     },
     "/rejectApprovalRequest": {
       "post": {
+        "operationId": "rejectApprovalRequest",
         "summary": "Invoke action rejectApprovalRequest",
         "tags": [
           "Service Operations"
@@ -5296,6 +5383,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
