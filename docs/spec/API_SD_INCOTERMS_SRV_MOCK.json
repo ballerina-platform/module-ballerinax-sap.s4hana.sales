@@ -1,0 +1,390 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Incoterm - Read (A2X)",
+    "version": "1.0.0",
+    "description": "The OData service enables external systems and other consumers to retrieve Incoterms data in your system. Retrievable details include Incoterms and Incoterms versions."
+  },
+  "externalDocs": {
+    "description": "Business Documentation",
+    "url": "https://help.sap.com/http.svc/ahp2/SAP_S4HANA_CLOUD/2402.latest/EN/f6/8abfe593df4415bfc3555f51c1bfd3/frameset.htm"
+  },
+  "x-sap-api-type": "ODATA",
+  "x-sap-shortText": "Read Incoterms using this synchronous inbound service",
+  "x-sap-software-min-version": "2402",
+  "x-sap-ext-overview": [
+    {
+      "name": "Communication Scenario",
+      "values": [
+        {
+          "text": "Sales Master Data Integration(SAP_COM_0746)",
+          "format": "plain"
+        },
+        {
+          "text": "Procurement - Supplier Quotation Management Integration (Deprecated)(SAP_COM_0760)",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Scope Items",
+      "values": [
+        {
+          "text": "[Sell from Stock(BD9)](https://me.sap.com/processnavigator/SolP/BD9 \" Link To BP \")",
+          "format": "markdown"
+        },
+        {
+          "text": "[Sell from Stock(OD9)](https://me.sap.com/processnavigator/SolP/OD9 \" Link To BP \")",
+          "format": "markdown"
+        },
+        {
+          "text": "[Direct Material Sourcing(4RD)](https://me.sap.com/processnavigator/SolP/4RD \" Link To BP \")",
+          "format": "markdown"
+        }
+      ]
+    },
+    {
+      "name": "Authentication Methods",
+      "values": [
+        {
+          "text": "x509",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Business Object",
+      "values": [
+        {
+          "text": "Incoterms Classification",
+          "format": "plain"
+        }
+      ]
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://{host}:{port}/sap/opu/odata/sap/API_SD_INCOTERMS_SRV",
+      "variables": {
+        "host": {
+          "default": ""
+        },
+        "port": {
+          "default": ""
+        }
+      }
+    },
+    {
+      "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SD_INCOTERMS_SRV"
+    }
+  ],
+  "x-sap-extensible": {
+    "supported": "no"
+  },
+  "tags": [
+    {
+      "name": "Incoterms"
+    },
+    {
+      "name": "Incoterms Description"
+    },
+    {
+      "name": "Incoterms Version"
+    },
+    {
+      "name": "Version Description"
+    }
+  ],
+  "paths": {
+    "/A_IncotermsClassification": {
+      "get": {
+        "operationId": "listA_IncotermsClassifications",
+        "summary": "Reads the IDs and descriptions of all Incoterms.",
+        "description": "Reads the IDs and descriptions of all Incoterms in the system.",
+        "tags": [
+          "Incoterms"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/A_IncotermsClassificationOrderByOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_IncotermsClassificationSelectOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_IncotermsClassificationExpandOptions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "CollectionOfA_IncotermsClassificationWrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "CollectionOfA_IncotermsClassification",
+                      "type": "object",
+                      "properties": {
+                        "__count": {
+                          "$ref": "#/components/schemas/count"
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/A_IncotermsClassification"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "A_IncotermsClassification": {
+        "type": "object",
+        "properties": {
+          "IncotermsClassification": {
+            "type": "string",
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "LocationIsMandatory": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Location Mandatory",
+            "description": "Location is mandatory"
+          },
+          "to_IncotermsClassificationText": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_IncotermsClassificationText"
+                }
+              }
+            }
+          }
+        },
+        "title": "Incoterms"
+      },
+      "A_IncotermsClassificationText": {
+        "type": "object",
+        "properties": {
+          "IncotermsClassification": {
+            "type": "string",
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "IncotermsClassificationName": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 30,
+            "title": "Incoterms Classification Description"
+          }
+        },
+        "title": "Incoterms Description"
+      },
+      "count": {
+        "type": "string",
+        "description": "The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option."
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "required": [
+                  "lang",
+                  "value"
+                ],
+                "properties": {
+                  "lang": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "innererror": {
+                "type": "object",
+                "description": "The structure of this object is service-specific"
+              }
+            }
+          }
+        }
+      },
+      "A_IncotermsClassificationOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsClassification",
+            "IncotermsClassification desc",
+            "LocationIsMandatory",
+            "LocationIsMandatory desc"
+          ]
+        }
+      },
+      "A_IncotermsClassificationSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "IncotermsClassification",
+            "LocationIsMandatory",
+            "to_IncotermsClassificationText"
+          ]
+        }
+      },
+      "A_IncotermsClassificationExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_IncotermsClassificationText"
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "count": {
+        "name": "$inlinecount",
+        "in": "query",
+        "description": "Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "allpages",
+            "none"
+          ]
+        }
+      },
+      "A_IncotermsClassificationOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationOrderByOptions"
+        }
+      },
+      "A_IncotermsClassificationSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationSelectOptions"
+        }
+      },
+      "A_IncotermsClassificationExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_IncotermsClassificationExpandOptions"
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "BasicAuth": []
+    }
+  ]
+}
