@@ -1,0 +1,73 @@
+/*
+ * Copyright (c) 2024, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+import org.apache.tools.ant.taskdefs.condition.Os
+
+plugins {
+    id 'net.researchgate.release'
+    id 'io.ballerina.plugin'
+}
+
+description = 'Ballerina - SAP S/4HANA Sales Order - Simulate (A2X) API'
+
+def packageName = "sap.s4hana.api_sales_order_simulation_srv"
+def moduleVersion = project.api_sales_order_simulation_srvVersion.replace("-SNAPSHOT", "")
+def ballerinaTomlFile = file("${project.projectDir}/Ballerina.toml")
+
+ballerina {
+    packageOrganization = project.ext.packageOrg
+    module = packageName
+    isConnector = true
+    platform = "any"
+    testCoverageParam = '--code-coverage --coverage-format=xml --includes=ballerinax.* --excludes=modules/**/**'
+}
+
+task updateTomlFiles {
+    doLast {
+        def newBallerinaToml = ballerinaTomlFilePlaceHolder.text.replace("@package.name@", packageName)
+        newBallerinaToml = newBallerinaToml.replace("@toml.version@", moduleVersion)
+        ballerinaTomlFile.text = newBallerinaToml
+    }
+}
+
+task commitTomlFiles {
+    doLast {
+        project.exec {
+            ignoreExitValue true
+            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+                commandLine 'cmd', '/c', "git commit -m \"[Automated] Update the toml files\" Ballerina.toml Dependencies.toml"
+            } else {
+                commandLine 'sh', '-c', "git commit -m '[Automated] Update the toml files' Ballerina.toml Dependencies.toml"
+            }
+        }
+    }
+}
+
+release {
+    buildTasks = ['build']
+    failOnSnapshotDependencies = true
+    versionPropertyFile = '../../gradle.properties'
+    versionProperties = ['api_sales_order_simulation_srvVersion']
+    tagTemplate = 'api_sales_order_simulation_srv-v${version}'
+    git {
+        requireBranch = "release-api_sales_order_simulation_srv-${moduleVersion}"
+        pushToRemote = 'origin'
+    }
+}
+
+publishToMavenLocal.dependsOn build
+publish.dependsOn build
