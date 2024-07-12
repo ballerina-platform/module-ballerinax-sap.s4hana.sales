@@ -72,8 +72,10 @@ service /sap/opu/odata/sap/API_SALES_ORDER_SRV on ep0 {
     # http:Created (Created entity)
     # http:Response (Error)
     resource function post A_SalesOrder(@http:Payload CreateA_SalesOrder payload) returns A_SalesOrderWrapper|http:Response {
-        http:Response res = new;
-        res.statusCode = 404;
-        return res;
+        return {
+            d: {
+                SalesOrder: payload.SalesOrder
+            }
+        };
     }
 }

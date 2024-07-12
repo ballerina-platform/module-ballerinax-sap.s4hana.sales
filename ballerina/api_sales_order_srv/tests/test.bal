@@ -16,6 +16,7 @@
 
 import sap.s4hana.api_sales_order_srv.mock as _;
 
+import ballerina/http;
 import ballerina/log;
 import ballerina/os;
 import ballerina/test;
@@ -28,6 +29,15 @@ configurable string password = isTestOnLiveServer ? os:getEnv("PASSWORD") : "adm
 
 boolean isBalBuild = os:getEnv("IS_BAL_BUILD") == "true";
 string certPathPostFix = isBalBuild ? "../" : "/home/ballerina/ballerina/";
+
+// Organizational constants
+const SALES_ORDER_TYPE = "OR";
+const SALES_ORGANIZATION = "1710";
+const DISTRIBUTION_CHANNEL = "10";
+const ORG_DIVISION = "00";
+
+// Master Data Mapping
+const SOLD_TO_PARTY = "17100001";
 
 Client s4HanaClient = test:mock(Client);
 
@@ -69,17 +79,29 @@ function testListA_SalesOrder() returns error? {
     test:assertTrue(listA_SalesOrders.d?.results !is (), "The sales order is expected to be non-empty.");
 }
 
-// Since creating a sales order needs master data. This create response is meant to fail.
-// todo: Resource not found for A_SalesOrderType
 @test:Config {
 }
 function testCreateSalesOrder() returns error? {
-    A_SalesOrderWrapper|error salesOrder = s4HanaClient->createA_SalesOrder({
-        SalesOrder: "10",
-        SalesOrderType: "TA",
-        SalesOrganization: "1710"
+    string salesOrderId = "5999998";
+    A_SalesOrderWrapper salesOrder = check s4HanaClient->createA_SalesOrder({
+        SalesOrder: salesOrderId,
+        SalesOrderType: SALES_ORDER_TYPE,
+        SalesOrganization: SALES_ORGANIZATION,
+        DistributionChannel: DISTRIBUTION_CHANNEL,
+        OrganizationDivision: ORG_DIVISION,
+        SoldToParty: SOLD_TO_PARTY
     });
-    test:assertTrue(salesOrder is error, "The sales order response expected to be 500");
-    error e = <error>salesOrder;
-    test:assertEquals(e.detail()["statusCode"], 404, "Expected 404 status code");
+    test:assertTrue(salesOrder.d?.SalesOrder == salesOrderId, "The sales order is expected to be created successfully.");
+
+    // Resource clean up need to be done only on live server
+    if isTestOnLiveServer {
+        A_SalesOrderWrapper aSalesOrder = check s4HanaClient->getA_SalesOrder(salesOrderId);
+        test:assertTrue(aSalesOrder.d?.SalesOrder == salesOrderId, "The sales order is expected to be retrieved successfully.");
+
+        map<json> metaData = check aSalesOrder.d["__metadata"].cloneWithType();
+        string eTag = <string>metaData["etag"];
+
+        http:Response response = check s4HanaClient->deleteA_SalesOrder(salesOrderId, headers = {"If-Match": eTag});
+        test:assertTrue(response.statusCode == 204, "Test resource is not cleaned properly.");
+    }
 }
