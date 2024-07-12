@@ -19,6 +19,7 @@ on:
           - api_salesorganization_srv
           - api_sales_order_srv
           - api_sd_sa_soldtopartydetn
+          - salesarea_0001
 
 jobs:
   publish-release:

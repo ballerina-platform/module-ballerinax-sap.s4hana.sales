@@ -36,6 +36,7 @@ include ':sales-ballerina:api_salesdistrict_srv'
 include ':sales-ballerina:api_salesorganization_srv'
 include ':sales-ballerina:api_sales_order_srv'
 include ':sales-ballerina:api_sd_sa_soldtopartydetn'
+include ':sales-ballerina:salesarea_0001'
 include ':sales-examples'
 
 project(':sales-sanitation').projectDir = file("docs/sanitation")
@@ -44,6 +45,7 @@ project(':sales-ballerina:api_salesdistrict_srv').projectDir = file("ballerina/a
 project(':sales-ballerina:api_salesorganization_srv').projectDir = file("ballerina/api_salesorganization_srv")
 project(':sales-ballerina:api_sales_order_srv').projectDir = file("ballerina/api_sales_order_srv")
 project(':sales-ballerina:api_sd_sa_soldtopartydetn').projectDir = file("ballerina/api_sd_sa_soldtopartydetn")
+project(':sales-ballerina:salesarea_0001').projectDir = file("ballerina/salesarea_0001")
 project(':sales-examples').projectDir = file("examples")
 
 gradleEnterprise {
