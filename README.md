@@ -36,6 +36,10 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
    the [Incoterm - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_INCOTERMS_SRV/overview). The service allows users
    to read incoterms defined in the system.
 
+7. The `ballerinax/sap.s4hana.api_sales_inquiry_srv` package provides APIs that enable seamless integration with
+   the [Sales Inquiry - Read (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_INQUIRY_SRV/overview). The service
+   allows to read Sales Inquiries.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
