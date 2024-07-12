@@ -93,6 +93,7 @@
   "paths": {
     "/A_SalesInquiry": {
       "get": {
+        "operationId": "listA_SalesInquiries",
         "summary": "Reads all sales inquiry headers.",
         "description": "Reads the header data of all sales inquiries.",
         "tags": [
@@ -175,6 +176,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesInquiry",
         "summary": "Reads a specific sales inquiry header.",
         "description": "Reads the header data of a specific sales inquiry. Consumers must pass the sales inquiry ID.",
         "tags": [
@@ -225,6 +227,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemsOfA_SalesInquiry",
         "summary": "Reads all items of a specific sales inquiry.",
         "description": "Reads all item data of a specific sales inquiry. Consumers must pass the sales inquiry ID.",
         "tags": [
@@ -308,6 +311,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_SalesInquiry",
         "summary": "Reads the header-level business partners of a specific sales inquiry.",
         "description": "Reads business partner data from the header of a specific sales inquiry. Consumers must pass the sales inquiry ID.",
         "tags": [
@@ -391,6 +395,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_SalesInquiry",
         "summary": "Reads the header-level pricing elements of a specific sales inquiry.",
         "description": "Reads pricing element data from the header of a specific sales inquiry. Consumers must pass the sales inquiry ID.",
         "tags": [
@@ -462,6 +467,7 @@
     },
     "/A_SalesInquiryItem": {
       "get": {
+        "operationId": "listA_SalesInquiryItems",
         "summary": "Reads all sales inquiry items.",
         "description": "Reads the item data of all sales inquiries.",
         "tags": [
@@ -554,6 +560,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesInquiryItem",
         "summary": "Reads a specific sales inquiry item.",
         "description": "Reads the data of a specific sales inquiry item. Consumers must pass the sales inquiry ID and item number.",
         "tags": [
@@ -614,6 +621,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_SalesInquiryItem",
         "summary": "Reads the item-level business partners of a specific sales inquiry item.",
         "description": "Reads business partner data from a specific sales inquiry item. Consumers must pass the sales inquiry ID and item number.",
         "tags": [
@@ -707,6 +715,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_SalesInquiryItem",
         "summary": "Reads the item-level pricing elements of a specific sales inquiry item.",
         "description": "Reads pricing element data from a specific sales inquiry item. Consumers must pass the sales inquiry ID and item number.",
         "tags": [
@@ -800,6 +809,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesInquiryOfA_SalesInquiryItem",
         "summary": "Reads the sales inquiry header for a specific item.",
         "description": "Reads sales inquiry header fields for a specific item. Consumers must pass the sales inquiry ID and item number.",
         "tags": [
@@ -839,6 +849,7 @@
     },
     "/A_SalesInquiryItemPartner": {
       "get": {
+        "operationId": "listA_SalesInquiryItemPartners",
         "summary": "Reads the item-level business partners of all sales inquiry items.",
         "description": "Reads business partner data from all sales inquiry items.",
         "tags": [
@@ -942,6 +953,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesInquiryItemPartner",
         "summary": "Reads a specific item-level business partner.",
         "description": "Reads a specific business partner from a specific sales inquiry item. Consumers must pass the sales inquiry ID, item number, and partner function.",
         "tags": [
@@ -1013,6 +1025,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesInquiryOfA_SalesInquiryItemPartner",
         "summary": "Reads the sales inquiry header for a specific item partner.",
         "description": "Reads sales inquiry header fields for a specific item-level partner function. Consumers must pass the sales inquiry ID, item number, and partner function.",
         "tags": [
@@ -1085,6 +1098,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesInquiryItemOfA_SalesInquiryItemPartner",
         "summary": "Reads the sales inquiry item for a specific item partner.",
         "description": "Reads sales inquiry item fields for a specific item-level partner function. Consumers must pass the sales inquiry ID, item number, and partner function.",
         "tags": [
@@ -1124,6 +1138,7 @@
     },
     "/A_SalesInquiryItemPrcgElmnt": {
       "get": {
+        "operationId": "listA_SalesInquiryItemPrcgElmnts",
         "summary": "Reads the item-level pricing elements of all sales inquiry items.",
         "description": "Reads pricing element data from all sales inquiry items.",
         "tags": [
@@ -1236,6 +1251,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesInquiryItemPrcgElmnt",
         "summary": "Reads a specific item-level pricing element.",
         "description": "Reads a specific pricing element from a specific sales inquiry item. Consumers must pass the sales inquiry ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1316,6 +1332,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesInquiryOfA_SalesInquiryItemPrcgElmnt",
         "summary": "Reads the sales inquiry header for a specific item pricing element.",
         "description": "Reads sales inquiry header fields for a specific item-level pricing element. Consumers must pass the sales inquiry ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1397,6 +1414,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesInquiryItemOfA_SalesInquiryItemPrcgElmnt",
         "summary": "Reads the sales inquiry item for a specific item pricing element.",
         "description": "Reads sales inquiry item fields for a specific item-level pricing element. Consumers must pass the sales inquiry ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1436,6 +1454,7 @@
     },
     "/A_SalesInquiryPartner": {
       "get": {
+        "operationId": "listA_SalesInquiryPartners",
         "summary": "Reads the header-level business partners of all sales inquiries.",
         "description": "Reads business partner data from the headers of all sales inquiries.",
         "tags": [
@@ -1529,6 +1548,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesInquiryPartner",
         "summary": "Reads a specific header-level business partner.",
         "description": "Reads a specific business partner from the header of a specific sales inquiry. Consumers must pass the sales inquiry ID and partner function.",
         "tags": [
@@ -1590,6 +1610,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesInquiryOfA_SalesInquiryPartner",
         "summary": "Reads the sales inquiry header for a specific header partner.",
         "description": "Reads sales inquiry header fields for a specific header-level partner function. Consumers must pass the sales inquiry ID and partner function.",
         "tags": [
@@ -1629,6 +1650,7 @@
     },
     "/A_SalesInquiryPrcgElmnt": {
       "get": {
+        "operationId": "listA_SalesInquiryPrcgElmnts",
         "summary": "Reads the header-level pricing elements of all sales inquiries.",
         "description": "Reads pricing element data from the headers of all sales inquiries.",
         "tags": [
@@ -1731,6 +1753,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SalesInquiryPrcgElmnt",
         "summary": "Reads a specific header-level pricing element.",
         "description": "Reads a specific pricing element from the header of a specific sales inquiry. Consumers must pass the sales inquiry ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1801,6 +1824,7 @@
         }
       ],
       "get": {
+        "operationId": "getSalesInquiryOfA_SalesInquiryPrcgElmnt",
         "summary": "Reads the sales inquiry header for a specific header pricing element.",
         "description": "Reads sales inquiry header fields for a specific header-level pricing element. Consumers must pass the sales inquiry ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1840,6 +1864,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
