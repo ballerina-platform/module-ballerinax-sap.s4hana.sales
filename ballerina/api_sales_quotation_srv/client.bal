@@ -18,6 +18,7 @@
 // under the License.
 
 import ballerina/http;
+import ballerinax/sap;
 
 # In every API call, you can make use of the following operations:
 #  - You can read entire sales quotations or only parts of the data, using the provided filters.
@@ -27,13 +28,15 @@ import ballerina/http;
 #  - For existing sales quotations, you can delete the header, header partner, header pricing element, header text, header related object, item, item partner, item pricing element, item text, and item related object.
 #  - You can accept or deny approval requests for sales quotations that cannot be processed without the consent of an approver.
 public isolated client class Client {
-    final http:Client clientEp;
+    final sap:Client clientEp;
+
     # Gets invoked to initialize the `connector`.
     #
     # + config - The configurations to be used when initializing the `connector` 
     # + serviceUrl - URL of the target service 
     # + return - An error if connector initialization failed 
-    public isolated function init(ConnectionConfig config, string serviceUrl) returns error? {
+    public isolated function init(ConnectionConfig config, string hostname, int port = 443) returns error? {
+        string serviceUrl = string `https://${hostname}:${port}/sap/opu/odata/sap/API_SALES_QUOTATION_SRV`;
         http:ClientConfiguration httpClientConfig = {auth: config.auth, httpVersion: config.httpVersion, timeout: config.timeout, forwarded: config.forwarded, poolConfig: config.poolConfig, compression: config.compression, circuitBreaker: config.circuitBreaker, retryConfig: config.retryConfig, validation: config.validation};
         do {
             if config.http1Settings is ClientHttp1Settings {
@@ -56,7 +59,7 @@ public isolated client class Client {
                 httpClientConfig.proxy = check config.proxy.ensureType(http:ProxyConfig);
             }
         }
-        http:Client httpEp = check new (serviceUrl, httpClientConfig);
+        sap:Client httpEp = check new (serviceUrl, httpClientConfig);
         self.clientEp = httpEp;
         return;
     }
