@@ -40,3 +40,11 @@ task build {
         }
     }
 }
+
+task cleanUp(type: Delete) {
+    delete fileTree("${project.projectDir}") {
+        include '*.jar'
+    }
+}
+
+build.finalizedBy cleanUp
