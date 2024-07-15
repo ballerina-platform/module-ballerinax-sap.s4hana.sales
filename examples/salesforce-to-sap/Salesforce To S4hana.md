@@ -41,17 +41,17 @@ necessary credentials (username, password, secret).
 Configure Salesforce and S/4HANA API credentials in `Config.toml` in the example directory:
 
 ```toml
-[salesforceClientConfig]
+[sfListenerConfig]
+username = "<Username>"
+password = "<Password + Secret>"
+environment = "DEVELOPER"
+
+[sfClientConfig]
 clientId = "<Client_ID>"
 clientSecret = "<Client_Secret>"
 refreshToken = "<Refresh_token>"
 baseUrl = "<Base_url>"
 refreshUrl = "<Refresh_url>"
-
-[salesforceListenerConfig]
-username = "<Username>"
-password = "<Password + Secret>"
-environment = "DEVELOPER"
 
 [s4hanaClientConfig]
 hostname = "<Hostname>"
