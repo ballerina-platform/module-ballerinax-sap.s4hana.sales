@@ -21,8 +21,7 @@ import ballerinax/sap.s4hana.api_sales_order_srv as salesorder;
 
 configurable S4HanaClientConfig s4hanaClientConfig = ?;
 
-final salesorder:Client salesOrderClient = check new (
-    {
+final salesorder:Client salesOrderClient = check new ({
         auth: {
             username: s4hanaClientConfig.username,
             password: s4hanaClientConfig.password
@@ -53,7 +52,6 @@ service /sap\-bridge on new http:Listener(9090) {
 }
 
 isolated function transformShopifyOrder(ShopifyOrder shopifyOrder) returns salesorder:CreateA_SalesOrder|error {
-
     int salesOrderId = check random:createIntInRange(5000000, 5999999);
     salesorder:CreateA_SalesOrder salesOrder = {
         SalesOrder: salesOrderId.toString(),
