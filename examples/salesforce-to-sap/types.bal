@@ -14,13 +14,13 @@
 // specific language governing permissions and limitations
 // under the License.
 
-type SalesforceListenerConfig record {|
+type SfListenerConfig record {|
     string username;
     string password;
     string environment;
 |};
 
-type SalesforceClientConfig record {|
+type SfClientConfig record {|
     string baseUrl;
     string clientId;
     string clientSecret;
@@ -34,7 +34,7 @@ type S4HanaClientConfig record {|
     string password;
 |};
 
-type SalesforceOpportunityItem record {
+type SfOpportunityItem record {
     string ProductCode;
     decimal Quantity;
     string Name;
