@@ -1,7 +1,7 @@
 [package]
 org = "ballerinax"
 name = "sap.s4hana.api_sd_incoterms_srv"
-version = "1.0.0"
+version = "1.0.1"
 distribution = "2201.9.0"
 authors = ["Ballerina"]
 keywords = ["Business Management/ERP", "Cost/Paid", "Vendor/SAP", "Sales and Distribution", "SD"]
