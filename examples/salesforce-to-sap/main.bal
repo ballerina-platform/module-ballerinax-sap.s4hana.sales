@@ -55,7 +55,7 @@ service sfListener:RecordService on sfListener {
 
     isolated remote function onUpdate(sfListener:EventData payload) returns error? {
         string? opportunityId = payload.metadata?.recordId;
-        if opportunityId == null {
+        if opportunityId is () {
             log:printError("Error while creating SAP order: invalid opportunityId from event");
             return;
         }
