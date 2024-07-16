@@ -25,7 +25,7 @@ plugins {
 description = 'Ballerina - SAP S/4HANA Sales Organization - Read API'
 
 def packageName = "sap.s4hana.api_salesorganization_srv"
-def moduleVersion = project.api_salesdistrict_srvVersion.replace("-SNAPSHOT", "")
+def moduleVersion = project.api_salesorganization_srvVersion.replace("-SNAPSHOT", "")
 def ballerinaTomlFile = file("${project.projectDir}/Ballerina.toml")
 
 ballerina {
