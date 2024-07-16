@@ -106,7 +106,7 @@ isolated function retrieveOpportunityItems(string opportunityId) returns SfOppor
     stream<SfOpportunityItem, error?> sfOpportunityItems = check sfClient->query(
         string `SELECT ProductCode, Name, Quantity FROM OpportunityLineItem 
         WHERE OpportunityId='${opportunityId}'`);
-    return check from var item in sfOpportunityItems
+    return from var item in sfOpportunityItems
         select {...item};
 }
 
