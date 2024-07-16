@@ -8,13 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## sap.s4hana.api_salesdistrict_srv
 
-## [Unreleased]
-
+## [1.0.0] - 2024-07-16
 ### Added
-
 - Initial client implementation
-
-### Changed
 
 ## sap.s4hana.api_salesorganization_srv
 
