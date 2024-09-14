@@ -18,16 +18,18 @@ import ballerina/log;
 import ballerina/random;
 import ballerinax/salesforce;
 import ballerinax/sap.s4hana.api_sales_order_srv as salesorder;
-import ballerinax/trigger.salesforce as sfListener;
 
 configurable SfListenerConfig sfListenerConfig = ?;
 configurable SfClientConfig sfClientConfig = ?;
 configurable S4HanaClientConfig s4hanaClientConfig = ?;
 
-listener sfListener:Listener sfListener = new ({
-    ...sfListenerConfig,
-    channelName: "/data/OpportunityChangeEvent"
-});
+listener salesforce:Listener sfListener = new (
+    auth = {
+        username: sfListenerConfig.username,
+        password: sfListenerConfig.password
+    },
+    isSandBox = sfListenerConfig.isSandbox
+);
 
 final salesforce:Client sfClient = check new ({
     baseUrl: sfClientConfig.baseUrl,
@@ -48,18 +50,18 @@ final salesorder:Client salesOrderClient = check new ({
     s4hanaClientConfig.hostname
 );
 
-service sfListener:RecordService on sfListener {
-    isolated remote function onCreate(sfListener:EventData payload) {
+service "/data/OpportunityChangeEvent" on sfListener {
+    isolated remote function onCreate(salesforce:EventData payload) {
         log:printInfo(string `New opportunity created: ${payload.metadata?.recordId ?: ""}`);
     }
 
-    isolated remote function onUpdate(sfListener:EventData payload) returns error? {
+    isolated remote function onUpdate(salesforce:EventData payload) returns error? {
         string? opportunityId = payload.metadata?.recordId;
         if opportunityId is () {
             log:printError("Error while creating SAP order: invalid opportunityId from event");
             return;
         }
-        log:printInfo(string `Recieved an opportunity update event for id: ${opportunityId}`);
+        log:printInfo(string `Received an opportunity update event for id: ${opportunityId}`);
 
         string isClosed = check payload.changedData["IsClosed"].ensureType();
         if isClosed != "true" {
@@ -93,11 +95,11 @@ service sfListener:RecordService on sfListener {
         }
     }
 
-    isolated remote function onDelete(sfListener:EventData payload) {
+    isolated remote function onDelete(salesforce:EventData payload) {
         log:printInfo(string `Opportunity deleted: ${payload.metadata?.recordId ?: ""}`);
     }
 
-    isolated remote function onRestore(sfListener:EventData payload) returns error? {
+    isolated remote function onRestore(salesforce:EventData payload) returns error? {
         log:printInfo(string `Opportunity restored: ${payload.metadata?.recordId ?: ""}`);
     }
 }
@@ -106,8 +108,8 @@ isolated function retrieveOpportunityItems(string opportunityId) returns SfOppor
     stream<SfOpportunityItem, error?> sfOpportunityItems = check sfClient->query(
         string `SELECT ProductCode, Name, Quantity FROM OpportunityLineItem 
         WHERE OpportunityId='${opportunityId}'`);
-    return from var item in sfOpportunityItems
-        select {...item};
+    return from SfOpportunityItem item in sfOpportunityItems
+        select item;
 }
 
 isolated function transformOrderData(SfOpportunityItem[] salesforceItems) returns salesorder:CreateA_SalesOrder|error {

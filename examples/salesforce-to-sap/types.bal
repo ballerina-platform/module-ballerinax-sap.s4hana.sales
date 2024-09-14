@@ -17,7 +17,7 @@
 type SfListenerConfig record {|
     string username;
     string password;
-    string environment;
+    boolean isSandbox;
 |};
 
 type SfClientConfig record {|
