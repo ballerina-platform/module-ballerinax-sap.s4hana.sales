@@ -1,0 +1,47 @@
+name: Regenerate OpenAPI Connector
+
+on:
+  workflow_dispatch:
+    inputs:
+      openapi-url:
+        description: "Path of the module spec"
+        required: true
+        type: string
+      generation-path:
+        description: "Generation path for the module"
+        required: true
+        type: string
+      flatten-openapi:
+        description: "Enable OpenAPI Flattening"
+        required: false
+        type: boolean
+        default: true
+      align-openapi:
+        description: "Enable OpenAPI Alignment"
+        required: false
+        type: boolean
+        default: true
+      auto-merge:
+        description: "Enable auto-merge of the PR"
+        required: false
+        type: boolean
+        default: true
+      ballerina-version:
+        description: "Ballerina Language Version"
+        required: false
+        type: string
+        default: ""
+
+jobs:
+  call_workflow:
+    name: Run Regenerate Connector Workflow
+    if: ${{ github.repository_owner == 'ballerina-platform' }}
+    uses: ballerina-platform/ballerina-library/.github/workflows/regenerate-connector-template.yml@main
+    secrets: inherit
+    with:
+      openapi-url: ${{ inputs.openapi-url }}
+      flatten-openapi: ${{ inputs.flatten-openapi }}
+      align-openapi: ${{ inputs.align-openapi }}
+      auto-merge: ${{ inputs.auto-merge }}
+      ballerina-version: ${{ inputs.ballerina-version }}
+      generation-path: ${{ inputs.generation-path }}
