@@ -29,8 +29,7 @@ subprojects {
     task updateDocumentationFiles
 }
 
-def moduleMDPlaceholder = new File("${project.rootDir}/build-config/resources/Module.md")
-def packageMDPlaceholder = new File("${project.rootDir}/build-config/resources/Package.md")
+def readmeMdPlaceholder = new File("${project.rootDir}/build-config/resources/README.md")
 
 task updateDocumentationFiles {
     doLast {
@@ -46,36 +45,24 @@ task updateDocumentationFiles {
             def packageProperties = new File("${project.rootDir}/ballerina/${dir}/docs.json")
             def parsedJson = new JsonSlurper().parseText(packageProperties.text)
 
-            def moduleMDFile = new File("${project.rootDir}/ballerina/${dir}/Module.md")
+            def readmeMdFile = new File("${project.rootDir}/ballerina/${dir}/README.md")
 
-            def newModuleMD = moduleMDPlaceholder.text
-            newModuleMD = newModuleMD.replace("@package-name@", "sap.s4hana.${dir}")
-            newModuleMD = newModuleMD.replace("@description@", parsedJson.description)
-            newModuleMD = newModuleMD.replace("@communication-scenario@", parsedJson."communication-scenario")
-            newModuleMD = newModuleMD.replace("@import-statement@", parsedJson."import-statement")
-            newModuleMD = newModuleMD.replace("@client-init@", parsedJson."client-init")
-            newModuleMD = newModuleMD.replace("@api-invocation@", parsedJson."api-invocation")
-            moduleMDFile.text = newModuleMD
-
-            def packageMDFile = new File("${project.rootDir}/ballerina/${dir}/Package.md")
-
-            def newPackageMD = packageMDPlaceholder.text
-            newPackageMD = newPackageMD.replace("@package-name@", "sap.s4hana.${dir}")
-            newPackageMD = newPackageMD.replace("@description@", parsedJson.description)
-            newPackageMD = newPackageMD.replace("@communication-scenario@", parsedJson."communication-scenario")
-            newPackageMD = newPackageMD.replace("@import-statement@", parsedJson."import-statement")
-            newPackageMD = newPackageMD.replace("@client-init@", parsedJson."client-init")
-            newPackageMD = newPackageMD.replace("@api-invocation@", parsedJson."api-invocation")
-            packageMDFile.text = newPackageMD
-
+            def newReadmeMdFile = readmeMdPlaceholder.text
+            newReadmeMdFile = newReadmeMdFile.replace("@package-name@", "sap.s4hana.${dir}")
+            newReadmeMdFile = newReadmeMdFile.replace("@description@", parsedJson.description)
+            newReadmeMdFile = newReadmeMdFile.replace("@communication-scenario@", parsedJson."communication-scenario")
+            newReadmeMdFile = newReadmeMdFile.replace("@import-statement@", parsedJson."import-statement")
+            newReadmeMdFile = newReadmeMdFile.replace("@client-init@", parsedJson."client-init")
+            newReadmeMdFile = newReadmeMdFile.replace("@api-invocation@", parsedJson."api-invocation")
+            readmeMdFile.text = newReadmeMdFile
         }
 
         project.exec {
             ignoreExitValue true
             if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                commandLine 'cmd', '/c', "git commit -m \"[Automated] Update the documentation files\" */Module.md */Package.md"
+                commandLine 'cmd', '/c', "git commit -m \"[Automated] Update the documentation file\" */README.md"
             } else {
-                commandLine 'sh', '-c', "git commit -m '[Automated] Update the documentation files' */Module.md */Package.md"
+                commandLine 'sh', '-c', "git commit -m '[Automated] Update the documentation file' */README.md"
             }
         }
     }
