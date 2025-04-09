@@ -4,8 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       openapi-url:
-        description: "URL of the OpenAPI JSON"
-        required: false
+        description: "Path of the module spec"
+        required: true
+        type: string
+      generation-path:
+        description: "Generation path for the module"
+        required: true
         type: string
       flatten-openapi:
         description: "Enable OpenAPI Flattening"
@@ -40,3 +44,4 @@ jobs:
       align-openapi: ${{ inputs.align-openapi }}
       auto-merge: ${{ inputs.auto-merge }}
       ballerina-version: ${{ inputs.ballerina-version }}
+      generation-path: ${{ inputs.generation-path }}
