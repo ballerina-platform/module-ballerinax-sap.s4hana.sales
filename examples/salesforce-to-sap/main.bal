@@ -23,13 +23,13 @@ configurable SfListenerConfig sfListenerConfig = ?;
 configurable SfClientConfig sfClientConfig = ?;
 configurable S4HanaClientConfig s4hanaClientConfig = ?;
 
-listener salesforce:Listener sfListener = new (
-    auth = {
+listener salesforce:Listener sfListener = check new ({
+    auth: {
         username: sfListenerConfig.username,
         password: sfListenerConfig.password
     },
-    isSandBox = sfListenerConfig.isSandbox
-);
+    isSandBox: sfListenerConfig.isSandbox
+});
 
 final salesforce:Client sfClient = check new ({
     baseUrl: sfClientConfig.baseUrl,
