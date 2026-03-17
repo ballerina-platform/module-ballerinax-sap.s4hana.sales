@@ -3,7 +3,14 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The `ballerinax/sap.s4hana.api_sales_quotation_srv` package provides APIs that enable seamless integration with the [Sales Quotation (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_QUOTATION_SRV/overview). The service allows to create, read, update, and delete sales quotation.
+The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Quotation (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_QUOTATION_SRV/overview). The service allows to create, read, update, and delete sales quotation.
+
+### Key Features
+
+- Create, read, update, and delete sales quotations in SAP S/4HANA
+- Seamless integration with the Sales Quotation (A2X) API v1.0.0
+- Support for basic and OAuth 2.0 authentication
+- Full CRUD operations for sales quotation management
 
 ## Setup guide
 

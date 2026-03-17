@@ -5,6 +5,10 @@ designed for large-scale enterprises by SAP SE.
 
 @description@
 
+### Key Features
+
+@key-features@
+
 ## Setup guide
 
 1. Sign in to your S/4HANA dashboard.
