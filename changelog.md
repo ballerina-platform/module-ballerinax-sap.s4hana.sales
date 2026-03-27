@@ -8,11 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## sap.s4hana.api_salesdistrict_srv
 
+## [Unreleased]
+
+### Changed
+
+- Moved to 2201.12.0 distribution
+
 ## [1.0.0] - 2024-07-16
 
 - Added Initial client implementation
 
 ## sap.s4hana.api_salesorganization_srv
+
+## [Unreleased]
+
+### Changed
+
+- Moved to 2201.12.0 distribution
 
 ## [1.0.0] - 2024-07-16
 
@@ -20,11 +32,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## sap.s4hana.api_sales_order_srv
 
+## [Unreleased]
+
+### Changed
+
+- Moved to 2201.12.0 distribution
+
 ## [1.0.0] - 2024-07-16
 
 - Added Initial client implementation
 
 ## sap.s4hana.api_sd_sa_soldtopartydetn
+
+## [Unreleased]
+
+### Changed
+
+- Moved to 2201.12.0 distribution
 
 ## [1.0.0] - 2024-07-16
 
@@ -32,13 +56,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## sap.s4hana.salesarea_0001
 
+## [Unreleased]
+
+### Changed
+
+- Moved to 2201.12.0 distribution
+
 ## [1.0.0] - 2024-07-16
 
 - Added Initial client implementation
 
+## sap.s4hana.api_sd_incoterms_srv
+
+## [Unreleased]
+
 ### Changed
 
-## sap.s4hana.api_sd_incoterms_srv
+- Moved to 2201.12.0 distribution
 
 ## [1.0.0] - 2024-07-16
 
@@ -46,11 +80,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## sap.s4hana.api_sales_inquiry_srv
 
+## [Unreleased]
+
+### Changed
+
+- Moved to 2201.12.0 distribution
+
 ## [1.0.0] - 2024-07-16
 
 - Added Initial client implementation
 
 ## sap.s4hana.api_sales_quotation_srv
+
+## [Unreleased]
+
+### Changed
+
+- Moved to 2201.12.0 distribution
 
 ## [1.0.0] - 2024-07-16
 
@@ -58,11 +104,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## sap.s4hana.api_sales_order_simulation_srv
 
+## [Unreleased]
+
+### Changed
+
+- Moved to 2201.12.0 distribution
+
 ## [1.0.0] - 2024-07-16
 
 - Added Initial client implementation
 
 ## sap.s4hana.ce_salesorder_0001
+
+## [Unreleased]
+
+### Changed
+
+- Moved to 2201.12.0 distribution
 
 ## [1.0.0] - 2024-07-16
 
