@@ -3,14 +3,11 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales District - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service contains sales district and sales district text nodes.
+The `ballerinax/sap.s4hana.api_salesdistrict_srv` package provides APIs that enable seamless integration with the [Sales District - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service contains sales district and sales district text nodes.
 
 ### Key Features
 
-- Read sales district master data from SAP S/4HANA
-- Access sales district and sales district text nodes
-- Seamless integration with the Sales District - Read API v1.0.0
-- Support for basic and OAuth 2.0 authentication
+@key-features@
 
 ## Setup guide
 

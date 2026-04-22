@@ -3,14 +3,11 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Incoterm - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_INCOTERMS_SRV/overview). The service allows users to read incoterms defined in the system.
+The `ballerinax/sap.s4hana.api_sd_incoterms_srv` package provides APIs that enable seamless integration with the [Incoterm - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_INCOTERMS_SRV/overview). The service allows users to read incoterms defined in the system.
 
 ### Key Features
 
-- Read incoterms defined in SAP S/4HANA
-- Seamless integration with the Incoterm - Read (A2X) API v1.0.0
-- Support for basic and OAuth 2.0 authentication
-- Operations for querying incoterm master data
+@key-features@
 
 ## Setup guide
 

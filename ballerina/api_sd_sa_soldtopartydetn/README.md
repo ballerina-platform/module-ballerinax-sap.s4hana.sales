@@ -3,14 +3,11 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sold-to Party Assignment of Sales Scheduling Agreement - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_SA_SOLDTOPARTYDETN/overview). The service allows users to read sold-to party assignment of sales scheduling agreement master data.
+The `ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn` package provides APIs that enable seamless integration with the [Sold-to Party Assignment of Sales Scheduling Agreement - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_SA_SOLDTOPARTYDETN/overview). The service allows users to read sold-to party assignment of sales scheduling agreement master data.
 
 ### Key Features
 
-- Read sold-to party assignment of sales scheduling agreements
-- Seamless integration with the Sold-to Party Assignment API v1.0.0
-- Support for basic and OAuth 2.0 authentication
-- Operations for querying scheduling agreement data
+@key-features@
 
 ## Setup guide
 
