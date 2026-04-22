@@ -50,6 +50,7 @@ task updateDocumentationFiles {
             def newReadmeMdFile = readmeMdPlaceholder.text
             newReadmeMdFile = newReadmeMdFile.replace("@package-name@", "sap.s4hana.${dir}")
             newReadmeMdFile = newReadmeMdFile.replace("@description@", parsedJson.description)
+            newReadmeMdFile = newReadmeMdFile.replace("@key-features@", parsedJson."key-features".collect { "- ${it}" }.join("\n"))
             newReadmeMdFile = newReadmeMdFile.replace("@communication-scenario@", parsedJson."communication-scenario")
             newReadmeMdFile = newReadmeMdFile.replace("@import-statement@", parsedJson."import-statement")
             newReadmeMdFile = newReadmeMdFile.replace("@client-init@", parsedJson."client-init")

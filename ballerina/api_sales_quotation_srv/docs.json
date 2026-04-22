@@ -1,5 +1,11 @@
 {
-  "description": "The `ballerinax/sap.s4hana.api_sales_quotation_srv` package provides APIs that enable seamless integration with the [Sales Quotation (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_QUOTATION_SRV/overview). The service allows to create, read, update, and delete sales quotation.",
+  "description": "The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Quotation (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_QUOTATION_SRV/overview). The service allows to create, read, update, and delete sales quotation.",
+  "key-features": [
+    "Create, read, update, and delete sales quotations in SAP S/4HANA",
+    "Seamless integration with the Sales Quotation (A2X) API v1.0.0",
+    "Support for basic and OAuth 2.0 authentication",
+    "Full CRUD operations for sales quotation management"
+  ],
   "communication-scenario": "Sales Quotation Integration",
   "import-statement": "import ballerinax/sap.s4hana.api_sales_quotation_srv as quotation;",
   "client-init": "quotation:Client quotationClient = check new (",

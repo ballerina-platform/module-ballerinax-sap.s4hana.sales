@@ -3,11 +3,14 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The `ballerinax/sap.s4hana.api_sales_order_simulation_srv` package provides APIs that enable seamless integration with the [Sales Order - Simulate (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_ORDER_SIMULATE_SRV/overview). The service gives you information about pricing, material availability, and the customer's credit limit. The simulated sales order is not saved.
+The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Order - Simulate (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_ORDER_SIMULATE_SRV/overview). The service gives you information about pricing, material availability, and the customer's credit limit. The simulated sales order is not saved.
 
 ### Key Features
 
-@key-features@
+- Simulate sales orders in SAP S/4HANA
+- Retrieve pricing, material availability, and credit limit information
+- Seamless integration with the Sales Order - Simulate (A2X) API v1.0.0
+- Support for basic and OAuth 2.0 authentication
 
 ## Setup guide
 

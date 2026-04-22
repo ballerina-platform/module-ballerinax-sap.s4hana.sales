@@ -3,11 +3,14 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The `ballerinax/sap.s4hana.ce_salesorder_0001` package provides APIs that enable seamless integration with the [Sales Order (A2X) API (ODatav4) v1.0.0](https://api.sap.com/api/CE_SALESORDER_0001/overview). The service allows to create, read, update, and delete sales orders.
+The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Order (A2X) API (ODatav4) v1.0.0](https://api.sap.com/api/CE_SALESORDER_0001/overview). The service allows to create, read, update, and delete sales orders.
 
 ### Key Features
 
-@key-features@
+- Create, read, update, and delete sales orders via OData v4
+- Seamless integration with the Sales Order (A2X) API (ODatav4) v1.0.0
+- Support for basic and OAuth 2.0 authentication
+- Full CRUD operations for sales order management
 
 ## Setup guide
 
