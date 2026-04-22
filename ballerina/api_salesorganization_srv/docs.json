@@ -1,5 +1,11 @@
 {
-  "description": "The `ballerinax/sap.s4hana.api_salesorganization_srv` package provides APIs that enable seamless integration with the [Sales Organization - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service allows users to read sales organization master data.",
+  "description": "The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Organization - Read API v1.0.0](https://api.sap.com/api/API_SALESORGANIZATION_SRV/overview). The service allows users to read sales organization master data.",
+  "key-features": [
+    "Read sales organization master data from SAP S/4HANA",
+    "Seamless integration with the Sales Organization - Read API v1.0.0",
+    "Support for basic and OAuth 2.0 authentication",
+    "Operations for querying sales organization data"
+  ],
   "communication-scenario": "SAP Analytics Cloud for Planning Integration",
   "import-statement": "import ballerinax/sap.s4hana.api_salesorganization_srv as salesorg;",
   "client-init": "salesorg:Client salesOrgClient = check new (",
