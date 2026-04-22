@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## [2.0.0] - 2026-04-22
+
 - Moved to 2201.12.0 distribution
 
 ## [1.0.0] - 2024-07-16
@@ -23,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
 
@@ -36,6 +40,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## [2.0.0] - 2026-04-22
+
 - Moved to 2201.12.0 distribution
 
 ## [1.0.0] - 2024-07-16
@@ -47,6 +53,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
 
@@ -60,6 +68,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## [2.0.0] - 2026-04-22
+
 - Moved to 2201.12.0 distribution
 
 ## [1.0.0] - 2024-07-16
@@ -71,6 +81,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
 
@@ -84,6 +96,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## [2.0.0] - 2026-04-22
+
 - Moved to 2201.12.0 distribution
 
 ## [1.0.0] - 2024-07-16
@@ -95,6 +109,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
 
@@ -108,6 +124,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+## [2.0.0] - 2026-04-22
+
 - Moved to 2201.12.0 distribution
 
 ## [1.0.0] - 2024-07-16
@@ -119,6 +137,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
 
