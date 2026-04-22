@@ -358,7 +358,7 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "sap.s4hana.api_salesorganization_srv"
-version = "2.0.0"
+version = "2.0.1"
 dependencies = [
 	{org = "ballerina", name = "constraint"},
 	{org = "ballerina", name = "http"},
