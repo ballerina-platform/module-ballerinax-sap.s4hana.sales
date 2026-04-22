@@ -3,7 +3,7 @@
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
 
-The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Organization - Read API v1.0.0](https://api.sap.com/api/API_SALESDISTRICT_SRV/overview). The service allows users to read sales organization master data.
+The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Organization - Read API v1.0.0](https://api.sap.com/api/API_SALESORGANIZATION_SRV/overview). The service allows users to read sales organization master data.
 
 ### Key Features
 
