@@ -25,6 +25,7 @@ on:
           - api_sales_quotation_srv
           - api_sales_order_simulation_srv
           - ce_salesorder_0001
+          - api_slspricingconditionrecord_srv
 
 jobs:
   call_workflow:
