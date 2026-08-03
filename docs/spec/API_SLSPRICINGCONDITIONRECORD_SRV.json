@@ -498,6 +498,7 @@
   "paths": {
     "/A_SlsPrcgCndnRecdSuplmnt": {
       "get": {
+        "operationId": "listA_SlsPrcgCndnRecdSuplmnts",
         "summary": "Reads all condition supplements in the system.",
         "description": "Reads all condition supplements for pricing in Sales.",
         "tags": [
@@ -566,6 +567,7 @@
         }
       },
       "post": {
+        "operationId": "createA_SlsPrcgCndnRecdSuplmnt",
         "summary": "Creates one or more condition supplements.",
         "description": "Creates one or more condition supplements for existing condition records, which the consumer specifies by passing the condition record number in the payload.",
         "tags": [
@@ -630,6 +632,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsPrcgCndnRecdSuplmnt",
         "summary": "Reads a specific condition supplement.",
         "description": "Reads a specific condition supplement for pricing in Sales, which the consumer specifies by passing condition record number and sequential number.",
         "tags": [
@@ -666,6 +669,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SlsPrcgCndnRecdSuplmnt",
         "summary": "Updates a specific condition supplement.",
         "description": "Updates a specific condition supplement for pricing in Sales, which the consumer specifies by passing the condition record number and sequential number.",
         "tags": [
@@ -698,6 +702,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SlsPrcgCndnRecdSuplmnt",
         "summary": "Deletes a specific condition supplement.",
         "description": "Deletes a specific condition supplement for pricing in Sales, which the consumer specifies by passing the condition record number and sequential number.",
         "tags": [
@@ -738,6 +743,7 @@
         }
       ],
       "get": {
+        "operationId": "listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgCndnRecdSuplmnt",
         "summary": "Reads validity of the condition record for a specific condition supplement.",
         "description": "Reads data about validity of the condition record for a specific condition supplement for pricing in Sales, which the consumer specifies by passing the condition record number and sequential number. Validity includes fields such as valid from and to dates, condition fields, and condition type.",
         "tags": [
@@ -832,6 +838,7 @@
         }
       ],
       "get": {
+        "operationId": "listSlsPrcgCndnRecordScalesOfA_SlsPrcgCndnRecdSuplmnt",
         "summary": "Reads the pricing scales of a specific condition supplement.",
         "description": "Reads the pricing scales of a specific condition supplement, which the consumer specifies by passing the condition record number and sequential number.",
         "tags": [
@@ -901,6 +908,7 @@
         }
       },
       "post": {
+        "operationId": "createSlsPrcgCndnRecordScaleOfA_SlsPrcgCndnRecdSuplmnt",
         "summary": "Creates one or more pricing scales for a specific condition supplement.",
         "description": "Creates one or more pricing scales for a specific condition supplement, which the consumer specifies by passing condition record number and sequential number.",
         "tags": [
@@ -966,6 +974,7 @@
         }
       ],
       "get": {
+        "operationId": "listSlsPrcgCndnSupplementTextsOfA_SlsPrcgCndnRecdSuplmnt",
         "summary": "Reads the pricing supplement texts of a specific condition supplement.",
         "description": "Reads the pricing supplement texts of a specific condition supplement, which the consumer specifies by passing the condition record number and sequential number.",
         "tags": [
@@ -1035,6 +1044,7 @@
         }
       },
       "post": {
+        "operationId": "createSlsPrcgCndnSupplementTextOfA_SlsPrcgCndnRecdSuplmnt",
         "summary": "Creates one or more pricing supplement texts for a specific condition supplement.",
         "description": "Creates one or more pricing supplement texts for a specific condition supplement, which the consumer specifies by passing condition record number and sequential number.",
         "tags": [
@@ -1100,6 +1110,7 @@
         }
       ],
       "get": {
+        "operationId": "getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmnt",
         "summary": "Reads the condition record for a specific condition supplement.",
         "description": "Reads condition record data for a specific condition supplement, which the consumer specifies by passing the condition record number and sequential number.",
         "tags": [
@@ -1139,6 +1150,7 @@
     },
     "/A_SlsPrcgCndnRecdValidity": {
       "get": {
+        "operationId": "listA_SlsPrcgCndnRecdValidities",
         "summary": "Reads validity of all condition records in the system.",
         "description": "Reads validity of all condition records for pricing in Sales. Validity includes fields such as valid from and to dates, condition fields, and condition type.",
         "tags": [
@@ -1232,6 +1244,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsPrcgCndnRecdValidity",
         "summary": "Reads the validity of a specific condition record.",
         "description": "Reads the validity of a specific condition record, which the consumer specifies by passing condition record number, valid-from date, and valid-to date. Validity includes fields such as valid from and to dates, condition fields, and condition type.",
         "tags": [
@@ -1268,6 +1281,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SlsPrcgCndnRecdValidity",
         "summary": "Updates the validity period of a specific condition record.",
         "description": "Updates the validity period of a specific condition record, which the consumer specifies by passing condition record number, valid-from date, and valid-to date.",
         "tags": [
@@ -1325,6 +1339,7 @@
         }
       ],
       "get": {
+        "operationId": "listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgCndnRecdValidity",
         "summary": "Reads the condition supplements for a specific condition record validity period.",
         "description": "Reads the condition supplements for a specific validity period of a specific condition record, which the consumer specifies by passing  condition record number, valid-from date, and valid-to date.",
         "tags": [
@@ -1394,6 +1409,7 @@
         }
       },
       "post": {
+        "operationId": "createSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecdValidity",
         "summary": "Creates one or more condition supplements for a specific condition record validity period.",
         "description": "Creates one or more condition supplements for a specific validity period of a specific condition record, which the consumer specifies by passing  condition record number, valid-from date, and valid-to date.",
         "tags": [
@@ -1459,6 +1475,7 @@
         }
       ],
       "get": {
+        "operationId": "getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidity",
         "summary": "Reads the condition record for a specific condition record validity period.",
         "description": "Reads the condition record data for a specific validity period of a specific condition record, which the consumer specifies by passing condition record number, valid-from date, and valid-to date.",
         "tags": [
@@ -1498,6 +1515,7 @@
     },
     "/A_SlsPrcgCndnRecordScale": {
       "get": {
+        "operationId": "listA_SlsPrcgCndnRecordScales",
         "summary": "Reads all pricing scales in the system.",
         "description": "Reads all pricing scales defined for condition records and condition supplements in Sales.",
         "tags": [
@@ -1566,6 +1584,7 @@
         }
       },
       "post": {
+        "operationId": "createA_SlsPrcgCndnRecordScale",
         "summary": "Creates one or more pricing scales.",
         "description": "Creates one or more pricing scales for existing condition records or condition supplements, which the consumer specifies by passing condition record number and sequential number in the payload.",
         "tags": [
@@ -1640,6 +1659,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsPrcgCndnRecordScale",
         "summary": "Reads a specific pricing scale.",
         "description": "Reads a specific pricing scale which the consumer specifies by passing condition record number, sequential number, and scale line number.",
         "tags": [
@@ -1676,6 +1696,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SlsPrcgCndnRecordScale",
         "summary": "Updates a specific pricing scale.",
         "description": "Updates a specific pricing scale which the consumer specifies by passing condition record number, sequential number, and scale line number.",
         "tags": [
@@ -1708,6 +1729,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SlsPrcgCndnRecordScale",
         "summary": "Deletes a specific pricing scale.",
         "description": "Deletes a specific pricing scale which the consumer specifies by passing condition record number, sequential number, and scale line number.",
         "tags": [
@@ -1758,6 +1780,7 @@
         }
       ],
       "get": {
+        "operationId": "getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScale",
         "summary": "Reads the condition supplement for a specific condition supplement pricing scale.",
         "description": "Reads the condition record for a specific condition record pricing scale, which the consumer specifies by passing condition record number, sequential number, and scale line number.",
         "tags": [
@@ -1830,6 +1853,7 @@
         }
       ],
       "get": {
+        "operationId": "getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScale",
         "summary": "Reads the condition record for a specific pricing scale.",
         "description": "Reads the condition record for a specific condition record pricing scales, which the consumer specifies by passing condition record number, sequential number, and scale line number.",
         "tags": [
@@ -1869,6 +1893,7 @@
     },
     "/A_SlsPrcgCndnSupplementText": {
       "get": {
+        "operationId": "listA_SlsPrcgCndnSupplementTexts",
         "summary": "Reads all pricing supplement texts in the system.",
         "description": "Reads all pricing supplement texts defined for condition records in Sales.",
         "tags": [
@@ -1937,6 +1962,7 @@
         }
       },
       "post": {
+        "operationId": "createA_SlsPrcgCndnSupplementText",
         "summary": "Creates one or more pricing supplement texts.",
         "description": "Creates one or more pricing supplement texts for existing condition records, which the consumer specifies by passing condition record number and sequential number in the payload.",
         "tags": [
@@ -2010,6 +2036,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsPrcgCndnSupplementText",
         "summary": "Reads a specific pricing supplement text.",
         "description": "Reads a specific pricing supplement text which the consumer specifies by passing condition record number, sequential number, and language.",
         "tags": [
@@ -2046,6 +2073,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SlsPrcgCndnSupplementText",
         "summary": "Updates a specific pricing supplement text.",
         "description": "Updates a specific pricing supplement text which the consumer specifies by passing condition record number, sequential number, and language.",
         "tags": [
@@ -2078,6 +2106,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SlsPrcgCndnSupplementText",
         "summary": "Deletes a specific pricing supplement text.",
         "description": "Deletes a specific pricing supplement text which the consumer specifies by passing condition record number, sequential number, and language.",
         "tags": [
@@ -2127,6 +2156,7 @@
         }
       ],
       "get": {
+        "operationId": "getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementText",
         "summary": "Reads the condition record for a specific pricing supplement text.",
         "description": "Reads the condition record for a specific condition record pricing supplement texts, which the consumer specifies by passing condition record number, sequential number, and language.",
         "tags": [
@@ -2166,6 +2196,7 @@
     },
     "/A_SlsPrcgConditionRecord": {
       "get": {
+        "operationId": "listA_SlsPrcgConditionRecords",
         "summary": "Reads all condition records in the system.",
         "description": "Reads all condition records for pricing in Sales.",
         "tags": [
@@ -2234,6 +2265,7 @@
         }
       },
       "post": {
+        "operationId": "createA_SlsPrcgConditionRecord",
         "summary": "Creates one or more condition records.",
         "description": "Creates one or more condition records by using deep insert requests. This means that consumers must create a condition record together with validity of the condition record. Consumers do this by including the entity for condition record validity in the payload.",
         "tags": [
@@ -2288,6 +2320,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsPrcgConditionRecord",
         "summary": "Reads a specific condition record.",
         "description": "Reads a specific condition record for pricing in Sales, which the consumer specifies by passing the condition record number.",
         "tags": [
@@ -2324,6 +2357,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SlsPrcgConditionRecord",
         "summary": "Updates a specific condition record.",
         "description": "Updates a specific condition record for pricing in Sales, which the consumer specifies by passing the condition record number.",
         "tags": [
@@ -2356,6 +2390,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SlsPrcgConditionRecord",
         "summary": "Deletes a specific condition record.",
         "description": "Deletes a specific condition record, which the consumer specifies by passing the condition record number. When a condition record is deleted, its validity, pricing scales, and condition supplements are no longer valid in pricing.",
         "tags": [
@@ -2386,6 +2421,7 @@
         }
       ],
       "get": {
+        "operationId": "listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgConditionRecord",
         "summary": "Reads the condition supplements of a specific condition record.",
         "description": "Reads the condition supplements of a specific condition record, which the consumer specifies by passing the condition record number.",
         "tags": [
@@ -2455,6 +2491,7 @@
         }
       },
       "post": {
+        "operationId": "createSlsPrcgCndnRecdSuplmntOfA_SlsPrcgConditionRecord",
         "summary": "Creates one or more condition supplements for a specific condition record.",
         "description": "Creates one or more condition supplements for a specific condition record, which the consumer specifies by passing the condition record number.",
         "tags": [
@@ -2510,6 +2547,7 @@
         }
       ],
       "get": {
+        "operationId": "listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgConditionRecord",
         "summary": "Reads the validity of a specific condition record.",
         "description": "Reads the validity of a specific condition record, which the consumer specifies by passing the condition record. Validity includes fields such as valid from and to dates, condition fields, and condition type.",
         "tags": [
@@ -2594,6 +2632,7 @@
         }
       ],
       "get": {
+        "operationId": "listSlsPrcgCndnRecordScalesOfA_SlsPrcgConditionRecord",
         "summary": "Reads the pricing scales of a specific condition record.",
         "description": "Reads the pricing scales of a specific condition record, which the consumer specifies by passing the condition record number.",
         "tags": [
@@ -2663,6 +2702,7 @@
         }
       },
       "post": {
+        "operationId": "createSlsPrcgCndnRecordScaleOfA_SlsPrcgConditionRecord",
         "summary": "Creates one or more pricing scales for a specific condition record.",
         "description": "Creates one or more pricing scales for a specific condition record, which the consumer specifies by passing the condition record number.",
         "tags": [
@@ -2718,6 +2758,7 @@
         }
       ],
       "get": {
+        "operationId": "listSlsPrcgConditionRecordTextsOfA_SlsPrcgConditionRecord",
         "summary": "Reads the pricing record texts of a specific condition record.",
         "description": "Reads the pricing record texts of a specific condition record, which the consumer specifies by passing the condition record number.",
         "tags": [
@@ -2787,6 +2828,7 @@
         }
       },
       "post": {
+        "operationId": "createSlsPrcgConditionRecordTextOfA_SlsPrcgConditionRecord",
         "summary": "Creates one or more pricing record texts for a specific condition record.",
         "description": "Creates one or more pricing record texts for a specific condition record, which the consumer specifies by passing the condition record number.",
         "tags": [
@@ -2829,6 +2871,7 @@
     },
     "/A_SlsPrcgConditionRecordText": {
       "get": {
+        "operationId": "listA_SlsPrcgConditionRecordTexts",
         "summary": "Reads all pricing record texts in the system.",
         "description": "Reads all pricing record texts defined for condition records in Sales.",
         "tags": [
@@ -2897,6 +2940,7 @@
         }
       },
       "post": {
+        "operationId": "createA_SlsPrcgConditionRecordText",
         "summary": "Creates one or more pricing record texts.",
         "description": "Creates one or more pricing record texts for existing condition records, which the consumer specifies by passing condition record number and sequential number in the payload.",
         "tags": [
@@ -2970,6 +3014,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_SlsPrcgConditionRecordText",
         "summary": "Reads a specific pricing record text.",
         "description": "Reads a specific pricing record text which the consumer specifies by passing condition record number, sequential number, and language.",
         "tags": [
@@ -3006,6 +3051,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_SlsPrcgConditionRecordText",
         "summary": "Updates a specific pricing record text.",
         "description": "Updates a specific pricing record text which the consumer specifies by passing condition record number, sequential number, and language.",
         "tags": [
@@ -3038,6 +3084,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_SlsPrcgConditionRecordText",
         "summary": "Deletes a specific pricing record text.",
         "description": "Deletes a specific pricing record text which the consumer specifies by passing condition record number, sequential number, and language.",
         "tags": [
@@ -3087,6 +3134,7 @@
         }
       ],
       "get": {
+        "operationId": "getSlsPrcgConditionRecordOfA_SlsPrcgConditionRecordText",
         "summary": "Reads the condition record for a specific pricing record text.",
         "description": "Reads the condition record for a specific condition record pricing record texts, which the consumer specifies by passing condition record number, sequential number, and language.",
         "tags": [
@@ -3126,6 +3174,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
