@@ -85,6 +85,18 @@ _Edition_: Swan Lake
    string serviceUrl = string `https://${hostname}:${port}/sap/opu/odata/sap/API_SALES_ORDER_SRV`;
    ```
 
+5. Rename the generated remote functions and their `<Operation>Queries` records back to the
+   sanitized `operationId`s. The OpenAPI tool drops underscores when it derives a Ballerina
+   identifier from an `operationId`, which loses the `A_<EntitySet>` naming used by these
+   connectors:
+   `listASlsPrcgConditionRecords` -> `listA_SlsPrcgConditionRecords`  
+   `ListASlsPrcgConditionRecordsQueries` -> `ListA_SlsPrcgConditionRecordsQueries`
+
+   Schema based type names such as `CollectionOfA_SlsPrcgConditionRecordWrapper` already keep the
+   underscore, so this keeps the client consistent with both `types.bal` and the other connectors.
+
+   **Note**: This step only runs when the API name is passed to `clientSanitations.bal`.
+
 ## Process to Create a New S/4HANA Connector
 
 1. Under `ballerina` directory, create a simple case <API_Name> module.
@@ -112,7 +124,10 @@ _Edition_: Swan Lake
     ```
    **Note**: DO NOT FORGET to delete main.bal.
 
-9. Run `bal run sanitation/clientSanitations.bal -- "<Module Name>" "<API Postfix>"`
+9. Run `bal run sanitation/clientSanitations.bal -- "<Module Name>" "<API Postfix>" "<API Name>"`
+
+   **Note**: The `<API Name>` argument is optional. When it is omitted, the generated remote
+   functions keep the names derived by the OpenAPI tool.
 
 10. To generate mock server for tests, remove any parameterized path in the spec and commit
     under `spec/<API_NAME>_MOCK.json`.
