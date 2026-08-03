@@ -18,6 +18,7 @@ import ballerina/io;
 import ballerina/lang.regexp;
 import ballerina/time;
 import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv as conditionrecord;
+import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv.oas;
 
 configurable S4HanaClientConfig s4hanaClientConfig = ?;
 
@@ -31,7 +32,7 @@ configurable int reportSize = 20;
 final conditionrecord:Client conditionRecordClient = check initConditionRecordClient();
 
 public function main() returns error? {
-    conditionrecord:ListA_SlsPrcgConditionRecordsQueries queries = {
+    oas:ListA_SlsPrcgConditionRecordsQueries queries = {
         \$top: reportSize,
         // Ask the server for the total number of matching records, not just this page.
         \$inlinecount: "allpages",
@@ -50,16 +51,16 @@ public function main() returns error? {
         queries.\$filter = conditionFilter;
     }
 
-    conditionrecord:CollectionOfA_SlsPrcgConditionRecordWrapper response =
+    oas:CollectionOfA_SlsPrcgConditionRecordWrapper response =
         check conditionRecordClient->listA_SlsPrcgConditionRecords(queries = queries);
 
-    conditionrecord:A_SlsPrcgConditionRecord[] records = response.d?.results ?: [];
+    oas:A_SlsPrcgConditionRecord[] records = response.d?.results ?: [];
     if records.length() == 0 {
         io:println("No condition records matched the report criteria.");
         return;
     }
 
-    ConditionSummary[] summaries = from conditionrecord:A_SlsPrcgConditionRecord entry in records
+    ConditionSummary[] summaries = from oas:A_SlsPrcgConditionRecord entry in records
         select {
             conditionRecord: entry?.ConditionRecord ?: "-",
             conditionType: entry?.ConditionType ?: "-",
@@ -148,7 +149,7 @@ isolated function pad(string value, int width) returns string {
 #
 # + return - The initialized client, or an error if initialization failed
 function initConditionRecordClient() returns conditionrecord:Client|error {
-    conditionrecord:ConnectionConfig config = {
+    oas:ConnectionConfig config = {
         auth: {
             username: s4hanaClientConfig.username,
             password: s4hanaClientConfig.password

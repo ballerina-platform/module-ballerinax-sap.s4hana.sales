@@ -4,10 +4,10 @@
     "Create, read, update, and delete pricing condition records in SAP S/4HANA",
     "Seamless integration with the Condition Record for Pricing in Sales API v1.2.0",
     "Support for basic and OAuth 2.0 authentication",
-    "Full CRUD operations for condition record validity, pricing scale, and condition supplement management"
+    "Batch operations, so a whole price list is published in one round trip"
   ],
   "communication-scenario": "Pricing Data Integration",
-  "import-statement": "import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv as conditionrecord;",
+  "import-statement": "import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv as conditionrecord;\nimport ballerinax/sap.s4hana.api_slspricingconditionrecord_srv.oas;",
   "client-init": "conditionrecord:Client conditionRecordClient = check new (",
-  "api-invocation": "conditionrecord:CollectionOfA_SlsPrcgConditionRecordWrapper listASlsPrcgConditionRecord = check conditionRecordClient->listA_SlsPrcgConditionRecords();"
+  "api-invocation": "oas:CollectionOfA_SlsPrcgConditionRecordWrapper listASlsPrcgConditionRecord = check conditionRecordClient->listA_SlsPrcgConditionRecords();"
 }

@@ -10,7 +10,7 @@ The SAP S/4HANA Sales connector provides APIs that enable seamless integration w
 - Create, read, update, and delete pricing condition records in SAP S/4HANA
 - Seamless integration with the Condition Record for Pricing in Sales API v1.2.0
 - Support for basic and OAuth 2.0 authentication
-- Full CRUD operations for condition record validity, pricing scale, and condition supplement management
+- Batch operations, so a whole price list is published in one round trip
 
 ## Setup guide
 
@@ -50,6 +50,7 @@ Import the `sap.s4hana.api_slspricingconditionrecord_srv` module.
 
 ```ballerina
 import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv as conditionrecord;
+import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv.oas;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -77,7 +78,7 @@ conditionrecord:Client conditionRecordClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-conditionrecord:CollectionOfA_SlsPrcgConditionRecordWrapper listASlsPrcgConditionRecord = check conditionRecordClient->listA_SlsPrcgConditionRecords();
+oas:CollectionOfA_SlsPrcgConditionRecordWrapper listASlsPrcgConditionRecord = check conditionRecordClient->listA_SlsPrcgConditionRecords();
 ```
 
 ### Step 4: Run the Ballerina application

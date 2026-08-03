@@ -153,3 +153,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added Initial client implementation
+- Added `$batch` support, with the generated client kept in an `oas` submodule

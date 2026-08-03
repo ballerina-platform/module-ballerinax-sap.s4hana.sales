@@ -139,3 +139,44 @@ _Edition_: Swan Lake
     ```
 
 12. Ensure the test cases are written against mock and live servers, with `isTestOnLiveServer` as the param to switch. 
+
+## Connectors That Wrap the Generated Client
+
+A connector needs a hand-written wrapper when the service does something the OpenAPI tool cannot express.
+`api_slspricingconditionrecord_srv` is the first such module here, because its `$batch` operation is a
+`multipart/mixed` envelope whose parts are complete HTTP requests. That is a transport encoding rather
+than a data shape, so no OpenAPI contract can describe it and the generated operation only ever hands
+back a raw `http:Request`.
+
+Those modules keep the generated code in an `oas` submodule, so that regenerating never touches the
+hand-written code:
+
+```
+ballerina/<Module Name>/
+├── Ballerina.toml      # declares the oas submodule with export = true
+├── client.bal          # hand-written wrapper, forwards to oas and adds what is missing
+├── util.bal            # the hand-written support code
+└── modules/oas/        # generated, never edited by hand
+    ├── client.bal
+    ├── types.bal
+    └── utils.bal
+```
+
+`Ballerina.toml` has to export the submodule, otherwise callers cannot reference the generated types:
+
+```toml
+[[package.modules]]
+name = "<Package Name>.oas"
+export = true
+```
+
+The generation steps above stay the same, except that the output directory and the module name passed to
+the client sanitation both point at the submodule:
+
+```ballerina
+bal openapi -i spec/<API Name>.json -o ../ballerina/<Module Name>/modules/oas --mode client --license license.txt
+bal run sanitation/clientSanitations.bal -- "<Module Name>/modules/oas" "<API Postfix>" "<API Name>"
+```
+
+The wrapper forwards every generated operation unchanged, so it has to be revisited whenever the
+regenerated `oas` module gains, loses or changes an operation.

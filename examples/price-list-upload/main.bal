@@ -18,6 +18,7 @@ import ballerina/log;
 import ballerina/random;
 import ballerina/time;
 import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv as conditionrecord;
+import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv.oas;
 
 configurable S4HanaClientConfig s4hanaClientConfig = ?;
 
@@ -34,10 +35,10 @@ public function main() returns error? {
 
     int published = 0;
     foreach PriceListEntry entry in PRICE_LIST {
-        conditionrecord:CreateA_SlsPrcgConditionRecord payload =
+        oas:CreateA_SlsPrcgConditionRecord payload =
             check buildConditionRecord(entry, validFrom);
 
-        conditionrecord:A_SlsPrcgConditionRecordWrapper|error created =
+        oas:A_SlsPrcgConditionRecordWrapper|error created =
             conditionRecordClient->createA_SlsPrcgConditionRecord(payload);
 
         if created is error {
@@ -49,7 +50,7 @@ public function main() returns error? {
         published += 1;
         // S/4HANA assigns the condition record number internally, so the number in the response is
         // the authoritative one rather than the number that was sent.
-        conditionrecord:CreateA_SlsPrcgCndnRecordScale[] scaleLines =
+        oas:CreateA_SlsPrcgCndnRecordScale[] scaleLines =
             payload.to_SlsPrcgCndnRecordScale?.results ?: [];
         log:printInfo(string `Published ${entry.material} at ${entry.price} ${entry.currency}`
                 + string ` per ${entry.quantityUnit} as condition record `
@@ -70,12 +71,12 @@ public function main() returns error? {
 # + validFrom - Start of the validity period, as epoch seconds
 # + return - The request payload, or an error if a condition record number could not be generated
 isolated function buildConditionRecord(PriceListEntry entry, int validFrom)
-        returns conditionrecord:CreateA_SlsPrcgConditionRecord|error {
+        returns oas:CreateA_SlsPrcgConditionRecord|error {
     string conditionRecord = check nextConditionRecordNumber();
     string validFromDate = toODataDate(validFrom);
     string validToDate = toODataDate(NO_END_DATE_EPOCH_SECONDS);
 
-    conditionrecord:CreateA_SlsPrcgConditionRecord payload = {
+    oas:CreateA_SlsPrcgConditionRecord payload = {
         ConditionRecord: conditionRecord,
         ConditionSequentialNumber: CONDITION_SEQUENTIAL_NUMBER,
         ConditionTable: CONDITION_TABLE,
@@ -120,7 +121,7 @@ isolated function buildConditionRecord(PriceListEntry entry, int validFrom)
     payload.PricingScaleBasis = PRICING_SCALE_BASIS;
     PriceScale[] breakPoints = [{fromQuantity: 1, price: entry.price}, ...entry.scales];
 
-    conditionrecord:CreateA_SlsPrcgCndnRecordScale[] scaleLines = [];
+    oas:CreateA_SlsPrcgCndnRecordScale[] scaleLines = [];
     foreach int i in 0 ..< breakPoints.length() {
         PriceScale scale = breakPoints[i];
         scaleLines.push({
@@ -165,7 +166,7 @@ isolated function pad2(int value) returns string => value < 10 ? string `0${valu
 #
 # + return - The initialized client, or an error if initialization failed
 function initConditionRecordClient() returns conditionrecord:Client|error {
-    conditionrecord:ConnectionConfig config = {
+    oas:ConnectionConfig config = {
         auth: {
             username: s4hanaClientConfig.username,
             password: s4hanaClientConfig.password
