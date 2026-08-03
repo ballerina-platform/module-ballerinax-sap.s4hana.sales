@@ -127,8 +127,8 @@ public type SlsPrcgCndnRecordScaleOfA_SlsPrcgCndnRecdSuplmntOrderByOptions ("Con
 
 public type A_SlsPrcgCndnRecdSuplmntOrderByOptions ("ConditionRecord"|"ConditionRecord desc"|"ConditionSequentialNumber"|"ConditionSequentialNumber desc"|"ConditionTable"|"ConditionTable desc"|"ConditionApplication"|"ConditionApplication desc"|"ConditionType"|"ConditionType desc"|"ConditionValidityEndDate"|"ConditionValidityEndDate desc"|"ConditionValidityStartDate"|"ConditionValidityStartDate desc"|"CreatedByUser"|"CreatedByUser desc"|"CreationDate"|"CreationDate desc"|"ConditionTextID"|"ConditionTextID desc"|"PricingScaleType"|"PricingScaleType desc"|"PricingScaleBasis"|"PricingScaleBasis desc"|"ConditionScaleQuantity"|"ConditionScaleQuantity desc"|"ConditionScaleQuantityUnit"|"ConditionScaleQuantityUnit desc"|"ConditionScaleAmount"|"ConditionScaleAmount desc"|"ConditionScaleAmountCurrency"|"ConditionScaleAmountCurrency desc"|"ConditionCalculationType"|"ConditionCalculationType desc"|"ConditionRateValue"|"ConditionRateValue desc"|"ConditionRateValueUnit"|"ConditionRateValueUnit desc"|"ConditionRateRatio"|"ConditionRateRatio desc"|"ConditionRateRatioUnit"|"ConditionRateRatioUnit desc"|"ConditionRateAmount"|"ConditionRateAmount desc"|"ConditionCurrency"|"ConditionCurrency desc"|"ConditionQuantity"|"ConditionQuantity desc"|"ConditionQuantityUnit"|"ConditionQuantityUnit desc"|"ConditionToBaseQtyNmrtr"|"ConditionToBaseQtyNmrtr desc"|"ConditionToBaseQtyDnmntr"|"ConditionToBaseQtyDnmntr desc"|"BaseUnit"|"BaseUnit desc"|"ConditionLowerLimit"|"ConditionLowerLimit desc"|"ConditionLowerLimitAmount"|"ConditionLowerLimitAmount desc"|"ConditionLowerLimitRatio"|"ConditionLowerLimitRatio desc"|"ConditionUpperLimit"|"ConditionUpperLimit desc"|"ConditionUpperLimitAmount"|"ConditionUpperLimitAmount desc"|"ConditionUpperLimitRatio"|"ConditionUpperLimitRatio desc"|"ConditionAlternativeCurrency"|"ConditionAlternativeCurrency desc"|"ConditionExclusion"|"ConditionExclusion desc"|"ConditionIsDeleted"|"ConditionIsDeleted desc"|"AdditionalValueDays"|"AdditionalValueDays desc"|"FixedValueDate"|"FixedValueDate desc"|"PaymentTerms"|"PaymentTerms desc"|"CndnMaxNumberOfSalesOrders"|"CndnMaxNumberOfSalesOrders desc"|"MinimumConditionBasisValue"|"MinimumConditionBasisValue desc"|"MaximumConditionBasisValue"|"MaximumConditionBasisValue desc"|"MaximumConditionAmount"|"MaximumConditionAmount desc"|"IncrementalScale"|"IncrementalScale desc"|"PricingScaleLine"|"PricingScaleLine desc"|"ConditionReleaseStatus"|"ConditionReleaseStatus desc"|"SalesPriceApprovalRequest"|"SalesPriceApprovalRequest desc"|"ConditionChangeReason"|"ConditionChangeReason desc"|"PrevApprovedConditionRecord"|"PrevApprovedConditionRecord desc"|"ETag"|"ETag desc")[];
 
-# Represents the Queries record for the operation: getASlsPrcgCndnRecdSuplmnt
-public type GetASlsPrcgCndnRecdSuplmntQueries record {
+# Represents the Queries record for the operation: getA_SlsPrcgCndnRecdSuplmnt
+public type GetA_SlsPrcgCndnRecdSuplmntQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     A_SlsPrcgCndnRecdSuplmntExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
@@ -137,8 +137,8 @@ public type GetASlsPrcgCndnRecdSuplmntQueries record {
 
 public type SlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScaleExpandOptions ("to_SlsPrcgCndnRecdValidity"|"to_SlsPrcgCndnRecordScale"|"to_SlsPrcgCndnSupplementText"|"to_SlsPrcgConditionRecord")[];
 
-# Represents the Queries record for the operation: listSlsPrcgCndnSupplementTextsOfASlsPrcgCndnRecdSuplmnt
-public type ListSlsPrcgCndnSupplementTextsOfASlsPrcgCndnRecdSuplmntQueries record {
+# Represents the Queries record for the operation: listSlsPrcgCndnSupplementTextsOfA_SlsPrcgCndnRecdSuplmnt
+public type ListSlsPrcgCndnSupplementTextsOfA_SlsPrcgCndnRecdSuplmntQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -173,8 +173,8 @@ public type A_SlsPrcgCndnSupplementText record {
     A_SlsPrcgCndnRecdSuplmnt? to_SlsPrcgCndnRecdSuplmnt?;
 };
 
-# Represents the Queries record for the operation: listASlsPrcgConditionRecordTexts
-public type ListASlsPrcgConditionRecordTextsQueries record {
+# Represents the Queries record for the operation: listA_SlsPrcgConditionRecordTexts
+public type ListA_SlsPrcgConditionRecordTextsQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -255,8 +255,8 @@ public type SlsPrcgCndnSupplementTextOfA_SlsPrcgCndnRecdSuplmntSelectOptions ("C
 
 public type SlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValiditySelectOptions ("ConditionRecord"|"ConditionSequentialNumber"|"ConditionTable"|"ConditionApplication"|"ConditionType"|"ConditionValidityEndDate"|"ConditionValidityStartDate"|"CreatedByUser"|"CreationDate"|"LastChangedByUser"|"LastChangeDate"|"ConditionSearchTermValue"|"ConditionTextID"|"PricingScaleType"|"PricingScaleBasis"|"ConditionScaleQuantity"|"ConditionScaleQuantityUnit"|"ConditionScaleAmount"|"ConditionScaleAmountCurrency"|"ConditionCalculationType"|"ConditionRateValue"|"ConditionRateValueUnit"|"ConditionRateRatio"|"ConditionRateRatioUnit"|"ConditionRateAmount"|"ConditionCurrency"|"ConditionQuantity"|"ConditionQuantityUnit"|"ConditionToBaseQtyNmrtr"|"ConditionToBaseQtyDnmntr"|"BaseUnit"|"ConditionLowerLimit"|"ConditionLowerLimitAmount"|"ConditionLowerLimitRatio"|"ConditionUpperLimit"|"ConditionUpperLimitAmount"|"ConditionUpperLimitRatio"|"ConditionAlternativeCurrency"|"ConditionExclusion"|"ConditionIsDeleted"|"AdditionalValueDays"|"FixedValueDate"|"PaymentTerms"|"CndnMaxNumberOfSalesOrders"|"MinimumConditionBasisValue"|"MaximumConditionBasisValue"|"MaximumConditionAmount"|"IncrementalScale"|"PricingScaleLine"|"ConditionReleaseStatus"|"SalesPriceApprovalRequest"|"ConditionChangeReason"|"PrevApprovedConditionRecord"|"ConditionTaxCode"|"ConditionWithholdingTaxCode"|"TaxExemptionLicense"|"LicenseGrantDate"|"LastChangeDateTime"|"SAPObjectNodeType"|"ETag"|"to_SlsPrcgCndnRecdSuplmnt"|"to_SlsPrcgCndnRecdValidity"|"to_SlsPrcgCndnRecordScale"|"to_SlsPrcgConditionRecordText")[];
 
-# Represents the Queries record for the operation: listASlsPrcgCndnRecdValidities
-public type ListASlsPrcgCndnRecdValiditiesQueries record {
+# Represents the Queries record for the operation: listA_SlsPrcgCndnRecdValidities
+public type ListA_SlsPrcgCndnRecdValiditiesQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -536,8 +536,8 @@ public type A_SlsPrcgCndnRecdValidity record {
     A_SlsPrcgConditionRecord? to_SlsPrcgConditionRecord?;
 };
 
-# Represents the Queries record for the operation: getSlsPrcgConditionRecordOfASlsPrcgConditionRecordText
-public type GetSlsPrcgConditionRecordOfASlsPrcgConditionRecordTextQueries record {
+# Represents the Queries record for the operation: getSlsPrcgConditionRecordOfA_SlsPrcgConditionRecordText
+public type GetSlsPrcgConditionRecordOfA_SlsPrcgConditionRecordTextQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     SlsPrcgConditionRecordOfA_SlsPrcgConditionRecordTextExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
@@ -559,8 +559,8 @@ public type SlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecdValidityOrderByOptions ("Co
 
 public type A_SlsPrcgCndnRecdSuplmntSelectOptions ("ConditionRecord"|"ConditionSequentialNumber"|"ConditionTable"|"ConditionApplication"|"ConditionType"|"ConditionValidityEndDate"|"ConditionValidityStartDate"|"CreatedByUser"|"CreationDate"|"ConditionTextID"|"PricingScaleType"|"PricingScaleBasis"|"ConditionScaleQuantity"|"ConditionScaleQuantityUnit"|"ConditionScaleAmount"|"ConditionScaleAmountCurrency"|"ConditionCalculationType"|"ConditionRateValue"|"ConditionRateValueUnit"|"ConditionRateRatio"|"ConditionRateRatioUnit"|"ConditionRateAmount"|"ConditionCurrency"|"ConditionQuantity"|"ConditionQuantityUnit"|"ConditionToBaseQtyNmrtr"|"ConditionToBaseQtyDnmntr"|"BaseUnit"|"ConditionLowerLimit"|"ConditionLowerLimitAmount"|"ConditionLowerLimitRatio"|"ConditionUpperLimit"|"ConditionUpperLimitAmount"|"ConditionUpperLimitRatio"|"ConditionAlternativeCurrency"|"ConditionExclusion"|"ConditionIsDeleted"|"AdditionalValueDays"|"FixedValueDate"|"PaymentTerms"|"CndnMaxNumberOfSalesOrders"|"MinimumConditionBasisValue"|"MaximumConditionBasisValue"|"MaximumConditionAmount"|"IncrementalScale"|"PricingScaleLine"|"ConditionReleaseStatus"|"SalesPriceApprovalRequest"|"ConditionChangeReason"|"PrevApprovedConditionRecord"|"ETag"|"to_SlsPrcgCndnRecdValidity"|"to_SlsPrcgCndnRecordScale"|"to_SlsPrcgCndnSupplementText"|"to_SlsPrcgConditionRecord")[];
 
-# Represents the Queries record for the operation: getSlsPrcgConditionRecordOfASlsPrcgCndnRecdValidity
-public type GetSlsPrcgConditionRecordOfASlsPrcgCndnRecdValidityQueries record {
+# Represents the Queries record for the operation: getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidity
+public type GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidityQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     SlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidityExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
@@ -581,8 +581,8 @@ public type CollectionOfA_SlsPrcgCndnRecdValidityWrapper record {
     CollectionOfA_SlsPrcgCndnRecdValidity d?;
 };
 
-# Represents the Queries record for the operation: getSlsPrcgCndnRecdSuplmntOfASlsPrcgCndnRecordScale
-public type GetSlsPrcgCndnRecdSuplmntOfASlsPrcgCndnRecordScaleQueries record {
+# Represents the Queries record for the operation: getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScale
+public type GetSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScaleQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     SlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScaleExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
@@ -599,16 +599,16 @@ public type CollectionOfA_SlsPrcgCndnSupplementText record {
     A_SlsPrcgCndnSupplementText[] results?;
 };
 
-# Represents the Queries record for the operation: getASlsPrcgCndnRecdValidity
-public type GetASlsPrcgCndnRecdValidityQueries record {
+# Represents the Queries record for the operation: getA_SlsPrcgCndnRecdValidity
+public type GetA_SlsPrcgCndnRecdValidityQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     A_SlsPrcgCndnRecdValidityExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     A_SlsPrcgCndnRecdValiditySelectOptions \$select?;
 };
 
-# Represents the Queries record for the operation: listASlsPrcgConditionRecords
-public type ListASlsPrcgConditionRecordsQueries record {
+# Represents the Queries record for the operation: listA_SlsPrcgConditionRecords
+public type ListA_SlsPrcgConditionRecordsQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -627,8 +627,8 @@ public type ListASlsPrcgConditionRecordsQueries record {
 
 public type SlsPrcgCndnRecordScaleOfA_SlsPrcgCndnRecdSuplmntSelectOptions ("ConditionRecord"|"ConditionSequentialNumber"|"ConditionScaleLine"|"ConditionScaleQuantity"|"ConditionScaleQuantityUnit"|"ConditionScaleAmount"|"ConditionScaleAmountCurrency"|"ConditionRateValue"|"ConditionRateValueUnit"|"ConditionRateRatio"|"ConditionRateRatioUnit"|"ConditionRateAmount"|"ConditionCurrency"|"ETag"|"to_SlsPrcgCndnRecdSuplmnt"|"to_SlsPrcgConditionRecord")[];
 
-# Represents the Queries record for the operation: listASlsPrcgCndnRecdSuplmnts
-public type ListASlsPrcgCndnRecdSuplmntsQueries record {
+# Represents the Queries record for the operation: listA_SlsPrcgCndnRecdSuplmnts
+public type ListA_SlsPrcgCndnRecdSuplmntsQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -657,8 +657,8 @@ public type A_SlsPrcgConditionRecordWrapper record {
 
 public type SlsPrcgCndnRecordScaleOfA_SlsPrcgConditionRecordExpandOptions ("to_SlsPrcgCndnRecdSuplmnt"|"to_SlsPrcgConditionRecord")[];
 
-# Represents the Queries record for the operation: getSlsPrcgCndnRecdSuplmntOfASlsPrcgCndnSupplementText
-public type GetSlsPrcgCndnRecdSuplmntOfASlsPrcgCndnSupplementTextQueries record {
+# Represents the Queries record for the operation: getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementText
+public type GetSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementTextQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     SlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementTextExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
@@ -1160,8 +1160,8 @@ public type CollectionOfA_SlsPrcgCndnRecordScale record {
     A_SlsPrcgCndnRecordScale[] results?;
 };
 
-# Represents the Queries record for the operation: getASlsPrcgCndnSupplementText
-public type GetASlsPrcgCndnSupplementTextQueries record {
+# Represents the Queries record for the operation: getA_SlsPrcgCndnSupplementText
+public type GetA_SlsPrcgCndnSupplementTextQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     A_SlsPrcgCndnSupplementTextExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
@@ -1192,16 +1192,16 @@ public type Modified\ A_SlsPrcgCndnRecdValidityType record {
 
 public type SlsPrcgCndnRecordScaleOfA_SlsPrcgConditionRecordOrderByOptions ("ConditionRecord"|"ConditionRecord desc"|"ConditionSequentialNumber"|"ConditionSequentialNumber desc"|"ConditionScaleLine"|"ConditionScaleLine desc"|"ConditionScaleQuantity"|"ConditionScaleQuantity desc"|"ConditionScaleQuantityUnit"|"ConditionScaleQuantityUnit desc"|"ConditionScaleAmount"|"ConditionScaleAmount desc"|"ConditionScaleAmountCurrency"|"ConditionScaleAmountCurrency desc"|"ConditionRateValue"|"ConditionRateValue desc"|"ConditionRateValueUnit"|"ConditionRateValueUnit desc"|"ConditionRateRatio"|"ConditionRateRatio desc"|"ConditionRateRatioUnit"|"ConditionRateRatioUnit desc"|"ConditionRateAmount"|"ConditionRateAmount desc"|"ConditionCurrency"|"ConditionCurrency desc"|"ETag"|"ETag desc")[];
 
-# Represents the Queries record for the operation: getSlsPrcgConditionRecordOfASlsPrcgCndnRecdSuplmnt
-public type GetSlsPrcgConditionRecordOfASlsPrcgCndnRecdSuplmntQueries record {
+# Represents the Queries record for the operation: getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmnt
+public type GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmntQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     SlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmntExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     SlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmntSelectOptions \$select?;
 };
 
-# Represents the Queries record for the operation: listASlsPrcgCndnRecordScales
-public type ListASlsPrcgCndnRecordScalesQueries record {
+# Represents the Queries record for the operation: listA_SlsPrcgCndnRecordScales
+public type ListA_SlsPrcgCndnRecordScalesQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -1220,8 +1220,8 @@ public type ListASlsPrcgCndnRecordScalesQueries record {
 
 public type SlsPrcgCndnRecordScaleOfA_SlsPrcgCndnRecdSuplmntExpandOptions ("to_SlsPrcgCndnRecdSuplmnt"|"to_SlsPrcgConditionRecord")[];
 
-# Represents the Queries record for the operation: listSlsPrcgCndnRecdSuplmntsOfASlsPrcgConditionRecord
-public type ListSlsPrcgCndnRecdSuplmntsOfASlsPrcgConditionRecordQueries record {
+# Represents the Queries record for the operation: listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgConditionRecord
+public type ListSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgConditionRecordQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -1770,8 +1770,8 @@ public type UpdateA_SlsPrcgCndnRecdValidity record {
     string? ETag?;
 };
 
-# Represents the Queries record for the operation: listSlsPrcgCndnRecdValiditiesOfASlsPrcgCndnRecdSuplmnt
-public type ListSlsPrcgCndnRecdValiditiesOfASlsPrcgCndnRecdSuplmntQueries record {
+# Represents the Queries record for the operation: listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgCndnRecdSuplmnt
+public type ListSlsPrcgCndnRecdValiditiesOfA_SlsPrcgCndnRecdSuplmntQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -1800,8 +1800,8 @@ public type CreateA_SlsPrcgCndnRecdSuplmnt_to_SlsPrcgCndnRecdValidity record {
     CreateA_SlsPrcgCndnRecdValidity[] results?;
 };
 
-# Represents the Queries record for the operation: listSlsPrcgCndnRecordScalesOfASlsPrcgCndnRecdSuplmnt
-public type ListSlsPrcgCndnRecordScalesOfASlsPrcgCndnRecdSuplmntQueries record {
+# Represents the Queries record for the operation: listSlsPrcgCndnRecordScalesOfA_SlsPrcgCndnRecdSuplmnt
+public type ListSlsPrcgCndnRecordScalesOfA_SlsPrcgCndnRecdSuplmntQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -1818,8 +1818,8 @@ public type ListSlsPrcgCndnRecordScalesOfASlsPrcgCndnRecdSuplmntQueries record {
     SlsPrcgCndnRecordScaleOfA_SlsPrcgCndnRecdSuplmntSelectOptions \$select?;
 };
 
-# Represents the Queries record for the operation: listASlsPrcgCndnSupplementTexts
-public type ListASlsPrcgCndnSupplementTextsQueries record {
+# Represents the Queries record for the operation: listA_SlsPrcgCndnSupplementTexts
+public type ListA_SlsPrcgCndnSupplementTextsQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -1836,8 +1836,8 @@ public type ListASlsPrcgCndnSupplementTextsQueries record {
     A_SlsPrcgCndnSupplementTextSelectOptions \$select?;
 };
 
-# Represents the Queries record for the operation: listSlsPrcgCndnRecdSuplmntsOfASlsPrcgCndnRecdValidity
-public type ListSlsPrcgCndnRecdSuplmntsOfASlsPrcgCndnRecdValidityQueries record {
+# Represents the Queries record for the operation: listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgCndnRecdValidity
+public type ListSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgCndnRecdValidityQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -1904,8 +1904,8 @@ public type CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper record {
     CollectionOfA_SlsPrcgCndnRecdSuplmnt d?;
 };
 
-# Represents the Queries record for the operation: getASlsPrcgConditionRecordText
-public type GetASlsPrcgConditionRecordTextQueries record {
+# Represents the Queries record for the operation: getA_SlsPrcgConditionRecordText
+public type GetA_SlsPrcgConditionRecordTextQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     A_SlsPrcgConditionRecordTextExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
@@ -1935,8 +1935,8 @@ public type A_SlsPrcgCndnSupplementTextOrderByOptions ("ConditionRecord"|"Condit
 
 public type SlsPrcgCndnRecdValidityOfA_SlsPrcgConditionRecordExpandOptions ("to_SlsPrcgCndnRecdSuplmnt"|"to_SlsPrcgConditionRecord")[];
 
-# Represents the Queries record for the operation: listSlsPrcgCndnRecordScalesOfASlsPrcgConditionRecord
-public type ListSlsPrcgCndnRecordScalesOfASlsPrcgConditionRecordQueries record {
+# Represents the Queries record for the operation: listSlsPrcgCndnRecordScalesOfA_SlsPrcgConditionRecord
+public type ListSlsPrcgCndnRecordScalesOfA_SlsPrcgConditionRecordQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -1973,8 +1973,8 @@ public type A_SlsPrcgConditionRecordText record {
 
 public type SlsPrcgCndnRecdValidityOfA_SlsPrcgCndnRecdSuplmntExpandOptions ("to_SlsPrcgCndnRecdSuplmnt"|"to_SlsPrcgConditionRecord")[];
 
-# Represents the Queries record for the operation: listSlsPrcgConditionRecordTextsOfASlsPrcgConditionRecord
-public type ListSlsPrcgConditionRecordTextsOfASlsPrcgConditionRecordQueries record {
+# Represents the Queries record for the operation: listSlsPrcgConditionRecordTextsOfA_SlsPrcgConditionRecord
+public type ListSlsPrcgConditionRecordTextsOfA_SlsPrcgConditionRecordQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -1991,8 +1991,8 @@ public type ListSlsPrcgConditionRecordTextsOfASlsPrcgConditionRecordQueries reco
     SlsPrcgConditionRecordTextOfA_SlsPrcgConditionRecordSelectOptions \$select?;
 };
 
-# Represents the Queries record for the operation: listSlsPrcgCndnRecdValiditiesOfASlsPrcgConditionRecord
-public type ListSlsPrcgCndnRecdValiditiesOfASlsPrcgConditionRecordQueries record {
+# Represents the Queries record for the operation: listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgConditionRecord
+public type ListSlsPrcgCndnRecdValiditiesOfA_SlsPrcgConditionRecordQueries record {
     # Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)
     int \$skip?;
     # Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)
@@ -2069,8 +2069,8 @@ public type A_SlsPrcgCndnRecordScale record {
 
 public type A_SlsPrcgCndnRecdValidityExpandOptions ("to_SlsPrcgCndnRecdSuplmnt"|"to_SlsPrcgConditionRecord")[];
 
-# Represents the Queries record for the operation: getSlsPrcgConditionRecordOfASlsPrcgCndnRecordScale
-public type GetSlsPrcgConditionRecordOfASlsPrcgCndnRecordScaleQueries record {
+# Represents the Queries record for the operation: getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScale
+public type GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScaleQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     SlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScaleExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
@@ -2205,8 +2205,8 @@ public type SlsPrcgCndnRecdValidityOfA_SlsPrcgConditionRecordSelectOptions ("Con
 
 public type SlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScaleSelectOptions ("ConditionRecord"|"ConditionSequentialNumber"|"ConditionTable"|"ConditionApplication"|"ConditionType"|"ConditionValidityEndDate"|"ConditionValidityStartDate"|"CreatedByUser"|"CreationDate"|"ConditionTextID"|"PricingScaleType"|"PricingScaleBasis"|"ConditionScaleQuantity"|"ConditionScaleQuantityUnit"|"ConditionScaleAmount"|"ConditionScaleAmountCurrency"|"ConditionCalculationType"|"ConditionRateValue"|"ConditionRateValueUnit"|"ConditionRateRatio"|"ConditionRateRatioUnit"|"ConditionRateAmount"|"ConditionCurrency"|"ConditionQuantity"|"ConditionQuantityUnit"|"ConditionToBaseQtyNmrtr"|"ConditionToBaseQtyDnmntr"|"BaseUnit"|"ConditionLowerLimit"|"ConditionLowerLimitAmount"|"ConditionLowerLimitRatio"|"ConditionUpperLimit"|"ConditionUpperLimitAmount"|"ConditionUpperLimitRatio"|"ConditionAlternativeCurrency"|"ConditionExclusion"|"ConditionIsDeleted"|"AdditionalValueDays"|"FixedValueDate"|"PaymentTerms"|"CndnMaxNumberOfSalesOrders"|"MinimumConditionBasisValue"|"MaximumConditionBasisValue"|"MaximumConditionAmount"|"IncrementalScale"|"PricingScaleLine"|"ConditionReleaseStatus"|"SalesPriceApprovalRequest"|"ConditionChangeReason"|"PrevApprovedConditionRecord"|"ETag"|"to_SlsPrcgCndnRecdValidity"|"to_SlsPrcgCndnRecordScale"|"to_SlsPrcgCndnSupplementText"|"to_SlsPrcgConditionRecord")[];
 
-# Represents the Queries record for the operation: getASlsPrcgConditionRecord
-public type GetASlsPrcgConditionRecordQueries record {
+# Represents the Queries record for the operation: getA_SlsPrcgConditionRecord
+public type GetA_SlsPrcgConditionRecordQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     A_SlsPrcgConditionRecordExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
@@ -2227,8 +2227,8 @@ public type CreateA_SlsPrcgCndnRecdValidity_to_SlsPrcgCndnRecdSuplmnt record {
     CreateA_SlsPrcgCndnRecdSuplmnt[] results?;
 };
 
-# Represents the Queries record for the operation: getASlsPrcgCndnRecordScale
-public type GetASlsPrcgCndnRecordScaleQueries record {
+# Represents the Queries record for the operation: getA_SlsPrcgCndnRecordScale
+public type GetA_SlsPrcgCndnRecordScaleQueries record {
     # Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)
     A_SlsPrcgCndnRecordScaleExpandOptions \$expand?;
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)

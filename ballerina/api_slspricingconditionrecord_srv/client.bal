@@ -19,16 +19,19 @@
 
 import ballerina/data.jsondata;
 import ballerina/http;
+import ballerinax/sap;
 
 # Consumers of this inbound service can create, read, update, and delete condition records inside condition record, validity of condition record, pricing scale, and condition supplement.
 public isolated client class Client {
-    final http:Client clientEp;
+    final sap:Client clientEp;
+
     # Gets invoked to initialize the `connector`.
     #
     # + config - The configurations to be used when initializing the `connector` 
     # + serviceUrl - URL of the target service 
     # + return - An error if connector initialization failed 
-    public isolated function init(ConnectionConfig config, string serviceUrl) returns error? {
+    public isolated function init(ConnectionConfig config, string hostname, int port = 443) returns error? {
+        string serviceUrl = string `https://${hostname}:${port}/sap/opu/odata/sap/API_SLSPRICINGCONDITIONRECORD_SRV`;
         http:ClientConfiguration httpClientConfig = {auth: config.auth, httpVersion: config.httpVersion, http1Settings: config.http1Settings, http2Settings: config.http2Settings, timeout: config.timeout, forwarded: config.forwarded, followRedirects: config.followRedirects, poolConfig: config.poolConfig, cache: config.cache, compression: config.compression, circuitBreaker: config.circuitBreaker, retryConfig: config.retryConfig, cookieConfig: config.cookieConfig, responseLimits: config.responseLimits, secureSocket: config.secureSocket, proxy: config.proxy, socketConfig: config.socketConfig, validation: config.validation, laxDataBinding: config.laxDataBinding};
         self.clientEp = check new (serviceUrl, httpClientConfig);
     }
@@ -38,7 +41,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listASlsPrcgCndnRecdSuplmnts(map<string|string[]> headers = {}, *ListASlsPrcgCndnRecdSuplmntsQueries queries) returns CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function listA_SlsPrcgCndnRecdSuplmnts(map<string|string[]> headers = {}, *ListA_SlsPrcgCndnRecdSuplmntsQueries queries) returns CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -50,7 +53,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createASlsPrcgCndnRecdSuplmnt(CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function createA_SlsPrcgCndnRecdSuplmnt(CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -65,7 +68,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getASlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *GetASlsPrcgCndnRecdSuplmntQueries queries) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function getA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *GetA_SlsPrcgCndnRecdSuplmntQueries queries) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -78,7 +81,7 @@ public isolated client class Client {
     # + ConditionSequentialNumber - Sequential number of the condition
     # + headers - Headers to be sent with the request 
     # + return - Success 
-    remote isolated function deleteASlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}) returns error? {
+    remote isolated function deleteA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}')`;
         return self.clientEp->delete(resourcePath, headers = headers);
     }
@@ -90,7 +93,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchASlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, Modified\ A_SlsPrcgCndnRecdSuplmntType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, Modified\ A_SlsPrcgCndnRecdSuplmntType payload, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}')`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -105,7 +108,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecdValiditiesOfASlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdValiditiesOfASlsPrcgCndnRecdSuplmntQueries queries) returns CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
+    remote isolated function listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdValiditiesOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}')/to_SlsPrcgCndnRecdValidity`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -119,7 +122,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecordScalesOfASlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecordScalesOfASlsPrcgCndnRecdSuplmntQueries queries) returns CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function listSlsPrcgCndnRecordScalesOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecordScalesOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}')/to_SlsPrcgCndnRecordScale`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -133,7 +136,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgCndnRecordScaleOfASlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function createSlsPrcgCndnRecordScaleOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecordScaleWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}')/to_SlsPrcgCndnRecordScale`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -148,7 +151,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnSupplementTextsOfASlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *ListSlsPrcgCndnSupplementTextsOfASlsPrcgCndnRecdSuplmntQueries queries) returns CollectionOfA_SlsPrcgCndnSupplementTextWrapper|error {
+    remote isolated function listSlsPrcgCndnSupplementTextsOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *ListSlsPrcgCndnSupplementTextsOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns CollectionOfA_SlsPrcgCndnSupplementTextWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}')/to_SlsPrcgCndnSupplementText`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -162,7 +165,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgCndnSupplementTextOfASlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, CreateA_SlsPrcgCndnSupplementText payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnSupplementTextWrapper|error {
+    remote isolated function createSlsPrcgCndnSupplementTextOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, CreateA_SlsPrcgCndnSupplementText payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnSupplementTextWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}')/to_SlsPrcgCndnSupplementText`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -177,7 +180,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgConditionRecordOfASlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfASlsPrcgCndnRecdSuplmntQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdSuplmnt(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}')/to_SlsPrcgConditionRecord`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -189,7 +192,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listASlsPrcgCndnRecdValidities(map<string|string[]> headers = {}, *ListASlsPrcgCndnRecdValiditiesQueries queries) returns CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
+    remote isolated function listA_SlsPrcgCndnRecdValidities(map<string|string[]> headers = {}, *ListA_SlsPrcgCndnRecdValiditiesQueries queries) returns CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdValidity`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -203,7 +206,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getASlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *GetASlsPrcgCndnRecdValidityQueries queries) returns A_SlsPrcgCndnRecdValidityWrapper|error {
+    remote isolated function getA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *GetA_SlsPrcgCndnRecdValidityQueries queries) returns A_SlsPrcgCndnRecdValidityWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdValidity(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionValidityEndDate=datetime'${getEncodedUri(ConditionValidityEndDate)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -217,7 +220,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchASlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, Modified\ A_SlsPrcgCndnRecdValidityType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, Modified\ A_SlsPrcgCndnRecdValidityType payload, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgCndnRecdValidity(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionValidityEndDate=datetime'${getEncodedUri(ConditionValidityEndDate)}')`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -232,7 +235,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecdSuplmntsOfASlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdSuplmntsOfASlsPrcgCndnRecdValidityQueries queries) returns CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgCndnRecdValidityQueries queries) returns CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdValidity(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionValidityEndDate=datetime'${getEncodedUri(ConditionValidityEndDate)}')/to_SlsPrcgCndnRecdSuplmnt`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -246,7 +249,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgCndnRecdSuplmntOfASlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function createSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdValidity(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionValidityEndDate=datetime'${getEncodedUri(ConditionValidityEndDate)}')/to_SlsPrcgCndnRecdSuplmnt`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -261,7 +264,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgConditionRecordOfASlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfASlsPrcgCndnRecdValidityQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidityQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecdValidity(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionValidityEndDate=datetime'${getEncodedUri(ConditionValidityEndDate)}')/to_SlsPrcgConditionRecord`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -273,7 +276,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listASlsPrcgCndnRecordScales(map<string|string[]> headers = {}, *ListASlsPrcgCndnRecordScalesQueries queries) returns CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function listA_SlsPrcgCndnRecordScales(map<string|string[]> headers = {}, *ListA_SlsPrcgCndnRecordScalesQueries queries) returns CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecordScale`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -285,7 +288,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createASlsPrcgCndnRecordScale(CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function createA_SlsPrcgCndnRecordScale(CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecordScaleWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecordScale`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -301,7 +304,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getASlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *GetASlsPrcgCndnRecordScaleQueries queries) returns A_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function getA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *GetA_SlsPrcgCndnRecordScaleQueries queries) returns A_SlsPrcgCndnRecordScaleWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecordScale(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',ConditionScaleLine='${getEncodedUri(ConditionScaleLine)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -315,7 +318,7 @@ public isolated client class Client {
     # + ConditionScaleLine - Current number of the line scale
     # + headers - Headers to be sent with the request 
     # + return - Success 
-    remote isolated function deleteASlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}) returns error? {
+    remote isolated function deleteA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgCndnRecordScale(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',ConditionScaleLine='${getEncodedUri(ConditionScaleLine)}')`;
         return self.clientEp->delete(resourcePath, headers = headers);
     }
@@ -328,7 +331,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchASlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, Modified\ A_SlsPrcgCndnRecordScaleType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, Modified\ A_SlsPrcgCndnRecordScaleType payload, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgCndnRecordScale(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',ConditionScaleLine='${getEncodedUri(ConditionScaleLine)}')`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -344,7 +347,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgCndnRecdSuplmntOfASlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *GetSlsPrcgCndnRecdSuplmntOfASlsPrcgCndnRecordScaleQueries queries) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *GetSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScaleQueries queries) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecordScale(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',ConditionScaleLine='${getEncodedUri(ConditionScaleLine)}')/to_SlsPrcgCndnRecdSuplmnt`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -359,7 +362,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgConditionRecordOfASlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfASlsPrcgCndnRecordScaleQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScaleQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnRecordScale(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',ConditionScaleLine='${getEncodedUri(ConditionScaleLine)}')/to_SlsPrcgConditionRecord`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -371,7 +374,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listASlsPrcgCndnSupplementTexts(map<string|string[]> headers = {}, *ListASlsPrcgCndnSupplementTextsQueries queries) returns CollectionOfA_SlsPrcgCndnSupplementTextWrapper|error {
+    remote isolated function listA_SlsPrcgCndnSupplementTexts(map<string|string[]> headers = {}, *ListA_SlsPrcgCndnSupplementTextsQueries queries) returns CollectionOfA_SlsPrcgCndnSupplementTextWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnSupplementText`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -383,7 +386,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createASlsPrcgCndnSupplementText(CreateA_SlsPrcgCndnSupplementText payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnSupplementTextWrapper|error {
+    remote isolated function createA_SlsPrcgCndnSupplementText(CreateA_SlsPrcgCndnSupplementText payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnSupplementTextWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnSupplementText`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -399,7 +402,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getASlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetASlsPrcgCndnSupplementTextQueries queries) returns A_SlsPrcgCndnSupplementTextWrapper|error {
+    remote isolated function getA_SlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetA_SlsPrcgCndnSupplementTextQueries queries) returns A_SlsPrcgCndnSupplementTextWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnSupplementText(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',Language='${getEncodedUri(Language)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -413,7 +416,7 @@ public isolated client class Client {
     # + Language - Language Key
     # + headers - Headers to be sent with the request 
     # + return - Success 
-    remote isolated function deleteASlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}) returns error? {
+    remote isolated function deleteA_SlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgCndnSupplementText(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',Language='${getEncodedUri(Language)}')`;
         return self.clientEp->delete(resourcePath, headers = headers);
     }
@@ -426,7 +429,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchASlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, Modified\ A_SlsPrcgCndnSupplementTextType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, Modified\ A_SlsPrcgCndnSupplementTextType payload, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgCndnSupplementText(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',Language='${getEncodedUri(Language)}')`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -442,7 +445,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgCndnRecdSuplmntOfASlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetSlsPrcgCndnRecdSuplmntOfASlsPrcgCndnSupplementTextQueries queries) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementTextQueries queries) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         string resourcePath = string `/A_SlsPrcgCndnSupplementText(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',Language='${getEncodedUri(Language)}')/to_SlsPrcgCndnRecdSuplmnt`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -454,7 +457,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listASlsPrcgConditionRecords(map<string|string[]> headers = {}, *ListASlsPrcgConditionRecordsQueries queries) returns CollectionOfA_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function listA_SlsPrcgConditionRecords(map<string|string[]> headers = {}, *ListA_SlsPrcgConditionRecordsQueries queries) returns CollectionOfA_SlsPrcgConditionRecordWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecord`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -466,7 +469,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createASlsPrcgConditionRecord(CreateA_SlsPrcgConditionRecord payload, map<string|string[]> headers = {}) returns A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function createA_SlsPrcgConditionRecord(CreateA_SlsPrcgConditionRecord payload, map<string|string[]> headers = {}) returns A_SlsPrcgConditionRecordWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecord`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -480,7 +483,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getASlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *GetASlsPrcgConditionRecordQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function getA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *GetA_SlsPrcgConditionRecordQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecord('${getEncodedUri(ConditionRecord)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -492,7 +495,7 @@ public isolated client class Client {
     # + ConditionRecord - Number of Condition Record
     # + headers - Headers to be sent with the request 
     # + return - Success 
-    remote isolated function deleteASlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}) returns error? {
+    remote isolated function deleteA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgConditionRecord('${getEncodedUri(ConditionRecord)}')`;
         return self.clientEp->delete(resourcePath, headers = headers);
     }
@@ -503,7 +506,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchASlsPrcgConditionRecord(string ConditionRecord, Modified\ A_SlsPrcgConditionRecordType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgConditionRecord(string ConditionRecord, Modified\ A_SlsPrcgConditionRecordType payload, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgConditionRecord('${getEncodedUri(ConditionRecord)}')`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -517,7 +520,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecdSuplmntsOfASlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdSuplmntsOfASlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecord('${getEncodedUri(ConditionRecord)}')/to_SlsPrcgCndnRecdSuplmnt`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -530,7 +533,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgCndnRecdSuplmntOfASlsPrcgConditionRecord(string ConditionRecord, CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function createSlsPrcgCndnRecdSuplmntOfA_SlsPrcgConditionRecord(string ConditionRecord, CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecord('${getEncodedUri(ConditionRecord)}')/to_SlsPrcgCndnRecdSuplmnt`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -544,7 +547,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecdValiditiesOfASlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdValiditiesOfASlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
+    remote isolated function listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdValiditiesOfA_SlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecord('${getEncodedUri(ConditionRecord)}')/to_SlsPrcgCndnRecdValidity`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -557,7 +560,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecordScalesOfASlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecordScalesOfASlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function listSlsPrcgCndnRecordScalesOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecordScalesOfA_SlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecord('${getEncodedUri(ConditionRecord)}')/to_SlsPrcgCndnRecordScale`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -570,7 +573,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgCndnRecordScaleOfASlsPrcgConditionRecord(string ConditionRecord, CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function createSlsPrcgCndnRecordScaleOfA_SlsPrcgConditionRecord(string ConditionRecord, CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecordScaleWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecord('${getEncodedUri(ConditionRecord)}')/to_SlsPrcgCndnRecordScale`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -584,7 +587,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgConditionRecordTextsOfASlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgConditionRecordTextsOfASlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgConditionRecordTextWrapper|error {
+    remote isolated function listSlsPrcgConditionRecordTextsOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgConditionRecordTextsOfA_SlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgConditionRecordTextWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecord('${getEncodedUri(ConditionRecord)}')/to_SlsPrcgConditionRecordText`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -597,7 +600,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgConditionRecordTextOfASlsPrcgConditionRecord(string ConditionRecord, CreateA_SlsPrcgConditionRecordText payload, map<string|string[]> headers = {}) returns A_SlsPrcgConditionRecordTextWrapper|error {
+    remote isolated function createSlsPrcgConditionRecordTextOfA_SlsPrcgConditionRecord(string ConditionRecord, CreateA_SlsPrcgConditionRecordText payload, map<string|string[]> headers = {}) returns A_SlsPrcgConditionRecordTextWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecord('${getEncodedUri(ConditionRecord)}')/to_SlsPrcgConditionRecordText`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -610,7 +613,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listASlsPrcgConditionRecordTexts(map<string|string[]> headers = {}, *ListASlsPrcgConditionRecordTextsQueries queries) returns CollectionOfA_SlsPrcgConditionRecordTextWrapper|error {
+    remote isolated function listA_SlsPrcgConditionRecordTexts(map<string|string[]> headers = {}, *ListA_SlsPrcgConditionRecordTextsQueries queries) returns CollectionOfA_SlsPrcgConditionRecordTextWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecordText`;
         map<Encoding> queryParamEncoding = {"$orderby": {style: FORM, explode: false}, "$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -622,7 +625,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createASlsPrcgConditionRecordText(CreateA_SlsPrcgConditionRecordText payload, map<string|string[]> headers = {}) returns A_SlsPrcgConditionRecordTextWrapper|error {
+    remote isolated function createA_SlsPrcgConditionRecordText(CreateA_SlsPrcgConditionRecordText payload, map<string|string[]> headers = {}) returns A_SlsPrcgConditionRecordTextWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecordText`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -638,7 +641,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getASlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetASlsPrcgConditionRecordTextQueries queries) returns A_SlsPrcgConditionRecordTextWrapper|error {
+    remote isolated function getA_SlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetA_SlsPrcgConditionRecordTextQueries queries) returns A_SlsPrcgConditionRecordTextWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecordText(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',Language='${getEncodedUri(Language)}')`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
@@ -652,7 +655,7 @@ public isolated client class Client {
     # + Language - Language Key
     # + headers - Headers to be sent with the request 
     # + return - Success 
-    remote isolated function deleteASlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}) returns error? {
+    remote isolated function deleteA_SlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgConditionRecordText(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',Language='${getEncodedUri(Language)}')`;
         return self.clientEp->delete(resourcePath, headers = headers);
     }
@@ -665,7 +668,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchASlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, Modified\ A_SlsPrcgConditionRecordTextType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, Modified\ A_SlsPrcgConditionRecordTextType payload, map<string|string[]> headers = {}) returns error? {
         string resourcePath = string `/A_SlsPrcgConditionRecordText(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',Language='${getEncodedUri(Language)}')`;
         http:Request request = new;
         json jsonBody = jsondata:toJson(payload);
@@ -681,7 +684,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgConditionRecordOfASlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfASlsPrcgConditionRecordTextQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfA_SlsPrcgConditionRecordTextQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
         string resourcePath = string `/A_SlsPrcgConditionRecordText(ConditionRecord='${getEncodedUri(ConditionRecord)}',ConditionSequentialNumber='${getEncodedUri(ConditionSequentialNumber)}',Language='${getEncodedUri(Language)}')/to_SlsPrcgConditionRecord`;
         map<Encoding> queryParamEncoding = {"$select": {style: FORM, explode: false}, "$expand": {style: FORM, explode: false}};
         resourcePath = resourcePath + check getPathForQueryParam(queries, queryParamEncoding);
