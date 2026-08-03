@@ -11,3 +11,7 @@ license = ["Apache-2.0"]
 
 [build-options]
 observabilityIncluded = true
+
+[[package.modules]]
+name = "sap.s4hana.api_slspricingconditionrecord_srv.oas"
+export = true

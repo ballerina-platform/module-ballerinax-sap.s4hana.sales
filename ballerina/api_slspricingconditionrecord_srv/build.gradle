@@ -40,6 +40,15 @@ task updateTomlFiles {
     doLast {
         def newBallerinaToml = ballerinaTomlFilePlaceHolder.text.replace("@package.name@", packageName)
         newBallerinaToml = newBallerinaToml.replace("@toml.version@", moduleVersion)
+        // This connector keeps the generated client in an `oas` submodule, which has to be exported so
+        // that callers can reference the generated types. The shared template in
+        // `build-config/resources` is used by every module in this repository and knows nothing about
+        // submodules, so the declaration is appended here rather than added to the template.
+        newBallerinaToml += """
+[[package.modules]]
+name = "${packageName}.oas"
+export = true
+"""
         ballerinaTomlFile.text = newBallerinaToml
     }
 }
