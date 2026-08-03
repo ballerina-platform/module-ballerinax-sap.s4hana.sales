@@ -29,11 +29,22 @@ configurable string password = isTestOnLiveServer ? os:getEnv("PASSWORD") : "adm
 boolean isBalBuild = os:getEnv("IS_BAL_BUILD") == "true";
 string certPathPostFix = isBalBuild ? "../" : "/home/ballerina/ballerina/";
 
-// Condition record constants
-const CONDITION_TYPE = "PR00";
-const CONDITION_SEQUENTIAL_NUMBER = "01";
+// Condition record constants. `PPR0` is the price condition type of S/4HANA Cloud, and condition
+// table `304` keys it by material, sales organization and distribution channel.
+const CONDITION_TYPE = "PPR0";
+const CONDITION_SEQUENTIAL_NUMBER = "1";
 const CONDITION_TABLE = "304";
 const CONDITION_APPLICATION = "V";
+
+// Master data of the SAP model company, only used when testing against a live server. The material
+// must not already carry a `PPR0` price for this key, otherwise the condition record cannot be created.
+const MATERIAL = "HW0001";
+const SALES_ORGANIZATION = "1710";
+const DISTRIBUTION_CHANNEL = "10";
+
+// SAP writes 9999-12-31 as "valid until further notice". OData V2 expects an `Edm.DateTime` to be
+// written as `/Date(<milliseconds since epoch>)/`.
+const NO_END_DATE = "/Date(253402214400000)/";
 
 Client s4HanaClient = test:mock(Client);
 
@@ -86,21 +97,45 @@ function testCreateA_SlsPrcgConditionRecord() returns error? {
         ConditionSequentialNumber: CONDITION_SEQUENTIAL_NUMBER,
         ConditionTable: CONDITION_TABLE,
         ConditionApplication: CONDITION_APPLICATION,
-        ConditionType: CONDITION_TYPE
+        ConditionType: CONDITION_TYPE,
+        // The condition table key lives on the validity entity, so it is deep inserted here.
+        to_SlsPrcgCndnRecdValidity: {
+            results: [
+                {
+                    ConditionRecord: conditionRecord,
+                    ConditionValidityEndDate: NO_END_DATE,
+                    ConditionType: CONDITION_TYPE,
+                    ConditionApplication: CONDITION_APPLICATION,
+                    Material: MATERIAL,
+                    SalesOrganization: SALES_ORGANIZATION,
+                    DistributionChannel: DISTRIBUTION_CHANNEL
+                }
+            ]
+        }
     });
-    test:assertTrue(conditionRecordWrapper.d?.ConditionRecord == conditionRecord,
+
+    // A live server assigns the condition record number internally, so only the mock echoes back the
+    // number that was sent.
+    string createdConditionRecord = conditionRecordWrapper.d?.ConditionRecord ?: "";
+    test:assertTrue(createdConditionRecord != "",
             "The condition record is expected to be created successfully.");
+    if !isTestOnLiveServer {
+        test:assertEquals(createdConditionRecord, conditionRecord,
+                "The mock server is expected to echo back the condition record number.");
+        return;
+    }
 
     // Resource clean up need to be done only on live server
-    if isTestOnLiveServer {
-        A_SlsPrcgConditionRecordWrapper aSlsPrcgConditionRecord =
-            check s4HanaClient->getA_SlsPrcgConditionRecord(conditionRecord);
-        test:assertTrue(aSlsPrcgConditionRecord.d?.ConditionRecord == conditionRecord,
-                "The condition record is expected to be retrieved successfully.");
+    A_SlsPrcgConditionRecordWrapper aSlsPrcgConditionRecord =
+        check s4HanaClient->getA_SlsPrcgConditionRecord(createdConditionRecord);
+    test:assertTrue(aSlsPrcgConditionRecord.d?.ConditionRecord == createdConditionRecord,
+            "The condition record is expected to be retrieved successfully.");
 
-        map<json> metaData = check aSlsPrcgConditionRecord.d["__metadata"].cloneWithType();
-        string eTag = <string>metaData["etag"];
+    map<json> metaData = check aSlsPrcgConditionRecord.d["__metadata"].cloneWithType();
+    string eTag = <string>metaData["etag"];
 
-        check s4HanaClient->deleteA_SlsPrcgConditionRecord(conditionRecord, headers = {"If-Match": eTag});
-    }
+    // The service rejects a hard delete with "Deletion not allowed. Set the deletion flag by using
+    // update operations.", so the record is retired by flagging it instead.
+    check s4HanaClient->patchA_SlsPrcgConditionRecord(createdConditionRecord,
+            {d: {ConditionIsDeleted: true}}, headers = {"If-Match": eTag});
 }
