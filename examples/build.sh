@@ -31,8 +31,10 @@ for dir in $(find "$BAL_HOME_DIR" -type d -maxdepth 1  -mindepth 1); do
   if [[ "$dir" == *resources ]]; then
     continue
   fi
-  # Read Ballerina package name
-  BAL_PACKAGE_NAME=$(awk -F'"' '/^name/ {print $2}' "$dir/Ballerina.toml")
+  # Read Ballerina package name. Only the first `name` line is the package name: a module that
+  # exports a submodule declares a second one under `[[package.modules]]`, and without the `exit`
+  # both lines end up in the variable and the bala is copied to a mangled path.
+  BAL_PACKAGE_NAME=$(awk -F'"' '/^name/ {print $2; exit}' "$dir/Ballerina.toml")
 
   # Push the package to the local repository
   cd "$dir" &&
