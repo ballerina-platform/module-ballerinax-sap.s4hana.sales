@@ -104,35 +104,54 @@ isolated function buildBatchRequest(BatchRequest[] requests, boolean atomic) ret
 # Renders batch requests into an OData V2 `$batch` body.
 #
 # Read requests are sent as standalone parts, because OData does not allow them inside a change set.
-# Writes are grouped either into one change set per request, so that a rejected request does not roll
-# back the others, or into a single change set when the whole batch has to be atomic.
+# Writes get one change set each, so that a rejected request does not roll back the others, and the
+# batch keeps the order it was given in.
+#
+# When `atomic` is set every write moves into a single change set, which is the only way to have them
+# commit or roll back together. That also means the writes become contiguous, so a read that was sent
+# between two writes comes back before both of them, and `Content-ID` references such as `$1` resolve
+# only in this mode, since the request they point at has to be in the same change set.
 #
 # + requests - Requests to render, in order
 # + atomic - Whether every write belongs to one transaction
 # + return - The `multipart/mixed` body
 isolated function buildBatchBody(BatchRequest[] requests, boolean atomic) returns string {
-    BatchRequest[] reads = from BatchRequest request in requests
-        where request.method == "GET"
-        select request;
-    BatchRequest[] writes = from BatchRequest request in requests
-        where request.method != "GET"
-        select request;
-
     string body = "";
-    foreach BatchRequest request in reads {
-        body += string `--${BATCH_BOUNDARY}${BATCH_CRLF}`;
-        body += renderBatchRequest(request);
+
+    if !atomic {
+        // Requests keep their original order, so the results line up with what was sent.
+        int changeSet = 0;
+        foreach BatchRequest request in requests {
+            body += string `--${BATCH_BOUNDARY}${BATCH_CRLF}`;
+            if request.method == "GET" {
+                body += renderBatchRequest(request);
+            } else {
+                changeSet += 1;
+                body += renderChangeSet([request], string `changeset_${changeSet}`);
+            }
+        }
+        return body + string `--${BATCH_BOUNDARY}--${BATCH_CRLF}`;
     }
 
-    if writes.length() > 0 && atomic {
-        body += string `--${BATCH_BOUNDARY}${BATCH_CRLF}`;
-        body += renderChangeSet(writes, "changeset_1");
-    } else {
-        foreach int i in 0 ..< writes.length() {
+    // Every write has to sit in the same change set to be one transaction, so the writes move
+    // together to the position of the first of them and the reads keep their own order.
+    BatchRequest[] writes = [];
+    boolean changeSetWritten = false;
+    foreach BatchRequest request in requests {
+        if request.method == "GET" {
             body += string `--${BATCH_BOUNDARY}${BATCH_CRLF}`;
-            body += renderChangeSet([writes[i]], string `changeset_${i + 1}`);
+            body += renderBatchRequest(request);
+            continue;
+        }
+        writes.push(request);
+        if !changeSetWritten {
+            changeSetWritten = true;
+            body += "@writes@";
         }
     }
+    string changeSetBody = writes.length() == 0 ? ""
+        : string `--${BATCH_BOUNDARY}${BATCH_CRLF}` + renderChangeSet(writes, "changeset_1");
+    body = re `@writes@`.replaceAll(body, changeSetBody);
     return body + string `--${BATCH_BOUNDARY}--${BATCH_CRLF}`;
 }
 
