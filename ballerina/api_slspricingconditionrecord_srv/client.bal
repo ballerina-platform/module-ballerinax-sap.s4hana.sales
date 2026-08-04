@@ -55,7 +55,8 @@ public isolated client class Client {
     # + atomic - Whether every write belongs to a single transaction. By default each write gets its
     # own change set, so that a rejected request does not roll back the others
     # + return - The outcome of each request, in the order they were sent, or an error if the batch
-    # itself was rejected
+    # itself was rejected. When `atomic` is set a failed change set answers with a single error result
+    # for the whole transaction, so fewer results than requests can come back
     remote isolated function performBatchOperation(BatchRequest[]|BatchEntity[] requests,
             string entitySet = "A_SlsPrcgConditionRecord", map<string|string[]> headers = {},
             boolean atomic = false) returns BatchResult[]|error {
@@ -69,7 +70,7 @@ public isolated client class Client {
             batch = batchCreate(entitySet, <BatchEntity[]>requests);
         }
         http:Response response =
-            check self.oasClient->performBatchOperation(buildBatchRequest(batch, atomic), headers);
+            check self.oasClient->performBatchOperation(check buildBatchRequest(batch, atomic), headers);
         return parseBatchResults(response);
     }
 

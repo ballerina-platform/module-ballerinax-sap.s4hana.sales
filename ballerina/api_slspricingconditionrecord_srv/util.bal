@@ -24,12 +24,12 @@
 import ballerina/http;
 import ballerina/lang.regexp;
 import ballerina/mime;
+import ballerina/uuid;
 
 import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv.oas;
 
 // OData requires CRLF line endings inside the envelope. LF alone is rejected.
 const string BATCH_CRLF = "\r\n";
-const string BATCH_BOUNDARY = "batch_ballerinax_sap";
 
 # An entity that may be sent inside a batch request: any create payload, any update payload, or an update
 # payload already wrapped for a modify request.
@@ -91,13 +91,18 @@ public isolated function batchCreate(string entitySet, BatchEntity[] entities) r
 
 # Builds the `http:Request` that the generated `$batch` operation expects.
 #
+# The boundary is a fresh UUID on every call, so that no payload or header text can collide with the
+# delimiters that frame the envelope.
+#
 # + requests - Requests to send, in order
 # + atomic - Whether every write belongs to one transaction
-# + return - A request carrying the `multipart/mixed` envelope and its boundary
-isolated function buildBatchRequest(BatchRequest[] requests, boolean atomic) returns http:Request {
+# + return - A request carrying the `multipart/mixed` envelope, or an error if a request cannot be
+# rendered safely
+isolated function buildBatchRequest(BatchRequest[] requests, boolean atomic) returns http:Request|error {
+    string token = uuid:createType4AsString();
     http:Request request = new;
-    request.setPayload(buildBatchBody(requests, atomic),
-            string `multipart/mixed; boundary=${BATCH_BOUNDARY}`);
+    request.setPayload(check buildBatchBody(requests, atomic, token),
+            string `multipart/mixed; boundary=b_${token}`);
     return request;
 }
 
@@ -114,23 +119,26 @@ isolated function buildBatchRequest(BatchRequest[] requests, boolean atomic) ret
 #
 # + requests - Requests to render, in order
 # + atomic - Whether every write belongs to one transaction
-# + return - The `multipart/mixed` body
-isolated function buildBatchBody(BatchRequest[] requests, boolean atomic) returns string {
+# + token - Unique token the batch and change set boundaries are derived from
+# + return - The `multipart/mixed` body, or an error if a request cannot be rendered safely
+isolated function buildBatchBody(BatchRequest[] requests, boolean atomic, string token)
+        returns string|error {
+    string boundary = string `b_${token}`;
     string body = "";
 
     if !atomic {
         // Requests keep their original order, so the results line up with what was sent.
         int changeSet = 0;
         foreach BatchRequest request in requests {
-            body += string `--${BATCH_BOUNDARY}${BATCH_CRLF}`;
+            body += string `--${boundary}${BATCH_CRLF}`;
             if request.method == "GET" {
-                body += renderBatchRequest(request);
+                body += check renderBatchRequest(request, token);
             } else {
                 changeSet += 1;
-                body += renderChangeSet([request], string `changeset_${changeSet}`);
+                body += check renderChangeSet([request], string `cs${changeSet}_${token}`, token);
             }
         }
-        return body + string `--${BATCH_BOUNDARY}--${BATCH_CRLF}`;
+        return body + string `--${boundary}--${BATCH_CRLF}`;
     }
 
     // Every write has to sit in the same change set to be one transaction, so the writes move
@@ -139,8 +147,8 @@ isolated function buildBatchBody(BatchRequest[] requests, boolean atomic) return
     boolean changeSetWritten = false;
     foreach BatchRequest request in requests {
         if request.method == "GET" {
-            body += string `--${BATCH_BOUNDARY}${BATCH_CRLF}`;
-            body += renderBatchRequest(request);
+            body += string `--${boundary}${BATCH_CRLF}`;
+            body += check renderBatchRequest(request, token);
             continue;
         }
         writes.push(request);
@@ -150,43 +158,62 @@ isolated function buildBatchBody(BatchRequest[] requests, boolean atomic) return
         }
     }
     string changeSetBody = writes.length() == 0 ? ""
-        : string `--${BATCH_BOUNDARY}${BATCH_CRLF}` + renderChangeSet(writes, "changeset_1");
+        : string `--${boundary}${BATCH_CRLF}` + check renderChangeSet(writes, string `cs1_${token}`, token);
     body = re `@writes@`.replaceAll(body, changeSetBody);
-    return body + string `--${BATCH_BOUNDARY}--${BATCH_CRLF}`;
+    return body + string `--${boundary}--${BATCH_CRLF}`;
 }
 
 // Wraps requests in a nested multipart change set, which S/4HANA applies as one transaction.
-isolated function renderChangeSet(BatchRequest[] requests, string boundary) returns string {
+isolated function renderChangeSet(BatchRequest[] requests, string boundary, string token)
+        returns string|error {
     string changeSet = string `Content-Type: multipart/mixed; boundary=${boundary}${BATCH_CRLF}${BATCH_CRLF}`;
     foreach BatchRequest request in requests {
         changeSet += string `--${boundary}${BATCH_CRLF}`;
-        changeSet += renderBatchRequest(request);
+        changeSet += check renderBatchRequest(request, token);
     }
     return changeSet + string `--${boundary}--${BATCH_CRLF}`;
 }
 
 // Renders one request as an `application/http` part, whose content is a complete HTTP request.
 //
-// The part ends with two CRLF pairs rather than one: the first terminates the inner HTTP message, and the
-// second is the CRLF that MIME counts as part of the following boundary delimiter. With only one, the
-// gateway rejects the batch as "The Data Services Request could not be understood due to malformed
+// Each part ends with two CRLF pairs rather than one: the first terminates the inner HTTP message, and the
+// second is the CRLF that MIME counts as part of the following boundary delimiter. Omitting it is
+// rejected by the gateway with "The Data Services Request could not be understood due to malformed
 // syntax".
-isolated function renderBatchRequest(BatchRequest request) returns string {
-    string part = string `Content-Type: application/http${BATCH_CRLF}`;
-    part += string `Content-Transfer-Encoding: binary${BATCH_CRLF}${BATCH_CRLF}`;
-    part += string `${request.method} ${request.uri} HTTP/1.1${BATCH_CRLF}`;
-    part += string `Accept: application/json${BATCH_CRLF}`;
+isolated function renderBatchRequest(BatchRequest request, string token) returns string|error {
+    // A CR or LF in the request line or a header would inject structure into the inner HTTP message.
+    if containsLineBreak(request.uri) {
+        return error("The request URI must not contain a line break", uri = request.uri);
+    }
+    string rendered = string `Content-Type: application/http${BATCH_CRLF}`;
+    rendered += string `Content-Transfer-Encoding: binary${BATCH_CRLF}${BATCH_CRLF}`;
+    rendered += string `${request.method} ${request.uri} HTTP/1.1${BATCH_CRLF}`;
+    rendered += string `Accept: application/json${BATCH_CRLF}`;
     foreach [string, string] [name, value] in (request?.headers ?: {}).entries() {
-        part += string `${name}: ${value}${BATCH_CRLF}`;
+        if containsLineBreak(name) || containsLineBreak(value) {
+            return error("A header must not contain a line break", header = name);
+        }
+        rendered += string `${name}: ${value}${BATCH_CRLF}`;
     }
 
     BatchEntity? payload = request?.payload;
     if payload is () {
-        return part + BATCH_CRLF + BATCH_CRLF;
+        rendered += BATCH_CRLF + BATCH_CRLF;
+    } else {
+        rendered += string `Content-Type: application/json${BATCH_CRLF}${BATCH_CRLF}`;
+        rendered += string `${payload.toJson().toJsonString()}${BATCH_CRLF}${BATCH_CRLF}`;
     }
-    part += string `Content-Type: application/json${BATCH_CRLF}${BATCH_CRLF}`;
-    return part + string `${payload.toJson().toJsonString()}${BATCH_CRLF}${BATCH_CRLF}`;
+
+    // The boundaries are derived from a UUID created for this batch, so a collision with the rendered
+    // text cannot realistically happen; this guards the envelope even if it somehow does.
+    if rendered.includes(token) {
+        return error("The rendered request collides with the batch boundary");
+    }
+    return rendered;
 }
+
+isolated function containsLineBreak(string value) returns boolean =>
+    value.includes("\r") || value.includes("\n");
 
 # Reads a batch response into the outcome of each individual request.
 #
@@ -215,10 +242,14 @@ isolated function collectBatchResults(mime:Entity[] parts) returns BatchResult[]
             results.push(...check collectBatchResults(check part.getBodyParts()));
             continue;
         }
-        BatchResult? result = readBatchResult(check string:fromBytes(check part.getByteArray()));
-        if result is BatchResult {
-            results.push(result);
+        string content = check string:fromBytes(check part.getByteArray());
+        BatchResult? result = readBatchResult(content);
+        if result is () {
+            // Dropping the part silently would leave the caller pairing the remaining results with the
+            // wrong requests.
+            return error("A batch response part could not be parsed", part = content);
         }
+        results.push(result);
     }
     return results;
 }
