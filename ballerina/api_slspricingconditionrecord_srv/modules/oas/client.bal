@@ -28,7 +28,8 @@ public isolated client class Client {
     # Gets invoked to initialize the `connector`.
     #
     # + config - The configurations to be used when initializing the `connector` 
-    # + serviceUrl - URL of the target service 
+    # + hostname - Hostname of the S/4HANA system, without the scheme 
+    # + port - Port the service is reachable on 
     # + return - An error if connector initialization failed 
     public isolated function init(ConnectionConfig config, string hostname, int port = 443) returns error? {
         string serviceUrl = string `https://${hostname}:${port}/sap/opu/odata/sap/API_SLSPRICINGCONDITIONRECORD_SRV`;

@@ -151,7 +151,7 @@ back a raw `http:Request`.
 Those modules keep the generated code in an `oas` submodule, so that regenerating never touches the
 hand-written code:
 
-```
+```text
 ballerina/<Module Name>/
 ├── Ballerina.toml      # declares the oas submodule with export = true
 ├── client.bal          # hand-written wrapper, forwards to oas and adds what is missing

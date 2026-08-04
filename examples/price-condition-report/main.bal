@@ -99,7 +99,7 @@ Reported on ${summaries.length()} condition record(s)`
     // A zero rate usually means the condition exists only to carry a tax or discount key, so it is
     // worth calling out separately in a pricing review.
     ConditionSummary[] zeroRated = from ConditionSummary summary in summaries
-        where summary.rate == "0.00" || summary.rate == "0.000"
+        where isZeroRate(summary.rate)
         select summary;
     io:println(string `
 Condition records with a zero rate: ${zeroRated.length()}`);
@@ -133,6 +133,13 @@ isolated function toDisplayDate(string? odataDate) returns string {
     }
     time:Civil civil = time:utcToCivil([epochMilliseconds / 1000, 0]);
     return string `${civil.year}-${pad2(civil.month)}-${pad2(civil.day)}`;
+}
+
+// The service formats rates with varying precision, so the check parses the value rather than
+// comparing against one fixed rendering.
+isolated function isZeroRate(string rate) returns boolean {
+    decimal|error value = decimal:fromString(rate);
+    return value is decimal && value == 0d;
 }
 
 isolated function pad2(int value) returns string => value < 10 ? string `0${value}` : value.toString();

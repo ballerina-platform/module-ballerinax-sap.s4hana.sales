@@ -21,7 +21,7 @@ import ballerina/log;
 import ballerina/os;
 import ballerina/test;
 
-configurable boolean isTestOnLiveServer = os:getEnv("IS_TEST_ON_S4HANA_SERVER") == "false";
+configurable boolean isTestOnLiveServer = os:getEnv("IS_TEST_ON_S4HANA_SERVER") == "true";
 
 configurable string hostname = isTestOnLiveServer ? os:getEnv("HOST_NAME") : "localhost";
 configurable string username = isTestOnLiveServer ? os:getEnv("USERNAME") : "admin";
@@ -133,7 +133,7 @@ function testCreateA_SlsPrcgConditionRecord() returns error? {
             "The condition record is expected to be retrieved successfully.");
 
     map<json> metaData = check aSlsPrcgConditionRecord.d["__metadata"].cloneWithType();
-    string eTag = <string>metaData["etag"];
+    string eTag = check metaData["etag"].ensureType();
 
     // The service rejects a hard delete with "Deletion not allowed. Set the deletion flag by using
     // update operations.", so the record is retired by flagging it instead.

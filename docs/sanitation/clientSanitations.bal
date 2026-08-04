@@ -36,6 +36,14 @@ public function main(string moduleName, string apiPostfix, string apiName = "") 
                                 clientFileLines[i].substring(firstClientOccurance + 20);
         }
 
+        int? serviceUrlDocOccurance = clientFileLines[i].indexOf("# + serviceUrl - URL of the target service");
+        if serviceUrlDocOccurance is int {
+            // The signature below is rewritten to `hostname` and `port`, so the documentation has to
+            // follow, otherwise doc generation reports the parameters as undocumented.
+            clientFileLines[i] = "    # + hostname - Hostname of the S/4HANA system, without the scheme \n" +
+                                "    # + port - Port the service is reachable on ";
+        }
+
         int? serviceUrlOccurance = clientFileLines[i].indexOf("string serviceUrl");
         if serviceUrlOccurance is int {
             clientFileLines[i] = clientFileLines[i].substring(0, serviceUrlOccurance - 1) + "string hostname, int port = 443" +
