@@ -1,4 +1,5 @@
 {
+  "display-name": "SAP S/4HANA Sold-to Party Assignment API",
   "description": "The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sold-to Party Assignment of Sales Scheduling Agreement - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_SA_SOLDTOPARTYDETN/overview). The service allows users to read sold-to party assignment of sales scheduling agreement master data.",
   "key-features": [
     "Read sold-to party assignment of sales scheduling agreements",

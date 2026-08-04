@@ -40,6 +40,8 @@ task updateTomlFiles {
     doLast {
         def newBallerinaToml = ballerinaTomlFilePlaceHolder.text.replace("@package.name@", packageName)
         newBallerinaToml = newBallerinaToml.replace("@toml.version@", moduleVersion)
+        def docsJson = new groovy.json.JsonSlurper().parseText(file("${project.projectDir}/docs.json").text)
+        newBallerinaToml = newBallerinaToml.replace("@display.name@", docsJson."display-name")
         // This connector keeps the generated client in an `oas` submodule, which has to be exported so
         // that callers can reference the generated types. The shared template in
         // `build-config/resources` is used by every module in this repository and knows nothing about

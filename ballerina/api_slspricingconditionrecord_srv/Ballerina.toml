@@ -1,10 +1,10 @@
 [package]
 org = "ballerinax"
 name = "sap.s4hana.api_slspricingconditionrecord_srv"
-version = "0.1.0"
+version = "0.2.0"
 distribution = "2201.13.0"
 authors = ["Ballerina"]
-keywords = ["Type/Connector", "Vendor/SAP", "Area/ERP & Business Operations", "Business Management/ERP", "Cost/Paid", "Sales and Distribution", "SD"]
+keywords = ["Name/SAP S/4HANA Sales Pricing Condition Record API", "Type/Connector", "Vendor/SAP", "Area/ERP & Business Operations", "Business Management/ERP", "Cost/Paid", "Sales and Distribution", "SD"]
 repository = "https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.sales"
 icon = "../icon.png"
 license = ["Apache-2.0"]
