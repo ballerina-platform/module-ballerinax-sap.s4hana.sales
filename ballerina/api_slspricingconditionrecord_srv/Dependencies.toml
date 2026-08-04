@@ -192,6 +192,9 @@ version = "0.0.0"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"}
 ]
+modules = [
+	{org = "ballerina", packageName = "lang.regexp", moduleName = "lang.regexp"}
+]
 
 [[package]]
 org = "ballerina"
@@ -241,6 +244,9 @@ dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.int"},
 	{org = "ballerina", name = "log"}
+]
+modules = [
+	{org = "ballerina", packageName = "mime", moduleName = "mime"}
 ]
 
 [[package]]
@@ -329,6 +335,9 @@ dependencies = [
 	{org = "ballerina", name = "lang.int"},
 	{org = "ballerina", name = "time"}
 ]
+modules = [
+	{org = "ballerina", packageName = "uuid", moduleName = "uuid"}
+]
 
 [[package]]
 org = "ballerinai"
@@ -361,20 +370,24 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "sap.s4hana.api_slspricingconditionrecord_srv"
-version = "1.0.0"
+version = "0.1.0"
 dependencies = [
 	{org = "ballerina", name = "constraint"},
 	{org = "ballerina", name = "data.jsondata"},
 	{org = "ballerina", name = "http"},
+	{org = "ballerina", name = "lang.regexp"},
 	{org = "ballerina", name = "log"},
+	{org = "ballerina", name = "mime"},
 	{org = "ballerina", name = "os"},
 	{org = "ballerina", name = "test"},
 	{org = "ballerina", name = "url"},
+	{org = "ballerina", name = "uuid"},
 	{org = "ballerinai", name = "observe"},
 	{org = "ballerinax", name = "sap"}
 ]
 modules = [
 	{org = "ballerinax", packageName = "sap.s4hana.api_slspricingconditionrecord_srv", moduleName = "sap.s4hana.api_slspricingconditionrecord_srv"},
-	{org = "ballerinax", packageName = "sap.s4hana.api_slspricingconditionrecord_srv", moduleName = "sap.s4hana.api_slspricingconditionrecord_srv.mock"}
+	{org = "ballerinax", packageName = "sap.s4hana.api_slspricingconditionrecord_srv", moduleName = "sap.s4hana.api_slspricingconditionrecord_srv.mock"},
+	{org = "ballerinax", packageName = "sap.s4hana.api_slspricingconditionrecord_srv", moduleName = "sap.s4hana.api_slspricingconditionrecord_srv.oas"}
 ]
 
