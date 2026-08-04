@@ -145,3 +145,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-07-16
 
 - Added Initial client implementation
+
+## sap.s4hana.api_slspricingconditionrecord_srv
+
+## [Unreleased]
+
+### Added
+
+- Added Initial client implementation
+- Added `$batch` support, with the generated client kept in an `oas` submodule

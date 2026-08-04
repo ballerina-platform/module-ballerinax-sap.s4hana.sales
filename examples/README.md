@@ -16,6 +16,16 @@ use cases like accessing S/4HANA Sales Order (A2X) API.
    automate SAP sales order creation for new orders placed on Shopify, enhancing efficiency and accuracy in order
    management.
 
+3. [Price List Upload](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/tree/main/examples/price-list-upload) -
+   Publishes a price list into S/4HANA with the `sap.s4hana.api_slspricingconditionrecord_srv:Client`. Every entry
+   becomes a pricing condition record together with its validity period and its quantity based pricing scales, created
+   in a single deep insert request.
+
+4. [Pricing Condition Record Report](https://github.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/tree/main/examples/price-condition-report) -
+   Reports on the pricing condition records on file, using the OData query options of the
+   `sap.s4hana.api_slspricingconditionrecord_srv:Client` to page, filter, sort and project the result. It is read only,
+   so it is safe to run against a productive tenant.
+
 ## Prerequisites
 
 Each example includes detailed steps.

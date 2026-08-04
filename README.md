@@ -51,6 +51,12 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
     the [Sales Order (A2X) API (ODatav4) v1.0.0](https://api.sap.com/api/CE_SALESORDER_0001/overview). The service
     allows to create, read, update, and delete sales orders.
 
+11. The `ballerinax/sap.s4hana.api_slspricingconditionrecord_srv` package provides APIs that enable seamless
+    integration with
+    the [Condition Record for Pricing in Sales API v1.2.0](https://api.sap.com/api/API_SLSPRICINGCONDITIONRECORD_SRV/overview).
+    The service allows to create, read, update, and delete condition records inside condition record, validity of
+    condition record, pricing scale, and condition supplement.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
@@ -106,18 +112,19 @@ Execute the commands below to build from the source.
    ./gradlew clean :sales-ballerina:<api_name>:build
    ```
 
-   | API Name                       | Connector                                            |
-   |--------------------------------|------------------------------------------------------|
-   | api_salesdistrict_srv          | ballerinax/sap.s4hana.api_salesdistrict_srv          |
-   | api_salesorganization_srv      | ballerinax/sap.s4hana.api_salesorganization_srv      |
-   | api_sales_order_srv            | ballerinax/sap.s4hana.api_sales_order_srv            |
-   | api_sd_sa_soldtopartydetn      | ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn      |
-   | salesarea_0001                 | ballerinax/sap.s4hana.salesarea_0001                 |
-   | api_sd_incoterms_srv           | ballerinax/sap.s4hana.api_sd_incoterms_srv           |
-   | api_sales_inquiry_srv          | ballerinax/sap.s4hana.api_sales_inquiry_srv          |
-   | api_sales_quotation_srv        | ballerinax/sap.s4hana.api_sales_quotation_srv        |
-   | api_sales_order_simulation_srv | ballerinax/sap.s4hana.api_sales_order_simulation_srv |
-   | ce_salesorder_0001             | ballerinax/sap.s4hana.ce_salesorder_0001             |
+   | API Name                          | Connector                                               |
+   |-----------------------------------|---------------------------------------------------------|
+   | api_salesdistrict_srv             | ballerinax/sap.s4hana.api_salesdistrict_srv             |
+   | api_salesorganization_srv         | ballerinax/sap.s4hana.api_salesorganization_srv         |
+   | api_sales_order_srv               | ballerinax/sap.s4hana.api_sales_order_srv               |
+   | api_sd_sa_soldtopartydetn         | ballerinax/sap.s4hana.api_sd_sa_soldtopartydetn         |
+   | salesarea_0001                    | ballerinax/sap.s4hana.salesarea_0001                    |
+   | api_sd_incoterms_srv              | ballerinax/sap.s4hana.api_sd_incoterms_srv              |
+   | api_sales_inquiry_srv             | ballerinax/sap.s4hana.api_sales_inquiry_srv             |
+   | api_sales_quotation_srv           | ballerinax/sap.s4hana.api_sales_quotation_srv           |
+   | api_sales_order_simulation_srv    | ballerinax/sap.s4hana.api_sales_order_simulation_srv    |
+   | ce_salesorder_0001                | ballerinax/sap.s4hana.ce_salesorder_0001                |
+   | api_slspricingconditionrecord_srv | ballerinax/sap.s4hana.api_slspricingconditionrecord_srv |
 
 5. To run tests against different environment:
 

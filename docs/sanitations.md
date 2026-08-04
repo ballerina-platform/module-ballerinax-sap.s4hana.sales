@@ -85,6 +85,18 @@ _Edition_: Swan Lake
    string serviceUrl = string `https://${hostname}:${port}/sap/opu/odata/sap/API_SALES_ORDER_SRV`;
    ```
 
+5. Rename the generated remote functions and their `<Operation>Queries` records back to the
+   sanitized `operationId`s. The OpenAPI tool drops underscores when it derives a Ballerina
+   identifier from an `operationId`, which loses the `A_<EntitySet>` naming used by these
+   connectors:
+   `listASlsPrcgConditionRecords` -> `listA_SlsPrcgConditionRecords`  
+   `ListASlsPrcgConditionRecordsQueries` -> `ListA_SlsPrcgConditionRecordsQueries`
+
+   Schema based type names such as `CollectionOfA_SlsPrcgConditionRecordWrapper` already keep the
+   underscore, so this keeps the client consistent with both `types.bal` and the other connectors.
+
+   **Note**: This step only runs when the API name is passed to `clientSanitations.bal`.
+
 ## Process to Create a New S/4HANA Connector
 
 1. Under `ballerina` directory, create a simple case <API_Name> module.
@@ -112,7 +124,10 @@ _Edition_: Swan Lake
     ```
    **Note**: DO NOT FORGET to delete main.bal.
 
-9. Run `bal run sanitation/clientSanitations.bal -- "<Module Name>" "<API Postfix>"`
+9. Run `bal run sanitation/clientSanitations.bal -- "<Module Name>" "<API Postfix>" "<API Name>"`
+
+   **Note**: The `<API Name>` argument is optional. When it is omitted, the generated remote
+   functions keep the names derived by the OpenAPI tool.
 
 10. To generate mock server for tests, remove any parameterized path in the spec and commit
     under `spec/<API_NAME>_MOCK.json`.
@@ -124,3 +139,44 @@ _Edition_: Swan Lake
     ```
 
 12. Ensure the test cases are written against mock and live servers, with `isTestOnLiveServer` as the param to switch. 
+
+## Connectors That Wrap the Generated Client
+
+A connector needs a hand-written wrapper when the service does something the OpenAPI tool cannot express.
+`api_slspricingconditionrecord_srv` is the first such module here, because its `$batch` operation is a
+`multipart/mixed` envelope whose parts are complete HTTP requests. That is a transport encoding rather
+than a data shape, so no OpenAPI contract can describe it and the generated operation only ever hands
+back a raw `http:Request`.
+
+Those modules keep the generated code in an `oas` submodule, so that regenerating never touches the
+hand-written code:
+
+```text
+ballerina/<Module Name>/
+├── Ballerina.toml      # declares the oas submodule with export = true
+├── client.bal          # hand-written wrapper, forwards to oas and adds what is missing
+├── util.bal            # the hand-written support code
+└── modules/oas/        # generated, never edited by hand
+    ├── client.bal
+    ├── types.bal
+    └── utils.bal
+```
+
+`Ballerina.toml` has to export the submodule, otherwise callers cannot reference the generated types:
+
+```toml
+[[package.modules]]
+name = "<Package Name>.oas"
+export = true
+```
+
+The generation steps above stay the same, except that the output directory and the module name passed to
+the client sanitation both point at the submodule:
+
+```ballerina
+bal openapi -i spec/<API Name>.json -o ../ballerina/<Module Name>/modules/oas --mode client --license license.txt
+bal run sanitation/clientSanitations.bal -- "<Module Name>/modules/oas" "<API Postfix>" "<API Name>"
+```
+
+The wrapper forwards every generated operation unchanged, so it has to be revisited whenever the
+regenerated `oas` module gains, loses or changes an operation.

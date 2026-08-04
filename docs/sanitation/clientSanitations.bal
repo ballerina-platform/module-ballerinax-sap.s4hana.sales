@@ -14,9 +14,10 @@
 // specific language governing permissions and limitations
 // under the License.
 import ballerina/io;
+import ballerina/lang.regexp;
 import ballerina/os;
 
-public function main(string moduleName, string apiPostfix) returns error? {
+public function main(string moduleName, string apiPostfix, string apiName = "") returns error? {
     string[] clientFileLines = check io:fileReadLines(string `../ballerina/${moduleName}/client.bal`);
     string[] updatedClientFileLines = [];
     int j = 0;
@@ -33,6 +34,14 @@ public function main(string moduleName, string apiPostfix) returns error? {
         if firstClientOccurance is int {
             clientFileLines[i] = clientFileLines[i].substring(0, firstClientOccurance) + "sap:Client clientEp" +
                                 clientFileLines[i].substring(firstClientOccurance + 20);
+        }
+
+        int? serviceUrlDocOccurance = clientFileLines[i].indexOf("# + serviceUrl - URL of the target service");
+        if serviceUrlDocOccurance is int {
+            // The signature below is rewritten to `hostname` and `port`, so the documentation has to
+            // follow, otherwise doc generation reports the parameters as undocumented.
+            clientFileLines[i] = "    # + hostname - Hostname of the S/4HANA system, without the scheme \n" +
+                                "    # + port - Port the service is reachable on ";
         }
 
         int? serviceUrlOccurance = clientFileLines[i].indexOf("string serviceUrl");
@@ -68,6 +77,10 @@ public function main(string moduleName, string apiPostfix) returns error? {
 
     check io:fileWriteLines(string `../ballerina/${moduleName}/client.bal`, updatedClientFileLines);
 
+    if apiName != "" {
+        check restoreOperationIdBasedNames(moduleName, apiName);
+    }
+
     _ = check os:exec(command = {
                 value: "bal",
                 arguments: ["format", "../ballerina/" + moduleName]
@@ -78,3 +91,58 @@ public function main(string moduleName, string apiPostfix) returns error? {
                 arguments: ["build", "../ballerina/" + moduleName]
             });
 }
+
+# Renames the generated identifiers back to the sanitized `operationId`s.
+#
+# The OpenAPI tool drops underscores when it derives Ballerina identifiers from an
+# `operationId`, which loses the `A_<EntitySet>` naming that the S/4HANA connectors use,
+# for example `listA_SlsPrcgConditionRecords` is generated as `listASlsPrcgConditionRecords`.
+# Schema based type names keep the underscore, so without this the client is inconsistent
+# with both `types.bal` and the other connectors in this repository.
+#
+# + moduleName - Name of the module holding the generated client
+# + apiName - Name of the sanitized specification under `spec`
+# + return - An error if the generated sources could not be updated
+function restoreOperationIdBasedNames(string moduleName, string apiName) returns error? {
+    json openAPISpec = check io:fileReadJson(string `spec/${apiName}.json`);
+    map<json> paths = check openAPISpec.paths.ensureType();
+
+    map<string> renames = {};
+    foreach json pathItem in paths {
+        map<json> operations = check pathItem.ensureType();
+        foreach [string, json] [method, operation] in operations.entries() {
+            if method == "parameters" {
+                continue;
+            }
+            map<json> operationDetails = check operation.ensureType();
+            json? operationId = operationDetails["operationId"];
+            if operationId !is string || !operationId.includes("_") {
+                continue;
+            }
+            string generatedName = re `_`.replaceAll(operationId, "");
+            renames[generatedName] = operationId;
+            // The query parameter record of an operation is named after the operation itself.
+            renames[capitalize(generatedName) + "Queries"] = capitalize(operationId) + "Queries";
+        }
+    }
+
+    // Longer names are replaced first, so that an operation name that is a prefix of another
+    // one, such as `getA_SlsPrcgConditionRecord` and `getA_SlsPrcgConditionRecordText`, does
+    // not corrupt the longer name.
+    string[] generatedNames = from string name in renames.keys()
+        order by name.length() descending
+        select name;
+
+    foreach string file in ["client.bal", "types.bal"] {
+        string path = string `../ballerina/${moduleName}/${file}`;
+        string content = check io:fileReadString(path);
+        foreach string generatedName in generatedNames {
+            regexp:RegExp generatedNameRegex = re `${generatedName}`;
+            content = generatedNameRegex.replaceAll(content, renames.get(generatedName));
+        }
+        check io:fileWriteString(path, content);
+    }
+}
+
+function capitalize(string name) returns string =>
+    name.substring(0, 1).toUpperAscii() + name.substring(1);
