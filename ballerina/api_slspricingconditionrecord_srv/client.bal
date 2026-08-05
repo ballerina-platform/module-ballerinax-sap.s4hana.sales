@@ -36,7 +36,7 @@ public isolated client class Client {
     # + hostname - Hostname of the S/4HANA system, without the scheme
     # + port - Port the service is reachable on
     # + return - An error if connector initialization failed
-    public isolated function init(oas:ConnectionConfig config, string hostname, int port = 443)
+    public isolated function init(ConnectionConfig config, string hostname, int port = 443)
             returns error? {
         self.oasClient = check new (config, hostname, port);
     }
@@ -80,7 +80,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SlsPrcgCndnRecdSuplmnts(map<string|string[]> headers = {}, *oas:ListA_SlsPrcgCndnRecdSuplmntsQueries queries) returns oas:CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function listA_SlsPrcgCndnRecdSuplmnts(map<string|string[]> headers = {}, *ListA_SlsPrcgCndnRecdSuplmntsQueries queries) returns CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
         return self.oasClient->listA_SlsPrcgCndnRecdSuplmnts(headers, queries = queries);
     }
 
@@ -89,7 +89,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SlsPrcgCndnRecdSuplmnt(oas:CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function createA_SlsPrcgCndnRecdSuplmnt(CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         return self.oasClient->createA_SlsPrcgCndnRecdSuplmnt(payload, headers);
     }
 
@@ -100,7 +100,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *oas:GetA_SlsPrcgCndnRecdSuplmntQueries queries) returns oas:A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function getA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *GetA_SlsPrcgCndnRecdSuplmntQueries queries) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         return self.oasClient->getA_SlsPrcgCndnRecdSuplmnt(ConditionRecord, ConditionSequentialNumber, headers, queries = queries);
     }
 
@@ -121,7 +121,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, oas:Modified\ A_SlsPrcgCndnRecdSuplmntType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, Modified\ A_SlsPrcgCndnRecdSuplmntType payload, map<string|string[]> headers = {}) returns error? {
         return self.oasClient->patchA_SlsPrcgCndnRecdSuplmnt(ConditionRecord, ConditionSequentialNumber, payload, headers);
     }
 
@@ -132,7 +132,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *oas:ListSlsPrcgCndnRecdValiditiesOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns oas:CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
+    remote isolated function listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdValiditiesOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
         return self.oasClient->listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgCndnRecdSuplmnt(ConditionRecord, ConditionSequentialNumber, headers, queries = queries);
     }
 
@@ -143,7 +143,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecordScalesOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *oas:ListSlsPrcgCndnRecordScalesOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns oas:CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function listSlsPrcgCndnRecordScalesOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecordScalesOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
         return self.oasClient->listSlsPrcgCndnRecordScalesOfA_SlsPrcgCndnRecdSuplmnt(ConditionRecord, ConditionSequentialNumber, headers, queries = queries);
     }
 
@@ -154,7 +154,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgCndnRecordScaleOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, oas:CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function createSlsPrcgCndnRecordScaleOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecordScaleWrapper|error {
         return self.oasClient->createSlsPrcgCndnRecordScaleOfA_SlsPrcgCndnRecdSuplmnt(ConditionRecord, ConditionSequentialNumber, payload, headers);
     }
 
@@ -165,7 +165,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnSupplementTextsOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *oas:ListSlsPrcgCndnSupplementTextsOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns oas:CollectionOfA_SlsPrcgCndnSupplementTextWrapper|error {
+    remote isolated function listSlsPrcgCndnSupplementTextsOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *ListSlsPrcgCndnSupplementTextsOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns CollectionOfA_SlsPrcgCndnSupplementTextWrapper|error {
         return self.oasClient->listSlsPrcgCndnSupplementTextsOfA_SlsPrcgCndnRecdSuplmnt(ConditionRecord, ConditionSequentialNumber, headers, queries = queries);
     }
 
@@ -176,7 +176,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgCndnSupplementTextOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, oas:CreateA_SlsPrcgCndnSupplementText payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgCndnSupplementTextWrapper|error {
+    remote isolated function createSlsPrcgCndnSupplementTextOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, CreateA_SlsPrcgCndnSupplementText payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnSupplementTextWrapper|error {
         return self.oasClient->createSlsPrcgCndnSupplementTextOfA_SlsPrcgCndnRecdSuplmnt(ConditionRecord, ConditionSequentialNumber, payload, headers);
     }
 
@@ -187,7 +187,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *oas:GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns oas:A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmnt(string ConditionRecord, string ConditionSequentialNumber, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmntQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
         return self.oasClient->getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdSuplmnt(ConditionRecord, ConditionSequentialNumber, headers, queries = queries);
     }
 
@@ -196,7 +196,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SlsPrcgCndnRecdValidities(map<string|string[]> headers = {}, *oas:ListA_SlsPrcgCndnRecdValiditiesQueries queries) returns oas:CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
+    remote isolated function listA_SlsPrcgCndnRecdValidities(map<string|string[]> headers = {}, *ListA_SlsPrcgCndnRecdValiditiesQueries queries) returns CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
         return self.oasClient->listA_SlsPrcgCndnRecdValidities(headers, queries = queries);
     }
 
@@ -207,7 +207,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *oas:GetA_SlsPrcgCndnRecdValidityQueries queries) returns oas:A_SlsPrcgCndnRecdValidityWrapper|error {
+    remote isolated function getA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *GetA_SlsPrcgCndnRecdValidityQueries queries) returns A_SlsPrcgCndnRecdValidityWrapper|error {
         return self.oasClient->getA_SlsPrcgCndnRecdValidity(ConditionRecord, ConditionValidityEndDate, headers, queries = queries);
     }
 
@@ -218,7 +218,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, oas:Modified\ A_SlsPrcgCndnRecdValidityType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, Modified\ A_SlsPrcgCndnRecdValidityType payload, map<string|string[]> headers = {}) returns error? {
         return self.oasClient->patchA_SlsPrcgCndnRecdValidity(ConditionRecord, ConditionValidityEndDate, payload, headers);
     }
 
@@ -229,7 +229,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *oas:ListSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgCndnRecdValidityQueries queries) returns oas:CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgCndnRecdValidityQueries queries) returns CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
         return self.oasClient->listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgCndnRecdValidity(ConditionRecord, ConditionValidityEndDate, headers, queries = queries);
     }
 
@@ -240,7 +240,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, oas:CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function createSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         return self.oasClient->createSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecdValidity(ConditionRecord, ConditionValidityEndDate, payload, headers);
     }
 
@@ -251,7 +251,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *oas:GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidityQueries queries) returns oas:A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidity(string ConditionRecord, string ConditionValidityEndDate, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidityQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
         return self.oasClient->getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecdValidity(ConditionRecord, ConditionValidityEndDate, headers, queries = queries);
     }
 
@@ -260,7 +260,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SlsPrcgCndnRecordScales(map<string|string[]> headers = {}, *oas:ListA_SlsPrcgCndnRecordScalesQueries queries) returns oas:CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function listA_SlsPrcgCndnRecordScales(map<string|string[]> headers = {}, *ListA_SlsPrcgCndnRecordScalesQueries queries) returns CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
         return self.oasClient->listA_SlsPrcgCndnRecordScales(headers, queries = queries);
     }
 
@@ -269,7 +269,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SlsPrcgCndnRecordScale(oas:CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function createA_SlsPrcgCndnRecordScale(CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecordScaleWrapper|error {
         return self.oasClient->createA_SlsPrcgCndnRecordScale(payload, headers);
     }
 
@@ -281,7 +281,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *oas:GetA_SlsPrcgCndnRecordScaleQueries queries) returns oas:A_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function getA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *GetA_SlsPrcgCndnRecordScaleQueries queries) returns A_SlsPrcgCndnRecordScaleWrapper|error {
         return self.oasClient->getA_SlsPrcgCndnRecordScale(ConditionRecord, ConditionSequentialNumber, ConditionScaleLine, headers, queries = queries);
     }
 
@@ -304,7 +304,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, oas:Modified\ A_SlsPrcgCndnRecordScaleType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, Modified\ A_SlsPrcgCndnRecordScaleType payload, map<string|string[]> headers = {}) returns error? {
         return self.oasClient->patchA_SlsPrcgCndnRecordScale(ConditionRecord, ConditionSequentialNumber, ConditionScaleLine, payload, headers);
     }
 
@@ -316,7 +316,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *oas:GetSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScaleQueries queries) returns oas:A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *GetSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScaleQueries queries) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         return self.oasClient->getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnRecordScale(ConditionRecord, ConditionSequentialNumber, ConditionScaleLine, headers, queries = queries);
     }
 
@@ -328,7 +328,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *oas:GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScaleQueries queries) returns oas:A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScale(string ConditionRecord, string ConditionSequentialNumber, string ConditionScaleLine, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScaleQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
         return self.oasClient->getSlsPrcgConditionRecordOfA_SlsPrcgCndnRecordScale(ConditionRecord, ConditionSequentialNumber, ConditionScaleLine, headers, queries = queries);
     }
 
@@ -337,7 +337,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SlsPrcgCndnSupplementTexts(map<string|string[]> headers = {}, *oas:ListA_SlsPrcgCndnSupplementTextsQueries queries) returns oas:CollectionOfA_SlsPrcgCndnSupplementTextWrapper|error {
+    remote isolated function listA_SlsPrcgCndnSupplementTexts(map<string|string[]> headers = {}, *ListA_SlsPrcgCndnSupplementTextsQueries queries) returns CollectionOfA_SlsPrcgCndnSupplementTextWrapper|error {
         return self.oasClient->listA_SlsPrcgCndnSupplementTexts(headers, queries = queries);
     }
 
@@ -346,7 +346,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SlsPrcgCndnSupplementText(oas:CreateA_SlsPrcgCndnSupplementText payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgCndnSupplementTextWrapper|error {
+    remote isolated function createA_SlsPrcgCndnSupplementText(CreateA_SlsPrcgCndnSupplementText payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnSupplementTextWrapper|error {
         return self.oasClient->createA_SlsPrcgCndnSupplementText(payload, headers);
     }
 
@@ -358,7 +358,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *oas:GetA_SlsPrcgCndnSupplementTextQueries queries) returns oas:A_SlsPrcgCndnSupplementTextWrapper|error {
+    remote isolated function getA_SlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetA_SlsPrcgCndnSupplementTextQueries queries) returns A_SlsPrcgCndnSupplementTextWrapper|error {
         return self.oasClient->getA_SlsPrcgCndnSupplementText(ConditionRecord, ConditionSequentialNumber, Language, headers, queries = queries);
     }
 
@@ -381,7 +381,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchA_SlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, oas:Modified\ A_SlsPrcgCndnSupplementTextType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, Modified\ A_SlsPrcgCndnSupplementTextType payload, map<string|string[]> headers = {}) returns error? {
         return self.oasClient->patchA_SlsPrcgCndnSupplementText(ConditionRecord, ConditionSequentialNumber, Language, payload, headers);
     }
 
@@ -393,7 +393,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *oas:GetSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementTextQueries queries) returns oas:A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementTextQueries queries) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         return self.oasClient->getSlsPrcgCndnRecdSuplmntOfA_SlsPrcgCndnSupplementText(ConditionRecord, ConditionSequentialNumber, Language, headers, queries = queries);
     }
 
@@ -402,7 +402,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SlsPrcgConditionRecords(map<string|string[]> headers = {}, *oas:ListA_SlsPrcgConditionRecordsQueries queries) returns oas:CollectionOfA_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function listA_SlsPrcgConditionRecords(map<string|string[]> headers = {}, *ListA_SlsPrcgConditionRecordsQueries queries) returns CollectionOfA_SlsPrcgConditionRecordWrapper|error {
         return self.oasClient->listA_SlsPrcgConditionRecords(headers, queries = queries);
     }
 
@@ -411,7 +411,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SlsPrcgConditionRecord(oas:CreateA_SlsPrcgConditionRecord payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function createA_SlsPrcgConditionRecord(CreateA_SlsPrcgConditionRecord payload, map<string|string[]> headers = {}) returns A_SlsPrcgConditionRecordWrapper|error {
         return self.oasClient->createA_SlsPrcgConditionRecord(payload, headers);
     }
 
@@ -421,7 +421,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *oas:GetA_SlsPrcgConditionRecordQueries queries) returns oas:A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function getA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *GetA_SlsPrcgConditionRecordQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
         return self.oasClient->getA_SlsPrcgConditionRecord(ConditionRecord, headers, queries = queries);
     }
 
@@ -440,7 +440,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchA_SlsPrcgConditionRecord(string ConditionRecord, oas:Modified\ A_SlsPrcgConditionRecordType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgConditionRecord(string ConditionRecord, Modified\ A_SlsPrcgConditionRecordType payload, map<string|string[]> headers = {}) returns error? {
         return self.oasClient->patchA_SlsPrcgConditionRecord(ConditionRecord, payload, headers);
     }
 
@@ -450,7 +450,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *oas:ListSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgConditionRecordQueries queries) returns oas:CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgCndnRecdSuplmntWrapper|error {
         return self.oasClient->listSlsPrcgCndnRecdSuplmntsOfA_SlsPrcgConditionRecord(ConditionRecord, headers, queries = queries);
     }
 
@@ -460,7 +460,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgCndnRecdSuplmntOfA_SlsPrcgConditionRecord(string ConditionRecord, oas:CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgCndnRecdSuplmntWrapper|error {
+    remote isolated function createSlsPrcgCndnRecdSuplmntOfA_SlsPrcgConditionRecord(string ConditionRecord, CreateA_SlsPrcgCndnRecdSuplmnt payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecdSuplmntWrapper|error {
         return self.oasClient->createSlsPrcgCndnRecdSuplmntOfA_SlsPrcgConditionRecord(ConditionRecord, payload, headers);
     }
 
@@ -470,7 +470,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *oas:ListSlsPrcgCndnRecdValiditiesOfA_SlsPrcgConditionRecordQueries queries) returns oas:CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
+    remote isolated function listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecdValiditiesOfA_SlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgCndnRecdValidityWrapper|error {
         return self.oasClient->listSlsPrcgCndnRecdValiditiesOfA_SlsPrcgConditionRecord(ConditionRecord, headers, queries = queries);
     }
 
@@ -480,7 +480,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgCndnRecordScalesOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *oas:ListSlsPrcgCndnRecordScalesOfA_SlsPrcgConditionRecordQueries queries) returns oas:CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function listSlsPrcgCndnRecordScalesOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgCndnRecordScalesOfA_SlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgCndnRecordScaleWrapper|error {
         return self.oasClient->listSlsPrcgCndnRecordScalesOfA_SlsPrcgConditionRecord(ConditionRecord, headers, queries = queries);
     }
 
@@ -490,7 +490,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgCndnRecordScaleOfA_SlsPrcgConditionRecord(string ConditionRecord, oas:CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgCndnRecordScaleWrapper|error {
+    remote isolated function createSlsPrcgCndnRecordScaleOfA_SlsPrcgConditionRecord(string ConditionRecord, CreateA_SlsPrcgCndnRecordScale payload, map<string|string[]> headers = {}) returns A_SlsPrcgCndnRecordScaleWrapper|error {
         return self.oasClient->createSlsPrcgCndnRecordScaleOfA_SlsPrcgConditionRecord(ConditionRecord, payload, headers);
     }
 
@@ -500,7 +500,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listSlsPrcgConditionRecordTextsOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *oas:ListSlsPrcgConditionRecordTextsOfA_SlsPrcgConditionRecordQueries queries) returns oas:CollectionOfA_SlsPrcgConditionRecordTextWrapper|error {
+    remote isolated function listSlsPrcgConditionRecordTextsOfA_SlsPrcgConditionRecord(string ConditionRecord, map<string|string[]> headers = {}, *ListSlsPrcgConditionRecordTextsOfA_SlsPrcgConditionRecordQueries queries) returns CollectionOfA_SlsPrcgConditionRecordTextWrapper|error {
         return self.oasClient->listSlsPrcgConditionRecordTextsOfA_SlsPrcgConditionRecord(ConditionRecord, headers, queries = queries);
     }
 
@@ -510,7 +510,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createSlsPrcgConditionRecordTextOfA_SlsPrcgConditionRecord(string ConditionRecord, oas:CreateA_SlsPrcgConditionRecordText payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgConditionRecordTextWrapper|error {
+    remote isolated function createSlsPrcgConditionRecordTextOfA_SlsPrcgConditionRecord(string ConditionRecord, CreateA_SlsPrcgConditionRecordText payload, map<string|string[]> headers = {}) returns A_SlsPrcgConditionRecordTextWrapper|error {
         return self.oasClient->createSlsPrcgConditionRecordTextOfA_SlsPrcgConditionRecord(ConditionRecord, payload, headers);
     }
 
@@ -519,7 +519,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entities 
-    remote isolated function listA_SlsPrcgConditionRecordTexts(map<string|string[]> headers = {}, *oas:ListA_SlsPrcgConditionRecordTextsQueries queries) returns oas:CollectionOfA_SlsPrcgConditionRecordTextWrapper|error {
+    remote isolated function listA_SlsPrcgConditionRecordTexts(map<string|string[]> headers = {}, *ListA_SlsPrcgConditionRecordTextsQueries queries) returns CollectionOfA_SlsPrcgConditionRecordTextWrapper|error {
         return self.oasClient->listA_SlsPrcgConditionRecordTexts(headers, queries = queries);
     }
 
@@ -528,7 +528,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New entity 
     # + return - Created entity 
-    remote isolated function createA_SlsPrcgConditionRecordText(oas:CreateA_SlsPrcgConditionRecordText payload, map<string|string[]> headers = {}) returns oas:A_SlsPrcgConditionRecordTextWrapper|error {
+    remote isolated function createA_SlsPrcgConditionRecordText(CreateA_SlsPrcgConditionRecordText payload, map<string|string[]> headers = {}) returns A_SlsPrcgConditionRecordTextWrapper|error {
         return self.oasClient->createA_SlsPrcgConditionRecordText(payload, headers);
     }
 
@@ -540,7 +540,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getA_SlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *oas:GetA_SlsPrcgConditionRecordTextQueries queries) returns oas:A_SlsPrcgConditionRecordTextWrapper|error {
+    remote isolated function getA_SlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetA_SlsPrcgConditionRecordTextQueries queries) returns A_SlsPrcgConditionRecordTextWrapper|error {
         return self.oasClient->getA_SlsPrcgConditionRecordText(ConditionRecord, ConditionSequentialNumber, Language, headers, queries = queries);
     }
 
@@ -563,7 +563,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + payload - New property values 
     # + return - Success 
-    remote isolated function patchA_SlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, oas:Modified\ A_SlsPrcgConditionRecordTextType payload, map<string|string[]> headers = {}) returns error? {
+    remote isolated function patchA_SlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, Modified\ A_SlsPrcgConditionRecordTextType payload, map<string|string[]> headers = {}) returns error? {
         return self.oasClient->patchA_SlsPrcgConditionRecordText(ConditionRecord, ConditionSequentialNumber, Language, payload, headers);
     }
 
@@ -575,7 +575,7 @@ public isolated client class Client {
     # + headers - Headers to be sent with the request 
     # + queries - Queries to be sent with the request 
     # + return - Retrieved entity 
-    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *oas:GetSlsPrcgConditionRecordOfA_SlsPrcgConditionRecordTextQueries queries) returns oas:A_SlsPrcgConditionRecordWrapper|error {
+    remote isolated function getSlsPrcgConditionRecordOfA_SlsPrcgConditionRecordText(string ConditionRecord, string ConditionSequentialNumber, string Language, map<string|string[]> headers = {}, *GetSlsPrcgConditionRecordOfA_SlsPrcgConditionRecordTextQueries queries) returns A_SlsPrcgConditionRecordWrapper|error {
         return self.oasClient->getSlsPrcgConditionRecordOfA_SlsPrcgConditionRecordText(ConditionRecord, ConditionSequentialNumber, Language, headers, queries = queries);
     }
 }

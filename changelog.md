@@ -154,6 +154,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added a display name for the connector
 
+### Changed
+
+- Declared all API types at the package root, so `import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv.oas` is no longer needed to use the client. The `oas` submodule remains exported for backward compatibility
+
 ## [0.1.0] - 2026-08-04
 
 - Added Initial client implementation

@@ -15,7 +15,6 @@
 // under the License.
 
 import sap.s4hana.api_slspricingconditionrecord_srv.mock as _;
-import sap.s4hana.api_slspricingconditionrecord_srv.oas;
 
 import ballerina/log;
 import ballerina/os;
@@ -83,7 +82,7 @@ function initializeClientsForS4HanaServer() returns error? {
 @test:Config {
 }
 function testListA_SlsPrcgConditionRecords() returns error? {
-    oas:CollectionOfA_SlsPrcgConditionRecordWrapper listA_SlsPrcgConditionRecords =
+    CollectionOfA_SlsPrcgConditionRecordWrapper listA_SlsPrcgConditionRecords =
         check s4HanaClient->listA_SlsPrcgConditionRecords();
     test:assertTrue(listA_SlsPrcgConditionRecords.d?.results !is (),
             "The condition records are expected to be non-empty.");
@@ -93,7 +92,7 @@ function testListA_SlsPrcgConditionRecords() returns error? {
 }
 function testCreateA_SlsPrcgConditionRecord() returns error? {
     string conditionRecord = "0000000123";
-    oas:A_SlsPrcgConditionRecordWrapper conditionRecordWrapper = check s4HanaClient->createA_SlsPrcgConditionRecord({
+    A_SlsPrcgConditionRecordWrapper conditionRecordWrapper = check s4HanaClient->createA_SlsPrcgConditionRecord({
         ConditionRecord: conditionRecord,
         ConditionSequentialNumber: CONDITION_SEQUENTIAL_NUMBER,
         ConditionTable: CONDITION_TABLE,
@@ -127,7 +126,7 @@ function testCreateA_SlsPrcgConditionRecord() returns error? {
     }
 
     // Resource clean up need to be done only on live server
-    oas:A_SlsPrcgConditionRecordWrapper aSlsPrcgConditionRecord =
+    A_SlsPrcgConditionRecordWrapper aSlsPrcgConditionRecord =
         check s4HanaClient->getA_SlsPrcgConditionRecord(createdConditionRecord);
     test:assertTrue(aSlsPrcgConditionRecord.d?.ConditionRecord == createdConditionRecord,
             "The condition record is expected to be retrieved successfully.");

@@ -5,7 +5,7 @@
 
 [ballerina]
 dependencies-toml-version = "2"
-distribution-version = "2201.13.0"
+distribution-version = "2201.13.4"
 
 [[package]]
 org = "ballerina"
@@ -370,7 +370,7 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "sap.s4hana.api_slspricingconditionrecord_srv"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
 	{org = "ballerina", name = "constraint"},
 	{org = "ballerina", name = "data.jsondata"},
