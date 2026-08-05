@@ -1,4 +1,5 @@
 {
+  "display-name": "SAP S/4HANA Sales Order OData V4 API",
   "description": "The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Order (A2X) API (ODatav4) v1.0.0](https://api.sap.com/api/CE_SALESORDER_0001/overview). The service allows to create, read, update, and delete sales orders.",
   "key-features": [
     "Create, read, update, and delete sales orders via OData v4",

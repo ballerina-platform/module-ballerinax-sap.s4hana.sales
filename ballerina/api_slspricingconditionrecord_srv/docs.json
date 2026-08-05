@@ -1,4 +1,5 @@
 {
+  "display-name": "SAP S/4HANA Sales Pricing Condition Record API",
   "description": "The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Condition Record for Pricing in Sales API v1.2.0](https://api.sap.com/api/API_SLSPRICINGCONDITIONRECORD_SRV/overview). The service allows to create, read, update, and delete condition records inside condition record, validity of condition record, pricing scale, and condition supplement.",
   "key-features": [
     "Create, read, update, and delete pricing condition records in SAP S/4HANA",

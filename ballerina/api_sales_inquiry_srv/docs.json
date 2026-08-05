@@ -1,4 +1,5 @@
 {
+  "display-name": "SAP S/4HANA Sales Inquiry API",
   "description": "The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Inquiry - Read (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_INQUIRY_SRV/overview). The service allows to read Sales Inquiries.",
   "key-features": [
     "Read sales inquiries from SAP S/4HANA",
