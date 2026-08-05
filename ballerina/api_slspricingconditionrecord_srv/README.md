@@ -50,6 +50,7 @@ Import the `sap.s4hana.api_slspricingconditionrecord_srv` module.
 
 ```ballerina
 import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv as conditionrecord;
+import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv.oas;
 ```
 
 ### Step 2: Instantiate a new connector
@@ -77,7 +78,7 @@ conditionrecord:Client conditionRecordClient = check new (
 Now, utilize the available connector operations.
 
 ```ballerina
-conditionrecord:CollectionOfA_SlsPrcgConditionRecordWrapper listASlsPrcgConditionRecord = check conditionRecordClient->listA_SlsPrcgConditionRecords();
+oas:CollectionOfA_SlsPrcgConditionRecordWrapper listASlsPrcgConditionRecord = check conditionRecordClient->listA_SlsPrcgConditionRecords();
 ```
 
 ### Step 4: Run the Ballerina application
