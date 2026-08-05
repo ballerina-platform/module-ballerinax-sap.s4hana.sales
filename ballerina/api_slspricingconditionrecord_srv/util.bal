@@ -26,8 +26,6 @@ import ballerina/lang.regexp;
 import ballerina/mime;
 import ballerina/uuid;
 
-import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv.oas;
-
 // OData requires CRLF line endings inside the envelope. LF alone is rejected.
 const string BATCH_CRLF = "\r\n";
 
@@ -38,24 +36,24 @@ const string BATCH_CRLF = "\r\n";
 # `BatchRequest`, which lets each request carry its own key in the URI and its own `If-Match` header.
 #
 # A modify request accepts either a bare `Update...` payload or the same payload wrapped as
-# `{"d": { ... }}`, which is what the `oas:Modified\ ...Type` records are. Both answer `204`.
+# `{"d": { ... }}`, which is what the `Modified\ ...Type` records are. Both answer `204`.
 #
 # A modify always needs the entity's current ETag in an `If-Match` header: without one the service
 # answers `428 The Data Service Request is required to be conditional`, and `If-Match: *` is rejected
 # with `State of the resource (entity) was already changed`.
-public type BatchEntity oas:CreateA_SlsPrcgConditionRecord|oas:CreateA_SlsPrcgCndnRecdValidity|
-    oas:CreateA_SlsPrcgCndnRecordScale|oas:CreateA_SlsPrcgCndnRecdSuplmnt|oas:CreateA_SlsPrcgConditionRecordText|
-    oas:CreateA_SlsPrcgCndnSupplementText|oas:UpdateA_SlsPrcgConditionRecord|oas:UpdateA_SlsPrcgCndnRecdValidity|
-    oas:UpdateA_SlsPrcgCndnRecordScale|oas:UpdateA_SlsPrcgCndnRecdSuplmnt|oas:UpdateA_SlsPrcgConditionRecordText|
-    oas:UpdateA_SlsPrcgCndnSupplementText|oas:Modified\ A_SlsPrcgConditionRecordType|
-    oas:Modified\ A_SlsPrcgCndnRecdValidityType|oas:Modified\ A_SlsPrcgCndnRecordScaleType|
-    oas:Modified\ A_SlsPrcgCndnRecdSuplmntType|oas:Modified\ A_SlsPrcgConditionRecordTextType|
-    oas:Modified\ A_SlsPrcgCndnSupplementTextType;
+public type BatchEntity CreateA_SlsPrcgConditionRecord|CreateA_SlsPrcgCndnRecdValidity|
+    CreateA_SlsPrcgCndnRecordScale|CreateA_SlsPrcgCndnRecdSuplmnt|CreateA_SlsPrcgConditionRecordText|
+    CreateA_SlsPrcgCndnSupplementText|UpdateA_SlsPrcgConditionRecord|UpdateA_SlsPrcgCndnRecdValidity|
+    UpdateA_SlsPrcgCndnRecordScale|UpdateA_SlsPrcgCndnRecdSuplmnt|UpdateA_SlsPrcgConditionRecordText|
+    UpdateA_SlsPrcgCndnSupplementText|Modified\ A_SlsPrcgConditionRecordType|
+    Modified\ A_SlsPrcgCndnRecdValidityType|Modified\ A_SlsPrcgCndnRecordScaleType|
+    Modified\ A_SlsPrcgCndnRecdSuplmntType|Modified\ A_SlsPrcgConditionRecordTextType|
+    Modified\ A_SlsPrcgCndnSupplementTextType;
 
 # A single request inside a batch.
 #
 # + method - HTTP method of the request
-# + uri - Resource path relative to the service root, such as `oas:A_SlsPrcgConditionRecord`. Query options
+# + uri - Resource path relative to the service root, such as `A_SlsPrcgConditionRecord`. Query options
 #         must be percent encoded, since this goes into an HTTP request line
 # + payload - Entity to send, omitted for methods that do not carry one
 # + headers - Additional headers for this request, such as `If-Match` for an update
@@ -82,7 +80,7 @@ public type BatchResult record {|
 # `performBatchOperation` applies this on its own when it is given entities rather than requests, so it is
 # only needed when the requests are assembled up front.
 #
-# + entitySet - Name of the target entity set, such as `oas:A_SlsPrcgConditionRecord`
+# + entitySet - Name of the target entity set, such as `A_SlsPrcgConditionRecord`
 # + entities - Entities to create
 # + return - One create request per entity, in the given order
 public isolated function batchCreate(string entitySet, BatchEntity[] entities) returns BatchRequest[] =>
