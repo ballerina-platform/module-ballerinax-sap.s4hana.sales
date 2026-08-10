@@ -1,9 +1,9 @@
 ## Overview
 
+The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Order (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_ORDER_SRV/overview). The service allows to create, read, update, and delete sales orders.
+
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
-
-The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Sales Order (A2X) API v1.0.0](https://api.sap.com/api/API_SALES_ORDER_SRV/overview). The service allows to create, read, update, and delete sales orders.
 
 ### Key Features
 
