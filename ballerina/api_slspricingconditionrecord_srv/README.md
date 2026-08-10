@@ -1,9 +1,9 @@
 ## Overview
 
+The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Condition Record for Pricing in Sales API v1.2.0](https://api.sap.com/api/API_SLSPRICINGCONDITIONRECORD_SRV/overview). The service allows to create, read, update, and delete condition records inside condition record, validity of condition record, pricing scale, and condition supplement.
+
 [S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
 designed for large-scale enterprises by SAP SE.
-
-The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Condition Record for Pricing in Sales API v1.2.0](https://api.sap.com/api/API_SLSPRICINGCONDITIONRECORD_SRV/overview). The service allows to create, read, update, and delete condition records inside condition record, validity of condition record, pricing scale, and condition supplement.
 
 ### Key Features
 
