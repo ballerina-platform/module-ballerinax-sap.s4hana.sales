@@ -16,6 +16,9 @@
  * under the License.
  */
 import org.apache.tools.ant.taskdefs.condition.Os
+import org.gradle.process.ExecOperations
+
+import javax.inject.Inject
 
 plugins {
     id 'net.researchgate.release'
@@ -31,10 +34,17 @@ def ballerinaTomlFile = file("${project.projectDir}/Ballerina.toml")
 ballerina {
     packageOrganization = project.ext.packageOrg
     module = packageName
-    isConnector = true
+    connector = true
     platform = "any"
     testCoverageParam = "--code-coverage --coverage-format=xml --includes=\"ballerinax.*\" --excludes=\"modules/**/**\""
 }
+
+abstract class ExecHelper {
+    @Inject
+    abstract ExecOperations getExecOperations()
+}
+
+def execHelper = project.objects.newInstance(ExecHelper)
 
 task updateTomlFiles {
     doLast {
@@ -48,7 +58,7 @@ task updateTomlFiles {
 
 task commitTomlFiles {
     doLast {
-        project.exec {
+        execHelper.execOperations.exec {
             ignoreExitValue true
             if (Os.isFamily(Os.FAMILY_WINDOWS)) {
                 commandLine 'cmd', '/c', "git commit -m \"[Automated] Update the toml files\" Ballerina.toml Dependencies.toml"
