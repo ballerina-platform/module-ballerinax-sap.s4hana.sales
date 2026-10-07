@@ -1,5 +1,8 @@
 import groovy.json.JsonSlurper
 import org.apache.tools.ant.taskdefs.condition.Os
+import org.gradle.process.ExecOperations
+
+import javax.inject.Inject
 
 /*
  * Copyright (c) 2024, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
@@ -31,6 +34,13 @@ subprojects {
 
 def readmeMdPlaceholder = new File("${project.rootDir}/build-config/resources/README.md")
 
+abstract class ExecHelper {
+    @Inject
+    abstract ExecOperations getExecOperations()
+}
+
+def execHelper = project.objects.newInstance(ExecHelper)
+
 task updateDocumentationFiles {
     doLast {
         def files = []
@@ -58,7 +68,7 @@ task updateDocumentationFiles {
             readmeMdFile.text = newReadmeMdFile
         }
 
-        project.exec {
+        execHelper.execOperations.exec {
             ignoreExitValue true
             if (Os.isFamily(Os.FAMILY_WINDOWS)) {
                 commandLine 'cmd', '/c', "git commit -m \"[Automated] Update the documentation file\" */README.md"
