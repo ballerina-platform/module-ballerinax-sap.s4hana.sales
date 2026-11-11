@@ -29,6 +29,7 @@ on:
           - api_credit_memo_request_srv
           - api_debit_memo_request_srv
           - api_billing_document_srv
+          - api_customer_return_srv
 
 jobs:
   call_workflow:

@@ -68,6 +68,9 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
 12. The `ballerinax/sap.s4hana.api_billing_document_srv` package provides APIs that enable seamless integration with the
     [Billing Document - Read, Cancel, GetPDF API v1.1.0](https://api.sap.com/api/API_BILLING_DOCUMENT_SRV/overview). The
     service allows to read and cancel billing documents and retrieve their PDF versions.
+12. The `ballerinax/sap.s4hana.api_customer_return_srv` package provides APIs that enable seamless integration with the
+    [Customer Return (A2X) API v1.1.0](https://api.sap.com/api/API_CUSTOMER_RETURN_SRV/overview). The service allows to
+    create, read, update, and delete returns orders for customer returns.
 
 ## Issues and projects
 
@@ -140,6 +143,7 @@ Execute the commands below to build from the source.
    | api_credit_memo_request_srv       | ballerinax/sap.s4hana.api_credit_memo_request_srv       |
    | api_debit_memo_request_srv        | ballerinax/sap.s4hana.api_debit_memo_request_srv        |
    | api_billing_document_srv          | ballerinax/sap.s4hana.api_billing_document_srv          |
+   | api_customer_return_srv           | ballerinax/sap.s4hana.api_customer_return_srv           |
 
 5. To run tests against different environment:
 
