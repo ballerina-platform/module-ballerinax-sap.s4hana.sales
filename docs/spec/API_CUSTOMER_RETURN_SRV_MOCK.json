@@ -1,0 +1,4576 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Customer Return (A2X)",
+    "version": "1.1.0",
+    "description": "In every API call, you can use the following operations:\n - You can retrieve returns orders. Apply any of the filters provided or retrieve all existing data.\n - You can create returns orders. Note that you must use “deep insert” requests (a header plus the following entities: header partner, header pricing element, item, item partner, and item pricing element). You cannot create headers without including any related entities.\n - For existing returns orders, you can create new items. Note that you must use “deep insert” requests (with the following entities: item partner and item pricing element). You cannot create items without including any related entities.\n - For existing returns orders, you can add additional business partners at header and item levels.\n - For existing returns orders, you can update the header, header partner, header pricing element, item, item partner, and item pricing element.\n - For existing returns orders, you can delete the header, header partner, header pricing element, item, item partner, and item pricing element."
+  },
+  "externalDocs": {
+    "description": "Business Documentation",
+    "url": "https://help.sap.com/http.svc/ahp2/SAP_S4HANA_CLOUD/2608.latest/EN/69/bd2e81cb394eb0b3d8eae85d6b4517/frameset.htm"
+  },
+  "x-sap-api-type": "ODATA",
+  "x-sap-shortText": "Create, read, update, and delete returns orders for customer returns using this synchronous inbound service",
+  "x-sap-software-min-version": "2608",
+  "x-sap-ext-overview": [
+    {
+      "name": "Communication Scenario",
+      "values": [
+        {
+          "text": "Customer Return Integration (SAP_COM_0157)",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Scope Items",
+      "values": [
+        {
+          "text": "[Customer Returns (BKP)](https://me.sap.com/processnavigator/SolP/BKP \" Link To BP \")",
+          "format": "markdown"
+        },
+        {
+          "text": "[Customer Consignment (1IU)](https://me.sap.com/processnavigator/SolP/1IU \" Link To BP \")",
+          "format": "markdown"
+        },
+        {
+          "text": "[Customer Returns with Direct Shipment from Customer to Supplier (1Z3)](https://me.sap.com/processnavigator/SolP/1Z3 \" Link To BP \")",
+          "format": "markdown"
+        },
+        {
+          "text": "[Lean Customer Returns (BDD)](https://me.sap.com/processnavigator/SolP/BDD \" Link To BP \")",
+          "format": "markdown"
+        }
+      ]
+    },
+    {
+      "name": "Authentication Methods",
+      "values": [
+        {
+          "text": "x509",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Business Object",
+      "values": [
+        {
+          "text": "Customer Return",
+          "format": "plain"
+        }
+      ]
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://{host}:{port}/sap/opu/odata/sap/API_CUSTOMER_RETURN_SRV",
+      "variables": {
+        "host": {
+          "default": ""
+        },
+        "port": {
+          "default": ""
+        }
+      }
+    },
+    {
+      "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_CUSTOMER_RETURN_SRV"
+    }
+  ],
+  "x-sap-extensible": {
+    "supported": "manual",
+    "description": "If you are working with key user extensibility, the API can be extended by custom fields on the following business contexts (field usage for this API needs to be selected):\r\n* Sales: Sales Document (SD_SALESDOC)\r\n* Sales: Sales Document Item (SD_SALESDOCITEM)\r\n\r\n[How to add an extension field to an API](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/ce819b8557194ae0aa180ba4ac6a04de.html)"
+  },
+  "tags": [
+    {
+      "name": "Returns Order Header"
+    },
+    {
+      "name": "Returns Order Item"
+    },
+    {
+      "name": "Item Partner"
+    },
+    {
+      "name": "Item Pricing Element"
+    },
+    {
+      "name": "Item Related Object"
+    },
+    {
+      "name": "Item Text"
+    },
+    {
+      "name": "Customer Return Overview Status"
+    },
+    {
+      "name": "Header Partner"
+    },
+    {
+      "name": "Header Pricing Element"
+    },
+    {
+      "name": "Return Process Step"
+    },
+    {
+      "name": "Header Related Object"
+    },
+    {
+      "name": "Schedule Line"
+    },
+    {
+      "name": "Serial Number"
+    },
+    {
+      "name": "Header Text"
+    }
+  ],
+  "paths": {
+    "/A_CustomerReturn": {
+      "get": {
+        "operationId": "listA_CustomerReturns",
+        "summary": "Reads all returns order headers.",
+        "description": "Reads the header data of all returns orders in the system.",
+        "tags": [
+          "Returns Order Header"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/A_CustomerReturnOrderByOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_CustomerReturnSelectOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_CustomerReturnExpandOptions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "CollectionOfA_CustomerReturnWrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "CollectionOfA_CustomerReturn",
+                      "type": "object",
+                      "properties": {
+                        "__count": {
+                          "$ref": "#/components/schemas/count"
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/A_CustomerReturn"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createA_CustomerReturn",
+        "summary": "Creates one or more returns order headers.",
+        "description": "Creates returns order headers by using deep insert requests.This means that consumers must create a header together with at least one of the following entities: header partner, header pricing element, item, item partner, and item pricing element.",
+        "tags": [
+          "Returns Order Header"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New entity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateA_CustomerReturn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "A_CustomerReturnWrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "$ref": "#/components/schemas/A_CustomerReturn"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "A_CustomerReturn": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Customer Return"
+          },
+          "CustomerReturnType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Customer Return Type"
+          },
+          "SalesOrganization": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Organization"
+          },
+          "DistributionChannel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Distribution Channel"
+          },
+          "OrganizationDivision": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Division"
+          },
+          "SalesGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sales Group"
+          },
+          "SalesOffice": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Office"
+          },
+          "SalesDistrict": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Sales District"
+          },
+          "SoldToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Sold-to Party"
+          },
+          "CreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Record Creation Date"
+          },
+          "CreatedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Created By",
+            "description": "Name of Person Responsible for Creating the Object"
+          },
+          "LastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "SenderBusinessSystemName": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "Ext. Bus. Syst. ID",
+            "description": "External Business System ID"
+          },
+          "LastChangeDateTime": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492098664000)/",
+            "title": "Time Stamp",
+            "description": "UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "CustomerPurchaseOrderType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "PurchaseOrderTypeByCustomer",
+            "title": "Purchase Order Type",
+            "description": "Customer Purchase Order Type"
+          },
+          "CustPurOrdTypeByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purchase Order Type (Ship-to Party)",
+            "description": "Ship-to Party Purchase Order Type"
+          },
+          "CustomerPurchaseOrderDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Customer Reference Date"
+          },
+          "PurchaseOrderByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference (Ship-to Party)",
+            "description": "Ship-to Party's Customer Reference"
+          },
+          "CorrespncExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference"
+          },
+          "CorrespncExtRefByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference (Ship-to Party)"
+          },
+          "CustomerReturnDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Document Date",
+            "description": "Document Date (Date Received/Sent)"
+          },
+          "TotalNetAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Net Value",
+            "description": "Net Value of the Sales Document in Document Currency"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "SDDocumentReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "SalesDocumentReason",
+            "title": "Order Reason",
+            "description": "Order Reason (Reason for the Business Transaction)"
+          },
+          "PricingDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Pricing Date",
+            "description": "Date for Pricing and Exchange Rate"
+          },
+          "RequestedDeliveryDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Requested Delivery Date"
+          },
+          "ShippingType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Shipping Type"
+          },
+          "HeaderBillingBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "BillingBlockReason",
+            "title": "Billing Block",
+            "description": "Billing Block in SD Document"
+          },
+          "DeliveryBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Delivery Block",
+            "description": "Delivery Block (Document Header)"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "IncotermsVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "IncotermsVersion",
+            "title": "Incoterms Version"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "PaymentMethod": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Payment Method"
+          },
+          "CustomerTaxClassification1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Alt.Tax Classific.",
+            "description": "Alternative Tax Classification"
+          },
+          "CustomerTaxClassification2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.2 Customer",
+            "description": "Tax Classification 2 for Customer"
+          },
+          "CustomerTaxClassification3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.3 Customer",
+            "description": "Tax Classification 3 for Customer"
+          },
+          "CustomerTaxClassification4": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.4 Customer",
+            "description": "Tax Classification 4 for Customer"
+          },
+          "CustomerTaxClassification5": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.5 Customer",
+            "description": "Tax Classification 5 for Customer"
+          },
+          "CustomerTaxClassification6": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.6 Customer",
+            "description": "Tax Classification 6 for Customer"
+          },
+          "CustomerTaxClassification7": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.7 Customer",
+            "description": "Tax Classification 7 for Customer"
+          },
+          "CustomerTaxClassification8": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.8 Customer",
+            "description": "Tax Classification 8 for Customer"
+          },
+          "CustomerTaxClassification9": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.9 Customer",
+            "description": "Tax Classification 9 for Customer"
+          },
+          "RetsMgmtProcess": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Process ID No.",
+            "description": "Process Identification Number"
+          },
+          "ReferenceSDDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Reference Document",
+            "description": "Document Number of Reference Document"
+          },
+          "ReferenceSDDocumentCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Reference Document Category",
+            "description": "Category of Reference Document"
+          },
+          "AccountingDocExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 16,
+            "title": "Reference",
+            "description": "Reference Document Number"
+          },
+          "AssignmentReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "Assignment",
+            "description": "Assignment Number"
+          },
+          "CustomerReturnApprovalReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Approval Request Reason",
+            "description": "Approval Request Reason ID"
+          },
+          "SalesDocApprovalStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "SalesDocApprovalStatus",
+            "title": "Approval Status",
+            "description": "Document Approval Status"
+          },
+          "RetsMgmtLogProcgStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Logistical Status",
+            "description": "Logistical Processing Status of a Return"
+          },
+          "RetsMgmtCompnProcgStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Refunding Status",
+            "description": "Status of Returns Refund Determination"
+          },
+          "RetsMgmtProcessingStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Processing Status"
+          },
+          "OverallSDProcessStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "OverallSDProcessStatus",
+            "title": "Overall Status",
+            "description": "Overall Processing Status (Header/All Items)"
+          },
+          "TotalCreditCheckStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "TotalCreditCheckStatus",
+            "title": "Credit Status",
+            "description": "Overall Status of Credit Checks"
+          },
+          "OverallSDDocumentRejectionSts": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "OverallSDDocumentRejectionSts",
+            "title": "Rejection Status",
+            "description": "Rejection Status (All Items)"
+          },
+          "to_CustomerReturnOverviewStatus": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/A_CustomerReturnOverviewStatus"
+              }
+            ]
+          },
+          "to_Item": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnItem"
+                }
+              }
+            }
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnPrcgElmnt"
+                }
+              }
+            }
+          },
+          "to_RelatedObject": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnRelatedObject"
+                }
+              }
+            }
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnText"
+                }
+              }
+            }
+          }
+        },
+        "title": "Returns Order Header"
+      },
+      "CreateA_CustomerReturn": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Customer Return"
+          },
+          "CustomerReturnType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Customer Return Type"
+          },
+          "SalesOrganization": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Organization"
+          },
+          "DistributionChannel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Distribution Channel"
+          },
+          "OrganizationDivision": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Division"
+          },
+          "SalesGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sales Group"
+          },
+          "SalesOffice": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Office"
+          },
+          "SalesDistrict": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Sales District"
+          },
+          "SoldToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Sold-to Party"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "CustomerPurchaseOrderType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "PurchaseOrderTypeByCustomer",
+            "title": "Purchase Order Type",
+            "description": "Customer Purchase Order Type"
+          },
+          "CustPurOrdTypeByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purchase Order Type (Ship-to Party)",
+            "description": "Ship-to Party Purchase Order Type"
+          },
+          "CustomerPurchaseOrderDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Customer Reference Date"
+          },
+          "PurchaseOrderByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference (Ship-to Party)",
+            "description": "Ship-to Party's Customer Reference"
+          },
+          "CorrespncExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference"
+          },
+          "CorrespncExtRefByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference (Ship-to Party)"
+          },
+          "CustomerReturnDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Document Date",
+            "description": "Document Date (Date Received/Sent)"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "SDDocumentReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "SalesDocumentReason",
+            "title": "Order Reason",
+            "description": "Order Reason (Reason for the Business Transaction)"
+          },
+          "PricingDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Pricing Date",
+            "description": "Date for Pricing and Exchange Rate"
+          },
+          "RequestedDeliveryDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Requested Delivery Date"
+          },
+          "ShippingType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Shipping Type"
+          },
+          "HeaderBillingBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "BillingBlockReason",
+            "title": "Billing Block",
+            "description": "Billing Block in SD Document"
+          },
+          "DeliveryBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Delivery Block",
+            "description": "Delivery Block (Document Header)"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "IncotermsVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "IncotermsVersion",
+            "title": "Incoterms Version"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "PaymentMethod": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Payment Method"
+          },
+          "CustomerTaxClassification1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Alt.Tax Classific.",
+            "description": "Alternative Tax Classification"
+          },
+          "CustomerTaxClassification2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.2 Customer",
+            "description": "Tax Classification 2 for Customer"
+          },
+          "CustomerTaxClassification3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.3 Customer",
+            "description": "Tax Classification 3 for Customer"
+          },
+          "CustomerTaxClassification4": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.4 Customer",
+            "description": "Tax Classification 4 for Customer"
+          },
+          "CustomerTaxClassification5": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.5 Customer",
+            "description": "Tax Classification 5 for Customer"
+          },
+          "CustomerTaxClassification6": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.6 Customer",
+            "description": "Tax Classification 6 for Customer"
+          },
+          "CustomerTaxClassification7": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.7 Customer",
+            "description": "Tax Classification 7 for Customer"
+          },
+          "CustomerTaxClassification8": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.8 Customer",
+            "description": "Tax Classification 8 for Customer"
+          },
+          "CustomerTaxClassification9": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.9 Customer",
+            "description": "Tax Classification 9 for Customer"
+          },
+          "ReferenceSDDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Reference Document",
+            "description": "Document Number of Reference Document"
+          },
+          "AccountingDocExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 16,
+            "title": "Reference",
+            "description": "Reference Document Number"
+          },
+          "AssignmentReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "Assignment",
+            "description": "Assignment Number"
+          },
+          "CustomerReturnApprovalReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Approval Request Reason",
+            "description": "Approval Request Reason ID"
+          },
+          "SalesDocApprovalStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "SalesDocApprovalStatus",
+            "title": "Approval Status",
+            "description": "Document Approval Status"
+          },
+          "to_CustomerReturnOverviewStatus": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CreateA_CustomerReturnOverviewStatus"
+              }
+            ]
+          },
+          "to_Item": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnItem"
+                }
+              }
+            }
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnPrcgElmnt"
+                }
+              }
+            }
+          },
+          "to_RelatedObject": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnRelatedObject"
+                }
+              }
+            }
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnText"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "CustomerReturn"
+        ],
+        "title": "Returns Order Header (for create)"
+      },
+      "A_CustomerReturnItem": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Customer Return"
+          },
+          "CustomerReturnItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Customer Return Item"
+          },
+          "HigherLevelItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Higher-Level Item",
+            "description": "Higher-Level Item in Bill of Material Structures"
+          },
+          "CustomerReturnItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Item Category",
+            "description": "Sales Document Item Category"
+          },
+          "CustomerReturnItemText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Description",
+            "description": "Short Text for Sales Order Item"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "PurchaseOrderByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference (Ship-to Party)",
+            "description": "Ship-to Party's Customer Reference"
+          },
+          "CorrespncExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference"
+          },
+          "CorrespncExtRefByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference (Ship-to Party)"
+          },
+          "UnderlyingPurchaseOrderItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Purchase Order Item",
+            "description": "Item Number of the Underlying Purchase Order"
+          },
+          "UndrlgPurOrdItmByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Purchase Order Item (Ship-to Party)",
+            "description": "Underlying Purchase Order Item (Ship-to Party)"
+          },
+          "CustomerPurchaseOrderType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "PurchaseOrderTypeByCustomer",
+            "title": "Purchase Order Type",
+            "description": "Customer Purchase Order Type"
+          },
+          "CustPurOrdTypeByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purchase Order Type (Ship-to Party)",
+            "description": "Ship-to Party Purchase Order Type"
+          },
+          "Material": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "MaterialByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Material",
+            "description": "Material Number Used by Customer"
+          },
+          "RequestedQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Requested Quantity"
+          },
+          "RequestedQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Requested Qty Unit",
+            "description": "Unit of the Requested Quantity"
+          },
+          "ItemGrossWeight": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Gross Weight",
+            "description": "Gross Weight of the Item"
+          },
+          "ItemNetWeight": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Net Weight",
+            "description": "Net Weight of the Item"
+          },
+          "ItemWeightUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Unit of Weight"
+          },
+          "ItemVolume": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Volume",
+            "description": "Volume of the item"
+          },
+          "ItemVolumeUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Volume Unit"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "NetAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Net Value",
+            "description": "Net Value of the Document Item in Document Currency"
+          },
+          "PricingDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Pricing Date",
+            "description": "Date for Pricing and Exchange Rate"
+          },
+          "Subtotal1Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 1",
+            "description": "Subtotal 1 from Pricing Procedure for Price Element"
+          },
+          "Subtotal2Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 2",
+            "description": "Subtotal 2 from Pricing Procedure for Price Element"
+          },
+          "Subtotal3Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 3",
+            "description": "Subtotal 3 from Pricing Procedure for Price Element"
+          },
+          "Subtotal4Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 4",
+            "description": "Subtotal 4 from Pricing Procedure for Price Element"
+          },
+          "Subtotal5Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 5",
+            "description": "Subtotal 5 from Pricing Procedure for Price Element"
+          },
+          "Subtotal6Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 6",
+            "description": "Subtotal 6 from Pricing Procedure for Price Element"
+          },
+          "MaterialGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 9,
+            "title": "Material Group"
+          },
+          "Batch": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Batch",
+            "description": "Batch Number"
+          },
+          "ProductionPlant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "Plant",
+            "title": "Plant",
+            "description": "Plant (Own or External)"
+          },
+          "StorageLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "StorageLocation",
+            "title": "Storage Location"
+          },
+          "ShippingPoint": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "ShippingPoint",
+            "title": "Shipping Point",
+            "description": "Shipping Point / Receiving Point"
+          },
+          "ShippingType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Shipping Type"
+          },
+          "DeliveryPriority": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Delivery Priority"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "ProductTaxClassification1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification4": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification5": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification6": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification7": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification8": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification9": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "SalesDocumentRjcnReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "SalesDocumentRjcnReason",
+            "title": "Reason for Rejection",
+            "description": "Reason for Rejection of Sales Documents"
+          },
+          "ItemBillingBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "BillingBlockReason",
+            "title": "Billing Block",
+            "description": "Billing Block for Item"
+          },
+          "ProfitCenter": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Profit Center"
+          },
+          "WBSElementExternalID": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 24,
+            "title": "WBS Element",
+            "description": "Work Breakdown Structure Element (WBS Element) Edited"
+          },
+          "RetsMgmtProcess": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Process ID No.",
+            "description": "Process Identification Number"
+          },
+          "RetsMgmtProcessItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Item No. in Process",
+            "description": "Item Number"
+          },
+          "ReturnReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Return Reason"
+          },
+          "RetsMgmtProcessingBlock": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Approval",
+            "description": "Approval Block"
+          },
+          "CustRetItmFollowUpActivity": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Follow-Up Activity",
+            "description": "Follow-Up Activity Code"
+          },
+          "ReturnsMaterialHasBeenReceived": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "ReturnsRefundType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Refund Type"
+          },
+          "ReturnsRefundProcgMode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Refund Processing",
+            "description": "Refund Processing Mode for a Return"
+          },
+          "RetsProdValnIsSuspended": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "ReturnsRefundExtent": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Refund Code",
+            "description": "Returns Refund Code"
+          },
+          "PrelimRefundIsDetermined": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "ReturnsRefundRjcnReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "CMR Rejection Reason",
+            "description": "Rejection Reason for Credit Memo Request"
+          },
+          "ReplacementMaterial": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Replacement Material"
+          },
+          "ReplacementMaterialQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Replacement Quantity",
+            "description": "Replacement Material Quantity"
+          },
+          "ReplacementMaterialQtyUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Replacement UoM",
+            "description": "Replacement Material Unit of Measure"
+          },
+          "ReplacementMaterialIsRequested": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "ReplacementMatlSupplyingPlant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Supplying Plant",
+            "description": "Supplying Plant for Replacement Material"
+          },
+          "NextPlantForFollowUpActivity": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Plant"
+          },
+          "ReturnsTransshipmentPlant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Transshipment Plant"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "SupplierRetMatlAuthzn": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20,
+            "title": "Supplier RMA Number"
+          },
+          "SuplrRetMatlAuthznIsRequired": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "CustomerRetMatlInspResultCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Cust. InspectionCode",
+            "description": "Customer Inspection Code"
+          },
+          "NextFllwUpActivityForMatlInsp": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Next Follow-Up Act.",
+            "description": "Default for Next Follow-Up Activity in Material Inspection"
+          },
+          "RetMatlInspResultCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Inspection Code"
+          },
+          "ProductIsInspectedAtCustSite": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "CustRetMatlAuthzn": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20,
+            "title": "Customer RMA Number"
+          },
+          "CRMLogicalSystem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "CRM Logical System"
+          },
+          "CRMObjectUUID": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 32,
+            "title": "CRM Object GUID"
+          },
+          "CRMObjectID": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "CRM Object ID"
+          },
+          "CRMObjectType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "CRM Object Type"
+          },
+          "RetsMgmtItmLogProcgStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Logistical Status",
+            "description": "Logistical Processing Status of a Return"
+          },
+          "RetsMgmtItmCompnProcgStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Refunding Status",
+            "description": "Status of Returns Refund Determination"
+          },
+          "RetsMgmtItmProcgStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Processing Status"
+          },
+          "ReturnsDocumentStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Item Status",
+            "description": "Status of Document Item"
+          },
+          "ReturnsDocumentApprovalStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Approval Status",
+            "description": "Approval Status of Returns Process"
+          },
+          "SDProcessStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "SDProcessStatus",
+            "title": "Overall Status",
+            "description": "Overall Processing Status (Item)"
+          },
+          "ReferenceSDDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Reference Document",
+            "description": "Document Number of Reference Document"
+          },
+          "ReferenceSDDocumentItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Reference Item",
+            "description": "Item Number of the Reference Item"
+          },
+          "ReferenceSDDocumentCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Reference Document Category",
+            "description": "Category of Reference Document"
+          },
+          "SDDocumentRejectionStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "SalesDocRejectionStatus",
+            "title": "Rejection Status",
+            "description": "Rejection Status (Item)"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnItemPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnItemPrcgElmnt"
+                }
+              }
+            }
+          },
+          "to_ProcessStep": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnProcessStep"
+                }
+              }
+            }
+          },
+          "to_RelatedObject": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnItemRelatedObj"
+                }
+              }
+            }
+          },
+          "to_ScheduleLine": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnScheduleLine"
+                }
+              }
+            }
+          },
+          "to_SerialNumber": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnSerialNumber"
+                }
+              }
+            }
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_CustomerReturnItemText"
+                }
+              }
+            }
+          }
+        },
+        "title": "Returns Order Item"
+      },
+      "CreateA_CustomerReturnItem": {
+        "type": "object",
+        "properties": {
+          "CustomerReturnItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Customer Return Item"
+          },
+          "HigherLevelItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Higher-Level Item",
+            "description": "Higher-Level Item in Bill of Material Structures"
+          },
+          "CustomerReturnItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Item Category",
+            "description": "Sales Document Item Category"
+          },
+          "CustomerReturnItemText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Description",
+            "description": "Short Text for Sales Order Item"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "PurchaseOrderByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference (Ship-to Party)",
+            "description": "Ship-to Party's Customer Reference"
+          },
+          "CorrespncExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference"
+          },
+          "CorrespncExtRefByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference (Ship-to Party)"
+          },
+          "UnderlyingPurchaseOrderItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Purchase Order Item",
+            "description": "Item Number of the Underlying Purchase Order"
+          },
+          "UndrlgPurOrdItmByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Purchase Order Item (Ship-to Party)",
+            "description": "Underlying Purchase Order Item (Ship-to Party)"
+          },
+          "CustomerPurchaseOrderType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "PurchaseOrderTypeByCustomer",
+            "title": "Purchase Order Type",
+            "description": "Customer Purchase Order Type"
+          },
+          "CustPurOrdTypeByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purchase Order Type (Ship-to Party)",
+            "description": "Ship-to Party Purchase Order Type"
+          },
+          "Material": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "MaterialByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Material",
+            "description": "Material Number Used by Customer"
+          },
+          "RequestedQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Requested Quantity"
+          },
+          "RequestedQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Requested Qty Unit",
+            "description": "Unit of the Requested Quantity"
+          },
+          "PricingDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Pricing Date",
+            "description": "Date for Pricing and Exchange Rate"
+          },
+          "MaterialGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 9,
+            "title": "Material Group"
+          },
+          "ProductionPlant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "Plant",
+            "title": "Plant",
+            "description": "Plant (Own or External)"
+          },
+          "StorageLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "StorageLocation",
+            "title": "Storage Location"
+          },
+          "ShippingPoint": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "ShippingPoint",
+            "title": "Shipping Point",
+            "description": "Shipping Point / Receiving Point"
+          },
+          "ShippingType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Shipping Type"
+          },
+          "DeliveryPriority": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Delivery Priority"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "ProductTaxClassification1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification4": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification5": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification6": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification7": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification8": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification9": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "SalesDocumentRjcnReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "SalesDocumentRjcnReason",
+            "title": "Reason for Rejection",
+            "description": "Reason for Rejection of Sales Documents"
+          },
+          "ItemBillingBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "BillingBlockReason",
+            "title": "Billing Block",
+            "description": "Billing Block for Item"
+          },
+          "ProfitCenter": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Profit Center"
+          },
+          "WBSElementExternalID": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 24,
+            "title": "WBS Element",
+            "description": "Work Breakdown Structure Element (WBS Element) Edited"
+          },
+          "ReturnReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Return Reason"
+          },
+          "RetsMgmtProcessingBlock": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Approval",
+            "description": "Approval Block"
+          },
+          "CustRetItmFollowUpActivity": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Follow-Up Activity",
+            "description": "Follow-Up Activity Code"
+          },
+          "ReturnsMaterialHasBeenReceived": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "ReturnsRefundType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Refund Type"
+          },
+          "ReturnsRefundProcgMode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Refund Processing",
+            "description": "Refund Processing Mode for a Return"
+          },
+          "RetsProdValnIsSuspended": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "ReturnsRefundExtent": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Refund Code",
+            "description": "Returns Refund Code"
+          },
+          "PrelimRefundIsDetermined": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "ReplacementMaterial": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Replacement Material"
+          },
+          "ReplacementMaterialQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Replacement Quantity",
+            "description": "Replacement Material Quantity"
+          },
+          "ReplacementMaterialQtyUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Replacement UoM",
+            "description": "Replacement Material Unit of Measure"
+          },
+          "ReplacementMaterialIsRequested": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "ReplacementMatlSupplyingPlant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Supplying Plant",
+            "description": "Supplying Plant for Replacement Material"
+          },
+          "NextPlantForFollowUpActivity": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Plant"
+          },
+          "ReturnsTransshipmentPlant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Transshipment Plant"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "SupplierRetMatlAuthzn": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20,
+            "title": "Supplier RMA Number"
+          },
+          "CustomerRetMatlInspResultCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Cust. InspectionCode",
+            "description": "Customer Inspection Code"
+          },
+          "NextFllwUpActivityForMatlInsp": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Next Follow-Up Act.",
+            "description": "Default for Next Follow-Up Activity in Material Inspection"
+          },
+          "RetMatlInspResultCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Inspection Code"
+          },
+          "ProductIsInspectedAtCustSite": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1
+          },
+          "ReferenceSDDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Reference Document",
+            "description": "Document Number of Reference Document"
+          },
+          "ReferenceSDDocumentItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Reference Item",
+            "description": "Item Number of the Reference Item"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnItemPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnItemPrcgElmnt"
+                }
+              }
+            }
+          },
+          "to_ProcessStep": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnProcessStep"
+                }
+              }
+            }
+          },
+          "to_RelatedObject": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnItemRelatedObj"
+                }
+              }
+            }
+          },
+          "to_ScheduleLine": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnScheduleLine"
+                }
+              }
+            }
+          },
+          "to_SerialNumber": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnSerialNumber"
+                }
+              }
+            }
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_CustomerReturnItemText"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "CustomerReturnItem"
+        ],
+        "title": "Returns Order Item (for create)"
+      },
+      "A_CustomerReturnItemPartner": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "SD Document",
+            "description": "Sales and Distribution Document Number"
+          },
+          "CustomerReturnItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item (SD)",
+            "description": "Item number of the SD document"
+          },
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "PartnerFunctionInternalCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "ReferenceBusinessPartner": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Business Partner",
+            "description": "Business Partner Number"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/A_CustomerReturnItem"
+          }
+        },
+        "title": "Item Partner"
+      },
+      "CreateA_CustomerReturnItemPartner": {
+        "type": "object",
+        "properties": {
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturnItem"
+          }
+        },
+        "required": [
+          "PartnerFunction"
+        ],
+        "title": "Item Partner (for create)"
+      },
+      "A_CustomerReturnItemPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Document"
+          },
+          "CustomerReturnItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item",
+            "description": "Condition item number"
+          },
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "PricingDateTime": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 14,
+            "title": "Valid From",
+            "description": "Timestamp for Pricing"
+          },
+          "ConditionCalculationType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "PriceConditionCalculationType",
+            "title": "Calculation Type",
+            "description": "Calculation Type for Condition"
+          },
+          "ConditionBaseValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Condition Basis"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "ConditionCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionCategory",
+            "title": "Condition Category",
+            "description": "Condition Category (Examples: Tax, Freight, Price, Cost)"
+          },
+          "ConditionIsForStatistics": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Statistical",
+            "description": "Condition is used for statistics"
+          },
+          "PricingScaleType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Scale Type"
+          },
+          "IsRelevantForAccrual": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Accruals",
+            "description": "Condition is Relevant for Accrual  (e.g. Freight)"
+          },
+          "CndnIsRelevantForInvoiceList": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Invoice List Cond.",
+            "description": "Condition for Invoice List"
+          },
+          "ConditionOrigin": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionOrigin",
+            "title": "Condition Origin",
+            "description": "Origin of the Condition"
+          },
+          "IsGroupCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Group Condition"
+          },
+          "IsGroupCondition_2": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Is Group Condition",
+            "description": "Condition Is a Group Condition"
+          },
+          "ConditionRecord": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Condition Record No.",
+            "description": "Number of Condition Record"
+          },
+          "ConditionSequentialNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sequent.No. of Cond.",
+            "description": "Sequential Number of the Condition"
+          },
+          "TaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Tax Code",
+            "description": "Tax on Sales/Purchases Code"
+          },
+          "WithholdingTaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "W/Tax Code",
+            "description": "Withholding Tax Code"
+          },
+          "CndnRoundingOffDiffAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 6,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999.999,
+            "maximum": 999.999,
+            "example": "0",
+            "title": "Condition Rounding Difference",
+            "description": "Rounding-Off Difference of a Condition"
+          },
+          "ConditionAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Condition Value"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "ConditionControl": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionControl",
+            "title": "Condition Control"
+          },
+          "ConditionInactiveReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionInactiveReason",
+            "title": "Inactive Condition",
+            "description": "Condition is Inactive"
+          },
+          "ConditionClass": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionClass",
+            "title": "Condition Class"
+          },
+          "PrcgProcedureCounterForHeader": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter (Header)"
+          },
+          "FactorForConditionBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Base Value"
+          },
+          "StructureCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PricingStructureCondition",
+            "title": "Structure Condition"
+          },
+          "PeriodFactorForCndnBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Basis (Period)"
+          },
+          "PricingScaleBasis": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Basis",
+            "description": "Scale Basis Indicator"
+          },
+          "ConditionScaleBasisValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Scale Base Val.",
+            "description": "Scale Base Value"
+          },
+          "ConditionScaleBasisUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Unit of Meas.",
+            "description": "Condition Scale Unit of Measure"
+          },
+          "ConditionScaleBasisCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Scale Currency"
+          },
+          "CndnIsRelevantForIntcoBilling": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Intercomp.Billing",
+            "description": "Condition for Intercompany Billing"
+          },
+          "ConditionIsManuallyChanged": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Changed Manually",
+            "description": "Condition Changed Manually"
+          },
+          "ConditionIsForConfiguration": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "UsedforVariantConfig",
+            "description": "Condition Used for Variant Configuration"
+          },
+          "VariantCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 26,
+            "title": "Variant Key",
+            "description": "Variant Condition Key"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/A_CustomerReturnItem"
+          }
+        },
+        "title": "Item Pricing Element"
+      },
+      "CreateA_CustomerReturnItemPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturnItem"
+          }
+        },
+        "required": [
+          "PricingProcedureStep",
+          "PricingProcedureCounter"
+        ],
+        "title": "Item Pricing Element (for create)"
+      },
+      "A_CustomerReturnItemRelatedObj": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Customer Return"
+          },
+          "CustomerReturnItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Customer Return Item"
+          },
+          "SDDocRelatedObjectSequenceNmbr": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Sequence Number",
+            "description": "Sequence Number of the Related Object of an SD Document"
+          },
+          "SDDocumentRelatedObjectType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Related Object Type",
+            "description": "Type of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectSystem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "System of Reltd Obj.",
+            "description": "System of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectReference1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "Reltd Obj. Reference",
+            "description": "Reference of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectReference2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "Reltd Obj. Reference",
+            "description": "Reference of the Related Object of an SD Document"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/A_CustomerReturnItem"
+          }
+        },
+        "title": "Item Related Object"
+      },
+      "CreateA_CustomerReturnItemRelatedObj": {
+        "type": "object",
+        "properties": {
+          "SDDocumentRelatedObjectType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Related Object Type",
+            "description": "Type of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectSystem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "System of Reltd Obj.",
+            "description": "System of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectReference1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "Reltd Obj. Reference",
+            "description": "Reference of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectReference2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "Reltd Obj. Reference",
+            "description": "Reference of the Related Object of an SD Document"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturnItem"
+          }
+        },
+        "title": "Item Related Object (for create)"
+      },
+      "A_CustomerReturnItemText": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Customer Return"
+          },
+          "CustomerReturnItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Customer Return Item"
+          },
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "LongTextID": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Text ID"
+          },
+          "LongText": {
+            "type": "string",
+            "nullable": true,
+            "title": "String"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/A_CustomerReturnItem"
+          }
+        },
+        "title": "Item Text"
+      },
+      "CreateA_CustomerReturnItemText": {
+        "type": "object",
+        "properties": {
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "LongTextID": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Text ID"
+          },
+          "LongText": {
+            "type": "string",
+            "nullable": true,
+            "title": "String"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturnItem"
+          }
+        },
+        "required": [
+          "Language",
+          "LongTextID"
+        ],
+        "title": "Item Text (for create)"
+      },
+      "A_CustomerReturnOverviewStatus": {
+        "type": "object",
+        "properties": {
+          "RetsMgmtProcess": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Process ID No.",
+            "description": "Process Identification Number"
+          },
+          "ReturnsDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 30,
+            "title": "Document Number"
+          },
+          "RetsMgmtLogProcgStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Logistical Status",
+            "description": "Logistical Processing Status of a Return"
+          },
+          "RetsMgmtCompnProcgStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Refunding Status",
+            "description": "Status of Returns Refund Determination"
+          },
+          "RetsMgmtProcessingStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Processing Status"
+          }
+        },
+        "title": "Customer Return Overview Status"
+      },
+      "CreateA_CustomerReturnOverviewStatus": {
+        "type": "object",
+        "properties": {
+          "RetsMgmtProcess": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Process ID No.",
+            "description": "Process Identification Number"
+          },
+          "ReturnsDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 30,
+            "title": "Document Number"
+          },
+          "RetsMgmtLogProcgStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Logistical Status",
+            "description": "Logistical Processing Status of a Return"
+          },
+          "RetsMgmtCompnProcgStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Refunding Status",
+            "description": "Status of Returns Refund Determination"
+          },
+          "RetsMgmtProcessingStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Processing Status"
+          }
+        },
+        "required": [
+          "RetsMgmtProcess"
+        ],
+        "title": "Customer Return Overview Status (for create)"
+      },
+      "A_CustomerReturnPartner": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "SD Document",
+            "description": "Sales and Distribution Document Number"
+          },
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "PartnerFunctionInternalCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "ReferenceBusinessPartner": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Business Partner",
+            "description": "Business Partner Number"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          }
+        },
+        "title": "Header Partner"
+      },
+      "CreateA_CustomerReturnPartner": {
+        "type": "object",
+        "properties": {
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          }
+        },
+        "required": [
+          "PartnerFunction"
+        ],
+        "title": "Header Partner (for create)"
+      },
+      "A_CustomerReturnPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Document"
+          },
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "PricingDateTime": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 14,
+            "title": "Valid From",
+            "description": "Timestamp for Pricing"
+          },
+          "ConditionCalculationType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "PriceConditionCalculationType",
+            "title": "Calculation Type",
+            "description": "Calculation Type for Condition"
+          },
+          "ConditionBaseValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Condition Basis"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "ConditionCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionCategory",
+            "title": "Condition Category",
+            "description": "Condition Category (Examples: Tax, Freight, Price, Cost)"
+          },
+          "ConditionIsForStatistics": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Statistical",
+            "description": "Condition is used for statistics"
+          },
+          "PricingScaleType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Scale Type"
+          },
+          "ConditionOrigin": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionOrigin",
+            "title": "Condition Origin",
+            "description": "Origin of the Condition"
+          },
+          "IsGroupCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Group Condition"
+          },
+          "IsGroupCondition_2": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Is Group Condition",
+            "description": "Condition Is a Group Condition"
+          },
+          "ConditionRecord": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Condition Record No.",
+            "description": "Number of Condition Record"
+          },
+          "ConditionSequentialNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sequent.No. of Cond.",
+            "description": "Sequential Number of the Condition"
+          },
+          "TaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Tax Code",
+            "description": "Tax on Sales/Purchases Code"
+          },
+          "WithholdingTaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "W/Tax Code",
+            "description": "Withholding Tax Code"
+          },
+          "CndnRoundingOffDiffAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 6,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999.999,
+            "maximum": 999.999,
+            "example": "0",
+            "title": "Condition Rounding Difference",
+            "description": "Rounding-Off Difference of a Condition"
+          },
+          "ConditionAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Condition Value"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "ConditionControl": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionControl",
+            "title": "Condition Control"
+          },
+          "ConditionInactiveReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionInactiveReason",
+            "title": "Inactive Condition",
+            "description": "Condition is Inactive"
+          },
+          "ConditionClass": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionClass",
+            "title": "Condition Class"
+          },
+          "PrcgProcedureCounterForHeader": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter (Header)"
+          },
+          "FactorForConditionBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Base Value"
+          },
+          "StructureCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PricingStructureCondition",
+            "title": "Structure Condition"
+          },
+          "PeriodFactorForCndnBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Basis (Period)"
+          },
+          "PricingScaleBasis": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Basis",
+            "description": "Scale Basis Indicator"
+          },
+          "ConditionScaleBasisValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Scale Base Val.",
+            "description": "Scale Base Value"
+          },
+          "ConditionScaleBasisUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Unit of Meas.",
+            "description": "Condition Scale Unit of Measure"
+          },
+          "ConditionScaleBasisCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Scale Currency"
+          },
+          "CndnIsRelevantForIntcoBilling": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Intercomp.Billing",
+            "description": "Condition for Intercompany Billing"
+          },
+          "ConditionIsManuallyChanged": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Changed Manually",
+            "description": "Condition Changed Manually"
+          },
+          "ConditionIsForConfiguration": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "UsedforVariantConfig",
+            "description": "Condition Used for Variant Configuration"
+          },
+          "VariantCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 26,
+            "title": "Variant Key",
+            "description": "Variant Condition Key"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          }
+        },
+        "title": "Header Pricing Element"
+      },
+      "CreateA_CustomerReturnPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          }
+        },
+        "required": [
+          "PricingProcedureStep",
+          "PricingProcedureCounter"
+        ],
+        "title": "Header Pricing Element (for create)"
+      },
+      "A_CustomerReturnProcessStep": {
+        "type": "object",
+        "properties": {
+          "RetsMgmtProcess": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Process ID No.",
+            "description": "Process Identification Number"
+          },
+          "RetsMgmtProcessItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item No. in Process",
+            "description": "Item Number"
+          },
+          "RetsMgmtProcItmQtySplit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Split ID",
+            "description": "Split Identification Number"
+          },
+          "RetsMgmtProcessStep": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Step ID"
+          },
+          "ReturnsDocumentType": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Document Type"
+          },
+          "ReturnsDocument": {
+            "type": "string",
+            "maxLength": 30,
+            "title": "Document Number"
+          },
+          "ReturnsDocumentItem": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Document Item"
+          },
+          "ReturnsDocumentStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Item Status",
+            "description": "Status of Document Item"
+          },
+          "ReturnsDocumentApprovalStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Approval Status",
+            "description": "Approval Status of Returns Process"
+          },
+          "ReturnsReferenceDocumentType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Document Type"
+          },
+          "ReturnsReferenceDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 30,
+            "title": "Document Number"
+          },
+          "ReturnsReferenceDocumentItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Document Item"
+          },
+          "RetsMgmtProcStepExecStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Execution Stp Status",
+            "description": "Execution Step Status"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/A_CustomerReturnItem"
+          }
+        },
+        "title": "Return Process Step"
+      },
+      "CreateA_CustomerReturnProcessStep": {
+        "type": "object",
+        "properties": {
+          "RetsMgmtProcess": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Process ID No.",
+            "description": "Process Identification Number"
+          },
+          "RetsMgmtProcessItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item No. in Process",
+            "description": "Item Number"
+          },
+          "RetsMgmtProcItmQtySplit": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Split ID",
+            "description": "Split Identification Number"
+          },
+          "RetsMgmtProcessStep": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Step ID"
+          },
+          "ReturnsDocumentType": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Document Type"
+          },
+          "ReturnsDocument": {
+            "type": "string",
+            "maxLength": 30,
+            "title": "Document Number"
+          },
+          "ReturnsDocumentItem": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Document Item"
+          },
+          "ReturnsDocumentStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Item Status",
+            "description": "Status of Document Item"
+          },
+          "ReturnsDocumentApprovalStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Approval Status",
+            "description": "Approval Status of Returns Process"
+          },
+          "ReturnsReferenceDocumentType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Document Type"
+          },
+          "ReturnsReferenceDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 30,
+            "title": "Document Number"
+          },
+          "ReturnsReferenceDocumentItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Document Item"
+          },
+          "RetsMgmtProcStepExecStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Execution Stp Status",
+            "description": "Execution Step Status"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturnItem"
+          }
+        },
+        "required": [
+          "RetsMgmtProcess",
+          "RetsMgmtProcessItem",
+          "RetsMgmtProcItmQtySplit",
+          "RetsMgmtProcessStep",
+          "ReturnsDocumentType",
+          "ReturnsDocument",
+          "ReturnsDocumentItem"
+        ],
+        "title": "Return Process Step (for create)"
+      },
+      "A_CustomerReturnRelatedObject": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Customer Return"
+          },
+          "SDDocRelatedObjectSequenceNmbr": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Sequence Number",
+            "description": "Sequence Number of the Related Object of an SD Document"
+          },
+          "SDDocumentRelatedObjectType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Related Object Type",
+            "description": "Type of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectSystem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "System of Reltd Obj.",
+            "description": "System of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectReference1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "Reltd Obj. Reference",
+            "description": "Reference of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectReference2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "Reltd Obj. Reference",
+            "description": "Reference of the Related Object of an SD Document"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          }
+        },
+        "title": "Header Related Object"
+      },
+      "CreateA_CustomerReturnRelatedObject": {
+        "type": "object",
+        "properties": {
+          "SDDocumentRelatedObjectType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Related Object Type",
+            "description": "Type of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectSystem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "System of Reltd Obj.",
+            "description": "System of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectReference1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "Reltd Obj. Reference",
+            "description": "Reference of the Related Object of an SD Document"
+          },
+          "SDDocRelatedObjectReference2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 60,
+            "title": "Reltd Obj. Reference",
+            "description": "Reference of the Related Object of an SD Document"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          }
+        },
+        "title": "Header Related Object (for create)"
+      },
+      "A_CustomerReturnScheduleLine": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Document"
+          },
+          "CustomerReturnItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sales Document Item"
+          },
+          "ScheduleLine": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Schedule Line Number"
+          },
+          "OrderQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sales Unit"
+          },
+          "ConfdOrderQtyByMatlAvailCheck": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 13,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Confirmed Quantity"
+          },
+          "DeliveredQtyInOrderQtyUnit": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 13,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Delivered Quantity"
+          },
+          "OpenConfdDelivQtyInOrdQtyUnit": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 13,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Open Quantity",
+            "description": "Open Confirmed Delivery Quantity"
+          },
+          "DelivBlockReasonForSchedLine": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Delivery Block",
+            "description": "Schedule Line Blocked for Delivery"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/A_CustomerReturnItem"
+          }
+        },
+        "title": "Schedule Line"
+      },
+      "CreateA_CustomerReturnScheduleLine": {
+        "type": "object",
+        "properties": {
+          "ScheduleLine": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Schedule Line Number"
+          },
+          "OrderQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sales Unit"
+          },
+          "ConfdOrderQtyByMatlAvailCheck": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 13,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Confirmed Quantity"
+          },
+          "DeliveredQtyInOrderQtyUnit": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 13,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Delivered Quantity"
+          },
+          "OpenConfdDelivQtyInOrdQtyUnit": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 13,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Open Quantity",
+            "description": "Open Confirmed Delivery Quantity"
+          },
+          "DelivBlockReasonForSchedLine": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Delivery Block",
+            "description": "Schedule Line Blocked for Delivery"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          },
+          "to_CustomerReturnItem": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturnItem"
+          }
+        },
+        "required": [
+          "ScheduleLine"
+        ],
+        "title": "Schedule Line (for create)"
+      },
+      "A_CustomerReturnSerialNumber": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Document"
+          },
+          "CustomerReturnItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Sales Document Item"
+          },
+          "SerialNumber": {
+            "type": "string",
+            "maxLength": 18,
+            "title": "Serial Number"
+          }
+        },
+        "title": "Serial Number"
+      },
+      "CreateA_CustomerReturnSerialNumber": {
+        "type": "object",
+        "properties": {
+          "SerialNumber": {
+            "type": "string",
+            "maxLength": 18,
+            "title": "Serial Number"
+          }
+        },
+        "required": [
+          "SerialNumber"
+        ],
+        "title": "Serial Number (for create)"
+      },
+      "A_CustomerReturnText": {
+        "type": "object",
+        "properties": {
+          "CustomerReturn": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Customer Return"
+          },
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "LongTextID": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Text ID"
+          },
+          "LongText": {
+            "type": "string",
+            "nullable": true,
+            "title": "String"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/A_CustomerReturn"
+          }
+        },
+        "title": "Header Text"
+      },
+      "CreateA_CustomerReturnText": {
+        "type": "object",
+        "properties": {
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "LongTextID": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Text ID"
+          },
+          "LongText": {
+            "type": "string",
+            "nullable": true,
+            "title": "String"
+          },
+          "to_CustomerReturn": {
+            "$ref": "#/components/schemas/CreateA_CustomerReturn"
+          }
+        },
+        "required": [
+          "Language",
+          "LongTextID"
+        ],
+        "title": "Header Text (for create)"
+      },
+      "count": {
+        "type": "string",
+        "description": "The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option."
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "required": [
+                  "lang",
+                  "value"
+                ],
+                "properties": {
+                  "lang": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "innererror": {
+                "type": "object",
+                "description": "The structure of this object is service-specific"
+              }
+            }
+          }
+        }
+      },
+      "A_CustomerReturnOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "CustomerReturn",
+            "CustomerReturn desc",
+            "CustomerReturnType",
+            "CustomerReturnType desc",
+            "SalesOrganization",
+            "SalesOrganization desc",
+            "DistributionChannel",
+            "DistributionChannel desc",
+            "OrganizationDivision",
+            "OrganizationDivision desc",
+            "SalesGroup",
+            "SalesGroup desc",
+            "SalesOffice",
+            "SalesOffice desc",
+            "SalesDistrict",
+            "SalesDistrict desc",
+            "SoldToParty",
+            "SoldToParty desc",
+            "CreationDate",
+            "CreationDate desc",
+            "CreatedByUser",
+            "CreatedByUser desc",
+            "LastChangeDate",
+            "LastChangeDate desc",
+            "SenderBusinessSystemName",
+            "SenderBusinessSystemName desc",
+            "LastChangeDateTime",
+            "LastChangeDateTime desc",
+            "PurchaseOrderByCustomer",
+            "PurchaseOrderByCustomer desc",
+            "CustomerPurchaseOrderType",
+            "CustomerPurchaseOrderType desc",
+            "CustPurOrdTypeByShipToParty",
+            "CustPurOrdTypeByShipToParty desc",
+            "CustomerPurchaseOrderDate",
+            "CustomerPurchaseOrderDate desc",
+            "PurchaseOrderByShipToParty",
+            "PurchaseOrderByShipToParty desc",
+            "CorrespncExternalReference",
+            "CorrespncExternalReference desc",
+            "CorrespncExtRefByShipToParty",
+            "CorrespncExtRefByShipToParty desc",
+            "CustomerReturnDate",
+            "CustomerReturnDate desc",
+            "TotalNetAmount",
+            "TotalNetAmount desc",
+            "TransactionCurrency",
+            "TransactionCurrency desc",
+            "SDDocumentReason",
+            "SDDocumentReason desc",
+            "PricingDate",
+            "PricingDate desc",
+            "RequestedDeliveryDate",
+            "RequestedDeliveryDate desc",
+            "ShippingType",
+            "ShippingType desc",
+            "HeaderBillingBlockReason",
+            "HeaderBillingBlockReason desc",
+            "DeliveryBlockReason",
+            "DeliveryBlockReason desc",
+            "IncotermsClassification",
+            "IncotermsClassification desc",
+            "IncotermsTransferLocation",
+            "IncotermsTransferLocation desc",
+            "IncotermsLocation1",
+            "IncotermsLocation1 desc",
+            "IncotermsLocation2",
+            "IncotermsLocation2 desc",
+            "IncotermsVersion",
+            "IncotermsVersion desc",
+            "CustomerPaymentTerms",
+            "CustomerPaymentTerms desc",
+            "PaymentMethod",
+            "PaymentMethod desc",
+            "CustomerTaxClassification1",
+            "CustomerTaxClassification1 desc",
+            "CustomerTaxClassification2",
+            "CustomerTaxClassification2 desc",
+            "CustomerTaxClassification3",
+            "CustomerTaxClassification3 desc",
+            "CustomerTaxClassification4",
+            "CustomerTaxClassification4 desc",
+            "CustomerTaxClassification5",
+            "CustomerTaxClassification5 desc",
+            "CustomerTaxClassification6",
+            "CustomerTaxClassification6 desc",
+            "CustomerTaxClassification7",
+            "CustomerTaxClassification7 desc",
+            "CustomerTaxClassification8",
+            "CustomerTaxClassification8 desc",
+            "CustomerTaxClassification9",
+            "CustomerTaxClassification9 desc",
+            "RetsMgmtProcess",
+            "RetsMgmtProcess desc",
+            "ReferenceSDDocument",
+            "ReferenceSDDocument desc",
+            "ReferenceSDDocumentCategory",
+            "ReferenceSDDocumentCategory desc",
+            "AccountingDocExternalReference",
+            "AccountingDocExternalReference desc",
+            "AssignmentReference",
+            "AssignmentReference desc",
+            "CustomerReturnApprovalReason",
+            "CustomerReturnApprovalReason desc",
+            "SalesDocApprovalStatus",
+            "SalesDocApprovalStatus desc",
+            "RetsMgmtLogProcgStatus",
+            "RetsMgmtLogProcgStatus desc",
+            "RetsMgmtCompnProcgStatus",
+            "RetsMgmtCompnProcgStatus desc",
+            "RetsMgmtProcessingStatus",
+            "RetsMgmtProcessingStatus desc",
+            "OverallSDProcessStatus",
+            "OverallSDProcessStatus desc",
+            "TotalCreditCheckStatus",
+            "TotalCreditCheckStatus desc",
+            "OverallSDDocumentRejectionSts",
+            "OverallSDDocumentRejectionSts desc"
+          ]
+        }
+      },
+      "A_CustomerReturnSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "CustomerReturn",
+            "CustomerReturnType",
+            "SalesOrganization",
+            "DistributionChannel",
+            "OrganizationDivision",
+            "SalesGroup",
+            "SalesOffice",
+            "SalesDistrict",
+            "SoldToParty",
+            "CreationDate",
+            "CreatedByUser",
+            "LastChangeDate",
+            "SenderBusinessSystemName",
+            "LastChangeDateTime",
+            "PurchaseOrderByCustomer",
+            "CustomerPurchaseOrderType",
+            "CustPurOrdTypeByShipToParty",
+            "CustomerPurchaseOrderDate",
+            "PurchaseOrderByShipToParty",
+            "CorrespncExternalReference",
+            "CorrespncExtRefByShipToParty",
+            "CustomerReturnDate",
+            "TotalNetAmount",
+            "TransactionCurrency",
+            "SDDocumentReason",
+            "PricingDate",
+            "RequestedDeliveryDate",
+            "ShippingType",
+            "HeaderBillingBlockReason",
+            "DeliveryBlockReason",
+            "IncotermsClassification",
+            "IncotermsTransferLocation",
+            "IncotermsLocation1",
+            "IncotermsLocation2",
+            "IncotermsVersion",
+            "CustomerPaymentTerms",
+            "PaymentMethod",
+            "CustomerTaxClassification1",
+            "CustomerTaxClassification2",
+            "CustomerTaxClassification3",
+            "CustomerTaxClassification4",
+            "CustomerTaxClassification5",
+            "CustomerTaxClassification6",
+            "CustomerTaxClassification7",
+            "CustomerTaxClassification8",
+            "CustomerTaxClassification9",
+            "RetsMgmtProcess",
+            "ReferenceSDDocument",
+            "ReferenceSDDocumentCategory",
+            "AccountingDocExternalReference",
+            "AssignmentReference",
+            "CustomerReturnApprovalReason",
+            "SalesDocApprovalStatus",
+            "RetsMgmtLogProcgStatus",
+            "RetsMgmtCompnProcgStatus",
+            "RetsMgmtProcessingStatus",
+            "OverallSDProcessStatus",
+            "TotalCreditCheckStatus",
+            "OverallSDDocumentRejectionSts",
+            "to_CustomerReturnOverviewStatus",
+            "to_Item",
+            "to_Partner",
+            "to_PricingElement",
+            "to_RelatedObject",
+            "to_Text"
+          ]
+        }
+      },
+      "A_CustomerReturnExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_CustomerReturnOverviewStatus",
+            "to_Item",
+            "to_Partner",
+            "to_PricingElement",
+            "to_RelatedObject",
+            "to_Text"
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "count": {
+        "name": "$inlinecount",
+        "in": "query",
+        "description": "Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "allpages",
+            "none"
+          ]
+        }
+      },
+      "A_CustomerReturnOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_CustomerReturnOrderByOptions"
+        }
+      },
+      "A_CustomerReturnSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_CustomerReturnSelectOptions"
+        }
+      },
+      "A_CustomerReturnExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_CustomerReturnExpandOptions"
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "OAuth2Auth": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "scopes": {
+              "API_CUSTOMER_RETURN_SRV_0001": ""
+            },
+            "refreshUrl": "https://{host}:{port}",
+            "authorizationUrl": "https://{host}:{port}",
+            "tokenUrl": "https://{host}:{port}"
+          }
+        }
+      },
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "OAuth2Auth": [
+        "API_CUSTOMER_RETURN_SRV_0001"
+      ]
+    },
+    {
+      "BasicAuth": []
+    }
+  ]
+}
