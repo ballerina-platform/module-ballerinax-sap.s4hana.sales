@@ -117,6 +117,7 @@
   "paths": {
     "/A_CrdMmReqItemSubsqntProcFlow": {
       "get": {
+        "operationId": "listA_CrdMmReqItemSubsqntProcFlows",
         "summary": "Reads the subsequent documents of all credit memo requests.",
         "description": "Reads the process flow data for all credit memo requests and their subsequent documents in the system.",
         "tags": [
@@ -220,6 +221,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CrdMmReqItemSubsqntProcFlow",
         "summary": "Reads a subsequent document of a credit memo request.",
         "description": "Reads the process flow data of a specific subsequent document of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID and document relationship UUID.",
         "tags": [
@@ -291,6 +293,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestOfA_CrdMmReqItemSubsqntProcFlow",
         "summary": "Reads the credit memo request header data for a subsequent item of a credit memo request.",
         "description": "Reads the credit memo request header data for a specific subsequent item of a credit memo request item. Consumers must pass the following key fields: credit memo request ID, credit memo request item number, and document relationship UUID.",
         "tags": [
@@ -363,6 +366,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestItemOfA_CrdMmReqItemSubsqntProcFlow",
         "summary": "Reads the credit memo request item data for a subsequent item of a credit memo request.",
         "description": "Read the item data for a specific subsequent item of credit memo request item. Consumers must pass the following key fields: credit memo request ID, credit memo request item number, and document relationship UUID.",
         "tags": [
@@ -402,6 +406,7 @@
     },
     "/A_CreditMemoReqItemPartner": {
       "get": {
+        "operationId": "listA_CreditMemoReqItemPartners",
         "summary": "Reads the item partners for all credit memo requests.",
         "description": "Reads the partner data from the items of all credit memo requests in the system.",
         "tags": [
@@ -470,6 +475,7 @@
         }
       },
       "post": {
+        "operationId": "createA_CreditMemoReqItemPartner",
         "summary": "Creates additional item partner for a specific credit memo request item with a specific partner function.",
         "description": "Creates additional item partner with a specific partner function for a specific credit memo request item. Consumers must pass the following key fields: credit memo request ID, item number, and partner function.",
         "tags": [
@@ -544,6 +550,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CreditMemoReqItemPartner",
         "summary": "Reads the item partners of a specific credit memo request item.",
         "description": "Reads the partner data for a specific item of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID, item number, and partner function.",
         "tags": [
@@ -580,6 +587,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CreditMemoReqItemPartner",
         "summary": "Updates the item partners of a specific item and with a specific partner function in a specific credit memo request.",
         "description": "Updates the item partners with a specific partner function of a specific credit memo request item. Consumers must pass the following key fields: credit memo request ID, item number, and partner function.",
         "tags": [
@@ -612,6 +620,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CreditMemoReqItemPartner",
         "summary": "Deletes the item partners of a specific item and with a specific partner function in a specific credit memo request.",
         "description": "Deletes the item partners with a specific partner function of a specific credit memo request item. Consumers must pass the following key fields: credit memo request ID, item number, and partner function.",
         "tags": [
@@ -662,6 +671,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestOfA_CreditMemoReqItemPartner",
         "summary": "Reads the credit memo request header for a specific partner function of a credit memo request item.",
         "description": "Reads the credit memo request header data for a specific item partner function. Consumers must pass the following key fields: credit memo request ID, item number, and partner function.",
         "tags": [
@@ -734,6 +744,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestItemOfA_CreditMemoReqItemPartner",
         "summary": "Reads the credit memo request item for a specific partner function of a credit memo request item.",
         "description": "Reads the credit memo request item data for a specific item partner function. Consumers must pass the following key fields: credit memo request ID, item number, and partner function.",
         "tags": [
@@ -773,6 +784,7 @@
     },
     "/A_CreditMemoReqItemPrcgElmnt": {
       "get": {
+        "operationId": "listA_CreditMemoReqItemPrcgElmnts",
         "summary": "Reads the item pricing elements of all credit memo requests.",
         "description": "Reads the pricing element data from the items of all credit memo requests in the system.",
         "tags": [
@@ -885,6 +897,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CreditMemoReqItemPrcgElmnt",
         "summary": "Reads the pricing element of a specific credit memo request item.",
         "description": "Reads the pricing element data for a specific item of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID and item number.",
         "tags": [
@@ -921,6 +934,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CreditMemoReqItemPrcgElmnt",
         "summary": "Updates an item pricing element.",
         "description": "Updates an item pricing element of a specific credit memo request item. Consumers must pass the following key fields: credit memo request ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -953,6 +967,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CreditMemoReqItemPrcgElmnt",
         "summary": "Deletes an item pricing element.",
         "description": "Deletes an item pricing element of a specific credit memo request item. Consumers must pass the following key fields: credit memo request ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1012,6 +1027,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestOfA_CreditMemoReqItemPrcgElmnt",
         "summary": "Reads the credit memo request header for a specific pricing element.",
         "description": "Reads the credit memo request header data for a specific pricing element of a specific credit memo request item. Consumers must pass the following key fields: credit memo request ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1093,6 +1109,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestItemOfA_CreditMemoReqItemPrcgElmnt",
         "summary": "Reads the credit memo request item for a specific pricing element.",
         "description": "Reads the credit memo request item data for a specific pricing element of a specific credit memo request item. Consumers must pass the following key fields: credit memo request ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1132,6 +1149,7 @@
     },
     "/A_CreditMemoReqItemText": {
       "get": {
+        "operationId": "listA_CreditMemoReqItemTexts",
         "summary": "Reads item texts of all credit memo requests.",
         "description": "Reads the text data from the items of all credit memo requests in the system.",
         "tags": [
@@ -1244,6 +1262,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CreditMemoReqItemText",
         "summary": "Reads a specific item text.",
         "description": "Reads a specific item text in a specific language. Consumers must pass the following key fields: credit memo request ID, item number, language, and text ID.",
         "tags": [
@@ -1280,6 +1299,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CreditMemoReqItemText",
         "summary": "Updates a specific item text.",
         "description": "Updates a specific item text in a specific language. Consumers must pass the following key fields: credit memo request ID, sales order item number, language, and text ID.",
         "tags": [
@@ -1312,6 +1332,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CreditMemoReqItemText",
         "summary": "Deletes a specific item text.",
         "description": "Deletes a specific item text in a specific language. Consumers must pass the following key fields: credit memo request ID, item number, language, and text ID.",
         "tags": [
@@ -1371,6 +1392,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestOfA_CreditMemoReqItemText",
         "summary": "Reads the credit memo request header for a specific text of a credit memo request item.",
         "description": "Reads the credit memo request header data for a specific text of a specific credit memo request item in a specific language. Consumers must pass the following key fields: credit memo request ID, item number, language, and text ID.",
         "tags": [
@@ -1452,6 +1474,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestItemOfA_CreditMemoReqItemText",
         "summary": "Reads the credit memo request item for a specific item text.",
         "description": "Reads the credit memo request item data for a specific text in a specific language. Consumers must pass the following key fields: credit memo request ID, item number, language, and text ID.",
         "tags": [
@@ -1491,6 +1514,7 @@
     },
     "/A_CreditMemoReqPartner": {
       "get": {
+        "operationId": "listA_CreditMemoReqPartners",
         "summary": "Reads the header partners of all credit memo requests.",
         "description": "Reads the partner data from the headers of all credit memo requests in the system. The data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -1559,6 +1583,7 @@
         }
       },
       "post": {
+        "operationId": "createA_CreditMemoReqPartner",
         "summary": "Creates additional header partner for a specific credit memo request with a specific partner function.",
         "description": "Creates additional header partner with a specific partner function for a specific credit memo request. Consumers must pass the following key fields: credit memo request ID and partner function.",
         "tags": [
@@ -1623,6 +1648,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CreditMemoReqPartner",
         "summary": "Reads the header partners of a specific credit memo request.",
         "description": "Reads the business partner data from the header of a specific credit memo request. Consumers must pass the credit memo request ID (key field). The data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -1659,6 +1685,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CreditMemoReqPartner",
         "summary": "Updates the header partners of a specific credit memo request with a specific partner function.",
         "description": "Updates the data of partners with a specific partner function from the header of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID and partner function.",
         "tags": [
@@ -1691,6 +1718,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CreditMemoReqPartner",
         "summary": "Deletes the header partners of a specific credit memo request with a specific partner function.",
         "description": "Deletes the data of partners with a specific partner function from the header of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID and partner function.",
         "tags": [
@@ -1731,6 +1759,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestOfA_CreditMemoReqPartner",
         "summary": "Reads the credit memo request header for a specific header partner.",
         "description": "Reads the credit memo request header data for a specific header partner function. Consumers must pass the following key fields: partner function and the credit memo request ID.",
         "tags": [
@@ -1770,6 +1799,7 @@
     },
     "/A_CreditMemoReqPrcgElmnt": {
       "get": {
+        "operationId": "listA_CreditMemoReqPrcgElmnts",
         "summary": "Reads the header pricing elements of all credit memo requests.",
         "description": "Reads the pricing element data from the headers of all credit memo requests in the system.",
         "tags": [
@@ -1872,6 +1902,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CreditMemoReqPrcgElmnt",
         "summary": "Reads the header pricing element of a specific credit memo request.",
         "description": "Reads the pricing element data from the header of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1908,6 +1939,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CreditMemoReqPrcgElmnt",
         "summary": "Updates a header pricing element for a specific credit memo request.",
         "description": "Updates the pricing element data from the header of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1940,6 +1972,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CreditMemoReqPrcgElmnt",
         "summary": "Deletes a header pricing element for a specific credit memo request.",
         "description": "Deletes the pricing element data from the header of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1989,6 +2022,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestOfA_CreditMemoReqPrcgElmnt",
         "summary": "Reads the credit memo request header for a specific pricing element.",
         "description": "Reads the credit memo request header data for a specific pricing element. Consumers must pass the following key fields: credit memo request ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -2028,6 +2062,7 @@
     },
     "/A_CreditMemoReqSubsqntProcFlow": {
       "get": {
+        "operationId": "listA_CreditMemoReqSubsqntProcFlows",
         "summary": "Reads the subsequent documents of all credit memo requests.",
         "description": "Reads the process flow data for all credit memo requests and their subsequent documents in the system.",
         "tags": [
@@ -2120,6 +2155,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CreditMemoReqSubsqntProcFlow",
         "summary": "Reads a subsequent document of a credit memo request.",
         "description": "Reads the process flow data of a specific subsequent document of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID and subsequent document ID.",
         "tags": [
@@ -2180,6 +2216,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestOfA_CreditMemoReqSubsqntProcFlow",
         "summary": "Reads the credit memo request header data for a subsequent document of a credit memo request.",
         "description": "Read the credit memo request header data for a subsequent document of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID and subsequent document ID.",
         "tags": [
@@ -2219,6 +2256,7 @@
     },
     "/A_CreditMemoReqText": {
       "get": {
+        "operationId": "listA_CreditMemoReqTexts",
         "summary": "Reads the header texts of all credit memo requests.",
         "description": "Reads the text data from the headers of all credit memo requests in the system.",
         "tags": [
@@ -2321,6 +2359,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CreditMemoReqText",
         "summary": "Reads a specific header text for a specific credit memo request.",
         "description": "Reads the text data from the header of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID, language, and text ID.",
         "tags": [
@@ -2357,6 +2396,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CreditMemoReqText",
         "summary": "Updates a specific header text for a specific credit memo request.",
         "description": "Updates the text data from the header of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID, language, and text ID.",
         "tags": [
@@ -2389,6 +2429,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CreditMemoReqText",
         "summary": "Deletes a specific header text for a specific sales order.",
         "description": "Deletes the text data from the header of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID, language, and text ID.",
         "tags": [
@@ -2438,6 +2479,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestOfA_CreditMemoReqText",
         "summary": "Reads the credit memo request header for a specific header text.",
         "description": "Reads the credit memo request header data for a specific header text. Consumers must pass the following key fields: credit memo request ID, language, and text ID.",
         "tags": [
@@ -2477,6 +2519,7 @@
     },
     "/A_CreditMemoRequest": {
       "get": {
+        "operationId": "listA_CreditMemoRequests",
         "summary": "Reads all credit memo request headers.",
         "description": "Reads the header data of all credit memo requests in the system.",
         "tags": [
@@ -2545,6 +2588,7 @@
         }
       },
       "post": {
+        "operationId": "createA_CreditMemoRequest",
         "summary": "Creates a credit memo request.",
         "description": "Creates a credit memo request header using deep insert requests. This means consumers can create a credit memo request with all possible sub-entities (for example, header partners or items).",
         "tags": [
@@ -2598,6 +2642,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CreditMemoRequest",
         "summary": "Reads the header of a specific credit memo request.",
         "description": "Reads the header data of a specific credit memo request. Consumers must pass the credit memo request ID (key field).",
         "tags": [
@@ -2634,6 +2679,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CreditMemoRequest",
         "summary": "Updates a specific credit memo request.",
         "description": "Updates the header data of a specific credit memo request. Consumers must pass the credit memo request ID (key field).",
         "tags": [
@@ -2666,6 +2712,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CreditMemoRequest",
         "summary": "Deletes a specific credit memo request.",
         "description": "Deletes the header data of a specific credit memo request. Consumers must pass the credit memo request ID (key field).",
         "tags": [
@@ -2695,6 +2742,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemsOfA_CreditMemoRequest",
         "summary": "Reads all items of a specific credit memo request.",
         "description": "Reads all item data of a specific credit memo request. Consumers must pass the credit memo request ID (key field).",
         "tags": [
@@ -2764,6 +2812,7 @@
         }
       },
       "post": {
+        "operationId": "createItemOfA_CreditMemoRequest",
         "summary": "Creates a credit memo request item for a specific credit memo request.",
         "description": "Creates a credit memo request item for a specific credit memo request using deep insert requests. This means consumers can create an item with all possible sub-entities (for example, item partners or item texts).",
         "tags": [
@@ -2818,6 +2867,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_CreditMemoRequest",
         "summary": "Reads the header partners of a specific credit memo request.",
         "description": "Reads the business partner data from the header of a specific credit memo request. Consumers must pass the credit memo request ID (key field). The data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -2887,6 +2937,7 @@
         }
       },
       "post": {
+        "operationId": "createPartnerOfA_CreditMemoRequest",
         "summary": "Creates a header partner for a credit memo request.",
         "description": "Creates the partner data for a specific credit memo request header. Consumers must pass the credit memo request ID (key field). The data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -2941,6 +2992,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_CreditMemoRequest",
         "summary": "Reads the header pricing element of a specific credit memo request.",
         "description": "Reads the pricing element data from the header of a specific credit memo request. Consumers must pass the credit memo request ID (key field).",
         "tags": [
@@ -3024,6 +3076,7 @@
         }
       ],
       "get": {
+        "operationId": "listSubsequentProcFlowDocsOfA_CreditMemoRequest",
         "summary": "Reads the subsequent documents of specified credit memo requests.",
         "description": "Reads the process flow data for a specific credit memo request and its subsequent documents. Consumers must pass the credit memo request ID (key field).",
         "tags": [
@@ -3107,6 +3160,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_CreditMemoRequest",
         "summary": "Reads the header texts of a specific credit memo request.",
         "description": "Reads the text data from the header of a specific credit memo request. Consumers must pass the credit memo request ID (key field).",
         "tags": [
@@ -3178,6 +3232,7 @@
     },
     "/A_CreditMemoRequestItem": {
       "get": {
+        "operationId": "listA_CreditMemoRequestItems",
         "summary": "Reads all credit memo request items.",
         "description": "Reads the item data of all credit memo requests in the system.",
         "tags": [
@@ -3246,6 +3301,7 @@
         }
       },
       "post": {
+        "operationId": "createA_CreditMemoRequestItem",
         "summary": "Creates a credit memo request item.",
         "description": "Creates a credit memo request item using deep insert requests. This means consumers can create an item with all possible sub-entities (for example, item partners or item texts).",
         "tags": [
@@ -3309,6 +3365,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CreditMemoRequestItem",
         "summary": "Reads all items of a specific credit memo request.",
         "description": "Reads all item data of a specific credit memo request. Consumers must pass the credit memo request ID (key field).",
         "tags": [
@@ -3345,6 +3402,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CreditMemoRequestItem",
         "summary": "Updates a specific credit memo request item.",
         "description": "Updates the data of a specific credit memo request item. Consumers must pass the following key fields: credit memo request ID and item number.",
         "tags": [
@@ -3377,6 +3435,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CreditMemoRequestItem",
         "summary": "Deletes a specific credit memo request item.",
         "description": "Deletes the data of a specific credit memo request item. Consumers must pass the following key fields: credit memo request ID and item number.",
         "tags": [
@@ -3416,6 +3475,7 @@
         }
       ],
       "get": {
+        "operationId": "getCreditMemoRequestOfA_CreditMemoRequestItem",
         "summary": "Reads the credit memo request header for a specific item.",
         "description": "Reads the credit memo request header data for a specific item. Consumers must pass the following key fields: credit memo request ID and item number.",
         "tags": [
@@ -3477,6 +3537,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemSubsqntProcFlowsOfA_CreditMemoRequestItem",
         "summary": "Reads the subsequent items of specified credit memo request items.",
         "description": "Reads the process flow data of specific subsequent items of specific credit memo request items. Consumers must pass the following key fields: credit memo request ID, credit memo request item ID.",
         "tags": [
@@ -3570,6 +3631,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_CreditMemoRequestItem",
         "summary": "Reads the item partners of a specific credit memo request item.",
         "description": "Reads the partner data for a specific item of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID and item number.",
         "tags": [
@@ -3639,6 +3701,7 @@
         }
       },
       "post": {
+        "operationId": "createPartnerOfA_CreditMemoRequestItem",
         "summary": "Creates an item partner for a credit memo request item.",
         "description": "Creates the partner data for a specific item of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID and item number.",
         "tags": [
@@ -3703,6 +3766,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_CreditMemoRequestItem",
         "summary": "Reads the pricing element of a specific credit memo request item.",
         "description": "Reads the pricing element data for a specific item of a specific credit memo request. Consumers must pass the following key fields: credit memo request ID and item number.",
         "tags": [
@@ -3796,6 +3860,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_CreditMemoRequestItem",
         "summary": "Reads the text of a specific credit memo request item.",
         "description": "Reads the text data for a specific item. Consumers must pass the following key fields: credit memo request item ID and item number.",
         "tags": [
@@ -3867,6 +3932,7 @@
     },
     "/releaseApprovalRequest": {
       "post": {
+        "operationId": "releaseApprovalRequest",
         "summary": "Invoke action releaseApprovalRequest",
         "tags": [
           "Service Operations"
@@ -3914,6 +3980,7 @@
     },
     "/rejectApprovalRequest": {
       "post": {
+        "operationId": "rejectApprovalRequest",
         "summary": "Invoke action rejectApprovalRequest",
         "tags": [
           "Service Operations"
@@ -3961,6 +4028,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
