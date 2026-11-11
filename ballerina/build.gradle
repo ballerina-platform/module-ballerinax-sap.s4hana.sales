@@ -83,6 +83,7 @@ task build {
     dependsOn(':sales-ballerina:ce_salesorder_0001:build')
     dependsOn(':sales-ballerina:api_slspricingconditionrecord_srv:build')
     dependsOn(':sales-ballerina:api_credit_memo_request_srv:build')
+    dependsOn(':sales-ballerina:api_debit_memo_request_srv:build')
 }
 
 publishToMavenLocal.dependsOn build

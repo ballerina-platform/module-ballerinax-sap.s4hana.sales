@@ -61,6 +61,10 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
     the [Credit Memo Request (A2X) API v1.0.0](https://api.sap.com/api/API_CREDIT_MEMO_REQUEST_SRV/overview). The
     service allows to create, read, update, and delete credit memo requests, including their items, partners, pricing
     elements, and texts.
+12. The `ballerinax/sap.s4hana.api_debit_memo_request_srv` package provides APIs that enable seamless integration with
+    the [Debit Memo Request (A2X) API v1.0.0](https://api.sap.com/api/API_DEBIT_MEMO_REQUEST_SRV/overview). The service
+    allows to create, read, update, and delete debit memo requests, including their items, partners, pricing elements,
+    and texts.
 
 ## Issues and projects
 
@@ -131,6 +135,7 @@ Execute the commands below to build from the source.
    | ce_salesorder_0001                | ballerinax/sap.s4hana.ce_salesorder_0001                |
    | api_slspricingconditionrecord_srv | ballerinax/sap.s4hana.api_slspricingconditionrecord_srv |
    | api_credit_memo_request_srv       | ballerinax/sap.s4hana.api_credit_memo_request_srv       |
+   | api_debit_memo_request_srv        | ballerinax/sap.s4hana.api_debit_memo_request_srv        |
 
 5. To run tests against different environment:
 

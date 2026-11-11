@@ -44,6 +44,7 @@ include ':sales-ballerina:api_sales_order_simulation_srv'
 include ':sales-ballerina:ce_salesorder_0001'
 include ':sales-ballerina:api_slspricingconditionrecord_srv'
 include ':sales-ballerina:api_credit_memo_request_srv'
+include ':sales-ballerina:api_debit_memo_request_srv'
 include ':sales-examples'
 
 project(':sales-sanitation').projectDir = file("docs/sanitation")
@@ -60,6 +61,7 @@ project(':sales-ballerina:api_sales_order_simulation_srv').projectDir = file("ba
 project(':sales-ballerina:ce_salesorder_0001').projectDir = file("ballerina/ce_salesorder_0001")
 project(':sales-ballerina:api_slspricingconditionrecord_srv').projectDir = file("ballerina/api_slspricingconditionrecord_srv")
 project(':sales-ballerina:api_credit_memo_request_srv').projectDir = file("ballerina/api_credit_memo_request_srv")
+project(':sales-ballerina:api_debit_memo_request_srv').projectDir = file("ballerina/api_debit_memo_request_srv")
 project(':sales-examples').projectDir = file("examples")
 
 gradleEnterprise {
