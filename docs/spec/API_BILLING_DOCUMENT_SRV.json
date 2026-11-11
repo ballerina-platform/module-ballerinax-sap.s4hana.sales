@@ -111,6 +111,7 @@
   "paths": {
     "/A_BillingDocument": {
       "get": {
+        "operationId": "listA_BillingDocuments",
         "summary": "Reads all billing document headers.",
         "description": "Reads the header fields of all billing documents in the system. Includes fields such as the document number, billing date, total amount, billing type, and more.",
         "tags": [
@@ -193,6 +194,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_BillingDocument",
         "summary": "Reads the header of a specific billing document.",
         "description": "Reads the header fields of a specific billing document, which the consumer specifies by passing the billing document number. Includes fields such as the document number, billing date, total amount, billing type, and more.",
         "tags": [
@@ -243,6 +245,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemsOfA_BillingDocument",
         "summary": "Reads all items of a specific billing document.",
         "description": "Reads all item fields of a specific billing document, which the consumer specifies by passing the billing document number. Includes fields such as the item number, billing quantity, product, net amount, and more.",
         "tags": [
@@ -326,6 +329,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_BillingDocument",
         "summary": "Reads the header business partners of a specific billing document.",
         "description": "Reads the business partner data from the header of a specific billing document, which the consumer specifies by passing the billing document number. Includes fields such as partner function, customer, contact person, and more.",
         "tags": [
@@ -409,6 +413,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_BillingDocument",
         "summary": "Reads the header pricing elements of a specific billing document.",
         "description": "Reads the pricing element data from the header of a specific billing document, which the consumer specifies by passing the billing document number. This includes fields such as condition type, condition currency, condition quantity, and more.",
         "tags": [
@@ -492,6 +497,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_BillingDocument",
         "summary": "Reads the header texts of a specific billing document.",
         "description": "Reads texts and related fields from the header of a specific billing document, which the consumer specifies by passing the billing document number. Texts typically provide billing instructions or notes for customers. The related fields include the language and long text ID.",
         "tags": [
@@ -560,6 +566,7 @@
     },
     "/A_BillingDocumentItem": {
       "get": {
+        "operationId": "listA_BillingDocumentItems",
         "summary": "Reads all billing document Items.",
         "description": "Reads the item data of all billing documents in the system. Includes fields such as the item number, billing quantity, product, net amount, and more.",
         "tags": [
@@ -652,6 +659,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_BillingDocumentItem",
         "summary": "Reads a specific billing document item.",
         "description": "Reads the data of a specific billing document item, which the consumer specifies by passing the billing document number and item number. Includes fields such as the shipping point, billing quantity, product, net amount, and more.",
         "tags": [
@@ -712,6 +720,7 @@
         }
       ],
       "get": {
+        "operationId": "getBillingDocumentOfA_BillingDocumentItem",
         "summary": "Reads the billing document header for a specific item.",
         "description": "Reads the billing document header fields for a specific item. Includes fields such as the document number, billing date, total amount, billing type, and more. Consumers must pass the following key fields: billing document number, item number.",
         "tags": [
@@ -773,6 +782,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemTextsOfA_BillingDocumentItem",
         "summary": "Reads the item texts of a specific billing document.",
         "description": "Reads texts and related fields from an item of a specific billing document, which the consumer specifies by passing the billing document number and item number. The related fields include the language and long text ID.",
         "tags": [
@@ -863,6 +873,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_BillingDocumentItem",
         "summary": "Reads the item business partners of a specific billing document item.",
         "description": "Reads business partner data from a specific item of a specific billing document. The consumer must specify the billing document number and item number. Includes fields such as partner function, customer, contact person, and more.",
         "tags": [
@@ -956,6 +967,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_BillingDocumentItem",
         "summary": "Reads the item pricing elements of a specific billing document item.",
         "description": "Reads pricing element data from a specific item of a specific billing document. The consumer must specify the billing document number and item number. Includes fields such as condition type, condition currency, condition quantity, and more.",
         "tags": [
@@ -1027,6 +1039,7 @@
     },
     "/A_BillingDocumentItemPartner": {
       "get": {
+        "operationId": "listA_BillingDocumentItemPartners",
         "summary": "Reads item business partners for all billing documents.",
         "description": "Reads business partner data from the items of all billing documents in the system. This includes fields such as partner function, customer, contact person, and more.",
         "tags": [
@@ -1130,6 +1143,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_BillingDocumentItemPartner",
         "summary": "Reads item business partners of an item and with a specific partner function in a specific billing document.",
         "description": "Reads item-level business partners with a specific partner function of a specific billing document. Consumers must specify the billing document number, billing document item, and partner function.",
         "tags": [
@@ -1201,6 +1215,7 @@
         }
       ],
       "get": {
+        "operationId": "getBillingDocumentOfA_BillingDocumentItemPartner",
         "summary": "Reads the billing document header for a specific item partner function.",
         "description": "Reads the billing document header fields for a specific item-level partner function. Includes fields such as the document number, billing date, total amount, billing type, and more. Consumers must pass the following key fields: billing document number, item number, and item partner function.",
         "tags": [
@@ -1273,6 +1288,7 @@
         }
       ],
       "get": {
+        "operationId": "getBillingDocumentItemOfA_BillingDocumentItemPartner",
         "summary": "Reads a billing document item for a specific item partner function.",
         "description": "Reads billing document item fields for a specific item-level partner function. Includes fields such as the item number, billing quantity, product, net amount, and more. Consumers must pass the following key fields: billing document number, item number, and item partner function.",
         "tags": [
@@ -1312,6 +1328,7 @@
     },
     "/A_BillingDocumentItemPrcgElmnt": {
       "get": {
+        "operationId": "listA_BillingDocumentItemPrcgElmnts",
         "summary": "Reads item pricing elements of all billing documents.",
         "description": "Reads pricing element data from the items of all billing documents in the system. Includes fields such as condition type, condition currency, condition quantity, and more.",
         "tags": [
@@ -1424,6 +1441,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_BillingDocumentItemPrcgElmnt",
         "summary": "Reads the item pricing elements for a specific item and item pricing element.",
         "description": "Reads pricing element data from a specific item and for a specific item pricing element. Includes fields such as condition type, condition currency, condition quantity, and more. Consumers must pass the following key fields: billing document number, item number pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1504,6 +1522,7 @@
         }
       ],
       "get": {
+        "operationId": "getBillingDocumentOfA_BillingDocumentItemPrcgElmnt",
         "summary": "Reads the billing document header for a specific item and pricing element.",
         "description": "Reads the billing document header fields for a specific item and pricing element. Includes fields such as the document number, billing date, total amount, billing type, and more. Consumers must pass the following key fields: billing document number, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1585,6 +1604,7 @@
         }
       ],
       "get": {
+        "operationId": "getBillingDocumentItemOfA_BillingDocumentItemPrcgElmnt",
         "summary": "Reads a billing document item for a specific item and item-level pricing element.",
         "description": "Reads billing document item fields for a specific item and item-level pricing element. Includes fields such as the item number, billing quantity, product, net amount, and more. Consumers must pass the following key fields: billing document number, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1624,6 +1644,7 @@
     },
     "/A_BillingDocumentItemText": {
       "get": {
+        "operationId": "listA_BillingDocumentItemTexts",
         "summary": "Reads item texts of all billing documents.",
         "description": "Reads texts and related fields from the items of all billing documents in the system. The related fields include the language and long text ID.",
         "tags": [
@@ -1733,6 +1754,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_BillingDocumentItemText",
         "summary": "Reads item texts for a specific language and long text ID.",
         "description": "Reads texts and related fields of a specific billing document item. Consumers must pass the key fields billing document number, item number, language, and long text ID. The related fields include the language and long text ID.",
         "tags": [
@@ -1768,6 +1790,7 @@
     },
     "/A_BillingDocumentPartner": {
       "get": {
+        "operationId": "listA_BillingDocumentPartners",
         "summary": "Reads the header business partners of all billing documents.",
         "description": "Reads business partner data from the headers of all billing documents in the system. Includes fields such as partner function, customer, contact person, and more.",
         "tags": [
@@ -1861,6 +1884,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_BillingDocumentPartner",
         "summary": "Reads the header business partners of a specific billing document and with a specific partner function.",
         "description": "Reads header-level business partners with a specific partner function of a specific billing document. Includes fields such as partner function, customer, contact person, and more. Consumers must specify the billing document number and partner function.",
         "tags": [
@@ -1922,6 +1946,7 @@
         }
       ],
       "get": {
+        "operationId": "getBillingDocumentOfA_BillingDocumentPartner",
         "summary": "Reads the billing document header for a specific header partner function.",
         "description": "Reads the billing document header fields for a specific header-level partner function. Includes fields such as the document number, billing date, total amount, billing type, and more. Consumers must pass the following key fields: billing document number and partner function.",
         "tags": [
@@ -1961,6 +1986,7 @@
     },
     "/A_BillingDocumentPrcgElmnt": {
       "get": {
+        "operationId": "listA_BillingDocumentPrcgElmnts",
         "summary": "Reads header pricing elements of all billing documents.",
         "description": "Reads pricing element data from the headers of all billing documents in the system. Includes fields such as condition type, condition currency, condition quantity, and more.",
         "tags": [
@@ -2063,6 +2089,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_BillingDocumentPrcgElmnt",
         "summary": "Reads the header pricing elements of a specific billing document and specific pricing element.",
         "description": "Reads header-level pricing elements of a specific billing document and pricing element. This includes fields such as condition type, condition currency, condition quantity, and more. Consumers must pass the following key fields: billing document number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -2133,6 +2160,7 @@
         }
       ],
       "get": {
+        "operationId": "getBillingDocumentOfA_BillingDocumentPrcgElmnt",
         "summary": "Reads the billing document header for a specific header pricing element.",
         "description": "Reads the billing document header fields for a specific header-level pricing element. Includes fields such as the document number, billing date, total amount, billing type, and more. Consumers must pass the following key fields: billing document number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -2172,6 +2200,7 @@
     },
     "/A_BillingDocumentText": {
       "get": {
+        "operationId": "listA_BillingDocumentTexts",
         "summary": "Reads the header texts of all billing documents.",
         "description": "Reads texts and related fields from the headers of all billing documents. Texts typically provide billing instructions or notes for customers. The related fields include the language and long text ID.",
         "tags": [
@@ -2271,6 +2300,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_BillingDocumentText",
         "summary": "Reads the header texts of a specific billing document for a specific language and long text ID.",
         "description": "Reads the header-level texts and related fields of a specific billing document. Consumers must specify the key fields billing document number, language, and long text ID. The related fields include the language and long text ID.",
         "tags": [
@@ -2306,6 +2336,7 @@
     },
     "/Cancel": {
       "post": {
+        "operationId": "createCancel",
         "summary": "Cancels one specific billing document.",
         "description": "Cancels one specific billing document in the system, which the consumer specifies by passing the billing document number. To cancel multiple billing documents simultaneously, use a batch request.",
         "tags": [
@@ -2361,6 +2392,7 @@
     },
     "/GetPDF": {
       "get": {
+        "operationId": "getGetPDF",
         "summary": "Retrieves a specific billing document in PDF format.",
         "description": "Retrieves a specific billing document from the system in PDF format, which shows how the billing document looks after it has been output to PDF. Consumer must specify the billing document number.",
         "tags": [
@@ -2409,6 +2441,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
