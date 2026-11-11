@@ -162,3 +162,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added Initial client implementation
 - Added `$batch` support, with the generated client kept in an `oas` submodule
+
+## sap.s4hana.api_credit_memo_request_srv
+
+## [Unreleased]
+
+### Added
+
+- Added Initial client implementation
+
+## sap.s4hana.api_debit_memo_request_srv
+
+## [Unreleased]
+
+### Added
+
+- Added Initial client implementation
+
+## sap.s4hana.api_billing_document_srv
+
+## [Unreleased]
+
+### Added
+
+- Added Initial client implementation
+
+## sap.s4hana.api_customer_return_srv
+
+## [Unreleased]
+
+### Added
+
+- Added Initial client implementation

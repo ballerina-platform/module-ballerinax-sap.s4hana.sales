@@ -61,14 +61,17 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
     the [Credit Memo Request (A2X) API v1.0.0](https://api.sap.com/api/API_CREDIT_MEMO_REQUEST_SRV/overview). The
     service allows to create, read, update, and delete credit memo requests, including their items, partners, pricing
     elements, and texts.
-12. The `ballerinax/sap.s4hana.api_debit_memo_request_srv` package provides APIs that enable seamless integration with
+
+13. The `ballerinax/sap.s4hana.api_debit_memo_request_srv` package provides APIs that enable seamless integration with
     the [Debit Memo Request (A2X) API v1.0.0](https://api.sap.com/api/API_DEBIT_MEMO_REQUEST_SRV/overview). The service
     allows to create, read, update, and delete debit memo requests, including their items, partners, pricing elements,
     and texts.
-12. The `ballerinax/sap.s4hana.api_billing_document_srv` package provides APIs that enable seamless integration with the
+
+14. The `ballerinax/sap.s4hana.api_billing_document_srv` package provides APIs that enable seamless integration with the
     [Billing Document - Read, Cancel, GetPDF API v1.1.0](https://api.sap.com/api/API_BILLING_DOCUMENT_SRV/overview). The
     service allows to read and cancel billing documents and retrieve their PDF versions.
-12. The `ballerinax/sap.s4hana.api_customer_return_srv` package provides APIs that enable seamless integration with the
+
+15. The `ballerinax/sap.s4hana.api_customer_return_srv` package provides APIs that enable seamless integration with the
     [Customer Return (A2X) API v1.1.0](https://api.sap.com/api/API_CUSTOMER_RETURN_SRV/overview). The service allows to
     create, read, update, and delete returns orders for customer returns.
 
