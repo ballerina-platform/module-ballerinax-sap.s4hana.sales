@@ -1,0 +1,18 @@
+{
+  "display-name": "SAP S/4HANA Debit Memo Request API",
+  "description": "The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Debit Memo Request (A2X) API v1.0.0](https://api.sap.com/api/API_DEBIT_MEMO_REQUEST_SRV/overview). The service allows to create, read, update, and delete debit memo requests, including their items, partners, pricing elements, and texts.",
+  "key-features": [
+    "Create, read, update, and delete debit memo requests in SAP S/4HANA",
+    "Seamless integration with the Debit Memo Request (A2X) API v1.0.0",
+    "Support for basic and OAuth 2.0 authentication",
+    "Operations for debit memo request items, partners, pricing elements, texts, and subsequent process flows"
+  ],
+  "communication-scenario": "Debit Memo Request Integration",
+  "communication-scenario-id": "SAP_COM_0159",
+  "scenario-search-image": "s4-3-search-scenario-sap-com-0159.png",
+  "new-arrangement-image": "s4-4-new-arrangement-sap-com-0159.png",
+  "arrangement-details-image": "s4-5-arrangement-details-sap-com-0159.png",
+  "import-statement": "import ballerinax/sap.s4hana.api_debit_memo_request_srv as debitmemo;",
+  "client-init": "debitmemo:Client debitmemoClient = check new (",
+  "api-invocation": "debitmemo:CollectionOfA_DebitMemoRequestWrapper listADebitMemoRequests = check debitmemoClient->listA_DebitMemoRequests();"
+}
