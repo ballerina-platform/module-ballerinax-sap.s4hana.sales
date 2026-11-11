@@ -129,6 +129,7 @@
   "paths": {
     "/A_CustomerReturn": {
       "get": {
+        "operationId": "listA_CustomerReturns",
         "summary": "Reads all returns order headers.",
         "description": "Reads the header data of all returns orders in the system.",
         "tags": [
@@ -197,6 +198,7 @@
         }
       },
       "post": {
+        "operationId": "createA_CustomerReturn",
         "summary": "Creates one or more returns order headers.",
         "description": "Creates returns order headers by using deep insert requests.This means that consumers must create a header together with at least one of the following entities: header partner, header pricing element, item, item partner, and item pricing element.",
         "tags": [
@@ -250,6 +252,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturn",
         "summary": "Reads the header of a specific returns order.",
         "description": "Reads the header data of a specific returns order, which the consumer specifies by passing the returns order number.",
         "tags": [
@@ -286,6 +289,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CustomerReturn",
         "summary": "Updates the header of a specific returns order.",
         "description": "Updates the header data of a specific returns order, which the consumer specifies by passing the returns order number.",
         "tags": [
@@ -318,6 +322,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CustomerReturn",
         "summary": "Deletes a specific returns order.",
         "description": "Deletes a specific returns order, which the consumer specifies by passing the returns order number.Deleting a header also deletes all related entities such as business partners, pricing elements, items, and so on.",
         "tags": [
@@ -347,6 +352,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOverviewStatusOfA_CustomerReturn",
         "summary": "Reads the customer return overview statuses of a specific returns order. ",
         "description": "Reads the processing status, logistical status, and refunding status from the header of a specific returns order, which the consumer specifies by passing the returns order number.",
         "tags": [
@@ -395,6 +401,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemsOfA_CustomerReturn",
         "summary": "Reads all items of a specific returns order.",
         "description": "Reads all item data of a specific returns order, which the consumer specifies by passing the returns order number.",
         "tags": [
@@ -464,6 +471,7 @@
         }
       },
       "post": {
+        "operationId": "createItemOfA_CustomerReturn",
         "summary": "Creates one or more items for a specific returns order.",
         "description": "Creates item data for a specific returns order, which the consumer specifies by passing the returns order number.",
         "tags": [
@@ -518,6 +526,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_CustomerReturn",
         "summary": "Reads the header-level business partners of a specific returns order.",
         "description": "Reads business partner data from the header of a specific returns order, which the consumer specifies by passing the returns order number.",
         "tags": [
@@ -587,6 +596,7 @@
         }
       },
       "post": {
+        "operationId": "createPartnerOfA_CustomerReturn",
         "summary": "Creates a header partner for a returns order.",
         "description": "Creates the partner data for a specific returns order header. Consumers must pass the key fields: returns order ID and partner function.The header partner data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -641,6 +651,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_CustomerReturn",
         "summary": "Reads the header-level pricing elements of a specific returns order.",
         "description": "Reads pricing element data from the header of a specific returns order, which the consumer specifies by passing the returns order number.",
         "tags": [
@@ -724,6 +735,7 @@
         }
       ],
       "get": {
+        "operationId": "listRelatedObjectsOfA_CustomerReturn",
         "summary": "Reads the related objects from a returns order header. ",
         "description": "Reads the data of related objects from the header of a specific returns order. Consumers must pass the returns order ID.",
         "tags": [
@@ -793,6 +805,7 @@
         }
       },
       "post": {
+        "operationId": "createRelatedObjectOfA_CustomerReturn",
         "summary": "Creates related objects for a returns order header. ",
         "description": "Creates the data of related objects for the header of a specific returns order. Consumers must pass returns order ID, related object type, and related object reference 1.",
         "tags": [
@@ -847,6 +860,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_CustomerReturn",
         "summary": "Reads the header-level texts of a specific returns order.",
         "description": "Reads texts data from the header of a specific returns order, which the consumer specifies by passing the returns order number.",
         "tags": [
@@ -918,6 +932,7 @@
     },
     "/A_CustomerReturnItem": {
       "get": {
+        "operationId": "listA_CustomerReturnItems",
         "summary": "Reads all returns order items.",
         "description": "Reads all item data of all returns orders in the system.",
         "tags": [
@@ -986,6 +1001,7 @@
         }
       },
       "post": {
+        "operationId": "createA_CustomerReturnItem",
         "summary": "Creates one or more returns order items.",
         "description": "Creates items for existing returns orders by using deep insert requests. This means that consumers must create an item together with at least one of the following entities: item partner and item pricing element. Consumers must specify the returns order number in the payload.",
         "tags": [
@@ -1049,6 +1065,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnItem",
         "summary": "Reads a specific returns order item.",
         "description": "Reads the data of a specific returns order item, which the consumer specifies by passing the returns order number and item number.",
         "tags": [
@@ -1085,6 +1102,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CustomerReturnItem",
         "summary": "Update a specific returns order item.",
         "description": "Updates the data of a specific returns order item, which the consumer specifies by passing the returns order number and item number.",
         "tags": [
@@ -1117,6 +1135,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CustomerReturnItem",
         "summary": "Deletes a specific returns order item.",
         "description": "Deletes the data of a specific returns order item, which the consumer specifies by passing the returns order number and item number.Deleting an item also deletes all related entities such as item partner, item pricing element, and so on.",
         "tags": [
@@ -1156,6 +1175,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnItem",
         "summary": "Reads the returns order header for a specific item.",
         "description": "Reads returns order header fields for a specific item. Consumer must pass the following key fields: returns order number and item number.",
         "tags": [
@@ -1217,6 +1237,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_CustomerReturnItem",
         "summary": "Reads the item-level business partners of a specific item.",
         "description": "Reads the business partner data from a specific returns order item, which the consumer specifies by passing the returns order number and item number.",
         "tags": [
@@ -1286,6 +1307,7 @@
         }
       },
       "post": {
+        "operationId": "createPartnerOfA_CustomerReturnItem",
         "summary": "Creates a header partner for a returns order.",
         "description": "Creates the partner data for a specific returns order header. Consumers must pass the key fields: returns order ID and partner function.",
         "tags": [
@@ -1350,6 +1372,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_CustomerReturnItem",
         "summary": "Reads the item-level pricing elements of a specific item.",
         "description": "Reads the pricing element data from a specific returns order item, which the consumer specifies by passing the returns order number and item number.",
         "tags": [
@@ -1443,6 +1466,7 @@
         }
       ],
       "get": {
+        "operationId": "listProcessStepsOfA_CustomerReturnItem",
         "summary": "Reads the advanced returns process steps of a specific item.",
         "description": "Reads the process step data from a specific returns order item, which the consumer specifies by passing the returns order number and item number.",
         "tags": [
@@ -1536,6 +1560,7 @@
         }
       ],
       "get": {
+        "operationId": "listRelatedObjectsOfA_CustomerReturnItem",
         "summary": "Reads the related objects of a specific returns order item. ",
         "description": "Reads the data of the related objects from a specific item. Consumers must pass the returns order ID and returns order item number.",
         "tags": [
@@ -1605,6 +1630,7 @@
         }
       },
       "post": {
+        "operationId": "createRelatedObjectOfA_CustomerReturnItem",
         "summary": "Creates related objects for a specific returns order item.",
         "description": "Creates the data of the related objects for a specific item. Consumers must pass the returns order ID, returns order item number, related object type, and related object reference 1.",
         "tags": [
@@ -1669,6 +1695,7 @@
         }
       ],
       "get": {
+        "operationId": "listScheduleLinesOfA_CustomerReturnItem",
         "summary": "Reads the schedule lines of a specific item.",
         "description": "Reads the schedule line data from a specific returns order item, which the consumer specifies by passing the returns order number and item number.",
         "tags": [
@@ -1762,6 +1789,7 @@
         }
       ],
       "get": {
+        "operationId": "listSerialNumbersOfA_CustomerReturnItem",
         "summary": "Reads the serial numbers of a specific item.",
         "description": "Reads the serial numbers that are assigned to the individual products of a specific returns order item. Consumer must pass the following key fields: returns order number and item number.",
         "tags": [
@@ -1852,6 +1880,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_CustomerReturnItem",
         "summary": "Reads the item-level texts of a specific item.",
         "description": "Reads the text data from a specific returns order item, which the consumer specifies by passing the returns order number and item number.",
         "tags": [
@@ -1923,6 +1952,7 @@
     },
     "/A_CustomerReturnItemPartner": {
       "get": {
+        "operationId": "listA_CustomerReturnItemPartners",
         "summary": "Reads all item-level business partners.",
         "description": "Reads business partner data from all returns order items in the system. The data includes fields such as partner function, customer, contact person, and more.",
         "tags": [
@@ -1991,6 +2021,7 @@
         }
       },
       "post": {
+        "operationId": "createA_CustomerReturnItemPartner",
         "summary": "Creates a partner for a returns order item with a specific partner function.",
         "description": "Creates a partner with a specific partner function for a specific returns order item. Consumers must pass the key fields: returns order ID, item number, and partner function.",
         "tags": [
@@ -2065,6 +2096,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnItemPartner",
         "summary": "Reads a specific item-level business partner.",
         "description": "Reads a specific item-level business partner, which the consumer specifies by passing the returns order number, item number, and partner function.",
         "tags": [
@@ -2101,6 +2133,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CustomerReturnItemPartner",
         "summary": "Updates a specific item-level business partner.",
         "description": "Updates a specific item-level business partner, which the consumer specifies by passing the returns order number, item number, and partner function.",
         "tags": [
@@ -2133,6 +2166,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CustomerReturnItemPartner",
         "summary": "Deletes a specific item-level business partner.",
         "description": "Deletes a specific item-level business partner, which the consumer specifies by passing the returns order number, item number, and partner function.",
         "tags": [
@@ -2183,6 +2217,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnItemPartner",
         "summary": "Reads the returns order header for a specific item-level business partner.",
         "description": "Reads returns order header fields for a specific item-level partner function. Consumers must pass the following key fields: returns order, item number, and item partner function.",
         "tags": [
@@ -2255,6 +2290,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnItemOfA_CustomerReturnItemPartner",
         "summary": "Reads the returns order item for a specific item-level business partner.",
         "description": "Reads returns order item fields for a specific item-level partner function. Consumers must pass the following key fields: returns order number, item number, and item partner function.",
         "tags": [
@@ -2294,6 +2330,7 @@
     },
     "/A_CustomerReturnItemPrcgElmnt": {
       "get": {
+        "operationId": "listA_CustomerReturnItemPrcgElmnts",
         "summary": "Reads all item-level pricing elements.",
         "description": "Reads pricing element data from the all returns orders items in the system. The data includes fields such as pricing procedure counter, pricing procedure step, and more.",
         "tags": [
@@ -2406,6 +2443,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnItemPrcgElmnt",
         "summary": "Reads a specific item-level pricing element.",
         "description": "Reads a specific item-level pricing element, which the consumer specifies by passing the returns order number, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -2442,6 +2480,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CustomerReturnItemPrcgElmnt",
         "summary": "Updates a specific item-level pricing element.",
         "description": "Updates a specific item-level pricing element, which the consumer specifies by passing the returns order number, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -2474,6 +2513,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CustomerReturnItemPrcgElmnt",
         "summary": "Deletes a specific item-level pricing element.",
         "description": "Deletes a specific item-level pricing element, which the consumer specifies by passing the returns order number, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -2533,6 +2573,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnItemPrcgElmnt",
         "summary": "Reads the returns order header for a specific item-level pricing element.",
         "description": "Reads returns order header fields for a specific item-level pricing element.Consumers must pass the following key fields: returns order number, item number, item pricing procedure step, and item pricing procedure counter.",
         "tags": [
@@ -2614,6 +2655,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnItemOfA_CustomerReturnItemPrcgElmnt",
         "summary": "Reads the returns order item for a specific item-level pricing element.",
         "description": "Reads returns order item fields for a specific item-level pricing element.Consumers must pass the following key fields: returns order number, item number, item pricing procedure step, and item pricing procedure counter.",
         "tags": [
@@ -2653,6 +2695,7 @@
     },
     "/A_CustomerReturnItemRelatedObj": {
       "get": {
+        "operationId": "listA_CustomerReturnItemRelatedObjs",
         "summary": "Reads the related objects of all returns order items.",
         "description": "Reads the data of related objects from the items of all returns orders in the system. ",
         "tags": [
@@ -2721,6 +2764,7 @@
         }
       },
       "post": {
+        "operationId": "createA_CustomerReturnItemRelatedObj",
         "summary": "Creates a specific related object for a specific returns order item.",
         "description": "Creates the data of a related object for a specific item of a returns order. Consumers must pass the returns order ID, returns order item number, related object type, and related object reference 1.",
         "tags": [
@@ -2794,6 +2838,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnItemRelatedObj",
         "summary": "Reads a specific related object of a specific returns order item.",
         "description": "Reads the data of a related object from a specific item of a returns order. Consumers must pass the returns order ID, returns order item number, and sequence number of the related object.",
         "tags": [
@@ -2830,6 +2875,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CustomerReturnItemRelatedObj",
         "summary": "Deletes a specific related object from a specific returns order item.",
         "description": "Deletes the data for a related object from a specific item of a returns order. Consumers must pass the returns order ID, returns order item number, and sequence number of the related object.",
         "tags": [
@@ -2879,6 +2925,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnItemRelatedObj",
         "summary": "Reads the returns order header for a specific item-level related object.",
         "description": "Reads the returns order header data for a specific item-level related object. Consumers must pass the returns order ID, returns order item number, and sequence number of the related object.",
         "tags": [
@@ -2950,6 +2997,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnItemOfA_CustomerReturnItemRelatedObj",
         "summary": "Reads the returns order item for a specific related object.",
         "description": "Reads the returns order item data for a specific item-level related object. Consumers must pass the returns order ID, item number, and sequence number.",
         "tags": [
@@ -2989,6 +3037,7 @@
     },
     "/A_CustomerReturnItemText": {
       "get": {
+        "operationId": "listA_CustomerReturnItemTexts",
         "summary": "Reads all item-level texts.",
         "description": "Reads text data from all returns order items in the system. The data includes text ID, actual text, language, and more.",
         "tags": [
@@ -3101,6 +3150,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnItemText",
         "summary": "Reads a specific piece of item-level text.",
         "description": "Reads a specific piece of text at the returns order item level, which the consumer specifies by passing the returns order number, item number, language key, and text ID.",
         "tags": [
@@ -3137,6 +3187,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CustomerReturnItemText",
         "summary": "Updates a specific piece of item-level text. ",
         "description": "Updates a specific piece of text at the returns order item level, which the consumer specifies by passing the returns order number, item number, language key, and text ID.",
         "tags": [
@@ -3169,6 +3220,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CustomerReturnItemText",
         "summary": "Deletes a specific piece of item-level text. ",
         "description": "Deletes a specific piece of text at the returns order item level, which the consumer specifies by passing the returns order number, item number, language key, and text ID.",
         "tags": [
@@ -3228,6 +3280,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnItemText",
         "summary": "Reads the returns order header for a specific piece of item-level text.",
         "description": "Reads returns order header fields for a specific piece of item-level text. Consumers must pass the returns order number, item number, language key, and text ID.",
         "tags": [
@@ -3309,6 +3362,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnItemOfA_CustomerReturnItemText",
         "summary": "Reads the returns order item for a specific piece of item-level text.",
         "description": "Reads returns order item fields for a specific piece of item-level text. Consumers must pass the returns order number, item number, language key, and text ID.",
         "tags": [
@@ -3348,6 +3402,7 @@
     },
     "/A_CustomerReturnOverviewStatus": {
       "get": {
+        "operationId": "listA_CustomerReturnOverviewStatuses",
         "summary": "Reads all customer return overview statuses.",
         "description": "Reads the processing status, logistical status, and refunding status from the headers of all returns orders in the system.",
         "tags": [
@@ -3427,6 +3482,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnOverviewStatus",
         "summary": "Reads the specific customer return overview statuses.",
         "description": "Reads the processing status, logistical status, and refunding status from a specific customer return process, which the consumer specifies by passing the process ID.",
         "tags": [
@@ -3462,6 +3518,7 @@
     },
     "/A_CustomerReturnPartner": {
       "get": {
+        "operationId": "listA_CustomerReturnPartners",
         "summary": "Reads all header-level business partners.",
         "description": "Reads business partner data from the headers of all returns orders in the system. The data includes fields such as partner function, customer, contact person, and more.",
         "tags": [
@@ -3530,6 +3587,7 @@
         }
       },
       "post": {
+        "operationId": "createA_CustomerReturnPartner",
         "summary": "Creates a header partner for a specific returns order with a specific partner function.",
         "description": "Creates a partner with a specific partner function for the header of a specific returns order. Consumers must pass the key fields: returns order ID and partner function.The header partner data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -3594,6 +3652,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnPartner",
         "summary": "Reads a specific header-level business partner.",
         "description": "Reads a specific header-level business partner, which the consumer specifies by passing the returns order number and partner function.",
         "tags": [
@@ -3630,6 +3689,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CustomerReturnPartner",
         "summary": "Updates a specific header-level business partner.",
         "description": "Updates a specific header-level business partner, which the consumer specifies by passing the returns order number and partner function.",
         "tags": [
@@ -3662,6 +3722,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CustomerReturnPartner",
         "summary": "Deletes a specific header-level business partner.",
         "description": "Deletes a specific header-level business partner, which the consumer specifies by passing the returns order number and partner function.",
         "tags": [
@@ -3702,6 +3763,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnPartner",
         "summary": "Reads the returns order header for a specific header-level business partner.",
         "description": "Reads returns order header fields for a specific header-level partner function. Consumers must pass the following key fields: returns order number and partner function.",
         "tags": [
@@ -3741,6 +3803,7 @@
     },
     "/A_CustomerReturnPrcgElmnt": {
       "get": {
+        "operationId": "listA_CustomerReturnPrcgElmnts",
         "summary": "Reads all header-level pricing elements.",
         "description": "Reads pricing element data from the headers of all returns orders in the system. The data includes fields such as pricing procedure step, pricing procedure counter, and more.",
         "tags": [
@@ -3843,6 +3906,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnPrcgElmnt",
         "summary": "Reads a specific header-level pricing element.",
         "description": "Reads a specific header-level pricing element, which the consumer specifies by passing the returns order number, header pricing procedure step, and header pricing procedure counter.",
         "tags": [
@@ -3879,6 +3943,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CustomerReturnPrcgElmnt",
         "summary": "Updates a specific header-level pricing element.",
         "description": "Updates a specific header-level pricing element, which the consumer specifies by passing the returns order number, header pricing procedure step, and header pricing procedure counter.",
         "tags": [
@@ -3911,6 +3976,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CustomerReturnPrcgElmnt",
         "summary": "Deletes a specific header-level pricing element.",
         "description": "Deletes a specific header-level pricing element, which the consumer specifies by passing the returns order number, header pricing procedure step, and header pricing procedure counter.",
         "tags": [
@@ -3960,6 +4026,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnPrcgElmnt",
         "summary": "Reads the returns order header for a specific header-level pricing element.",
         "description": "Reads returns order header fields for a specific header-level pricing element. Consumers must pass the following key fields: returns order number, header pricing procedure step, and header pricing procedure counter.",
         "tags": [
@@ -3999,6 +4066,7 @@
     },
     "/A_CustomerReturnProcessStep": {
       "get": {
+        "operationId": "listA_CustomerReturnProcessSteps",
         "summary": "Reads all advanced returns process steps.",
         "description": "Reads process step data from all returns order items in the system.",
         "tags": [
@@ -4141,6 +4209,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnProcessStep",
         "summary": "Reads a specific advanced returns process step.",
         "description": "Reads a specific process step, which the consumer specifies by passing the following key fields: process number, process item number, process step, quantity split key of process item, returns document type, returns document number, and returns item number.",
         "tags": [
@@ -4251,6 +4320,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnProcessStep",
         "summary": "Reads the returns order header for a specific advanced returns process step.",
         "description": "Reads returns order header fields for a specific process step. Consumers must pass the following key fields: process number, process item number, process step, quantity split key of process item, returns document type, returns document number, and returns item number.",
         "tags": [
@@ -4362,6 +4432,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnItemOfA_CustomerReturnProcessStep",
         "summary": "Reads the returns order item for a specific advanced returns process step.",
         "description": "Reads returns order item fields for a specific process step. Consumers must pass the following key fields: process number, process item number, process step, quantity split key of process item, returns document type, returns document number, and returns item number.",
         "tags": [
@@ -4401,6 +4472,7 @@
     },
     "/A_CustomerReturnRelatedObject": {
       "get": {
+        "operationId": "listA_CustomerReturnRelatedObjects",
         "summary": "Reads the related objects from the headers of all returns orders.",
         "description": "Reads the data of related objects from the headers of all returns orders in the system.",
         "tags": [
@@ -4469,6 +4541,7 @@
         }
       },
       "post": {
+        "operationId": "createA_CustomerReturnRelatedObject",
         "summary": "Creates a specific related object for a returns order header.",
         "description": "Creates the data of a related object for the header of a specific returns order. Consumers must pass the returns order ID, related object type, and related object reference 1.",
         "tags": [
@@ -4532,6 +4605,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnRelatedObject",
         "summary": "Reads a specific related object from a returns order header.",
         "description": "Reads the data of a related object from the header of a specific returns order. Consumers must pass the returns order ID and sequence number of the related object.",
         "tags": [
@@ -4568,6 +4642,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CustomerReturnRelatedObject",
         "summary": "Deletes a specific related object from a returns order header.",
         "description": "Deletes the data of a related object from the header of a specific returns order. Consumers must pass the returns order ID and sequence number of the related object.",
         "tags": [
@@ -4607,6 +4682,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnRelatedObject",
         "summary": "Reads the returns order header for a specific related object.",
         "description": "Reads the returns order header data for a specific header-level related object. Consumers must pass the returns order ID and sequence number of the related object.",
         "tags": [
@@ -4646,6 +4722,7 @@
     },
     "/A_CustomerReturnScheduleLine": {
       "get": {
+        "operationId": "listA_CustomerReturnScheduleLines",
         "summary": "Reads all schedule lines.",
         "description": "Reads schedule line data from all returns order items in the system. The data includes fields such as delivered quantity, open quantity, delivery block reason, and so on.",
         "tags": [
@@ -4748,6 +4825,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnScheduleLine",
         "summary": "Reads a specific schedule line.",
         "description": "Reads the data of a specific schedule line, which the consumer specifies by passing the returns order number, item number, and schedule line number.",
         "tags": [
@@ -4818,6 +4896,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnScheduleLine",
         "summary": "Reads the returns order header for a specific schedule line.",
         "description": "Reads returns order header fields for a specific schedule line. Consumers must pass the following key fields: returns order number, item number, and schedule line number.",
         "tags": [
@@ -4889,6 +4968,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnItemOfA_CustomerReturnScheduleLine",
         "summary": "Reads the returns order item for a specific schedule line.",
         "description": "Reads returns order item fields for a specific schedule line. Consumers must pass the following key fields: returns order number, item number, and schedule line number.",
         "tags": [
@@ -4928,6 +5008,7 @@
     },
     "/A_CustomerReturnSerialNumber": {
       "get": {
+        "operationId": "listA_CustomerReturnSerialNumbers",
         "summary": "Reads all serial numbers.",
         "description": "Reads the serial numbers that are assigned to the individual products of all returns order items.",
         "tags": [
@@ -5027,6 +5108,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnSerialNumber",
         "summary": "Reads a specific serial number.",
         "description": "Reads a specific serial number, which the consumer specifies by passing the returns order number, item number, and serial number.",
         "tags": [
@@ -5062,6 +5144,7 @@
     },
     "/A_CustomerReturnText": {
       "get": {
+        "operationId": "listA_CustomerReturnTexts",
         "summary": "Reads all header-level texts.",
         "description": "Reads text data from the headers of all returns orders in the system. The data includes text ID, actual text, language, and more.",
         "tags": [
@@ -5164,6 +5247,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_CustomerReturnText",
         "summary": "Reads a specific piece of header-level text.",
         "description": "Reads a specific piece of text at the returns order header level, which the consumer specifies by passing the returns order number, language key, and text ID.",
         "tags": [
@@ -5200,6 +5284,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_CustomerReturnText",
         "summary": "Updates a specific piece of header-level text.",
         "description": "Updates a specific piece of text at the returns order header level, which the consumer specifies by passing the returns order number, language key, and text ID.",
         "tags": [
@@ -5232,6 +5317,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_CustomerReturnText",
         "summary": "Deletes a specific piece of header-level text.",
         "description": "Deletes a specific piece of text at the returns order header level, which the consumer specifies by passing the returns order number, language key, and text ID.",
         "tags": [
@@ -5281,6 +5367,7 @@
         }
       ],
       "get": {
+        "operationId": "getCustomerReturnOfA_CustomerReturnText",
         "summary": "Reads the returns order header for a specific piece of header-level text.",
         "description": "Reads returns order header fields for a specific piece of header-level text.Consumers must pass the returns order number, language key, and text ID.",
         "tags": [
@@ -5320,6 +5407,7 @@
     },
     "/rejectApprovalRequest": {
       "post": {
+        "operationId": "rejectApprovalRequest",
         "summary": "Rejects a specific returns order.",
         "description": "Rejects the approval request for a specific returns order. Consumer must pass the returns order number.",
         "tags": [
@@ -5368,6 +5456,7 @@
     },
     "/releaseApprovalRequest": {
       "post": {
+        "operationId": "releaseApprovalRequest",
         "summary": "Approves a specific returns order.",
         "description": "Releases the approval request for a specific returns order. Consumer must pass the returns order number.",
         "tags": [
@@ -5416,6 +5505,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
