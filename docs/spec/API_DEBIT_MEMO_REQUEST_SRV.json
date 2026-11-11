@@ -117,6 +117,7 @@
   "paths": {
     "/A_DbtMemoReqItmSubsqntProcFlow": {
       "get": {
+        "operationId": "listA_DbtMemoReqItmSubsqntProcFlows",
         "summary": "Reads the subsequent items of all debit memo requests items.",
         "description": "Reads the process flow data for all debit memo request items and their subsequent items in the system.",
         "tags": [
@@ -220,6 +221,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DbtMemoReqItmSubsqntProcFlow",
         "summary": "Reads a subsequent item for a debit memo request item.",
         "description": "Reads the process flow data of a specific subsequent item of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID, debit memo request item ID, and document relationship UUID.",
         "tags": [
@@ -291,6 +293,7 @@
         }
       ],
       "get": {
+        "operationId": "getDebitMemoRequestOfA_DbtMemoReqItmSubsqntProcFlow",
         "summary": "Reads the debit memo request header data for a subsequent item of a debit memo request.",
         "description": "Reads the debit memo request header data for a specific subsequent item of a debit memo request item. Consumers must pass the following key fields: debit memo request ID, debit memo request item number, and document relationship UUID.",
         "tags": [
@@ -363,6 +366,7 @@
         }
       ],
       "get": {
+        "operationId": "getDebitMemoRequestItemOfA_DbtMemoReqItmSubsqntProcFlow",
         "summary": "Reads the debit memo request item data for a subsequent item of a debit memo request.",
         "description": "Reads the item data for a specific subsequent item of a debit memo request item. Consumers must pass the following key fields: debit memo request ID, debit memo request item number, and document relationship UUID.",
         "tags": [
@@ -402,6 +406,7 @@
     },
     "/A_DebitMemoReqItemPartner": {
       "get": {
+        "operationId": "listA_DebitMemoReqItemPartners",
         "summary": "Reads the item partners for all debit memo requests.",
         "description": "Reads the partner data from the items of all debit memo requests in the system.",
         "tags": [
@@ -470,6 +475,7 @@
         }
       },
       "post": {
+        "operationId": "createA_DebitMemoReqItemPartner",
         "summary": "Creates additional item partner for a specific debit memo request item with a specific partner function.",
         "description": "Creates additional item partner with a specific partner function for a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID, item number, and partner function.",
         "tags": [
@@ -544,6 +550,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DebitMemoReqItemPartner",
         "summary": "Reads the item partners of a specific item and with a specific partner function in a specific debit memo request.",
         "description": "Reads the item partners with a specific partner function of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID, item number, and partner function.",
         "tags": [
@@ -580,6 +587,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_DebitMemoReqItemPartner",
         "summary": "Updates the item partners of a specific item and with a specific partner function in a specific debit memo request.",
         "description": "Updates the item partners with a specific partner function of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID, item number, and partner function.",
         "tags": [
@@ -612,6 +620,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_DebitMemoReqItemPartner",
         "summary": "Deletes the item partners of a specific item and with a specific partner function in a specific debit memo request.",
         "description": "Deletes the item partners with a specific partner function of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID, item number, and partner function.",
         "tags": [
@@ -662,6 +671,7 @@
         }
       ],
       "get": {
+        "operationId": "getDebitMemoRequestOfA_DebitMemoReqItemPartner",
         "summary": "Reads the debit memo request header for a specific partner function of a debit memo request item.",
         "description": "Reads the debit memo request header data for a specific item partner function. Consumers must pass the following key fields: debit memo request ID, item number, and partner function.",
         "tags": [
@@ -734,6 +744,7 @@
         }
       ],
       "get": {
+        "operationId": "getDebitMemoRequestItemOfA_DebitMemoReqItemPartner",
         "summary": "Reads the debit memo request item for a specific partner function of a debit memo request item.",
         "description": "Reads the debit memo request item data for a specific item partner function. Consumers must pass the following key fields: debit memo request ID, item number, and partner function.",
         "tags": [
@@ -773,6 +784,7 @@
     },
     "/A_DebitMemoReqItemPrcgElmnt": {
       "get": {
+        "operationId": "listA_DebitMemoReqItemPrcgElmnts",
         "summary": "Reads the item pricing elements of all debit memo requests.",
         "description": "Reads the pricing element data from the items of all debit memo requests in the system.",
         "tags": [
@@ -885,6 +897,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DebitMemoReqItemPrcgElmnt",
         "summary": "Reads the item pricing element of a specific item and with specific pricing details in a specific debit memo request.",
         "description": "Reads an item pricing element of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -921,6 +934,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_DebitMemoReqItemPrcgElmnt",
         "summary": "Updates an item pricing element.",
         "description": "Updates an item pricing element of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -953,6 +967,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_DebitMemoReqItemPrcgElmnt",
         "summary": "Deletes an item pricing element.",
         "description": "Deletes an item pricing element of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1012,6 +1027,7 @@
         }
       ],
       "get": {
+        "operationId": "getDebitMemoRequestOfA_DebitMemoReqItemPrcgElmnt",
         "summary": "Reads the debit memo request header for a specific pricing element.",
         "description": "Reads the debit memo request header data for a specific pricing element of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1093,6 +1109,7 @@
         }
       ],
       "get": {
+        "operationId": "getDebitMemoRequestItemOfA_DebitMemoReqItemPrcgElmnt",
         "summary": "Reads the debit memo request item for a specific pricing element.",
         "description": "Reads the debit memo request item data for a specific pricing element of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID, item number, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1132,6 +1149,7 @@
     },
     "/A_DebitMemoReqItemText": {
       "get": {
+        "operationId": "listA_DebitMemoReqItemTexts",
         "summary": "Reads item texts of all debit memo requests.",
         "description": "Reads the text data from the items of all debit memo requests in the system.",
         "tags": [
@@ -1241,6 +1259,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DebitMemoReqItemText",
         "summary": "Reads a specific item text.",
         "description": "Reads a specific item text in a specific language. Consumers must pass the following key fields: debit memo request ID, item number, language, and text ID.",
         "tags": [
@@ -1274,6 +1293,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_DebitMemoReqItemText",
         "summary": "Updates a specific item text.",
         "description": "Updates a specific item text in a specific language. Consumers must pass the following key fields: debit memo request ID, item number, language, and text ID.",
         "tags": [
@@ -1306,6 +1326,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_DebitMemoReqItemText",
         "summary": "Deletes a specific item text.",
         "description": "Deletes a specific item text in a specific language. Consumers must pass the following key fields: debit memo request ID, item number, language, and text ID.",
         "tags": [
@@ -1323,6 +1344,7 @@
     },
     "/A_DebitMemoReqPartner": {
       "get": {
+        "operationId": "listA_DebitMemoReqPartners",
         "summary": "Reads the header partners of all debit memo requests.",
         "description": "Reads the partner data from the headers of all debit memo requests in the system. The data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -1391,6 +1413,7 @@
         }
       },
       "post": {
+        "operationId": "createA_DebitMemoReqPartner",
         "summary": "Creates additional header partner for a specific debit memo request with a specific partner function.",
         "description": "Creates additional header partner with a specific partner function for a specific debit memo request. Consumers must pass the following key fields: debit memo request ID and partner function.",
         "tags": [
@@ -1455,6 +1478,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DebitMemoReqPartner",
         "summary": "Reads the header partners of a specific debit memo request and with a specific partner function.",
         "description": "Reads the data of partners with a specific partner function from the header of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID and partner function.",
         "tags": [
@@ -1491,6 +1515,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_DebitMemoReqPartner",
         "summary": "Updates the header partners of a specific debit memo request with a specific partner function.",
         "description": "Updates the data of partners with a specific partner function from the header of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID and partner function.",
         "tags": [
@@ -1523,6 +1548,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_DebitMemoReqPartner",
         "summary": "Deletes the header partners of a specific debit memo request with a specific partner function.",
         "description": "Deletes the data of partners with a specific partner function from the header of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID and partner function.",
         "tags": [
@@ -1563,6 +1589,7 @@
         }
       ],
       "get": {
+        "operationId": "getDebitMemoRequestOfA_DebitMemoReqPartner",
         "summary": "Reads the debit memo request header for a specific header partner.",
         "description": "Reads the debit memo request header data for a specific header partner function. Consumers must pass the following key fields: partner function and the debit memo request ID.",
         "tags": [
@@ -1602,6 +1629,7 @@
     },
     "/A_DebitMemoReqPrcgElmnt": {
       "get": {
+        "operationId": "listA_DebitMemoReqPrcgElmnts",
         "summary": "Reads the header pricing elements of all debit memo requests.",
         "description": "Reads the pricing element data from the headers of all debit memo requests in the system.",
         "tags": [
@@ -1704,6 +1732,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DebitMemoReqPrcgElmnt",
         "summary": "Reads the header pricing element for a specific debit memo request.",
         "description": "Reads the pricing element data from the header of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1740,6 +1769,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_DebitMemoReqPrcgElmnt",
         "summary": "Updates a header pricing element for a specific debit memo request.",
         "description": "Updates the pricing element data from the header of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1772,6 +1802,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_DebitMemoReqPrcgElmnt",
         "summary": "Deletes a header pricing element for a specific debit memo request.",
         "description": "Deletes the pricing element data from the header of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1821,6 +1852,7 @@
         }
       ],
       "get": {
+        "operationId": "getDebitMemoRequestOfA_DebitMemoReqPrcgElmnt",
         "summary": "Reads the debit memo request header for a specific pricing element.",
         "description": "Reads the debit memo request header data for a specific pricing element. Consumers must pass the following key fields: debit memo request ID, pricing procedure step, and pricing procedure counter.",
         "tags": [
@@ -1860,6 +1892,7 @@
     },
     "/A_DebitMemoReqSubsqntProcFlow": {
       "get": {
+        "operationId": "listA_DebitMemoReqSubsqntProcFlows",
         "summary": "Reads the subsequent documents of all debit memo requests.",
         "description": "Reads the process flow data for all debit memo requests and their subsequent documents in the system.",
         "tags": [
@@ -1952,6 +1985,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DebitMemoReqSubsqntProcFlow",
         "summary": "Reads a subsequent document of a debit memo request.",
         "description": "Reads the process flow data of a specific subsequent document of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID and subsequent document ID.",
         "tags": [
@@ -2012,6 +2046,7 @@
         }
       ],
       "get": {
+        "operationId": "getDebitMemoRequestOfA_DebitMemoReqSubsqntProcFlow",
         "summary": "Reads the debit memo request header data for a subsequent document of a debit memo request.",
         "description": "Read the debit memo request header data for a subsequent document of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID and subsequent document ID.",
         "tags": [
@@ -2051,6 +2086,7 @@
     },
     "/A_DebitMemoReqText": {
       "get": {
+        "operationId": "listA_DebitMemoReqTexts",
         "summary": "Reads the header texts of all debit memo requests.",
         "description": "Reads the text data from the headers of all debit memo requests in the system.",
         "tags": [
@@ -2150,6 +2186,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DebitMemoReqText",
         "summary": "Reads a specific header text for a specific debit memo request.",
         "description": "Reads the text data from the header of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID, language, and text ID.",
         "tags": [
@@ -2183,6 +2220,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_DebitMemoReqText",
         "summary": "Updates a specific header text for a specific debit memo request.",
         "description": "Updates the text data from the header of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID, language, and text ID.",
         "tags": [
@@ -2215,6 +2253,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_DebitMemoReqText",
         "summary": "Deletes a specific header text for a specific debit memo request.",
         "description": "Deletes the text data from the header of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID, language, and text ID.",
         "tags": [
@@ -2232,6 +2271,7 @@
     },
     "/A_DebitMemoRequest": {
       "get": {
+        "operationId": "listA_DebitMemoRequests",
         "summary": "Reads all debit memo request headers.",
         "description": "Reads the header data of all debit memo requests in the system.",
         "tags": [
@@ -2300,6 +2340,7 @@
         }
       },
       "post": {
+        "operationId": "createA_DebitMemoRequest",
         "summary": "Creates a debit memo request.",
         "description": "Creates a debit memo request header using deep insert requests. This means consumers can create a debit memo request with all possible sub-entities (for example, header partners or items).",
         "tags": [
@@ -2353,6 +2394,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DebitMemoRequest",
         "summary": "Reads the header of a specific debit memo request.",
         "description": "Reads the header data of a specific debit memo request. Consumers must pass the debit memo request ID (key field).",
         "tags": [
@@ -2389,6 +2431,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_DebitMemoRequest",
         "summary": "Updates a specific debit memo request.",
         "description": "Updates the header data of a specific debit memo request. Consumers must pass the debit memo request ID (key field).",
         "tags": [
@@ -2421,6 +2464,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_DebitMemoRequest",
         "summary": "Deletes a specific debit memo request.",
         "description": "Deletes the header data of a specific debit memo request. Consumers must pass the debit memo request ID (key field).",
         "tags": [
@@ -2450,6 +2494,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemsOfA_DebitMemoRequest",
         "summary": "Reads all items of a specific debit memo request.",
         "description": "Reads all item data of a specific debit memo request. Consumers must pass the debit memo request ID (key field).",
         "tags": [
@@ -2519,6 +2564,7 @@
         }
       },
       "post": {
+        "operationId": "createItemOfA_DebitMemoRequest",
         "summary": "Creates a debit memo request item for a specific debit memo request.",
         "description": "Creates a debit memo request item for a specific debit memo request using deep insert requests. This means consumers can create an item with all possible sub-entities (for example, item partners or item texts).",
         "tags": [
@@ -2573,6 +2619,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_DebitMemoRequest",
         "summary": "Reads the header partners of a specific debit memo request.",
         "description": "Reads the business partner data from the header of a specific debit memo request. Consumers must pass the debit memo request ID (key field). The data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -2642,6 +2689,7 @@
         }
       },
       "post": {
+        "operationId": "createPartnerOfA_DebitMemoRequest",
         "summary": "Creates a header partner for a debit memo request.",
         "description": "Creates the partner data for a specific debit memo request header. Consumers must pass the debit memo request ID (key field). The data is relevant for all items for which no item-specific partners are maintained.",
         "tags": [
@@ -2696,6 +2744,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_DebitMemoRequest",
         "summary": "Reads the header pricing element of a specific debit memo request.",
         "description": "Reads the pricing element data from the header of a specific debit memo request. Consumers must pass the debit memo request ID (key field).",
         "tags": [
@@ -2779,6 +2828,7 @@
         }
       ],
       "get": {
+        "operationId": "listSubsequentProcFlowDocsOfA_DebitMemoRequest",
         "summary": "Reads the subsequent document data of a debit memo request.",
         "description": "Reads the process flow data for a specific debit memo request and its subsequent documents. Consumers must pass the debit memo request ID (key field).",
         "tags": [
@@ -2862,6 +2912,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_DebitMemoRequest",
         "summary": "Reads the debit memo request header for a specific header text.",
         "description": "Reads the debit memo request header data for a specific header text. Consumers must pass the following key fields: debit memo request ID, language, and text ID.",
         "tags": [
@@ -2930,6 +2981,7 @@
     },
     "/A_DebitMemoRequestItem": {
       "get": {
+        "operationId": "listA_DebitMemoRequestItems",
         "summary": "Reads all debit memo request items.",
         "description": "Reads the item data of all debit memo requests in the system.",
         "tags": [
@@ -2998,6 +3050,7 @@
         }
       },
       "post": {
+        "operationId": "createA_DebitMemoRequestItem",
         "summary": "Creates a debit memo request item.",
         "description": "Creates a debit memo request item using deep insert requests. This means consumers can create an item with all possible sub-entities (for example, item partners or item texts).",
         "tags": [
@@ -3061,6 +3114,7 @@
         }
       ],
       "get": {
+        "operationId": "getA_DebitMemoRequestItem",
         "summary": "Reads a specific debit memo request item.",
         "description": "Reads the data of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID and item number.",
         "tags": [
@@ -3097,6 +3151,7 @@
         }
       },
       "patch": {
+        "operationId": "patchA_DebitMemoRequestItem",
         "summary": "Updates a specific debit memo request item.",
         "description": "Updates the data of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID and item number.",
         "tags": [
@@ -3129,6 +3184,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteA_DebitMemoRequestItem",
         "summary": "Deletes a specific debit memo request item.",
         "description": "Deletes the data of a specific debit memo request item. Consumers must pass the following key fields: debit memo request ID and item number.",
         "tags": [
@@ -3168,6 +3224,7 @@
         }
       ],
       "get": {
+        "operationId": "getDebitMemoRequestOfA_DebitMemoRequestItem",
         "summary": "Reads the debit memo request header for a specific item.",
         "description": "Reads the debit memo request header data for a specific item. Consumers must pass the following key fields: debit memo request ID and item number.",
         "tags": [
@@ -3229,6 +3286,7 @@
         }
       ],
       "get": {
+        "operationId": "listItemSubsqntProcFlowsOfA_DebitMemoRequestItem",
         "summary": "Reads the subsequent items of specified debit memo request items.",
         "description": "Reads the process flow data of specific subsequent items of specific debit memo request items. Consumers must pass the following key fields: debit memo request ID, debit memo request item ID",
         "tags": [
@@ -3322,6 +3380,7 @@
         }
       ],
       "get": {
+        "operationId": "listPartnersOfA_DebitMemoRequestItem",
         "summary": "Reads the item partners of a specific debit memo request item.",
         "description": "Reads the partner data for a specific item of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID and item number.",
         "tags": [
@@ -3391,6 +3450,7 @@
         }
       },
       "post": {
+        "operationId": "createPartnerOfA_DebitMemoRequestItem",
         "summary": "Creates an item partner for a debit memo request item.",
         "description": "Creates the partner data for a specific item of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID and item number.",
         "tags": [
@@ -3455,6 +3515,7 @@
         }
       ],
       "get": {
+        "operationId": "listPricingElementsOfA_DebitMemoRequestItem",
         "summary": "Reads the pricing element of a specific debit memo request item.",
         "description": "Reads the pricing element data for a specific item of a specific debit memo request. Consumers must pass the following key fields: debit memo request ID and item number.",
         "tags": [
@@ -3548,6 +3609,7 @@
         }
       ],
       "get": {
+        "operationId": "listTextsOfA_DebitMemoRequestItem",
         "summary": "Reads the text of a specific debit memo request item.",
         "description": "Reads the text data for a specific item. Consumers must pass the following key fields: debit memo request item ID and item number.",
         "tags": [
@@ -3616,6 +3678,7 @@
     },
     "/$batch": {
       "post": {
+        "operationId": "performBatchOperation",
         "summary": "Send a group of requests",
         "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
         "tags": [
