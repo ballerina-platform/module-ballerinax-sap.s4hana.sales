@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
 ## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
@@ -25,6 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
 
 ## [2.0.0] - 2026-04-22
 
@@ -40,6 +44,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
 ## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
@@ -53,6 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
 
 ## [2.0.0] - 2026-04-22
 
@@ -68,6 +76,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
 ## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
@@ -81,6 +91,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
 
 ## [2.0.0] - 2026-04-22
 
@@ -96,6 +108,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
 ## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
@@ -109,6 +123,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
 
 ## [2.0.0] - 2026-04-22
 
@@ -124,6 +140,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
 ## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
@@ -137,6 +155,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
 
 ## [2.0.0] - 2026-04-22
 
@@ -157,6 +177,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Declared all API types at the package root, so `import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv.oas` is no longer needed to use the client. The `oas` submodule remains exported for backward compatibility
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
 
 ## [0.1.0] - 2026-08-04
 

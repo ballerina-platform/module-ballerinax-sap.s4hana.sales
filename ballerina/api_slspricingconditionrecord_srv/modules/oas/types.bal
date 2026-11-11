@@ -207,7 +207,7 @@ public type ConnectionConfig record {|
     # Configurations related to HTTP/2 protocol
     http:ClientHttp2Settings http2Settings = {};
     # The maximum time to wait (in seconds) for a response before closing the connection
-    decimal timeout = 30;
+    decimal timeout = 60;
     # The choice of setting `forwarded`/`x-forwarded` header
     string forwarded = "disable";
     # Configurations associated with Redirection
@@ -234,7 +234,7 @@ public type ConnectionConfig record {|
     http:ClientSocketConfig socketConfig = {};
     # Enables the inbound payload validation functionality which provided by the constraint package. Enabled by default
     boolean validation = true;
-    # Enables relaxed data binding on the client side. When enabled, `nil` values are treated as optional, 
+    # Enables relaxed data binding on the client side. When enabled, `nil` values are treated as optional,
     # and absent fields are handled as `nilable` types. Enabled by default.
     boolean laxDataBinding = true;
 |};
