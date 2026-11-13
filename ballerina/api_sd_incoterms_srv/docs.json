@@ -8,6 +8,10 @@
     "Operations for querying incoterm master data"
   ],
   "communication-scenario": "Sales Master Data Integration",
+  "communication-scenario-id": "SAP_COM_0746",
+  "scenario-search-image": "s4-3-search-scenario-sap-com-0746.png",
+  "new-arrangement-image": "s4-4-new-arrangement-sap-com-0746.png",
+  "arrangement-details-image": "s4-5-arrangement-details-sap-com-0746.png",
   "import-statement": "import ballerinax/sap.s4hana.api_sd_incoterms_srv as incoterms;",
   "client-init": "incoterms:Client incotermsClient = check new (",
   "api-invocation": "incoterms:CollectionOfA_IncotermsClassificationWrapper listIncoTerms = check incotermsClient->listA_IncotermsClassifications();"
