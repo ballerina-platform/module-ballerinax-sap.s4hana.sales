@@ -1,7 +1,8 @@
 ## Overview
 
-[S/4HANA](https://www.sap.com/india/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
-designed for large-scale enterprises by SAP SE.
+[SAP S/4HANA](https://www.sap.com/products/erp/s4hana.html) is a robust enterprise resource planning (ERP) solution,
+designed for large-scale enterprises by SAP SE. It covers core business processes such as finance, procurement, sales,
+and materials management, including sales and distribution.
 
 The SAP S/4HANA Sales connector provides APIs that enable seamless integration with the [Incoterm - Read (A2X) v1.0.0](https://api.sap.com/api/API_SD_INCOTERMS_SRV/overview). The service allows users to read incoterms defined in the system.
 
@@ -14,31 +15,70 @@ The SAP S/4HANA Sales connector provides APIs that enable seamless integration w
 
 ## Setup guide
 
-1. Sign in to your S/4HANA dashboard.
+This connector uses **Basic Authentication** with an SAP S/4HANA Cloud communication user. Each S/4HANA API is
+exposed through a communication scenario, so the user must be assigned to a communication arrangement for the
+**Sales Master Data Integration (`SAP_COM_0746`)** scenario before the connector can call it.
 
-2. Under the `Communication Management` section, click on the `Display Communications Scenario` title.
+All the apps used below are in the **Communication Management** group of the SAP Fiori launchpad.
 
-   ![Display Scenarios](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-1-display-scenarios.png)
+![Communication Management apps](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-1-display-scenarios.png)
 
-3. In the search bar, type `Sales Master Data Integration` and select the corresponding scenario from the results.
+### Step 1: Create a communication user
 
-   ![Search Sales Order](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-2-search-sales-order.png)
+1. Sign in to your SAP S/4HANA Cloud system as an administrator.
+2. Open the **Maintain Communication Users** app and choose **New**.
+3. Enter a user name and a description, set a password, and choose **Create**.
 
-4. In the top right corner of the screen, click on `Create Communication Arrangement`.
+Note the user name and password. These are the credentials the connector uses.
 
-   ![Click Create Arrangement](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-3-click-create-arrangement.png)
+### Step 2: Create a communication system
 
-5. Enter a unique name for the arrangement.
+1. Open the **Communication Systems** app and choose **New**.
+2. Enter a system ID and a system name, and choose **Create**.
 
-   ![Give Arrangement Name](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-4-give-arrangement-name.png)
+   ![Create a communication system](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/main/docs/setup/s4-1-communication-system.png)
 
-6. Choose an existing `Communication System` from the dropdown menu and save your arrangement.
+3. Under **General** > **Technical Data**, enter a host name and a **Logical System** (an uppercase ID of up to
+   10 characters, for example, `INTEGRATOR`). Some scenarios refuse to activate when the logical system is empty.
+4. Under **Users for Inbound Communication**, add the communication user from Step 1 with the
+   **User Name and Password** authentication method.
 
-   ![Select Existing Communication Arrangement](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-5-select-communication-system.png)
+   ![Add the communication user for inbound communication](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/main/docs/setup/s4-2-communication-system-users.png)
 
-7. The hostname (`<unique id>-api.s4hana.cloud.sap`) will be displayed in the top right corner of the screen.
+5. Choose **Save**.
 
-   ![View Hostname](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-6-view-hostname.png)
+### Step 3: Create a communication arrangement
+
+1. Open the **Communication Arrangements** app and choose **New**.
+2. In the **Scenario** value help, search for **Sales Master Data Integration** and select **`SAP_COM_0746`**.
+   This is the scenario that exposes `API_SD_INCOTERMS_SRV`, the service this connector calls.
+
+   ![Search for the communication scenario](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/main/docs/setup/s4-3-search-scenario-sap-com-0746.png)
+
+3. Enter a unique name for the arrangement and choose **Create**.
+
+   ![Name the communication arrangement](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/main/docs/setup/s4-4-new-arrangement-sap-com-0746.png)
+
+4. Select the communication system from Step 2. The communication user from Step 1 is filled in as the inbound user.
+   If the scenario lists outbound services that the integration does not need, clear their **Active** check boxes so
+   that no outbound user is required.
+
+   ![Communication arrangement details](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap.s4hana.sales/main/docs/setup/s4-5-arrangement-details-sap-com-0746.png)
+
+5. Choose **Save**.
+
+### Step 4: Note the hostname
+
+Open the saved arrangement. The **API-URL** next to **Own SAP Cloud System** shows the hostname
+(`<unique id>-api.s4hana.cloud.sap`).
+
+![View Hostname](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap/main/docs/setup/3-6-view-hostname.png)
+
+You now have everything the connector needs:
+
+- **hostname** - the API hostname, for example, `my123456-api.s4hana.cloud.sap`
+- **username** - the communication user name
+- **password** - the communication user password
 
 ## Quickstart
 
@@ -54,7 +94,7 @@ import ballerinax/sap.s4hana.api_sd_incoterms_srv as incoterms;
 
 ### Step 2: Instantiate a new connector
 
-Use the hostname and credentials to initiate a client
+Use the hostname and credentials to initiate a client.
 
 ```ballerina
 configurable string hostname = ?;

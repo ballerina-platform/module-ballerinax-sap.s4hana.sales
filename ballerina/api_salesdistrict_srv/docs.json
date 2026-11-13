@@ -8,6 +8,7 @@
     "Support for basic and OAuth 2.0 authentication"
   ],
   "communication-scenario": "SAP Analytics Cloud for Planning Integration",
+  "communication-scenario-id": "SAP_COM_0087",
   "import-statement": "import ballerinax/sap.s4hana.api_salesdistrict_srv as salesdistrict;",
   "client-init": "salesdistrict:Client salesDistrictClient = check new (",
   "api-invocation": "salesdistrict:CollectionOfA_SalesDistrictWrapper listASalesDistricts = check salesDistrictClient->listA_SalesDistricts();"

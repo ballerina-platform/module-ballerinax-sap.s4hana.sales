@@ -8,6 +8,7 @@
     "Operations for querying sales organization data"
   ],
   "communication-scenario": "SAP Analytics Cloud for Planning Integration",
+  "communication-scenario-id": "SAP_COM_0087",
   "import-statement": "import ballerinax/sap.s4hana.api_salesorganization_srv as salesorg;",
   "client-init": "salesorg:Client salesOrgClient = check new (",
   "api-invocation": "salesorg:CollectionOfA_SalesOrganizationWrapper listASalesOrganization = check salesOrgClient->listA_SalesOrganizations();"
