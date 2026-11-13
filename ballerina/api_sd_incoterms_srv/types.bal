@@ -316,3 +316,19 @@ public type A_IncotermsClassification_to_IncotermsClassificationText record {
 public type A_IncotermsClassificationWrapper record {
     A_IncotermsClassification d?;
 };
+
+# Proxy server configurations to be used with the HTTP client endpoint.
+#
+# # Deprecated
+# `ConnectionConfig` now takes `http:ProxyConfig`, which has the same fields. This alias is kept so that existing code
+# compiles, and will be removed in a future major release. Use `http:ProxyConfig` instead.
+@deprecated
+public type ProxyConfig http:ProxyConfig;
+
+# Provides settings related to HTTP/1.x protocol.
+#
+# # Deprecated
+# `ConnectionConfig` now takes `http:ClientHttp1Settings`, which has the same fields. This alias is kept so that existing
+# code compiles, and will be removed in a future major release. Use `http:ClientHttp1Settings` instead.
+@deprecated
+public type ClientHttp1Settings http:ClientHttp1Settings;

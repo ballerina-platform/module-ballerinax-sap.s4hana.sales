@@ -2567,3 +2567,19 @@ public type CollectionOfA_SalesQuotationText record {
 };
 
 public type SalesQuotationOfA_SlsQtanPrecdgProcFlowSelectOptions ("SalesQuotation"|"SalesQuotationType"|"SalesOrganization"|"DistributionChannel"|"OrganizationDivision"|"SalesGroup"|"SalesOffice"|"SalesDistrict"|"SoldToParty"|"CreationDate"|"CreatedByUser"|"LastChangeDate"|"LastChangeDateTime"|"PurchaseOrderByCustomer"|"CustomerPurchaseOrderType"|"CustomerPurchaseOrderDate"|"SalesQuotationDate"|"TotalNetAmount"|"TransactionCurrency"|"SDDocumentReason"|"PricingDate"|"RequestedDeliveryDate"|"ShippingCondition"|"CompleteDeliveryIsDefined"|"ShippingType"|"HeaderBillingBlockReason"|"DeliveryBlockReason"|"BindingPeriodValidityStartDate"|"BindingPeriodValidityEndDate"|"HdrOrderProbabilityInPercent"|"ExpectedOrderNetAmount"|"IncotermsClassification"|"IncotermsTransferLocation"|"IncotermsLocation1"|"IncotermsLocation2"|"IncotermsVersion"|"CustomerPaymentTerms"|"CustomerPriceGroup"|"PriceListType"|"PaymentMethod"|"CustomerTaxClassification1"|"CustomerTaxClassification2"|"CustomerTaxClassification3"|"CustomerTaxClassification4"|"CustomerTaxClassification5"|"CustomerTaxClassification6"|"CustomerTaxClassification7"|"CustomerTaxClassification8"|"CustomerTaxClassification9"|"ReferenceSDDocument"|"ReferenceSDDocumentCategory"|"SalesQuotationApprovalReason"|"SalesDocApprovalStatus"|"OverallSDProcessStatus"|"TotalCreditCheckStatus"|"OverallSDDocumentRejectionSts"|"to_Item"|"to_Partner"|"to_PrecedingProcFlowDoc"|"to_PricingElement"|"to_RelatedObject"|"to_SubsequentProcFlowDoc"|"to_Text")[];
+
+# Proxy server configurations to be used with the HTTP client endpoint.
+#
+# # Deprecated
+# `ConnectionConfig` now takes `http:ProxyConfig`, which has the same fields. This alias is kept so that existing code
+# compiles, and will be removed in a future major release. Use `http:ProxyConfig` instead.
+@deprecated
+public type ProxyConfig http:ProxyConfig;
+
+# Provides settings related to HTTP/1.x protocol.
+#
+# # Deprecated
+# `ConnectionConfig` now takes `http:ClientHttp1Settings`, which has the same fields. This alias is kept so that existing
+# code compiles, and will be removed in a future major release. Use `http:ClientHttp1Settings` instead.
+@deprecated
+public type ClientHttp1Settings http:ClientHttp1Settings;

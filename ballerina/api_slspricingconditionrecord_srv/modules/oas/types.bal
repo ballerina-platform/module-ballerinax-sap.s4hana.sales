@@ -2234,3 +2234,19 @@ public type GetA_SlsPrcgCndnRecordScaleQueries record {
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     A_SlsPrcgCndnRecordScaleSelectOptions \$select?;
 };
+
+# Proxy server configurations to be used with the HTTP client endpoint.
+#
+# # Deprecated
+# `ConnectionConfig` now takes `http:ProxyConfig`, which has the same fields. This alias is kept so that existing code
+# compiles, and will be removed in a future major release. Use `http:ProxyConfig` instead.
+@deprecated
+public type ProxyConfig http:ProxyConfig;
+
+# Provides settings related to HTTP/1.x protocol.
+#
+# # Deprecated
+# `ConnectionConfig` now takes `http:ClientHttp1Settings`, which has the same fields. This alias is kept so that existing
+# code compiles, and will be removed in a future major release. Use `http:ClientHttp1Settings` instead.
+@deprecated
+public type ClientHttp1Settings http:ClientHttp1Settings;
