@@ -49,9 +49,14 @@ task updateDocumentationFiles {
 
             def newReadmeMdFile = readmeMdPlaceholder.text
             newReadmeMdFile = newReadmeMdFile.replace("@package-name@", "sap.s4hana.${dir}")
+            newReadmeMdFile = newReadmeMdFile.replace("@service-name@", dir.toUpperCase())
             newReadmeMdFile = newReadmeMdFile.replace("@description@", parsedJson.description)
             newReadmeMdFile = newReadmeMdFile.replace("@key-features@", parsedJson."key-features".collect { "- ${it}" }.join("\n"))
             newReadmeMdFile = newReadmeMdFile.replace("@communication-scenario@", parsedJson."communication-scenario")
+            newReadmeMdFile = newReadmeMdFile.replace("@communication-scenario-id@", parsedJson."communication-scenario-id")
+            newReadmeMdFile = newReadmeMdFile.replace("@scenario-search-image@", parsedJson."scenario-search-image" ?: "s4-3-search-scenario.png")
+            newReadmeMdFile = newReadmeMdFile.replace("@new-arrangement-image@", parsedJson."new-arrangement-image" ?: "s4-4-new-arrangement.png")
+            newReadmeMdFile = newReadmeMdFile.replace("@arrangement-details-image@", parsedJson."arrangement-details-image" ?: "s4-5-arrangement-details.png")
             newReadmeMdFile = newReadmeMdFile.replace("@import-statement@", parsedJson."import-statement")
             newReadmeMdFile = newReadmeMdFile.replace("@client-init@", parsedJson."client-init")
             newReadmeMdFile = newReadmeMdFile.replace("@api-invocation@", parsedJson."api-invocation")
