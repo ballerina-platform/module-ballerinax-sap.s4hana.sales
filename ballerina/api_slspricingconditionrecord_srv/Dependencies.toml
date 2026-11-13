@@ -376,7 +376,7 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "sap.s4hana.api_slspricingconditionrecord_srv"
-version = "0.3.0"
+version = "0.4.0"
 dependencies = [
 	{org = "ballerina", name = "constraint"},
 	{org = "ballerina", name = "data.jsondata"},
