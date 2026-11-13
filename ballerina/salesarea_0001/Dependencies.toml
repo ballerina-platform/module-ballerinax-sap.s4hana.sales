@@ -364,7 +364,7 @@ modules = [
 [[package]]
 org = "ballerinax"
 name = "sap.s4hana.salesarea_0001"
-version = "2.1.0"
+version = "2.2.0"
 dependencies = [
 	{org = "ballerina", name = "constraint"},
 	{org = "ballerina", name = "http"},
