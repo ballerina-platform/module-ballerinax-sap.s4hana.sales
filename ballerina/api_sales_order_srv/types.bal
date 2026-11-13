@@ -536,15 +536,6 @@ public type ListA_SalesOrderBillingPlansQueries record {
 
 public type BillingPlanItemOfA_SalesOrderItemBillingPlanOrderByOptions ("SalesOrder"|"SalesOrder desc"|"SalesOrderItem"|"SalesOrderItem desc"|"BillingPlan"|"BillingPlan desc"|"BillingPlanItem"|"BillingPlanItem desc"|"BillingPlanDateCategory"|"BillingPlanDateCategory desc"|"BillingPlanBillingDate"|"BillingPlanBillingDate desc"|"BillingPlanAmount"|"BillingPlanAmount desc"|"TransactionCurrency"|"TransactionCurrency desc"|"BillingPlanAmountPercent"|"BillingPlanAmountPercent desc"|"CustomerPaymentTerms"|"CustomerPaymentTerms desc"|"ProposedBillingDocumentType"|"ProposedBillingDocumentType desc"|"BillingPlanDateDescriptionCode"|"BillingPlanDateDescriptionCode desc"|"BillingBlockReason"|"BillingBlockReason desc"|"BillingPlanServiceStartDate"|"BillingPlanServiceStartDate desc"|"BillingPlanServiceEndDate"|"BillingPlanServiceEndDate desc"|"BillingPlanRelatedBillgStatus"|"BillingPlanRelatedBillgStatus desc"|"BillingPlanType"|"BillingPlanType desc"|"AdoptingBillingDateID"|"AdoptingBillingDateID desc"|"BillingPlanBillingRule"|"BillingPlanBillingRule desc"|"BillingPlanMilestoneUsage"|"BillingPlanMilestoneUsage desc"|"BillgPlnDteCorrectionRfndType"|"BillgPlnDteCorrectionRfndType desc"|"AccountingExchangeRate"|"AccountingExchangeRate desc"|"PostponementReason"|"PostponementReason desc")[];
 
-# Provides settings related to HTTP/1.x protocol.
-public type ClientHttp1Settings record {|
-    # Specifies whether to reuse a connection for multiple requests
-    http:KeepAlive keepAlive = http:KEEPALIVE_AUTO;
-    # The chunking behaviour of the request
-    http:Chunking chunking = http:CHUNKING_AUTO;
-    # Proxy server related options
-    ProxyConfig proxy?;
-|};
 
 public type A_SalesOrderPrecdgProcFlowExpandOptions ("to_SalesOrder")[];
 
@@ -2604,31 +2595,40 @@ public type ConnectionConfig record {|
     # The HTTP version understood by the client
     http:HttpVersion httpVersion = http:HTTP_2_0;
     # Configurations related to HTTP/1.x protocol
-    ClientHttp1Settings http1Settings?;
+    http:ClientHttp1Settings http1Settings = {};
     # Configurations related to HTTP/2 protocol
-    http:ClientHttp2Settings http2Settings?;
+    http:ClientHttp2Settings http2Settings = {};
     # The maximum time to wait (in seconds) for a response before closing the connection
     decimal timeout = 60;
     # The choice of setting `forwarded`/`x-forwarded` header
     string forwarded = "disable";
+    # Configurations associated with Redirection
+    http:FollowRedirects followRedirects?;
     # Configurations associated with request pooling
     http:PoolConfiguration poolConfig?;
     # HTTP caching related configurations
-    http:CacheConfig cache?;
+    http:CacheConfig cache = {};
     # Specifies the way of handling compression (`accept-encoding`) header
     http:Compression compression = http:COMPRESSION_AUTO;
     # Configurations associated with the behaviour of the Circuit Breaker
     http:CircuitBreakerConfig circuitBreaker?;
     # Configurations associated with retrying
     http:RetryConfig retryConfig?;
+    # Configurations associated with cookies
+    http:CookieConfig cookieConfig?;
     # Configurations associated with inbound response size limits
-    http:ResponseLimitConfigs responseLimits?;
+    http:ResponseLimitConfigs responseLimits = {};
     # SSL/TLS-related options
     http:ClientSecureSocket secureSocket?;
     # Proxy server related options
     http:ProxyConfig proxy?;
+    # Provides settings related to client socket configuration
+    http:ClientSocketConfig socketConfig = {};
     # Enables the inbound payload validation functionality which provided by the constraint package. Enabled by default
     boolean validation = true;
+    # Enables relaxed data binding on the client side. When enabled, `nil` values are treated as optional,
+    # and absent fields are handled as `nilable` types. Enabled by default.
+    boolean laxDataBinding = true;
 |};
 
 public type CreateA_SlsOrderItemBillingPlanItem record {
@@ -4388,18 +4388,6 @@ public type GetSalesOrderItemOfA_SalesOrderItemPartnerAddressQueries record {
     SalesOrderItemOfA_SalesOrderItemPartnerAddressSelectOptions \$select?;
 };
 
-# Proxy server configurations to be used with the HTTP client endpoint.
-public type ProxyConfig record {|
-    # Host name of the proxy server
-    string host = "";
-    # Proxy server port
-    int port = 0;
-    # Proxy server username
-    string userName = "";
-    # Proxy server password
-    @display {label: "", kind: "password"}
-    string password = "";
-|};
 
 public type A_SalesOrder_to_RelatedObject record {
     A_SalesOrderRelatedObject[] results?;
@@ -4447,3 +4435,19 @@ public type GetSalesOrderOfA_SalesOrderRelatedObjectQueries record {
 };
 
 public type ScheduleLineOfA_SalesOrderItemSelectOptions ("SalesOrder"|"SalesOrderItem"|"ScheduleLine"|"RequestedDeliveryDate"|"ConfirmedDeliveryDate"|"OrderQuantityUnit"|"OrderQuantitySAPUnit"|"OrderQuantityISOUnit"|"ScheduleLineOrderQuantity"|"ConfdOrderQtyByMatlAvailCheck"|"DeliveredQtyInOrderQtyUnit"|"OpenConfdDelivQtyInOrdQtyUnit"|"CorrectedQtyInOrderQtyUnit"|"DelivBlockReasonForSchedLine")[];
+
+# Proxy server configurations to be used with the HTTP client endpoint.
+#
+# # Deprecated
+# `ConnectionConfig` now takes `http:ProxyConfig`, which has the same fields. This alias is kept so that existing code
+# compiles, and will be removed in a future major release. Use `http:ProxyConfig` instead.
+@deprecated
+public type ProxyConfig http:ProxyConfig;
+
+# Provides settings related to HTTP/1.x protocol.
+#
+# # Deprecated
+# `ConnectionConfig` now takes `http:ClientHttp1Settings`, which has the same fields. This alias is kept so that existing
+# code compiles, and will be removed in a future major release. Use `http:ClientHttp1Settings` instead.
+@deprecated
+public type ClientHttp1Settings http:ClientHttp1Settings;

@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
+
 ## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
@@ -25,6 +31,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
 
 ## [2.0.0] - 2026-04-22
 
@@ -40,6 +52,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
+
 ## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
@@ -53,6 +71,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
 
 ## [2.0.0] - 2026-04-22
 
@@ -68,6 +92,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
+
 ## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
@@ -81,6 +111,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
 
 ## [2.0.0] - 2026-04-22
 
@@ -96,6 +132,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
+
 ## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
@@ -109,6 +151,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
 
 ## [2.0.0] - 2026-04-22
 
@@ -124,6 +172,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
+
 ## [2.0.0] - 2026-04-22
 
 - Moved to 2201.12.0 distribution
@@ -137,6 +191,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
 
 ## [2.0.0] - 2026-04-22
 
@@ -157,8 +217,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Declared all API types at the package root, so `import ballerinax/sap.s4hana.api_slspricingconditionrecord_srv.oas` is no longer needed to use the client. The `oas` submodule remains exported for backward compatibility
+- Moved the client to the `ballerinax/sap` 1.4.0 `ConnectionConfig`
+
+### Deprecated
+
+- `ProxyConfig` and `ClientHttp1Settings` are now deprecated aliases of `http:ProxyConfig` and `http:ClientHttp1Settings`, which `ConnectionConfig` uses. Use the `http` types instead
 
 ## [0.1.0] - 2026-08-04
 
 - Added Initial client implementation
 - Added `$batch` support, with the generated client kept in an `oas` submodule
+
+## sap.s4hana.api_credit_memo_request_srv
+
+## [Unreleased]
+
+### Added
+
+- Added Initial client implementation
+
+## sap.s4hana.api_debit_memo_request_srv
+
+## [Unreleased]
+
+### Added
+
+- Added Initial client implementation
+
+## sap.s4hana.api_billing_document_srv
+
+## [Unreleased]
+
+### Added
+
+- Added Initial client implementation
+
+## sap.s4hana.api_customer_return_srv
+
+## [Unreleased]
+
+### Added
+
+- Added Initial client implementation

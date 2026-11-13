@@ -57,6 +57,24 @@ This repository encompasses all Ballerina packages pertaining to the S/4HANA sal
     The service allows to create, read, update, and delete condition records inside condition record, validity of
     condition record, pricing scale, and condition supplement.
 
+12. The `ballerinax/sap.s4hana.api_credit_memo_request_srv` package provides APIs that enable seamless integration with
+    the [Credit Memo Request (A2X) API v1.0.0](https://api.sap.com/api/API_CREDIT_MEMO_REQUEST_SRV/overview). The
+    service allows to create, read, update, and delete credit memo requests, including their items, partners, pricing
+    elements, and texts.
+
+13. The `ballerinax/sap.s4hana.api_debit_memo_request_srv` package provides APIs that enable seamless integration with
+    the [Debit Memo Request (A2X) API v1.0.0](https://api.sap.com/api/API_DEBIT_MEMO_REQUEST_SRV/overview). The service
+    allows to create, read, update, and delete debit memo requests, including their items, partners, pricing elements,
+    and texts.
+
+14. The `ballerinax/sap.s4hana.api_billing_document_srv` package provides APIs that enable seamless integration with the
+    [Billing Document - Read, Cancel, GetPDF API v1.1.0](https://api.sap.com/api/API_BILLING_DOCUMENT_SRV/overview). The
+    service allows to read and cancel billing documents and retrieve their PDF versions.
+
+15. The `ballerinax/sap.s4hana.api_customer_return_srv` package provides APIs that enable seamless integration with the
+    [Customer Return (A2X) API v1.1.0](https://api.sap.com/api/API_CUSTOMER_RETURN_SRV/overview). The service allows to
+    create, read, update, and delete returns orders for customer returns.
+
 ## Issues and projects
 
 The **Issues** and **Projects** tabs are disabled for this repository as this is part of the Ballerina library. To
@@ -125,6 +143,10 @@ Execute the commands below to build from the source.
    | api_sales_order_simulation_srv    | ballerinax/sap.s4hana.api_sales_order_simulation_srv    |
    | ce_salesorder_0001                | ballerinax/sap.s4hana.ce_salesorder_0001                |
    | api_slspricingconditionrecord_srv | ballerinax/sap.s4hana.api_slspricingconditionrecord_srv |
+   | api_credit_memo_request_srv       | ballerinax/sap.s4hana.api_credit_memo_request_srv       |
+   | api_debit_memo_request_srv        | ballerinax/sap.s4hana.api_debit_memo_request_srv        |
+   | api_billing_document_srv          | ballerinax/sap.s4hana.api_billing_document_srv          |
+   | api_customer_return_srv           | ballerinax/sap.s4hana.api_customer_return_srv           |
 
 5. To run tests against different environment:
 

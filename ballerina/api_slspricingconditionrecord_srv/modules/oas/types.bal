@@ -207,7 +207,7 @@ public type ConnectionConfig record {|
     # Configurations related to HTTP/2 protocol
     http:ClientHttp2Settings http2Settings = {};
     # The maximum time to wait (in seconds) for a response before closing the connection
-    decimal timeout = 30;
+    decimal timeout = 60;
     # The choice of setting `forwarded`/`x-forwarded` header
     string forwarded = "disable";
     # Configurations associated with Redirection
@@ -234,7 +234,7 @@ public type ConnectionConfig record {|
     http:ClientSocketConfig socketConfig = {};
     # Enables the inbound payload validation functionality which provided by the constraint package. Enabled by default
     boolean validation = true;
-    # Enables relaxed data binding on the client side. When enabled, `nil` values are treated as optional, 
+    # Enables relaxed data binding on the client side. When enabled, `nil` values are treated as optional,
     # and absent fields are handled as `nilable` types. Enabled by default.
     boolean laxDataBinding = true;
 |};
@@ -2234,3 +2234,19 @@ public type GetA_SlsPrcgCndnRecordScaleQueries record {
     # Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)
     A_SlsPrcgCndnRecordScaleSelectOptions \$select?;
 };
+
+# Proxy server configurations to be used with the HTTP client endpoint.
+#
+# # Deprecated
+# `ConnectionConfig` now takes `http:ProxyConfig`, which has the same fields. This alias is kept so that existing code
+# compiles, and will be removed in a future major release. Use `http:ProxyConfig` instead.
+@deprecated
+public type ProxyConfig http:ProxyConfig;
+
+# Provides settings related to HTTP/1.x protocol.
+#
+# # Deprecated
+# `ConnectionConfig` now takes `http:ClientHttp1Settings`, which has the same fields. This alias is kept so that existing
+# code compiles, and will be removed in a future major release. Use `http:ClientHttp1Settings` instead.
+@deprecated
+public type ClientHttp1Settings http:ClientHttp1Settings;

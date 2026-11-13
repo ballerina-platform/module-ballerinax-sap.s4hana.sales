@@ -1,0 +1,4000 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Debit Memo Request (A2X)",
+    "version": "1.0.0",
+    "description": "In every API call, you can make use of the following operations:\n - You can read entire debit memo requests or only parts of the data, using the provided filters.\n - You can create debit memo requests with or without reference to a preceding document. Note that you must use “deep insert” requests (a header plus the following entities: header partner, header pricing element, header text, item, item partner, item pricing element, and item text). You cannot create a debit memo request without including any related entities.\n - For existing debit memo requests, you can create new items. Note that you must use “deep insert” requests (with the following entities: item partner, item pricing element, and item text). You cannot create an item without including any related entities.\n - For existing debit memo requests or debit memo request items, you can add additional business partners at header and item levels.\n - For existing debit memo requests, you can update the following entities (that is, you can change the content of their properties): header, header partner, header pricing element, header text, item, item partner, item pricing element, and item text.\n - For existing debit memo requests, you can delete the header, header partner, header pricing element, header text, item, item partner, item pricing element, and item text.\n - You can accept or deny approval requests for debit memo requests that cannot be processed without the consent of an approver."
+  },
+  "externalDocs": {
+    "description": "Business Documentation",
+    "url": "https://help.sap.com/http.svc/ahp2/SAP_S4HANA_CLOUD/2608.latest/EN/e7/f50d9ea49d49c7a428da494fce2c44/frameset.htm"
+  },
+  "x-sap-api-type": "ODATA",
+  "x-sap-shortText": "Create, read, update, and delete debit memo requests with this synchronous OData API",
+  "x-sap-software-min-version": "2608",
+  "x-sap-ext-overview": [
+    {
+      "name": "Communication Scenario",
+      "values": [
+        {
+          "text": "Debit Memo Request Integration (SAP_COM_0159)",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Scope Items",
+      "values": [
+        {
+          "text": "[Debit Memo Processing (1F1)](https://me.sap.com/processnavigator/SolP/1F1 \" Link To BP \")",
+          "format": "markdown"
+        },
+        {
+          "text": "[Invoice Correction Process with Debit Memo (BDQ)](https://me.sap.com/processnavigator/SolP/BDQ \" Link To BP \")",
+          "format": "markdown"
+        },
+        {
+          "text": "[Invoice Correction Process with Debit Memo (ODQ)](https://me.sap.com/processnavigator/SolP/ODQ \" Link To BP \")",
+          "format": "markdown"
+        },
+        {
+          "text": "[Debit Memo Processing (OF1)](https://me.sap.com/processnavigator/SolP/OF1 \" Link To BP \")",
+          "format": "markdown"
+        }
+      ]
+    },
+    {
+      "name": "Authentication Methods",
+      "values": [
+        {
+          "text": "x509",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Business Object",
+      "values": [
+        {
+          "text": "Debit Memo Request",
+          "format": "plain"
+        }
+      ]
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://{host}:{port}/sap/opu/odata/sap/API_DEBIT_MEMO_REQUEST_SRV",
+      "variables": {
+        "host": {
+          "default": ""
+        },
+        "port": {
+          "default": ""
+        }
+      }
+    },
+    {
+      "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_DEBIT_MEMO_REQUEST_SRV"
+    }
+  ],
+  "x-sap-extensible": {
+    "supported": "manual",
+    "description": "If you are working with key user extensibility, the API can be extended by custom fields on the following business contexts (field usage for this API needs to be selected):\r\n* Sales: Sales Document (SD_SALESDOC)\r\n* Sales: Sales Document Item (SD_SALESDOCITEM)\r\n\r\n[How to add an extension field to an API](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/ce819b8557194ae0aa180ba4ac6a04de.html)"
+  },
+  "tags": [
+    {
+      "name": "Item Subsequent Process Flow"
+    },
+    {
+      "name": "Item Partner"
+    },
+    {
+      "name": "Item Pricing Element"
+    },
+    {
+      "name": "Item Text"
+    },
+    {
+      "name": "Header Partner"
+    },
+    {
+      "name": "Header Pricing Element"
+    },
+    {
+      "name": "Header Subsequent Process Flow"
+    },
+    {
+      "name": "Header Text"
+    },
+    {
+      "name": "Debit Memo Request Header"
+    },
+    {
+      "name": "Debit Memo Request Item"
+    }
+  ],
+  "paths": {
+    "/A_DebitMemoRequest": {
+      "get": {
+        "operationId": "listA_DebitMemoRequests",
+        "summary": "Reads all debit memo request headers.",
+        "description": "Reads the header data of all debit memo requests in the system.",
+        "tags": [
+          "Debit Memo Request Header"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "$ref": "#/components/parameters/A_DebitMemoRequestOrderByOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_DebitMemoRequestSelectOptions"
+          },
+          {
+            "$ref": "#/components/parameters/A_DebitMemoRequestExpandOptions"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "CollectionOfA_DebitMemoRequestWrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "CollectionOfA_DebitMemoRequest",
+                      "type": "object",
+                      "properties": {
+                        "__count": {
+                          "$ref": "#/components/schemas/count"
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/A_DebitMemoRequest"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createA_DebitMemoRequest",
+        "summary": "Creates a debit memo request.",
+        "description": "Creates a debit memo request header using deep insert requests. This means consumers can create a debit memo request with all possible sub-entities (for example, header partners or items).",
+        "tags": [
+          "Debit Memo Request Header"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New entity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateA_DebitMemoRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "A_DebitMemoRequestWrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "$ref": "#/components/schemas/A_DebitMemoRequest"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "A_DbtMemoReqItmSubsqntProcFlow": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Preceding Document",
+            "description": "Preceding sales and distribution document"
+          },
+          "DebitMemoRequestItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Preceding Item",
+            "description": "Preceding Item of an SD Document"
+          },
+          "DocRelationshipUUID": {
+            "type": "string",
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "DocRelationshipUUID",
+            "description": "SD Unique Document Relationship Identification"
+          },
+          "SubsequentDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Subsequent Document",
+            "description": "Subsequent Sales and Distribution Document"
+          },
+          "SubsequentDocumentItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Subsequent Item",
+            "description": "Subsequent Item of an SD Document"
+          },
+          "SubsequentDocumentCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Subsequent Doc. Cat.",
+            "description": "Document Category of Subsequent Document"
+          },
+          "ProcessFlowLevel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Level",
+            "description": "Level of the document flow record"
+          },
+          "AccountingTransferStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "BillingDocAcctgTransferStatus",
+            "title": "Posting Status",
+            "description": "Status for Transfer to Accounting"
+          },
+          "SDProcessStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "SDProcessStatus",
+            "title": "Overall Status",
+            "description": "Overall Processing Status (Item)"
+          },
+          "RelatedProcFlowDocStsFieldName": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 30,
+            "title": "Field Name"
+          },
+          "SubsqntDocItmPrecdgDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Preceding Document",
+            "description": "Preceding sales and distribution document"
+          },
+          "SubsqntDocItmPrecdgDocItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Preceding Item",
+            "description": "Preceding Item of an SD Document"
+          },
+          "SubsqntDocItmPrecdgDocCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Preceding Doc.Categ.",
+            "description": "SD Document Category of Reference SD Document"
+          },
+          "CreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Record Creation Date"
+          },
+          "CreationTime": {
+            "type": "string",
+            "nullable": true,
+            "example": "PT15H51M04S",
+            "title": "Time",
+            "description": "Entry time"
+          },
+          "LastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/A_DebitMemoRequest"
+          },
+          "to_DebitMemoRequestItem": {
+            "$ref": "#/components/schemas/A_DebitMemoRequestItem"
+          }
+        },
+        "title": "Item Subsequent Process Flow"
+      },
+      "CreateA_DbtMemoReqItmSubsqntProcFlow": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Preceding Document",
+            "description": "Preceding sales and distribution document"
+          },
+          "DebitMemoRequestItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Preceding Item",
+            "description": "Preceding Item of an SD Document"
+          },
+          "DocRelationshipUUID": {
+            "type": "string",
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "DocRelationshipUUID",
+            "description": "SD Unique Document Relationship Identification"
+          },
+          "SubsequentDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Subsequent Document",
+            "description": "Subsequent Sales and Distribution Document"
+          },
+          "SubsequentDocumentItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Subsequent Item",
+            "description": "Subsequent Item of an SD Document"
+          },
+          "SubsequentDocumentCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Subsequent Doc. Cat.",
+            "description": "Document Category of Subsequent Document"
+          },
+          "ProcessFlowLevel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Level",
+            "description": "Level of the document flow record"
+          },
+          "AccountingTransferStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "BillingDocAcctgTransferStatus",
+            "title": "Posting Status",
+            "description": "Status for Transfer to Accounting"
+          },
+          "SDProcessStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "SDProcessStatus",
+            "title": "Overall Status",
+            "description": "Overall Processing Status (Item)"
+          },
+          "RelatedProcFlowDocStsFieldName": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 30,
+            "title": "Field Name"
+          },
+          "SubsqntDocItmPrecdgDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Preceding Document",
+            "description": "Preceding sales and distribution document"
+          },
+          "SubsqntDocItmPrecdgDocItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Preceding Item",
+            "description": "Preceding Item of an SD Document"
+          },
+          "SubsqntDocItmPrecdgDocCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Preceding Doc.Categ.",
+            "description": "SD Document Category of Reference SD Document"
+          },
+          "CreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Record Creation Date"
+          },
+          "CreationTime": {
+            "type": "string",
+            "nullable": true,
+            "example": "PT15H51M04S",
+            "title": "Time",
+            "description": "Entry time"
+          },
+          "LastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/CreateA_DebitMemoRequest"
+          },
+          "to_DebitMemoRequestItem": {
+            "$ref": "#/components/schemas/CreateA_DebitMemoRequestItem"
+          }
+        },
+        "required": [
+          "DebitMemoRequest",
+          "DebitMemoRequestItem",
+          "DocRelationshipUUID"
+        ],
+        "title": "Item Subsequent Process Flow (for create)"
+      },
+      "A_DebitMemoReqItemPartner": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "SD Document",
+            "description": "Sales and Distribution Document Number"
+          },
+          "DebitMemoRequestItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item (SD)",
+            "description": "Item number of the SD document"
+          },
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "PartnerFunctionInternalCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "ReferenceBusinessPartner": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Business Partner",
+            "description": "Business Partner Number"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/A_DebitMemoRequest"
+          },
+          "to_DebitMemoRequestItem": {
+            "$ref": "#/components/schemas/A_DebitMemoRequestItem"
+          }
+        },
+        "title": "Item Partner"
+      },
+      "CreateA_DebitMemoReqItemPartner": {
+        "type": "object",
+        "properties": {
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/CreateA_DebitMemoRequest"
+          },
+          "to_DebitMemoRequestItem": {
+            "$ref": "#/components/schemas/CreateA_DebitMemoRequestItem"
+          }
+        },
+        "required": [
+          "PartnerFunction"
+        ],
+        "title": "Item Partner (for create)"
+      },
+      "A_DebitMemoReqItemPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Document"
+          },
+          "DebitMemoRequestItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item",
+            "description": "Condition item number"
+          },
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionApplication": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Application"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "PricingDateTime": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 14,
+            "title": "Valid From",
+            "description": "Timestamp for Pricing"
+          },
+          "PriceConditionDeterminationDte": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Condition Pricing Date"
+          },
+          "ConditionCalculationType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "PriceConditionCalculationType",
+            "title": "Calculation Type",
+            "description": "Calculation Type for Condition"
+          },
+          "ConditionBaseValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Condition Basis"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "ConditionQuantitySAPUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "SAP Condition Qty",
+            "description": "SAP Unit Code for Condition Quantity"
+          },
+          "ConditionQuantityISOUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "ISO Condition Qty",
+            "description": "ISO Unit Code for Condition Quantity"
+          },
+          "ConditionToBaseQtyNmrtr": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 10,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -9999999999,
+            "maximum": 9999999999,
+            "example": "0",
+            "title": "Numerator",
+            "description": "Numerator for Converting to Base UoM"
+          },
+          "ConditionToBaseQtyDnmntr": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 10,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -9999999999,
+            "maximum": 9999999999,
+            "example": "0",
+            "title": "Denominator",
+            "description": "Denominator for Converting to Base UoM"
+          },
+          "ConditionCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionCategory",
+            "title": "Condition Category",
+            "description": "Condition Category (Examples: Tax, Freight, Price, Cost)"
+          },
+          "ConditionIsForStatistics": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Statistical",
+            "description": "Condition is used for statistics"
+          },
+          "PricingScaleType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Scale Type"
+          },
+          "IsRelevantForAccrual": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Accruals",
+            "description": "Condition is Relevant for Accrual  (e.g. Freight)"
+          },
+          "CndnIsRelevantForInvoiceList": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Invoice List Cond.",
+            "description": "Condition for Invoice List"
+          },
+          "ConditionOrigin": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionOrigin",
+            "title": "Condition Origin",
+            "description": "Origin of the Condition"
+          },
+          "IsGroupCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Group Condition"
+          },
+          "IsGroupCondition_2": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Is Group Condition",
+            "description": "Condition Is a Group Condition"
+          },
+          "AccessNumberOfAccessSequence": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Access",
+            "description": "Access sequence - Access number"
+          },
+          "ConditionRecord": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Condition Record No.",
+            "description": "Number of Condition Record"
+          },
+          "ConditionSequentialNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sequent.No. of Cond.",
+            "description": "Sequential Number of the Condition"
+          },
+          "TaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Tax Code",
+            "description": "Tax on Sales/Purchases Code"
+          },
+          "WithholdingTaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "W/Tax Code",
+            "description": "Withholding Tax Code"
+          },
+          "CndnRoundingOffDiffAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 6,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999.999,
+            "maximum": 999.999,
+            "example": "0",
+            "title": "Condition Rounding Difference",
+            "description": "Rounding-Off Difference of a Condition"
+          },
+          "ConditionAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Condition Value"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "ConditionControl": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionControl",
+            "title": "Condition Control"
+          },
+          "ConditionInactiveReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionInactiveReason",
+            "title": "Inactive Condition",
+            "description": "Condition is Inactive"
+          },
+          "ConditionClass": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionClass",
+            "title": "Condition Class"
+          },
+          "PrcgProcedureCounterForHeader": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter (Header)"
+          },
+          "FactorForConditionBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Base Value"
+          },
+          "StructureCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PricingStructureCondition",
+            "title": "Structure Condition"
+          },
+          "PeriodFactorForCndnBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Basis (Period)"
+          },
+          "PricingScaleBasis": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Basis",
+            "description": "Scale Basis Indicator"
+          },
+          "ConditionScaleBasisValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Scale Base Val.",
+            "description": "Scale Base Value"
+          },
+          "ConditionScaleBasisUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Unit of Meas.",
+            "description": "Condition Scale Unit of Measure"
+          },
+          "ConditionScaleBasisCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Scale Currency"
+          },
+          "ConditionAlternativeCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Condition Currency",
+            "description": "Condition Currency (for Cumulation Fields)"
+          },
+          "ConditionAmountInLocalCrcy": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Condition Value"
+          },
+          "CndnIsRelevantForIntcoBilling": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Intercomp.Billing",
+            "description": "Condition for Intercompany Billing"
+          },
+          "ConditionIsManuallyChanged": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Changed Manually",
+            "description": "Condition Changed Manually"
+          },
+          "CumulatedConditionBasisValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Condition Basis"
+          },
+          "ConditionIsForConfiguration": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "UsedforVariantConfig",
+            "description": "Condition Used for Variant Configuration"
+          },
+          "VariantCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 26,
+            "title": "Variant Key",
+            "description": "Variant Condition Key"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/A_DebitMemoRequest"
+          },
+          "to_DebitMemoRequestItem": {
+            "$ref": "#/components/schemas/A_DebitMemoRequestItem"
+          }
+        },
+        "title": "Item Pricing Element"
+      },
+      "CreateA_DebitMemoReqItemPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "ConditionQuantitySAPUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "SAP Condition Qty",
+            "description": "SAP Unit Code for Condition Quantity"
+          },
+          "ConditionQuantityISOUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "ISO Condition Qty",
+            "description": "ISO Unit Code for Condition Quantity"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/CreateA_DebitMemoRequest"
+          },
+          "to_DebitMemoRequestItem": {
+            "$ref": "#/components/schemas/CreateA_DebitMemoRequestItem"
+          }
+        },
+        "required": [
+          "PricingProcedureStep",
+          "PricingProcedureCounter"
+        ],
+        "title": "Item Pricing Element (for create)"
+      },
+      "A_DebitMemoReqItemText": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Debit Memo Request"
+          },
+          "DebitMemoRequestItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item",
+            "description": "Debit Memo Request Item"
+          },
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "LongTextID": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Text ID"
+          },
+          "LongText": {
+            "type": "string",
+            "nullable": true,
+            "title": "String"
+          }
+        },
+        "title": "Item Text"
+      },
+      "CreateA_DebitMemoReqItemText": {
+        "type": "object",
+        "properties": {
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "LongTextID": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Text ID"
+          },
+          "LongText": {
+            "type": "string",
+            "nullable": true,
+            "title": "String"
+          }
+        },
+        "required": [
+          "Language",
+          "LongTextID"
+        ],
+        "title": "Item Text (for create)"
+      },
+      "A_DebitMemoReqPartner": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "SD Document",
+            "description": "Sales and Distribution Document Number"
+          },
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "PartnerFunctionInternalCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "ReferenceBusinessPartner": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Business Partner",
+            "description": "Business Partner Number"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/A_DebitMemoRequest"
+          }
+        },
+        "title": "Header Partner"
+      },
+      "CreateA_DebitMemoReqPartner": {
+        "type": "object",
+        "properties": {
+          "PartnerFunction": {
+            "type": "string",
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "PartnerFunction",
+            "title": "Partner Function"
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Customer",
+            "description": "Customer Number"
+          },
+          "Supplier": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "Personnel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Personnel Number"
+          },
+          "ContactPerson": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Contact Person",
+            "description": "Number of Contact Person"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/CreateA_DebitMemoRequest"
+          }
+        },
+        "required": [
+          "PartnerFunction"
+        ],
+        "title": "Header Partner (for create)"
+      },
+      "A_DebitMemoReqPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Sales Document"
+          },
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionApplication": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Application"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "PricingDateTime": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 14,
+            "title": "Valid From",
+            "description": "Timestamp for Pricing"
+          },
+          "PriceConditionDeterminationDte": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Condition Pricing Date"
+          },
+          "ConditionCalculationType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "PriceConditionCalculationType",
+            "title": "Calculation Type",
+            "description": "Calculation Type for Condition"
+          },
+          "ConditionBaseValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Condition Basis"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "ConditionToBaseQtyNmrtr": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 10,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -9999999999,
+            "maximum": 9999999999,
+            "example": "0",
+            "title": "Numerator",
+            "description": "Numerator for Converting to Base UoM"
+          },
+          "ConditionToBaseQtyDnmntr": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 10,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -9999999999,
+            "maximum": 9999999999,
+            "example": "0",
+            "title": "Denominator",
+            "description": "Denominator for Converting to Base UoM"
+          },
+          "ConditionCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionCategory",
+            "title": "Condition Category",
+            "description": "Condition Category (Examples: Tax, Freight, Price, Cost)"
+          },
+          "ConditionIsForStatistics": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Statistical",
+            "description": "Condition is used for statistics"
+          },
+          "PricingScaleType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Scale Type"
+          },
+          "IsRelevantForAccrual": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Accruals",
+            "description": "Condition is Relevant for Accrual  (e.g. Freight)"
+          },
+          "CndnIsRelevantForInvoiceList": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Invoice List Cond.",
+            "description": "Condition for Invoice List"
+          },
+          "ConditionOrigin": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionOrigin",
+            "title": "Condition Origin",
+            "description": "Origin of the Condition"
+          },
+          "IsGroupCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Group Condition"
+          },
+          "IsGroupCondition_2": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Is Group Condition",
+            "description": "Condition Is a Group Condition"
+          },
+          "AccessNumberOfAccessSequence": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Access",
+            "description": "Access sequence - Access number"
+          },
+          "ConditionRecord": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Condition Record No.",
+            "description": "Number of Condition Record"
+          },
+          "ConditionSequentialNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sequent.No. of Cond.",
+            "description": "Sequential Number of the Condition"
+          },
+          "TaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Tax Code",
+            "description": "Tax on Sales/Purchases Code"
+          },
+          "WithholdingTaxCode": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "W/Tax Code",
+            "description": "Withholding Tax Code"
+          },
+          "CndnRoundingOffDiffAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 6,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999.999,
+            "maximum": 999.999,
+            "example": "0",
+            "title": "Condition Rounding Difference",
+            "description": "Rounding-Off Difference of a Condition"
+          },
+          "ConditionAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Condition Value"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "ConditionControl": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionControl",
+            "title": "Condition Control"
+          },
+          "ConditionInactiveReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionInactiveReason",
+            "title": "Inactive Condition",
+            "description": "Condition is Inactive"
+          },
+          "ConditionClass": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PriceConditionClass",
+            "title": "Condition Class"
+          },
+          "PrcgProcedureCounterForHeader": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter (Header)"
+          },
+          "FactorForConditionBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Base Value"
+          },
+          "StructureCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "PricingStructureCondition",
+            "title": "Structure Condition"
+          },
+          "PeriodFactorForCndnBasisValue": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "nullable": true,
+            "format": "double",
+            "example": 3.14,
+            "title": "Condition Factor",
+            "description": "Factor for Condition Basis (Period)"
+          },
+          "PricingScaleBasis": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Basis",
+            "description": "Scale Basis Indicator"
+          },
+          "ConditionScaleBasisValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Scale Base Val.",
+            "description": "Scale Base Value"
+          },
+          "ConditionScaleBasisUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Scale Unit of Meas.",
+            "description": "Condition Scale Unit of Measure"
+          },
+          "ConditionScaleBasisCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Scale Currency"
+          },
+          "ConditionAlternativeCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Condition Currency",
+            "description": "Condition Currency (for Cumulation Fields)"
+          },
+          "ConditionAmountInLocalCrcy": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Condition Value"
+          },
+          "CndnIsRelevantForIntcoBilling": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Intercomp.Billing",
+            "description": "Condition for Intercompany Billing"
+          },
+          "ConditionIsManuallyChanged": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Changed Manually",
+            "description": "Condition Changed Manually"
+          },
+          "CumulatedConditionBasisValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Condition Basis"
+          },
+          "ConditionIsForConfiguration": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "UsedforVariantConfig",
+            "description": "Condition Used for Variant Configuration"
+          },
+          "VariantCondition": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 26,
+            "title": "Variant Key",
+            "description": "Variant Condition Key"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/A_DebitMemoRequest"
+          }
+        },
+        "title": "Header Pricing Element"
+      },
+      "CreateA_DebitMemoReqPrcgElmnt": {
+        "type": "object",
+        "properties": {
+          "PricingProcedureStep": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Step Number"
+          },
+          "PricingProcedureCounter": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Counter",
+            "description": "Condition Counter"
+          },
+          "ConditionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Condition Type"
+          },
+          "ConditionRateValue": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 24,
+            "x-sap-scale": 9,
+            "multipleOf": 1.0e-9,
+            "example": "0",
+            "title": "Amount",
+            "description": "Condition Amount or Percentage"
+          },
+          "ConditionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "ConditionQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 5,
+            "x-sap-scale": 0,
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Pricing Unit",
+            "description": "Condition Pricing Unit"
+          },
+          "ConditionQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Condition Unit",
+            "description": "Condition Unit in the Document"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/CreateA_DebitMemoRequest"
+          }
+        },
+        "required": [
+          "PricingProcedureStep",
+          "PricingProcedureCounter"
+        ],
+        "title": "Header Pricing Element (for create)"
+      },
+      "A_DebitMemoReqSubsqntProcFlow": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Preceding Document",
+            "description": "Preceding sales and distribution document"
+          },
+          "SubsequentDocument": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Subsequent Document",
+            "description": "Subsequent Sales and Distribution Document"
+          },
+          "SubsequentDocumentCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Subsequent Doc. Cat.",
+            "description": "Document Category of Subsequent Document"
+          },
+          "ProcessFlowLevel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Level",
+            "description": "Level of the document flow record"
+          },
+          "OverallBillingStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Status",
+            "description": "SD Billing Status"
+          },
+          "OverallSDProcessStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "OverallSDProcessStatus",
+            "title": "Overall Status",
+            "description": "Overall Processing Status (Header/All Items)"
+          },
+          "RelatedProcFlowDocStsFieldName": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 30,
+            "title": "Field Name"
+          },
+          "CreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Record Creation Date"
+          },
+          "CreationTime": {
+            "type": "string",
+            "nullable": true,
+            "example": "PT15H51M04S",
+            "title": "Time",
+            "description": "Entry time"
+          },
+          "LastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/A_DebitMemoRequest"
+          }
+        },
+        "title": "Header Subsequent Process Flow"
+      },
+      "CreateA_DebitMemoReqSubsqntProcFlow": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Preceding Document",
+            "description": "Preceding sales and distribution document"
+          },
+          "SubsequentDocument": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Subsequent Document",
+            "description": "Subsequent Sales and Distribution Document"
+          },
+          "SubsequentDocumentCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Subsequent Doc. Cat.",
+            "description": "Document Category of Subsequent Document"
+          },
+          "ProcessFlowLevel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Level",
+            "description": "Level of the document flow record"
+          },
+          "OverallBillingStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Status",
+            "description": "SD Billing Status"
+          },
+          "OverallSDProcessStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "OverallSDProcessStatus",
+            "title": "Overall Status",
+            "description": "Overall Processing Status (Header/All Items)"
+          },
+          "RelatedProcFlowDocStsFieldName": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 30,
+            "title": "Field Name"
+          },
+          "CreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Record Creation Date"
+          },
+          "CreationTime": {
+            "type": "string",
+            "nullable": true,
+            "example": "PT15H51M04S",
+            "title": "Time",
+            "description": "Entry time"
+          },
+          "LastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/CreateA_DebitMemoRequest"
+          }
+        },
+        "required": [
+          "DebitMemoRequest",
+          "SubsequentDocument"
+        ],
+        "title": "Header Subsequent Process Flow (for create)"
+      },
+      "A_DebitMemoReqText": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Debit Memo Request"
+          },
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "LongTextID": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Text ID"
+          },
+          "LongText": {
+            "type": "string",
+            "nullable": true,
+            "title": "String"
+          }
+        },
+        "title": "Header Text"
+      },
+      "CreateA_DebitMemoReqText": {
+        "type": "object",
+        "properties": {
+          "Language": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Key"
+          },
+          "LongTextID": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Text ID"
+          },
+          "LongText": {
+            "type": "string",
+            "nullable": true,
+            "title": "String"
+          }
+        },
+        "required": [
+          "Language",
+          "LongTextID"
+        ],
+        "title": "Header Text (for create)"
+      },
+      "A_DebitMemoRequest": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Debit Memo Request"
+          },
+          "DebitMemoRequestType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Debit Memo Request Type"
+          },
+          "SalesOrganization": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Organization"
+          },
+          "DistributionChannel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Distribution Channel"
+          },
+          "OrganizationDivision": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Division"
+          },
+          "SalesGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sales Group"
+          },
+          "SalesOffice": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Office"
+          },
+          "SalesDistrict": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Sales District"
+          },
+          "SoldToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Sold-to Party"
+          },
+          "CreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Record Creation Date"
+          },
+          "CreatedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Created By",
+            "description": "Name of Person Responsible for Creating the Object"
+          },
+          "LastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "LastChangeDateTime": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492098664000)/",
+            "title": "Time Stamp",
+            "description": "UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "PurchaseOrderByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference (Ship-to Party)",
+            "description": "Ship-to Party's Customer Reference"
+          },
+          "CustomerPurchaseOrderType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "PurchaseOrderTypeByCustomer",
+            "title": "Purchase Order Type",
+            "description": "Customer Purchase Order Type"
+          },
+          "CustPurOrdTypeByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purchase Order Type (Ship-to Party)",
+            "description": "Ship-to Party Purchase Order Type"
+          },
+          "CustomerPurchaseOrderDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Customer Reference Date"
+          },
+          "CorrespncExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference"
+          },
+          "CorrespncExtRefByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference (Ship-to Party)"
+          },
+          "DebitMemoRequestDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Document Date",
+            "description": "Document Date (Date Received/Sent)"
+          },
+          "TotalNetAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Net Value",
+            "description": "Net Value of the Sales Document in Document Currency"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "SDDocumentReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "SalesDocumentReason",
+            "title": "Order Reason",
+            "description": "Order Reason (Reason for the Business Transaction)"
+          },
+          "PricingDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Pricing Date",
+            "description": "Date for Pricing and Exchange Rate"
+          },
+          "CustomerTaxClassification1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Alt.Tax Classific.",
+            "description": "Alternative Tax Classification"
+          },
+          "CustomerTaxClassification2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.2 Customer",
+            "description": "Tax Classification 2 for Customer"
+          },
+          "CustomerTaxClassification3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.3 Customer",
+            "description": "Tax Classification 3 for Customer"
+          },
+          "CustomerTaxClassification4": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.4 Customer",
+            "description": "Tax Classification 4 for Customer"
+          },
+          "CustomerTaxClassification5": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.5 Customer",
+            "description": "Tax Classification 5 for Customer"
+          },
+          "CustomerTaxClassification6": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.6 Customer",
+            "description": "Tax Classification 6 for Customer"
+          },
+          "CustomerTaxClassification7": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.7 Customer",
+            "description": "Tax Classification 7 for Customer"
+          },
+          "CustomerTaxClassification8": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.8 Customer",
+            "description": "Tax Classification 8 for Customer"
+          },
+          "CustomerTaxClassification9": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.9 Customer",
+            "description": "Tax Classification 9 for Customer"
+          },
+          "HeaderBillingBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "BillingBlockReason",
+            "title": "Billing Block",
+            "description": "Billing Block in SD Document"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "IncotermsVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "IncotermsVersion",
+            "title": "Incoterms Version"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "PaymentMethod": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Payment Method"
+          },
+          "BillingDocumentDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Billing Date"
+          },
+          "ServicesRenderedDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Date of Services Rendered",
+            "description": "Date on which services are rendered"
+          },
+          "ReferenceSDDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Reference Document",
+            "description": "Document Number of Reference Document"
+          },
+          "ReferenceSDDocumentCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Reference Document Category",
+            "description": "Category of Reference Document"
+          },
+          "OverallSDProcessStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "OverallSDProcessStatus",
+            "title": "Overall Status",
+            "description": "Overall Processing Status (Header/All Items)"
+          },
+          "TotalCreditCheckStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "TotalCreditCheckStatus",
+            "title": "Credit Status",
+            "description": "Overall Status of Credit Checks"
+          },
+          "OverallSDDocumentRejectionSts": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "OverallSDDocumentRejectionSts",
+            "title": "Rejection Status",
+            "description": "Rejection Status (All Items)"
+          },
+          "OverallOrdReltdBillgStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "OverallOrdReltdBillgStatus",
+            "title": "Order-Related Billing Status",
+            "description": "Order-Related Billing Status (All Items)"
+          },
+          "AccountingDocExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 16,
+            "title": "Reference",
+            "description": "Reference Document Number"
+          },
+          "AssignmentReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "Assignment",
+            "description": "Assignment Number"
+          },
+          "to_Item": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_DebitMemoRequestItem"
+                }
+              }
+            }
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_DebitMemoReqPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_DebitMemoReqPrcgElmnt"
+                }
+              }
+            }
+          },
+          "to_SubsequentProcFlowDoc": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_DebitMemoReqSubsqntProcFlow"
+                }
+              }
+            }
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_DebitMemoReqText"
+                }
+              }
+            }
+          }
+        },
+        "title": "Debit Memo Request Header"
+      },
+      "CreateA_DebitMemoRequest": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Debit Memo Request"
+          },
+          "DebitMemoRequestType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Debit Memo Request Type"
+          },
+          "SalesOrganization": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Organization"
+          },
+          "DistributionChannel": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Distribution Channel"
+          },
+          "OrganizationDivision": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Division"
+          },
+          "SalesGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Sales Group"
+          },
+          "SalesOffice": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Sales Office"
+          },
+          "SalesDistrict": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Sales District"
+          },
+          "SoldToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Sold-to Party"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "PurchaseOrderByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference (Ship-to Party)",
+            "description": "Ship-to Party's Customer Reference"
+          },
+          "CustomerPurchaseOrderType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "PurchaseOrderTypeByCustomer",
+            "title": "Purchase Order Type",
+            "description": "Customer Purchase Order Type"
+          },
+          "CustPurOrdTypeByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purchase Order Type (Ship-to Party)",
+            "description": "Ship-to Party Purchase Order Type"
+          },
+          "CustomerPurchaseOrderDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Customer Reference Date"
+          },
+          "CorrespncExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference"
+          },
+          "CorrespncExtRefByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference (Ship-to Party)"
+          },
+          "DebitMemoRequestDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Document Date",
+            "description": "Document Date (Date Received/Sent)"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "SDDocumentReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "SalesDocumentReason",
+            "title": "Order Reason",
+            "description": "Order Reason (Reason for the Business Transaction)"
+          },
+          "PricingDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Pricing Date",
+            "description": "Date for Pricing and Exchange Rate"
+          },
+          "CustomerTaxClassification1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Alt.Tax Classific.",
+            "description": "Alternative Tax Classification"
+          },
+          "CustomerTaxClassification2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.2 Customer",
+            "description": "Tax Classification 2 for Customer"
+          },
+          "CustomerTaxClassification3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.3 Customer",
+            "description": "Tax Classification 3 for Customer"
+          },
+          "CustomerTaxClassification4": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.4 Customer",
+            "description": "Tax Classification 4 for Customer"
+          },
+          "CustomerTaxClassification5": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.5 Customer",
+            "description": "Tax Classification 5 for Customer"
+          },
+          "CustomerTaxClassification6": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.6 Customer",
+            "description": "Tax Classification 6 for Customer"
+          },
+          "CustomerTaxClassification7": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.7 Customer",
+            "description": "Tax Classification 7 for Customer"
+          },
+          "CustomerTaxClassification8": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.8 Customer",
+            "description": "Tax Classification 8 for Customer"
+          },
+          "CustomerTaxClassification9": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Class.9 Customer",
+            "description": "Tax Classification 9 for Customer"
+          },
+          "HeaderBillingBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "BillingBlockReason",
+            "title": "Billing Block",
+            "description": "Billing Block in SD Document"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "IncotermsVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "IncotermsVersion",
+            "title": "Incoterms Version"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "PaymentMethod": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Payment Method"
+          },
+          "BillingDocumentDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Billing Date"
+          },
+          "ServicesRenderedDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Date of Services Rendered",
+            "description": "Date on which services are rendered"
+          },
+          "ReferenceSDDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Reference Document",
+            "description": "Document Number of Reference Document"
+          },
+          "AccountingDocExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 16,
+            "title": "Reference",
+            "description": "Reference Document Number"
+          },
+          "AssignmentReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "Assignment",
+            "description": "Assignment Number"
+          },
+          "to_Item": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_DebitMemoRequestItem"
+                }
+              }
+            }
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_DebitMemoReqPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_DebitMemoReqPrcgElmnt"
+                }
+              }
+            }
+          },
+          "to_SubsequentProcFlowDoc": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_DebitMemoReqSubsqntProcFlow"
+                }
+              }
+            }
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_DebitMemoReqText"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "DebitMemoRequest"
+        ],
+        "title": "Debit Memo Request Header (for create)"
+      },
+      "A_DebitMemoRequestItem": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequest": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Debit Memo Request"
+          },
+          "DebitMemoRequestItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item",
+            "description": "Debit Memo Request Item"
+          },
+          "HigherLevelItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Higher-Level Item",
+            "description": "Higher-Level Item in Bill of Material Structures"
+          },
+          "DebitMemoRequestItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Item Category",
+            "description": "Sales Document Item Category"
+          },
+          "DebitMemoRequestItemText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Description",
+            "description": "Short Text for Sales Order Item"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "CustomerPurchaseOrderType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "PurchaseOrderTypeByCustomer",
+            "title": "Purchase Order Type",
+            "description": "Customer Purchase Order Type"
+          },
+          "CustPurOrdTypeByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purchase Order Type (Ship-to Party)",
+            "description": "Ship-to Party Purchase Order Type"
+          },
+          "PurchaseOrderByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference (Ship-to Party)",
+            "description": "Ship-to Party's Customer Reference"
+          },
+          "CorrespncExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference"
+          },
+          "CorrespncExtRefByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference (Ship-to Party)"
+          },
+          "UnderlyingPurchaseOrderItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Purchase Order Item",
+            "description": "Item Number of the Underlying Purchase Order"
+          },
+          "UndrlgPurOrdItmByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Purchase Order Item (Ship-to Party)",
+            "description": "Underlying Purchase Order Item (Ship-to Party)"
+          },
+          "Material": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "MaterialByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Material",
+            "description": "Material Number Used by Customer"
+          },
+          "PricingDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Pricing Date",
+            "description": "Date for Pricing and Exchange Rate"
+          },
+          "RequestedQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Requested Quantity"
+          },
+          "RequestedQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Requested Qty Unit",
+            "description": "Unit of the Requested Quantity"
+          },
+          "RequestedQuantitySAPUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "SAP Code Req. Qty",
+            "description": "SAP Unit Code for Requested Quantity"
+          },
+          "RequestedQuantityISOUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "ISO Code Req. Qty",
+            "description": "ISO Unit Code for Requested Quantity"
+          },
+          "ItemGrossWeight": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Gross Weight",
+            "description": "Gross Weight of the Item"
+          },
+          "ItemNetWeight": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Net Weight",
+            "description": "Net Weight of the Item"
+          },
+          "ItemWeightUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Unit of Weight"
+          },
+          "ItemWeightSAPUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "SAP Code Item Weight",
+            "description": "SAP Unit Code for Item Weight"
+          },
+          "ItemWeightISOUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "ISO Code Item Weight",
+            "description": "ISO Unit Code for Item Weight"
+          },
+          "ItemVolume": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Volume",
+            "description": "Volume of the item"
+          },
+          "ItemVolumeUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Volume Unit"
+          },
+          "ItemVolumeSAPUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "SAP Code f Item Vol.",
+            "description": "SAP Unit Code for Item Volume"
+          },
+          "ItemVolumeISOUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "ISO Unit Item Volume",
+            "description": "ISO Unit Code for Item Volume"
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "x-sap-object-node-type-reference": "Currency",
+            "title": "Document Currency",
+            "description": "SD Document Currency"
+          },
+          "NetAmount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 16,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "example": "0",
+            "title": "Net Value",
+            "description": "Net Value of the Document Item in Document Currency"
+          },
+          "Subtotal1Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 1",
+            "description": "Subtotal 1 from Pricing Procedure for Price Element"
+          },
+          "Subtotal2Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 2",
+            "description": "Subtotal 2 from Pricing Procedure for Price Element"
+          },
+          "Subtotal3Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 3",
+            "description": "Subtotal 3 from Pricing Procedure for Price Element"
+          },
+          "Subtotal4Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 4",
+            "description": "Subtotal 4 from Pricing Procedure for Price Element"
+          },
+          "Subtotal5Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 5",
+            "description": "Subtotal 5 from Pricing Procedure for Price Element"
+          },
+          "Subtotal6Amount": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 14,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999999.999,
+            "maximum": 99999999999.999,
+            "example": "0",
+            "title": "Subtotal 6",
+            "description": "Subtotal 6 from Pricing Procedure for Price Element"
+          },
+          "MaterialGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 9,
+            "title": "Material Group"
+          },
+          "MaterialPricingGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "MaterialPricingGroup",
+            "title": "Product Price Group"
+          },
+          "ProductTaxClassification1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification4": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification5": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification6": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification7": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification8": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification9": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "Batch": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Batch",
+            "description": "Batch Number"
+          },
+          "Plant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Plant",
+            "description": "Plant (Own or External)"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "ItemBillingBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "BillingBlockReason",
+            "title": "Billing Block",
+            "description": "Billing Block for Item"
+          },
+          "SalesDocumentRjcnReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "SalesDocumentRjcnReason",
+            "title": "Reason for Rejection",
+            "description": "Reason for Rejection of Sales Documents"
+          },
+          "WBSElement": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 24,
+            "title": "WBS Element",
+            "description": "Work Breakdown Structure Element (WBS Element)"
+          },
+          "ProfitCenter": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Profit Center"
+          },
+          "ReferenceSDDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Reference Document",
+            "description": "Document Number of Reference Document"
+          },
+          "ReferenceSDDocumentItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Reference Item",
+            "description": "Item Number of the Reference Item"
+          },
+          "SDProcessStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "SDProcessStatus",
+            "title": "Overall Status",
+            "description": "Overall Processing Status (Item)"
+          },
+          "OrderRelatedBillingStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "x-sap-object-node-type-reference": "OrderRelatedBillingStatus",
+            "title": "Order-Related Billing Status",
+            "description": "Order-Related Billing Status (Item)"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/A_DebitMemoRequest"
+          },
+          "to_ItemSubsqntProcFlow": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_DbtMemoReqItmSubsqntProcFlow"
+                }
+              }
+            }
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_DebitMemoReqItemPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_DebitMemoReqItemPrcgElmnt"
+                }
+              }
+            }
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/A_DebitMemoReqItemText"
+                }
+              }
+            }
+          }
+        },
+        "title": "Debit Memo Request Item"
+      },
+      "CreateA_DebitMemoRequestItem": {
+        "type": "object",
+        "properties": {
+          "DebitMemoRequestItem": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Item",
+            "description": "Debit Memo Request Item"
+          },
+          "HigherLevelItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Higher-Level Item",
+            "description": "Higher-Level Item in Bill of Material Structures"
+          },
+          "DebitMemoRequestItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Item Category",
+            "description": "Sales Document Item Category"
+          },
+          "DebitMemoRequestItemText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Description",
+            "description": "Short Text for Sales Order Item"
+          },
+          "PurchaseOrderByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference"
+          },
+          "CustomerPurchaseOrderType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "x-sap-object-node-type-reference": "PurchaseOrderTypeByCustomer",
+            "title": "Purchase Order Type",
+            "description": "Customer Purchase Order Type"
+          },
+          "CustPurOrdTypeByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purchase Order Type (Ship-to Party)",
+            "description": "Ship-to Party Purchase Order Type"
+          },
+          "PurchaseOrderByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Reference (Ship-to Party)",
+            "description": "Ship-to Party's Customer Reference"
+          },
+          "CorrespncExternalReference": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference"
+          },
+          "CorrespncExtRefByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Your Reference (Ship-to Party)"
+          },
+          "UnderlyingPurchaseOrderItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Purchase Order Item",
+            "description": "Item Number of the Underlying Purchase Order"
+          },
+          "UndrlgPurOrdItmByShipToParty": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Purchase Order Item (Ship-to Party)",
+            "description": "Underlying Purchase Order Item (Ship-to Party)"
+          },
+          "Material": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "MaterialByCustomer": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 35,
+            "title": "Customer Material",
+            "description": "Material Number Used by Customer"
+          },
+          "PricingDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Pricing Date",
+            "description": "Date for Pricing and Exchange Rate"
+          },
+          "RequestedQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "x-sap-precision": 15,
+            "x-sap-scale": 3,
+            "multipleOf": 1.0e-3,
+            "minimum": -999999999999.999,
+            "maximum": 999999999999.999,
+            "example": "0",
+            "title": "Requested Quantity"
+          },
+          "RequestedQuantityUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Requested Qty Unit",
+            "description": "Unit of the Requested Quantity"
+          },
+          "RequestedQuantitySAPUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "SAP Code Req. Qty",
+            "description": "SAP Unit Code for Requested Quantity"
+          },
+          "RequestedQuantityISOUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "ISO Code Req. Qty",
+            "description": "ISO Unit Code for Requested Quantity"
+          },
+          "ItemWeightSAPUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "SAP Code Item Weight",
+            "description": "SAP Unit Code for Item Weight"
+          },
+          "ItemWeightISOUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "ISO Code Item Weight",
+            "description": "ISO Unit Code for Item Weight"
+          },
+          "ItemVolumeSAPUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "SAP Code f Item Vol.",
+            "description": "SAP Unit Code for Item Volume"
+          },
+          "ItemVolumeISOUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "ISO Unit Item Volume",
+            "description": "ISO Unit Code for Item Volume"
+          },
+          "MaterialGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 9,
+            "title": "Material Group"
+          },
+          "MaterialPricingGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "MaterialPricingGroup",
+            "title": "Product Price Group"
+          },
+          "ProductTaxClassification1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification4": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification5": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification6": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification7": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification8": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "ProductTaxClassification9": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Tax Classifc. Mat.",
+            "description": "Tax Classification for Material"
+          },
+          "Plant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Plant",
+            "description": "Plant (Own or External)"
+          },
+          "IncotermsClassification": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "x-sap-object-node-type-reference": "IncotermsClassification",
+            "title": "Incoterms",
+            "description": "Incoterms (Part 1)"
+          },
+          "IncotermsTransferLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 28,
+            "title": "Incoterms (Part 2)"
+          },
+          "IncotermsLocation1": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 1"
+          },
+          "IncotermsLocation2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 70,
+            "title": "Incoterms Location 2"
+          },
+          "CustomerPaymentTerms": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Terms of Payment",
+            "description": "Key for Terms of Payment"
+          },
+          "ItemBillingBlockReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "BillingBlockReason",
+            "title": "Billing Block",
+            "description": "Billing Block for Item"
+          },
+          "SalesDocumentRjcnReason": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "x-sap-object-node-type-reference": "SalesDocumentRjcnReason",
+            "title": "Reason for Rejection",
+            "description": "Reason for Rejection of Sales Documents"
+          },
+          "WBSElement": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 24,
+            "title": "WBS Element",
+            "description": "Work Breakdown Structure Element (WBS Element)"
+          },
+          "ProfitCenter": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Profit Center"
+          },
+          "ReferenceSDDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Reference Document",
+            "description": "Document Number of Reference Document"
+          },
+          "ReferenceSDDocumentItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 6,
+            "title": "Reference Item",
+            "description": "Item Number of the Reference Item"
+          },
+          "to_DebitMemoRequest": {
+            "$ref": "#/components/schemas/CreateA_DebitMemoRequest"
+          },
+          "to_ItemSubsqntProcFlow": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_DbtMemoReqItmSubsqntProcFlow"
+                }
+              }
+            }
+          },
+          "to_Partner": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_DebitMemoReqItemPartner"
+                }
+              }
+            }
+          },
+          "to_PricingElement": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_DebitMemoReqItemPrcgElmnt"
+                }
+              }
+            }
+          },
+          "to_Text": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateA_DebitMemoReqItemText"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "DebitMemoRequestItem"
+        ],
+        "title": "Debit Memo Request Item (for create)"
+      },
+      "count": {
+        "type": "string",
+        "description": "The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option."
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "required": [
+                  "lang",
+                  "value"
+                ],
+                "properties": {
+                  "lang": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "innererror": {
+                "type": "object",
+                "description": "The structure of this object is service-specific"
+              }
+            }
+          }
+        }
+      },
+      "A_DebitMemoRequestOrderByOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DebitMemoRequest",
+            "DebitMemoRequest desc",
+            "DebitMemoRequestType",
+            "DebitMemoRequestType desc",
+            "SalesOrganization",
+            "SalesOrganization desc",
+            "DistributionChannel",
+            "DistributionChannel desc",
+            "OrganizationDivision",
+            "OrganizationDivision desc",
+            "SalesGroup",
+            "SalesGroup desc",
+            "SalesOffice",
+            "SalesOffice desc",
+            "SalesDistrict",
+            "SalesDistrict desc",
+            "SoldToParty",
+            "SoldToParty desc",
+            "CreationDate",
+            "CreationDate desc",
+            "CreatedByUser",
+            "CreatedByUser desc",
+            "LastChangeDate",
+            "LastChangeDate desc",
+            "LastChangeDateTime",
+            "LastChangeDateTime desc",
+            "PurchaseOrderByCustomer",
+            "PurchaseOrderByCustomer desc",
+            "PurchaseOrderByShipToParty",
+            "PurchaseOrderByShipToParty desc",
+            "CustomerPurchaseOrderType",
+            "CustomerPurchaseOrderType desc",
+            "CustPurOrdTypeByShipToParty",
+            "CustPurOrdTypeByShipToParty desc",
+            "CustomerPurchaseOrderDate",
+            "CustomerPurchaseOrderDate desc",
+            "CorrespncExternalReference",
+            "CorrespncExternalReference desc",
+            "CorrespncExtRefByShipToParty",
+            "CorrespncExtRefByShipToParty desc",
+            "DebitMemoRequestDate",
+            "DebitMemoRequestDate desc",
+            "TotalNetAmount",
+            "TotalNetAmount desc",
+            "TransactionCurrency",
+            "TransactionCurrency desc",
+            "SDDocumentReason",
+            "SDDocumentReason desc",
+            "PricingDate",
+            "PricingDate desc",
+            "CustomerTaxClassification1",
+            "CustomerTaxClassification1 desc",
+            "CustomerTaxClassification2",
+            "CustomerTaxClassification2 desc",
+            "CustomerTaxClassification3",
+            "CustomerTaxClassification3 desc",
+            "CustomerTaxClassification4",
+            "CustomerTaxClassification4 desc",
+            "CustomerTaxClassification5",
+            "CustomerTaxClassification5 desc",
+            "CustomerTaxClassification6",
+            "CustomerTaxClassification6 desc",
+            "CustomerTaxClassification7",
+            "CustomerTaxClassification7 desc",
+            "CustomerTaxClassification8",
+            "CustomerTaxClassification8 desc",
+            "CustomerTaxClassification9",
+            "CustomerTaxClassification9 desc",
+            "HeaderBillingBlockReason",
+            "HeaderBillingBlockReason desc",
+            "IncotermsClassification",
+            "IncotermsClassification desc",
+            "IncotermsTransferLocation",
+            "IncotermsTransferLocation desc",
+            "IncotermsLocation1",
+            "IncotermsLocation1 desc",
+            "IncotermsLocation2",
+            "IncotermsLocation2 desc",
+            "IncotermsVersion",
+            "IncotermsVersion desc",
+            "CustomerPaymentTerms",
+            "CustomerPaymentTerms desc",
+            "PaymentMethod",
+            "PaymentMethod desc",
+            "BillingDocumentDate",
+            "BillingDocumentDate desc",
+            "ServicesRenderedDate",
+            "ServicesRenderedDate desc",
+            "ReferenceSDDocument",
+            "ReferenceSDDocument desc",
+            "ReferenceSDDocumentCategory",
+            "ReferenceSDDocumentCategory desc",
+            "OverallSDProcessStatus",
+            "OverallSDProcessStatus desc",
+            "TotalCreditCheckStatus",
+            "TotalCreditCheckStatus desc",
+            "OverallSDDocumentRejectionSts",
+            "OverallSDDocumentRejectionSts desc",
+            "OverallOrdReltdBillgStatus",
+            "OverallOrdReltdBillgStatus desc",
+            "AccountingDocExternalReference",
+            "AccountingDocExternalReference desc",
+            "AssignmentReference",
+            "AssignmentReference desc"
+          ]
+        }
+      },
+      "A_DebitMemoRequestSelectOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "DebitMemoRequest",
+            "DebitMemoRequestType",
+            "SalesOrganization",
+            "DistributionChannel",
+            "OrganizationDivision",
+            "SalesGroup",
+            "SalesOffice",
+            "SalesDistrict",
+            "SoldToParty",
+            "CreationDate",
+            "CreatedByUser",
+            "LastChangeDate",
+            "LastChangeDateTime",
+            "PurchaseOrderByCustomer",
+            "PurchaseOrderByShipToParty",
+            "CustomerPurchaseOrderType",
+            "CustPurOrdTypeByShipToParty",
+            "CustomerPurchaseOrderDate",
+            "CorrespncExternalReference",
+            "CorrespncExtRefByShipToParty",
+            "DebitMemoRequestDate",
+            "TotalNetAmount",
+            "TransactionCurrency",
+            "SDDocumentReason",
+            "PricingDate",
+            "CustomerTaxClassification1",
+            "CustomerTaxClassification2",
+            "CustomerTaxClassification3",
+            "CustomerTaxClassification4",
+            "CustomerTaxClassification5",
+            "CustomerTaxClassification6",
+            "CustomerTaxClassification7",
+            "CustomerTaxClassification8",
+            "CustomerTaxClassification9",
+            "HeaderBillingBlockReason",
+            "IncotermsClassification",
+            "IncotermsTransferLocation",
+            "IncotermsLocation1",
+            "IncotermsLocation2",
+            "IncotermsVersion",
+            "CustomerPaymentTerms",
+            "PaymentMethod",
+            "BillingDocumentDate",
+            "ServicesRenderedDate",
+            "ReferenceSDDocument",
+            "ReferenceSDDocumentCategory",
+            "OverallSDProcessStatus",
+            "TotalCreditCheckStatus",
+            "OverallSDDocumentRejectionSts",
+            "OverallOrdReltdBillgStatus",
+            "AccountingDocExternalReference",
+            "AssignmentReference",
+            "to_Item",
+            "to_Partner",
+            "to_PricingElement",
+            "to_SubsequentProcFlowDoc",
+            "to_Text"
+          ]
+        }
+      },
+      "A_DebitMemoRequestExpandOptions": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "to_Item",
+            "to_Partner",
+            "to_PricingElement",
+            "to_SubsequentProcFlowDoc",
+            "to_Text"
+          ]
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "count": {
+        "name": "$inlinecount",
+        "in": "query",
+        "description": "Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "allpages",
+            "none"
+          ]
+        }
+      },
+      "A_DebitMemoRequestOrderByOptions": {
+        "name": "$orderby",
+        "in": "query",
+        "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DebitMemoRequestOrderByOptions"
+        }
+      },
+      "A_DebitMemoRequestSelectOptions": {
+        "name": "$select",
+        "in": "query",
+        "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DebitMemoRequestSelectOptions"
+        }
+      },
+      "A_DebitMemoRequestExpandOptions": {
+        "name": "$expand",
+        "in": "query",
+        "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+        "explode": false,
+        "schema": {
+          "$ref": "#/components/schemas/A_DebitMemoRequestExpandOptions"
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "OAuth2Auth": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "scopes": {
+              "API_DEBIT_MEMO_REQUEST_SRV_0001": ""
+            },
+            "refreshUrl": "https://{host}:{port}",
+            "authorizationUrl": "https://{host}:{port}",
+            "tokenUrl": "https://{host}:{port}"
+          }
+        }
+      },
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "security": [
+    {
+      "OAuth2Auth": [
+        "API_DEBIT_MEMO_REQUEST_SRV_0001"
+      ]
+    },
+    {
+      "BasicAuth": []
+    }
+  ]
+}

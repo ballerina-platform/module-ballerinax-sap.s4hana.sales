@@ -19,6 +19,10 @@ on:
           - api_sales_order_simulation_srv
           - ce_salesorder_0001
           - api_slspricingconditionrecord_srv
+          - api_credit_memo_request_srv
+          - api_debit_memo_request_srv
+          - api_billing_document_srv
+          - api_customer_return_srv
 
 jobs:
   call_workflow:
